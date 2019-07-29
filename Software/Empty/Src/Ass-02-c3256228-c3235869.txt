@@ -1,0 +1,625 @@
+/*        $Id: Ass-02-Lib.c 1592 2019-02-05 14:38:48Z Peter $
+ *  $Revision: 1592 $
+ *      $Date: 2019-02-06 01:38:48 +1100 (Wed, 06 Feb 2019) $
+ *    $Author: Peter $
+ */
+
+#include "Ass-02.h"
+
+//
+// PLACE YOUR COMMON CODE HERE 
+//
+
+// STEPIEN: Added two touch panel functions to make the interface more
+//          consistent with the LCD BSP.
+
+#ifdef STM32F407xx
+
+//int string_parser(char *inp, char **array_of_words_p[]);
+
+uint8_t
+BSP_TP_Init (void)
+{
+  // Initialise the interface and calibrate
+  TP_Init (); // This is an empty function since done by STM32CubeMX
+  TouchPanel_Calibrate ();
+
+  return 0;
+}
+
+
+uint8_t
+BSP_TP_GetDisplayPoint (Coordinate *pDisplay)
+{
+  Coordinate *pScreen;
+
+  pScreen = Read_Ads7846 ();
+  if (pScreen == NULL)
+  {
+    return 1; // Error reading the touch panel
+  }
+  if (getDisplayPoint (pDisplay, pScreen, &matrix) == DISABLE)
+  {
+    return 1; // Error in LCD
+  }
+  return 0;
+}
+
+
+
+#endif
+/*        $Id: Ass-02-Q01.c 1592 2019-02-05 14:38:48Z Peter $
+ *  $Revision: 1592 $
+ *      $Date: 2019-02-06 01:38:48 +1100 (Wed, 06 Feb 2019) $
+ *    $Author: Peter $
+ */
+
+#include "Ass-02.h"
+#include "command_list.h"
+#include "help_list.h"
+#include "string_functions.h"
+#include "math_functions.h"
+#include <string.h>
+#ifdef STM32F407xx
+#include "usart.h"
+#endif
+
+
+/* A function to print some info at the start of the terminal session.
+ *
+ * Inputs: void
+ *
+ * Outputs: Void
+ */
+void
+CommandLineParserInit (void)
+{
+
+  printf ("\n");																						/* Print a new line character */
+  printf ("%s\n", ASS_STRING);																			/* Print the name of the assignment */
+  printf ("%s\n", VER_STRING);																			/* Print the version number */
+  printf ("Command Line Parser Example\n");																/* Print some information about the assignment */
+}
+
+
+/* A function to get input over the serial connection. Serial connection is UART, Baud Rate 115200, 8 data bits, 1 stop bit
+ *
+ * Inputs: void
+ *
+ * Outputs: void
+ */
+void
+CommandLineParserProcess (void)
+{
+#ifdef STM32F407xx																						/* If we are running on the STM */
+  uint8_t c = 'a';																						/* The character the data is saved to. Arbitrarily assigned 'a' */
+  static char command_str[MAX_COMMAND_SIZE];															/* The string the input characters are saved to. Max size defined by MAX_COMMAND_SIZE */
+  static int num_chars = 0;																				/* Count the number of characters received over serial */
+	  if (HAL_UART_Receive (&huart2, &c, 1, 0x0) == HAL_OK)
+	  {
+		  if (c == '\n' || c == '\r') {																	/* If a new line or carriage return character is received */
+			  printf("\n");																				/* Print a new line */
+			  if (debug_state) {																		/* If debug messages are enabled */
+				  printf("\n\nCommand Ended\n");														/* Print that the command has ended */
+			  }
+			  command_str[num_chars] = '\0';															/* NULL terminate the string */
+			  num_chars++;																				/* Increase the number of characters to account for the NULL terminator */
+			  char **array_of_words;																	/* Create an array of words */
+			  int count;																				/* Create the variable to store the number of words in the expression */
+			  count = string_parser(command_str, &array_of_words);										/* Parse the string into the array of words and return the number of words in the expression */
+			  if (debug_state) {																		/* If we are printing debug messages */
+				  printCommand(num_chars,command_str,count,array_of_words);								/* Print info about the command to the serial terminal */
+			  }
+			  num_chars = 0;																			/* Reset the number of characters */
+			  command_str[0] = '\0';																	/* Delete the old command */
+
+			  passCommand(count, array_of_words, &debug_state);											/* Pass the string to the calculator for processing */
+		  }
+		  else if (c == 127) {																			/* If we read a backspace */
+			  num_chars--;																				/* Reduce the number of characters, so next character we receive overwrites the last one */
+			  printf("\b");																				/* Print a backspace to the screen (moves cursor over last char, but won't delete it */
+			  printf(" ");																				/* Print a space to delete the character */
+			  printf("\b");																				/* Print a backspace to the screen to move the cursor to the left of the space we just printed */
+		  }
+		  else if ((c < 32) | (c > 126))																/* Otherwise if an unrecognised key is pressed */
+		  {
+			  if (debug_state) {																		/* If we are printing debug messages */
+				  printf ("ASCII %d\n", c);																/* Print the ASCII value of the key to the terminal */
+			  }
+		  }
+		  else																							/* Otherwise, if an allowed character is received */
+		  {
+			  printf ("%c", c);																			/* Echo the key back to the console */
+			  if (num_chars < MAX_COMMAND_SIZE) {														/* If we haven't filled up the buffer */
+				  command_str[num_chars] = c;															/* Save the character to the string */
+				  num_chars++;																			/* Increase the number of characters */
+			  }
+			  else {																					/* Otherwise, if the buffer is full */
+				  printf("\n\nError: Buffer Overflow! Only first %d characters will be evaluated!\n", MAX_COMMAND_SIZE); /*Tell the user */
+			  }
+
+		  }
+	  }
+	  HAL_GPIO_TogglePin (GPIOD, LD4_Pin); 																// Toggle LED4
+
+
+#else																									/* Otherwise, we are running on Windows */
+  int c;																								/* The character to scan the input to */
+  static char command_str[MAX_COMMAND_SIZE];															/* The string the character will be saved to */
+  static int num_chars = 0;																				/* The number of characters in the expression */
+  c = getchar();																						/* Get a character from the keyboard */
+  if (c == '\n' || c == '\r') { 																		/* If the character is a new line or carriage return */
+	  printf("\n");																						/* Print a newline to the screen */
+	  if (debug_state) {																				/* If we are printing debug messages */
+		  printf("\n\nCommand Ended\n");																/* Tell the user that the command has ended */
+	  }
+	  command_str[num_chars] = '\0';																	/* NULL terminate the string */
+	  num_chars++;																						/* Increase the number of characters in the string */
+	  char **array_of_words;																			/* Create an array of words that the expression will be saved into */
+	  int count;																						/* Create a variable to hold the number of words in the expression */
+	  count = string_parser(command_str, &array_of_words);												/* Parse the expression into an array of words and return the number of words in the expression */
+	  if (debug_state) {																				/* If we are printing debug messages */
+		  printCommand(num_chars,command_str,count,array_of_words);										/* Print info about the command */
+	  }
+	  num_chars = 0;																					/* Reset the number of characters */
+	  command_str[0] = '\0';																			/* Delete the old command */
+
+	  passCommand(count, array_of_words, &debug_state);													/* Pass the command to the calculator for processing */
+  }
+  else if (c == 127) {																					/* Otherwise if backspace is entered */
+	  num_chars--;																						/* Reduce the number of characters in the expression so the last character is overwritten */
+	  printf("\b");																						/* Move the cursor back one space */
+	  printf(" ");																						/* Print a space to remove the last letter on the screen */
+	  printf("\b");																						/* Move the cursor back one space */
+  }
+  else if ((c < 32) | (c > 126))																		/* Otherwise if an unknown key is pressed */
+  {
+	if (debug_state) {																					/* If we are printing debug messages */
+		printf ("ASCII %d\n", c);	  																	/* Print the key's ASCII value to the screen */
+	}
+  }
+  else																									/* Otherwise if a known key is entered */
+  {
+	  if (num_chars < MAX_COMMAND_SIZE) {																/* If we still have space in the buffer */
+		  command_str[num_chars] = c;																	/* Save the character to the string */
+		  num_chars++;																					/* Increase the number of characters in the string */
+	  }
+	  else {																							/* Otherwise if the buffer is full */
+		  printf("\n\nError: Buffer Overflow! Only first %d characters will be evaluated!\n", MAX_COMMAND_SIZE);		/* Tell the user */
+	  }
+  }
+#endif
+}
+/*        $Id: Ass-02-Q02.c 1592 2019-02-05 14:38:48Z Peter $
+ *  $Revision: 1592 $
+ *      $Date: 2019-02-06 01:38:48 +1100 (Wed, 06 Feb 2019) $
+ *    $Author: Peter $
+ */
+
+#include "Ass-02.h"
+#include "command_list.h"
+#include "string_functions.h"
+#include "math_functions.h"
+#include "debug_functions.h"
+
+
+//
+// REPLACE THE EXAMPLE CODE WITH YOUR CODE
+//
+static int errorState = 0;
+Button buttons[BUTTON_COUNT];
+static char *textDisplay;
+int textLength = 0;
+int displayChanged = 0;
+
+char *Keys[BUTTON_COUNT] = {
+		"7","4","1",".",
+		"8","5","2","0",
+		"9","6","3","C",
+		"+","-" ,"*","/",
+		"(", ")","^","="};
+
+int noClickCounter = 10;
+
+void addCharacter(char* newChar ,int newCharLength, char **text, int *textLength);
+void onClickAddChar(Button *button);
+void onClickClear(Button *button);
+void onClickEvaluate(Button *button);
+void (*onClickFuncs[BUTTON_COUNT])(Button *button) = {
+		&onClickAddChar,&onClickAddChar,&onClickAddChar,&onClickAddChar,
+		&onClickAddChar,&onClickAddChar,&onClickAddChar,&onClickAddChar,
+		&onClickAddChar,&onClickAddChar,&onClickAddChar,&onClickClear,
+		&onClickAddChar,&onClickAddChar,&onClickAddChar,&onClickAddChar,
+		&onClickAddChar,&onClickAddChar,&onClickAddChar,&onClickEvaluate	};
+void
+CalculatorInit (void)
+{
+	textDisplay = malloc(1);
+	textDisplay[0] = '\0';
+	// STEPIEN: Assume horizontal display
+
+	// Initialize and turn on LCD and calibrate the touch panel
+	BSP_LCD_Init ();
+	BSP_LCD_DisplayOn ();
+	BSP_TP_Init ();
+
+	// ------------ Start of button definition/drawing ------------------------
+		// starting location of button 0, needs to have offsets applied to account for the fact that 0 % anything
+	    // is 0 which will trigger the new line code at line 63
+	int x = BUTTON_START_X - BUTTON_WIDTH - BUTTON_SPACING_X;
+	int y = BUTTON_START_Y - BUTTON_HEIGHT - BUTTON_SPACING_Y;
+	// buttons are drawn column by column rather than row by row as it is easier to add buttons that take up more space than regular buttons
+	// to account for an number of buttons not divisible by for, in this case there are 20 buttons so each button can by regularly shaped
+	for(int i = 0; i < BUTTON_COUNT ; i++ )
+	{
+		if ((i % 4 ) == 0 ) // if button has reached the end of the row
+		{
+			x += BUTTON_WIDTH + BUTTON_SPACING_X;	// move button to the left
+			y = BUTTON_START_Y;						// reset y to top
+		} else
+		{
+			y += BUTTON_HEIGHT + BUTTON_SPACING_Y; // move next button zone down
+
+		}
+		if (debug_state) {
+			printf("Current Button: %d\n", i);
+		}
+		// define a button in this region using the button width and height, assigning a function to it to be called when pressed
+		defineButton((&(buttons[i])), x,y,x + BUTTON_WIDTH,y + BUTTON_HEIGHT,onClickFuncs[i],LCD_COLOR_BLUE,(Keys[i]),2,LCD_COLOR_BLACK);
+	}
+
+
+	for (int i = 0; i < BUTTON_COUNT; i++)
+	{
+		drawButton((&(buttons[i])));
+		if (debug_state) {
+			printf("Current Button to draw: %d\n", i);
+		}
+
+	}
+
+}
+
+void onClickEvaluate(Button *button)
+{
+
+	if(textDisplay[0] != '\0') // make sure the text display is not null
+	{
+		// Error checking
+		int parseResult = 1;
+		int computeResult = 1;
+
+
+		// ------------ Tokenise the expression -------------------
+		TokenList *tokens = malloc(sizeof(TokenList));
+		int expressionLength = strlen(textDisplay);
+		int result = generateTokens(tokens ,textDisplay, expressionLength);
+		// --------------------------------------------------------
+
+		// ------------- generate a syntax tree ------------------
+		TreeNode *head = parseExpression(tokens,&parseResult);
+		// -------------------------------------------------------
+		// ------------- Evaluate the expression tree ------------
+		double expressionResult = compute(head,&computeResult);
+		// -------------------------------------------------------
+
+		if(result == -1 || parseResult == -1 || computeResult == -1) // report any errors found in stages
+		{
+			strcpy(textDisplay,"Syntax Error!");
+			if (debug_state) {
+				printf("%s\n", textDisplay);
+			}
+			errorState = -1;
+		} else // Print result to screen
+		{
+			sprintf(textDisplay, "%lf", expressionResult);
+			if (debug_state) {
+				printf("%s\n", textDisplay);
+			}
+		}
+	}
+}
+
+
+// wrapper function for addCharacter, used so it can be dynamically assigned to buttons
+void onClickAddChar(Button *button)
+{
+	addCharacter( button->buttonText,button->textLength,&textDisplay, &textLength);
+}
+
+// function used to clear the display
+void onClickClear(Button *button)
+{
+	free(textDisplay);
+	textDisplay = malloc(2);
+	textDisplay[0] = '\0';
+	textDisplay[1] = '\0';
+
+	if (debug_state) {
+		printf("newTextDisplay: %s\n", textDisplay);
+	}
+
+}
+// function used by buttons to add a character to the text display
+void addCharacter(char* newChar ,int newCharLength, char **text, int *textLength)
+{
+	if (debug_state) {
+		printf("New Char: %s\n", newChar);
+	}
+
+
+	char* newString = malloc(strlen(*text) + strlen(newChar) + 1);
+
+	strcpy(newString,*text);
+	strcat(newString, newChar);
+
+	*text = newString;
+	if (debug_state) {
+		printf("New Text: %s\n", *text);
+	}
+
+}
+// function that determines if a button was clicked
+int isClicked(Button button, Coordinate point)
+{
+	int ret = 0;
+	if (((point.x < button.x_BottomRight) && (point.y < button.y_BottomRight)) && ((point.x > button.x_TopLeft ) && (point.y > button.y_TopLeft)))
+	{
+		ret = 1;
+	}
+	return ret;
+}
+//Function used to define new buttons dynamically
+void defineButton(Button *button, int x_TopLeft, int y_TopLeft, int x_BottomRight, int y_BottomRight, void (*onClick)(), int colour, char *buttonText,  int textLength, int textColour)
+{
+	// set button location on screen
+	button->x_BottomRight = x_BottomRight;
+	button->y_BottomRight = y_BottomRight;
+	button->x_TopLeft = x_TopLeft;
+	button->y_TopLeft = y_TopLeft;
+	if (debug_state) {
+		printf("String Size: %d\n String to copy: %s",strlen((buttonText)) + 1, buttonText );
+	}
+	// set button text
+	button->buttonText = malloc(strlen((buttonText)) + 1);
+	strcpy(button->buttonText,buttonText );
+
+	if (debug_state) {
+		printf("Char: %s",button->buttonText);
+	}
+	// set button colour
+	button->textColour = (textColour);
+	button->textLength = textLength;
+	button->colour =(colour);
+	button->onClick = onClick;
+
+}
+void updateTextDisplay()
+{
+	// update text display with string stored in textDisplay
+	BSP_LCD_SetFont(&Font20);
+	for (int linenum = 0; linenum < 2; linenum++)
+	{
+		BSP_LCD_ClearStringLine (linenum);
+	}
+	BSP_LCD_SetFont(&Font20);
+	BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+	BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
+	BSP_LCD_DisplayStringAtLine(1, (uint8_t*) textDisplay);
+}
+void
+drawButton(Button* button)
+{	// Function used to draw buttons dynamically
+	// save old state
+	int oldTextColor = BSP_LCD_GetTextColor();
+	int oldBackColor = BSP_LCD_GetBackColor();
+	// draw background
+	BSP_LCD_SetTextColor(button->colour);
+	BSP_LCD_SetBackColor(button->colour);
+	BSP_LCD_FillRect (button->x_TopLeft, button->y_TopLeft, (button->x_BottomRight - button->x_TopLeft), (button->y_BottomRight - button->y_TopLeft));
+	// draw outline of buttons
+	BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+	BSP_LCD_DrawHLine (button->x_TopLeft, button->y_TopLeft,(button->x_BottomRight - button->x_TopLeft));
+	BSP_LCD_DrawHLine (button->x_TopLeft, button->y_BottomRight, button->x_BottomRight-button->x_TopLeft +1);
+	BSP_LCD_DrawVLine (button->x_TopLeft, button->y_TopLeft,button->y_BottomRight-button->y_TopLeft);
+	BSP_LCD_DrawVLine (button->x_BottomRight, button->y_TopLeft,button->y_BottomRight-button->y_TopLeft);
+	// draw button text
+	BSP_LCD_SetTextColor(button->textColour);
+	BSP_LCD_SetFont (&Font16);
+	if (debug_state) {
+		printf("Char To set: %s", button->buttonText);
+	}
+	BSP_LCD_DisplayChar ((button->x_BottomRight/2 + button->x_TopLeft/2) - (Font16.Width/2), button->y_BottomRight/2 + button->y_TopLeft/2 -(Font16.Height/2) + 2, button->buttonText[0]);
+	// reset old colours
+	BSP_LCD_SetTextColor(oldTextColor);
+	BSP_LCD_SetBackColor(oldBackColor);
+
+}
+void
+CalculatorProcess (void)
+{
+	// STEPIEN: Assume horizontal display
+
+	uint16_t linenum = 0;
+
+	if (BSP_TP_GetDisplayPoint (&display) == 0 && noClickCounter >= MIN_NO_CLICK)
+	{
+		noClickCounter = 0;
+		for(int i = 0; i < BUTTON_COUNT; i++)
+		{
+			if (isClicked(buttons[i],display))
+			{
+				// if errored clear the display otherwise will result in more errors
+				if (errorState == -1)
+				{
+					errorState = 1;
+					free(textDisplay);
+					textDisplay = malloc(2);
+					textDisplay[0] = '\0';
+					textDisplay[1] = '\0';
+
+				}
+				buttons[i].onClick(&buttons[i]);
+				updateTextDisplay();
+			}
+		}
+	}
+	else
+	{
+		if(noClickCounter < MIN_NO_CLICK) // Delay ability to click again
+		{
+			noClickCounter++;
+
+		}
+	}
+
+}
+/*        $Id: Ass-02.c 1592 2019-02-05 14:38:48Z Peter $
+ *  $Revision: 1592 $
+ *      $Date: 2019-02-06 01:38:48 +1100 (Wed, 06 Feb 2019) $
+ *    $Author: Peter $
+ */
+
+#include "Ass-02.h"
+//
+// REPLACE THE EXAMPLE CODE WITH YOUR CODE 
+//
+
+void
+Ass_02_Main (void)
+{
+
+#ifdef STM32F407xx
+  uint16_t i = 0;
+#endif
+
+  // Initialise
+  CommandLineParserInit ();
+#ifdef STM32F407xx
+  CalculatorInit ();
+#endif
+
+  // Loop indefinitely
+  while (1)
+  {
+    CommandLineParserProcess ();
+#ifdef STM32F407xx
+    CalculatorProcess ();
+#endif
+
+#ifdef STM32F407xx
+    if (i++ > 10000)
+    {
+      HAL_GPIO_TogglePin (GPIOD, LD3_Pin); // Toggle LED3
+      i = 0;
+    }
+#endif
+  }
+}
+/*        $Id: Ass-02.h 1592 2019-02-05 14:38:48Z Peter $
+ *  $Revision: 1592 $
+ *      $Date: 2019-02-06 01:38:48 +1100 (Wed, 06 Feb 2019) $
+ *    $Author: Peter $
+ */
+
+// Assignment 2 include file
+
+#ifndef ASS_02_H_
+#define ASS_02_H_
+
+// Token Types
+#define TPLUS 0
+#define	TMINS 1
+#define	TDIVI 2
+#define	TMULT 3
+#define	TINT  4
+#define	TREAL 5
+#define	TLBRK 6
+#define	TRBRK 7
+#define	TEND  8
+#define	THEAD 9
+#define TCART 10
+
+
+// Standard includes
+#ifdef STM32F407xx
+#include "stm32f4xx_hal.h"
+#include "openx07v_c_lcd.h"
+#include "touch_panel.h"
+#include "main.h"
+#else
+#include <windows.h>
+#endif
+#include <stdio.h>
+#include <stdint.h>
+#include <malloc.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include "TokenParser.h"
+#include "ExpressionTree.h"
+
+
+
+
+struct Button;
+typedef struct Button Button;
+
+typedef void (*onClick)(Button *button);
+struct Button
+{
+	int x_TopLeft;
+	int y_TopLeft;
+	int x_BottomRight;
+	int y_BottomRight;
+	onClick onClick;
+	int colour;
+	char *buttonText;
+	int textLength;
+	int textColour;
+};
+
+// Assignment and version strings
+#define ASS_STRING "ELEC3730-2019t1 Assignment 2"
+#define VER_STRING "Ver: 01 $Rev: 1592 $"
+#define BUTTON_START_X 25
+#define BUTTON_START_Y 50
+#define BUTTON_WIDTH 35
+#define BUTTON_HEIGHT 35
+#define BUTTON_SPACING_Y 15
+#define BUTTON_SPACING_X 10
+#define BUTTON_COUNT 20
+#define MIN_NO_CLICK 2000
+
+// Assignment main
+extern void
+Ass_02_Main (void);
+
+//
+// REPLACE THE EXAMPLE CODE WITH YOUR CODE 
+//
+
+// Question 1
+extern void
+CommandLineParserInit (void);
+extern void
+CommandLineParserProcess (void);
+
+// Question 2
+extern void
+CalculatorInit (void);
+extern void
+CalculatorProcess (void);
+
+// Library functions
+void drawButton(Button *button);
+void defineButton(Button *button, int x_TopLeft, int y_TopLeft, int x_BottomRight, int y_BottomRight, void (*onClick)(), int colour, char *buttonText,  int textLength, int textColour);
+
+#ifdef STM32F407xx
+extern uint8_t
+BSP_TP_Init (void);
+extern uint8_t
+BSP_TP_GetDisplayPoint (Coordinate *pDisplay);
+#endif
+
+#endif /* ASS_02_H_ */
