@@ -1,37 +1,10 @@
-## Welcome to GitHub Pages
+# Brain Computer Interface Controlled, 3-D Printed Prosthetic Hand
 
-You can use the [editor on GitHub](https://github.com/sparkerBCI/FYP/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This is an Electrical Engineering Final Year Project by Samuel Parker, from the University of Newcastle.
 
 ```markdown
-Syntax highlighted code block
+### Scope
+The project will attempt to conduct a real-time frequency analysis of on-line EEG data. The frequency content will then be classified into "Hand Open" or "Hand Closed" using an AAR approach, or an SVM machine learning algorithm. Once classified, the state will be used to control the servos in the 3D printed prosthetic hand. The goal of the project is to achieve realtime, neurally controlled grasping.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sparkerBCI/FYP/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
