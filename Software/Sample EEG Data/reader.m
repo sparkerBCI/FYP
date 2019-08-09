@@ -1,6 +1,8 @@
 clear
 load('CLASubjectA1601083StLRHand.mat');
 
+vector_of_interesting_frequencies = 0.01:0.5:30;
+
 Wn = 30 / o.sampFreq;
 [B, A] = butter(10, Wn, 'low');
 for channel = 1:21
@@ -34,45 +36,32 @@ inds = ~strcmp(y1, 'Rest');
 X = X1(inds);
 y = y1(inds);
 
-for i = 1:length(X)
-    data = cell2mat(X(i));
+interesting_indicies = zeros(length(X), length(vector_of_interesting_frequencies));
+psd = zeros(length(X), length(vector_of_interesting_frequencies));
+
+for observation = 1:length(X)
+    data = cell2mat(X(observation));
     Y = fft(data);
     L = length(data);
     P2 = abs(Y/L);
     P1 = P2(1:fix(L/2+1));
     P1(2:end-1) = 2 * P1(2:end-1);
     f = o.sampFreq*(0:(L/2))/L;
-    X(i) = {data};
+    for predict_var = 1:length(vector_of_interesting_frequencies)
+        interesting_indicies(observation, predict_var) = fix(find(f > vector_of_interesting_frequencies(predict_var), 1));
+    end
+    psd(observation, :) = P1(interesting_indicies(observation, :));
 end
 
-%SVMModel = fitcsvm(X, y)
+SVMModel = fitcsvm(psd, y, 'Holdout', 0.2, 'Standardize', true);
+CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
+testInds = test(SVMModel.Partition);   % Extract the test indices
+XTest = psd(testInds,:);
+YTest = y(testInds,:);
+
+[label,score] = predict(CompactSVMModel,XTest);
 
 
 
-% data = cell2mat(value_splits(4, 1));
-% Y = fft(data);
-% L = length(data);
-% P2 = abs(Y/L);
-% P1 = P2(1:L/2+1);
-% P1(2:end-1) = 2 * P1(2:end-1);
-% f = o.sampFreq*(0:(L/2))/L;
-% figure();
-% plot(f, P1)
-% title('Single sided amplitude spectrum');
-% xlabel('f(Hz');
-% ylabel('|P1(f)|');
+table(YTest(1:10),label(1:10),score(1:10,2),'VariableNames', {'TrueLabel','PredictedLabel','Score'})
 
-
-% figure();
-%  yyaxis right
-% %plot(o.marker(60000:60500));
-% plot(indexes);
-%  yyaxis left
-% % %plot(channel_data(60000:60500, 1)); hold on
-% plot(o.marker);
-% 
-% 
-% zero_state_indicies = o.marker == 0;
-% one_state_indicies = o.marker == 1;
-% two_state_indicies = o.marker == 2;
-% three_state_indicies = o.marker == 3;
