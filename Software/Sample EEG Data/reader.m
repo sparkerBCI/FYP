@@ -61,7 +61,7 @@ YTest = y(testInds,:);
 
 [label,score] = predict(CompactSVMModel,XTest);
 
-
+cp = classperf(YTest, label);
 
 table(YTest(1:10),label(1:10),score(1:10,2),'VariableNames', {'TrueLabel','PredictedLabel','Score'})
-
+cp.CorrectRate
