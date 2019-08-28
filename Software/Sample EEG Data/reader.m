@@ -56,76 +56,76 @@ for observation = 1:length(X)
     psd(observation, :) = P1(interesting_indicies(observation, :));
 end
 
-tic
+
 SVMModel = fitcsvm(psd, y, 'KernelFunction', 'gaussian', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(SVMModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
 
+tic
 [label,score] = predict(CompactSVMModel,XTest);
-
+gauss_svm_time = toc
 cp = classperf(YTest, label);
 Gauss_SVM_Accuracy = cp.CorrectRate
-gauss_svm_time = toc
 
 
-tic
+
+
 SVMModel = fitcsvm(psd, y, 'KernelFunction', 'linear', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(SVMModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
-
+tic
 [label,score] = predict(CompactSVMModel,XTest);
-
+linear_svm_time = toc
 cp = classperf(YTest, label);
 Linear_SVM_Accuracy = cp.CorrectRate
-linear_svm_time = toc
 
 
-tic
+
 SVMModel = fitcsvm(psd, y, 'KernelFunction', 'rbf', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(SVMModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
-
+tic
 [label,score] = predict(CompactSVMModel,XTest);
-
+rbf_svm_time = toc
 cp = classperf(YTest, label);
 RBF_SVM_Accuracy = cp.CorrectRate
-rbf_svm_time = toc
 
 
-tic
+
+
 SVMModel = fitcsvm(psd, y, 'KernelFunction', 'polynomial', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(SVMModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
-
+tic
 [label,score] = predict(CompactSVMModel,XTest);
-
+poly_svm_time = toc
 cp = classperf(YTest, label);
 Poly_SVM_Accuracy = cp.CorrectRate
 %table(YTest(1:10),label(1:10),score(1:10,2),'VariableNames', {'TrueLabel','PredictedLabel','Score'})
-poly_svm_time = toc
 
 
 
-tic
+
+
 LDAModel = fitcdiscr(psd, y, 'Holdout', holdout_percentage, 'DiscrimType', 'linear');
 CompactLDAModel = LDAModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(LDAModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
-
+tic
 [label,score] = predict(CompactLDAModel,XTest);
-
+lda_time = toc
 cp = classperf(YTest, label);
 LDA_Accuracy = cp.CorrectRate
-lda_time = toc
+
 
 % 
 % tic
@@ -142,18 +142,18 @@ lda_time = toc
 % toc
 
 
-tic
+
 KNNModel = fitcknn(psd, y, 'Holdout', holdout_percentage, 'NumNeighbors', 10, 'Standardize', true);
 CompactKNNModel = KNNModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(KNNModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
-
+tic
 [label,score] = predict(CompactKNNModel,XTest);
-
+knn_time = toc
 cp = classperf(YTest, label);
 KNN_Accuracy = cp.CorrectRate
-knn_time = toc
+
 
 gauss_svm_score = Gauss_SVM_Accuracy / gauss_svm_time
 linear_svm_score = Linear_SVM_Accuracy / linear_svm_time
@@ -182,4 +182,5 @@ figure()
 bar(c, score);
 %legend('Gauss SVM', 'Linear SVM', 'RBF SVM', 'Polynomial SVM', 'LDA', 'KNN');
 title('Score');
+
 
