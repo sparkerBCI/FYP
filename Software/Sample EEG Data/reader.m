@@ -35,25 +35,57 @@ inds1 = ~strcmp(value_splits(:, 2), 'Left Hand');
 X1 = value_splits(inds1, 1);
 y1 = value_splits(inds1, 2);
 
-inds = ~strcmp(y1, 'Rest');
+inds = ~strcmp(y1, 'Idle');
 X = X1(inds);
 y = y1(inds);
 
 interesting_indicies = zeros(length(X), length(vector_of_interesting_frequencies));
-psd = zeros(length(X), length(vector_of_interesting_frequencies));
+psd = zeros(length(X), 100);
 
+ figure();
 for observation = 1:length(X)
+    
     data = cell2mat(X(observation));
-    Y = fft(data);
+    Y = fft(hanning(length(data)).*data, o.sampFreq);
     L = length(data);
     P2 = abs(Y/L);
     P1 = P2(1:fix(L/2+1));
     P1(2:end-1) = 2 * P1(2:end-1);
     f = o.sampFreq*(0:(L/2))/L;
+    
+    
+    subplot(1, 3, 2)
+    plot(1:length(P1), P1);
+    
+    data = cell2mat(X(observation));
+    Y = fft(data, o.sampFreq);
+    L = length(data);
+    P2 = abs(Y/L);
+    P1 = P2(1:fix(L/2+1));
+    P1(2:end-1) = 2 * P1(2:end-1);
+    f = o.sampFreq*(0:(L/2))/L;
+    title(cell2mat(y(observation)));
+    
+    subplot(1, 3, 1)
+    plot(1:length(P1), P1);
+    
+    data = cell2mat(X(observation));
+    Y = fft(gausswin(length(data)).*data, o.sampFreq);
+    L = length(data);
+    P2 = abs(Y/L);
+    P1 = P2(1:fix(L/2+1));
+    P1(2:end-1) = 2 * P1(2:end-1);
+    f = o.sampFreq*(0:(L/2))/L;
+    
+    subplot(1, 3, 3)
+    plot(1:length(P1), P1);
+    
+    
     for predict_var = 1:length(vector_of_interesting_frequencies)
         interesting_indicies(observation, predict_var) = fix(find(f > vector_of_interesting_frequencies(predict_var), 1));
     end
-    psd(observation, :) = P1(interesting_indicies(observation, :));
+    %psd(observation, :) = P1(interesting_indicies(observation, :));
+    psd(observation, :) = P1(1:100);
 end
 
 
