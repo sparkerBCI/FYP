@@ -1,0 +1,12 @@
+@ARTICLE{4360075,
+author={P. {Shenoy} and K. J. {Miller} and J. G. {Ojemann} and R. P. N. {Rao}},
+journal={IEEE Transactions on Biomedical Engineering},
+title={Generalized Features for Electrocorticographic BCIs},
+year={2008},
+volume={55},
+number={1},
+pages={273-280},
+keywords={electroencephalography;feature extraction;medical signal processing;neurophysiology;signal classification;support vector machines;user interfaces;ECoG-based BCI;electrocorticographic signals;human brain-computer interface;support vector machine;regularized linear discriminant analysis;linear classifiers;Humans;Electroencephalography;Computer science;Tongue;Spatial resolution;Biomedical imaging;Support vector machines;Support vector machine classification;Linear discriminant analysis;Communication system control;Brain–computer interfaces;classification;electrocorticography;feature selection;neural interfaces;Algorithms;Artificial Intelligence;Brain Mapping;Electrocardiography;Evoked Potentials, Motor;Humans;Imagination;Motor Cortex;Movement;Pattern Recognition, Automated;User-Computer Interface},
+doi={10.1109/TBME.2007.903528},
+ISSN={},
+month={Jan},}
