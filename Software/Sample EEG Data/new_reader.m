@@ -15,6 +15,14 @@ for channel = 1:21
    channel_data(:, channel) = filter(B, A, o.data(:, channel));
 end
 
+for channel = 1:21
+    if channel ~= 11
+        channel_data(:, channel) = channel_data(:, channel) - channel_data(:, 11);
+    end
+end
+
+
+
 changes = logical(diff(o.marker));
 changes_one = find(changes);
 changes(changes_one(2:2:end)) = 0;
