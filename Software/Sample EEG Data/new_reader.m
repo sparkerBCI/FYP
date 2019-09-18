@@ -1,10 +1,10 @@
 clear
 close all
-load('CLA-SubjectJ-170504-3St-LRHand-Inter.mat');
-%load('CLASubjectA1601083StLRHand.mat');
+%load('CLA-SubjectJ-170504-3St-LRHand-Inter.mat');
+load('CLASubjectB1510203StLRHand.mat');
 
 holdout_percentage = 0.2;
-epoch_seconds = 1;
+epoch_seconds = 2;
 vector_of_interesting_frequencies = 0.01:0.5:30;
 
 frequency_plotting = 0;
@@ -15,11 +15,11 @@ for channel = 1:21
    channel_data(:, channel) = filter(B, A, o.data(:, channel));
 end
 
-for channel = 1:21
-    if channel ~= 11
-        channel_data(:, channel) = channel_data(:, channel) - channel_data(:, 11);
-    end
-end
+% for channel = 1:21
+%     if channel ~= 11
+%         channel_data(:, channel) = channel_data(:, channel) - channel_data(:, 11);
+%     end
+% end
 
 
 
@@ -54,64 +54,59 @@ X = X1(inds);
 y = y1(inds);
 
 interesting_indicies = zeros(length(X), length(vector_of_interesting_frequencies));
-psd = zeros(length(X), 100);
+psd = zeros(length(X), (2^14+1));
 
 if (frequency_plotting == 1)
  figure();
 end
 for observation = 1:length(X)
-    
-    
-    
-    
 
-    data = cell2mat(X(observation));
-    Y = fft(gausswin(length(data)).*data, 256);
-    L = length(data);
-    P2 = abs(Y/L);
-    P1 = P2(1:fix(L/2+1));
-    P1(2:end-1) = 2 * P1(2:end-1);
-    f = o.sampFreq*(0:(L/2))/L;
+    n = 2^15;
     
+    
+    data = cell2mat(X(observation));
+    Y = fft(gausswin(length(data)).*data, n);
+    f = o.sampFreq*(0:(n/2))/n;
+    P = abs(Y/n);
+    P1 = P(1:n/2+1);
+
     if (frequency_plotting == 1)
         subplot(1, 3, 3)
-        plot(1:length(P1), P1);
+        plot(f, P1);
+        title({"";"Gaussian Window"});
     end
     
-data = cell2mat(X(observation));
-    Y = fft(data, 256);
-    L = length(data);
-    P2 = abs(Y/L);
-    P1 = P2(1:fix(L/2+1));
-    P1(2:end-1) = 2 * P1(2:end-1);
-    f = o.sampFreq*(0:(L/2))/L;
-    %title(cell2mat(y(observation)));
-    
+     data = cell2mat(X(observation));
+    Y = fft(data, n);
+    f = o.sampFreq*(0:(n/2))/n;
+    P = abs(Y/n);
+    P1 = P(1:n/2+1);
+
     if (frequency_plotting == 1)
         subplot(1, 3, 1)
-        plot(1:length(P1), P1);
+        plot(f, P1);
+        title({""; "Rectangular Window"});
     end
     
-            data = cell2mat(X(observation));
-    Y = fft(hanning(length(data)).*data, 256);
-    L = length(data);
-    P2 = abs(Y/L);
-    P1 = P2(1:fix(L/2+1));
-    P1(2:end-1) = 2 * P1(2:end-1);
-    f = o.sampFreq*(0:(L/2))/L;
-    
+    data = cell2mat(X(observation));
+    Y = fft(hanning(length(data)).*data, n);
+    f = o.sampFreq*(0:(n/2))/n;
+    P = abs(Y/n);
+    P1 = P(1:n/2+1);
+
     if (frequency_plotting == 1)
         subplot(1, 3, 2)
-        plot(1:length(P1), P1);
+        plot(f, P1);
+        title({y{observation};"Hanning Window"});
     end
     
     
     
-    for predict_var = 1:length(vector_of_interesting_frequencies)
-        interesting_indicies(observation, predict_var) = fix(find(f > vector_of_interesting_frequencies(predict_var), 1));
-    end
+%     for predict_var = 1:length(vector_of_interesting_frequencies)
+%         interesting_indicies(observation, predict_var) = fix(find(f > vector_of_interesting_frequencies(predict_var), 1));
+%     end
     %psd(observation, :) = P1(interesting_indicies(observation, :));
-    psd(observation, :) = P1(1:100);
+    psd(observation, :) = P1;
 end
 
 m = zeros(length(y), 1);
@@ -125,15 +120,17 @@ end
 
 figure();
 subplot(2, 1, 1);
-image = transpose(psd(1:100, 1:30));
+image = transpose(psd(1:100, 1:2458));
 imagesc(image);
-ylabel('Hz');
+ylabel('Frequency Bin');
 xlabel('Observation');
 subplot(2, 1, 2);
 plot(1:length(m(1:100)), m(1:100));
 ylim([0, 3]);
 ylabel({'1 - Right Hand';'0 - Rest'});
 xlabel('Observation');
+
+psd = psd(:, 1:2458);
 
 SVMModel = fitcsvm(psd, y, 'KernelFunction', 'gaussian', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
