@@ -36,7 +36,7 @@ F 3 "~" H 3600 5300 50  0001 C CNN
 	1    3600 5300
 	1    0    0    -1  
 $EndComp
-Text Notes 1250 7450 0    50   ~ 0
+Text Notes 2450 7100 0    50   ~ 0
 RC LPF: f_c = 1 /  (2*pi*R*C)\nR = 220kOhms\nhttps://pdfs.semanticscholar.org/05b6/6348fc1a11726d76eb08ddddabfc4cd36f6.pdf\n\nLowest Sampling Frequency = 250sps, therefore Nyquist Frequency at 125Hz, \nbut this is still very high for EEG. Will LPF at 30Hz\n\n30 = 1/ (2 * pi * 220k * C)\nC = 1/ (2 * pi * 220k*30)\nC = 24.11nF, approx 24nF --> f_c = 30.14Hz
 $Comp
 L TI_Analog_ADC:ADS1299-8 ADC1
@@ -318,45 +318,45 @@ NoConn ~ 5800 5200
 $Comp
 L Device:R R1
 U 1 1 5D815A64
-P 2050 1400
-F 0 "R1" H 2120 1446 50  0000 L CNN
-F 1 "10k" H 2120 1355 50  0000 L CNN
-F 2 "" V 1980 1400 50  0001 C CNN
-F 3 "~" H 2050 1400 50  0001 C CNN
-	1    2050 1400
+P 1400 6850
+F 0 "R1" H 1470 6896 50  0000 L CNN
+F 1 "10k" H 1470 6805 50  0000 L CNN
+F 2 "" V 1330 6850 50  0001 C CNN
+F 3 "~" H 1400 6850 50  0001 C CNN
+	1    1400 6850
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R2
 U 1 1 5D815AD7
-P 2050 1800
-F 0 "R2" H 2120 1846 50  0000 L CNN
-F 1 "10k" H 2120 1755 50  0000 L CNN
-F 2 "" V 1980 1800 50  0001 C CNN
-F 3 "~" H 2050 1800 50  0001 C CNN
-	1    2050 1800
+P 1400 7250
+F 0 "R2" H 1470 7296 50  0000 L CNN
+F 1 "10k" H 1470 7205 50  0000 L CNN
+F 2 "" V 1330 7250 50  0001 C CNN
+F 3 "~" H 1400 7250 50  0001 C CNN
+	1    1400 7250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2050 1050 1800 1050
+	1400 6500 1150 6500
 Wire Wire Line
-	2050 1050 2050 1250
+	1400 6500 1400 6700
 Wire Wire Line
-	2050 1550 2050 1600
+	1400 7000 1400 7050
 Wire Wire Line
-	2050 1600 2550 1600
-Connection ~ 2050 1600
+	1400 7050 1900 7050
+Connection ~ 1400 7050
 Wire Wire Line
-	2050 1600 2050 1650
+	1400 7050 1400 7100
 Wire Wire Line
-	2050 1950 2050 2100
+	1400 7400 1400 7550
 Wire Wire Line
-	2050 2100 1800 2100
-Text Label 1800 1050 0    50   ~ 0
+	1400 7550 1150 7550
+Text Label 1150 6500 0    50   ~ 0
 AVDD
-Text Label 1800 2100 0    50   ~ 0
+Text Label 1150 7550 0    50   ~ 0
 AVSS
-Text Label 2100 1600 0    50   ~ 0
+Text Label 1450 7050 0    50   ~ 0
 MID_SUPPLY
 Wire Wire Line
 	5400 3200 5300 3200
@@ -434,7 +434,7 @@ Wire Wire Line
 	6300 6350 6600 6350
 Text Label 6050 6350 0    50   ~ 0
 AVSS
-Text Notes 5250 6600 0    50   ~ 0
+Text Notes 5550 7300 0    50   ~ 0
 Using internal 4.5V Reference, \nso short VREFN to AVSS
 Text Notes 1900 5950 0    50   ~ 0
 Referred Montage: All electrodes will be referenced to reference electrode. \nNegative electrode inputs are unused, set to mid-supply. \nMAKE SURE CORRECT REGISTERS ARE SET IN SOFTWARE!
@@ -823,27 +823,27 @@ Wire Wire Line
 	6400 2700 6100 2700
 Text Label 6150 2700 0    50   ~ 0
 AVSS
-Text Notes 5200 2200 0    50   ~ 0
-Right Leg Drive Bias \nnot used under instruction \nfrom Psychology Department
+Text Notes 5800 2300 0    50   ~ 0
+Right Leg Drive \nBias not used \nunder instruction \nfrom Psychology \nDepartment
 Text Notes 7950 4550 0    50   ~ 0
 All GPIO Pins pulled to GND, unused
-Text Notes 1250 800  0    79   ~ 0
+Text Notes 600  6250 0    79   ~ 0
 Mid-Supply Voltage Divider
 Wire Notes Line
-	1250 650  2950 650 
+	600  6100 2300 6100
 Wire Notes Line
-	2950 650  2950 2250
+	2300 6100 2300 7700
 Wire Notes Line
-	2950 2250 1250 2250
+	2300 7700 600  7700
 Wire Notes Line
-	1250 2250 1250 650 
+	600  7700 600  6100
 Text Label 7100 5450 0    50   ~ 0
 ~RESET
 Text Label 6550 6900 0    50   ~ 0
 ~PWDN
 Text Notes 9600 2700 0    79   ~ 0
 Control and Data Lines
-Text Notes 5100 850  0    98   ~ 20
+Text Notes 7650 700  0    98   ~ 20
 ADS1299-8 and Support Circuitry
 Text HLabel 10500 2850 2    50   Input ~ 0
 MOSI
@@ -886,12 +886,10 @@ Wire Notes Line
 Wire Notes Line
 	11050 3750 9550 3750
 Text HLabel 10550 4400 2    50   Input ~ 0
-AVDD
+VIN
 Text HLabel 10550 4500 2    50   Input ~ 0
 AVSS
 Text HLabel 10550 4600 2    50   Input ~ 0
-DVDD
-Text HLabel 10550 4700 2    50   Input ~ 0
 DGND
 Wire Wire Line
 	10550 4400 9900 4400
@@ -899,8 +897,6 @@ Wire Wire Line
 	10550 4500 9900 4500
 Wire Wire Line
 	10550 4600 9900 4600
-Wire Wire Line
-	10550 4700 9900 4700
 Text HLabel 10500 3550 2    50   Input ~ 0
 ~PWDN
 Text HLabel 10500 3650 2    50   Input ~ 0
@@ -1016,4 +1012,427 @@ Text Label 650  3100 0    50   ~ 0
 AVDD
 Text Notes 800  4300 0    50   ~ 0
 Jump unused\nanalog inputs\ndirectly to\nAVDD
+Text Label 9950 4400 0    50   ~ 0
+VIN
+Text Label 9950 4500 0    50   ~ 0
+AVSS
+Text Label 9950 4600 0    50   ~ 0
+DGND
+$Comp
+L My_Regulator_Linear:LM1117-5.0 U?
+U 1 1 5D95004E
+P 2700 1000
+AR Path="/5D80B4DC/5D95004E" Ref="U?"  Part="1" 
+AR Path="/5D7F9BD3/5D95004E" Ref="U?"  Part="1" 
+F 0 "U?" H 2700 1242 50  0000 C CNN
+F 1 "LM1117-5.0" H 2700 1151 50  0000 C CNN
+F 2 "" H 2700 1000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm1117.pdf" H 2700 1000 50  0001 C CNN
+	1    2700 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D950055
+P 3200 1150
+AR Path="/5D80B4DC/5D950055" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D950055" Ref="C?"  Part="1" 
+F 0 "C?" H 3315 1196 50  0000 L CNN
+F 1 "1nF" H 3250 1050 50  0000 L CNN
+F 2 "" H 3238 1000 50  0001 C CNN
+F 3 "~" H 3200 1150 50  0001 C CNN
+	1    3200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D95005C
+P 3550 1150
+AR Path="/5D80B4DC/5D95005C" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D95005C" Ref="C?"  Part="1" 
+F 0 "C?" H 3665 1196 50  0000 L CNN
+F 1 "10nF" H 3600 1050 50  0000 L CNN
+F 2 "" H 3588 1000 50  0001 C CNN
+F 3 "~" H 3550 1150 50  0001 C CNN
+	1    3550 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D950063
+P 3900 1150
+AR Path="/5D80B4DC/5D950063" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D950063" Ref="C?"  Part="1" 
+F 0 "C?" H 4015 1196 50  0000 L CNN
+F 1 "100nF" H 3950 1050 50  0000 L CNN
+F 2 "" H 3938 1000 50  0001 C CNN
+F 3 "~" H 3900 1150 50  0001 C CNN
+	1    3900 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D95006A
+P 4250 1150
+AR Path="/5D80B4DC/5D95006A" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D95006A" Ref="C?"  Part="1" 
+F 0 "C?" H 4365 1196 50  0000 L CNN
+F 1 "10uF" H 4300 1050 50  0000 L CNN
+F 2 "" H 4288 1000 50  0001 C CNN
+F 3 "~" H 4250 1150 50  0001 C CNN
+	1    4250 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D950071
+P 1150 1150
+AR Path="/5D80B4DC/5D950071" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D950071" Ref="C?"  Part="1" 
+F 0 "C?" H 900 1200 50  0000 L CNN
+F 1 "100uF" H 850 1050 50  0000 L CNN
+F 2 "" H 1188 1000 50  0001 C CNN
+F 3 "~" H 1150 1150 50  0001 C CNN
+	1    1150 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D950078
+P 1500 1150
+AR Path="/5D80B4DC/5D950078" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D950078" Ref="C?"  Part="1" 
+F 0 "C?" H 1615 1196 50  0000 L CNN
+F 1 "10uF" H 1300 1050 50  0000 L CNN
+F 2 "" H 1538 1000 50  0001 C CNN
+F 3 "~" H 1500 1150 50  0001 C CNN
+	1    1500 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D95007F
+P 1850 1150
+AR Path="/5D80B4DC/5D95007F" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D95007F" Ref="C?"  Part="1" 
+F 0 "C?" H 1965 1196 50  0000 L CNN
+F 1 "100nF" H 1900 1050 50  0000 L CNN
+F 2 "" H 1888 1000 50  0001 C CNN
+F 3 "~" H 1850 1150 50  0001 C CNN
+	1    1850 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D950086
+P 2200 1150
+AR Path="/5D80B4DC/5D950086" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D950086" Ref="C?"  Part="1" 
+F 0 "C?" H 2315 1196 50  0000 L CNN
+F 1 "10nF" H 2250 1050 50  0000 L CNN
+F 2 "" H 2238 1000 50  0001 C CNN
+F 3 "~" H 2200 1150 50  0001 C CNN
+	1    2200 1150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 1000 2200 1000
+Connection ~ 1150 1000
+Wire Wire Line
+	1150 1000 750  1000
+Connection ~ 1500 1000
+Wire Wire Line
+	1500 1000 1150 1000
+Connection ~ 1850 1000
+Wire Wire Line
+	1850 1000 1500 1000
+Connection ~ 2200 1000
+Wire Wire Line
+	2200 1000 1850 1000
+Wire Wire Line
+	1150 1300 1500 1300
+Connection ~ 1500 1300
+Wire Wire Line
+	1500 1300 1850 1300
+Connection ~ 1850 1300
+Wire Wire Line
+	1850 1300 2200 1300
+Connection ~ 2200 1300
+Wire Wire Line
+	2200 1300 2700 1300
+Connection ~ 2700 1300
+Wire Wire Line
+	2700 1300 3200 1300
+Connection ~ 3200 1300
+Wire Wire Line
+	3200 1300 3550 1300
+Connection ~ 3550 1300
+Wire Wire Line
+	3550 1300 3900 1300
+Connection ~ 3900 1300
+Wire Wire Line
+	3900 1300 4250 1300
+Wire Wire Line
+	4250 1000 3900 1000
+Connection ~ 3200 1000
+Wire Wire Line
+	3200 1000 3000 1000
+Connection ~ 3550 1000
+Wire Wire Line
+	3550 1000 3450 1000
+Connection ~ 3900 1000
+Wire Wire Line
+	3900 1000 3550 1000
+Wire Wire Line
+	3450 1000 3450 800 
+Wire Wire Line
+	3450 800  3700 800 
+Connection ~ 3450 1000
+Wire Wire Line
+	3450 1000 3200 1000
+Wire Wire Line
+	4250 1000 4750 1000
+Connection ~ 4250 1000
+$Comp
+L Device:R R?
+U 1 1 5D9500B2
+P 4900 1000
+AR Path="/5D80B4DC/5D9500B2" Ref="R?"  Part="1" 
+AR Path="/5D7F9BD3/5D9500B2" Ref="R?"  Part="1" 
+F 0 "R?" V 4800 950 50  0000 L CNN
+F 1 "1K" V 5000 850 50  0000 L CNN
+F 2 "" V 4830 1000 50  0001 C CNN
+F 3 "~" H 4900 1000 50  0001 C CNN
+	1    4900 1000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 5D9500B9
+P 5050 1300
+AR Path="/5D80B4DC/5D9500B9" Ref="D?"  Part="1" 
+AR Path="/5D7F9BD3/5D9500B9" Ref="D?"  Part="1" 
+F 0 "D?" V 5088 1182 50  0000 R CNN
+F 1 "PWR" V 4997 1182 50  0000 R CNN
+F 2 "" H 5050 1300 50  0001 C CNN
+F 3 "~" H 5050 1300 50  0001 C CNN
+	1    5050 1300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5050 1150 5050 1000
+Wire Wire Line
+	2700 1300 2700 1550
+Wire Wire Line
+	2700 1550 2900 1550
+Text Label 850  1000 0    50   ~ 0
+VIN
+Text Label 3500 800  0    50   ~ 0
+AVDD
+Text Label 2750 1550 0    50   ~ 0
+AVSS
+Wire Wire Line
+	5050 1450 4700 1450
+Text Label 4800 1450 0    50   ~ 0
+AVSS
+Text Notes 2350 650  0    79   ~ 0
++5V Regulated Supply\n
+Wire Notes Line
+	550  500  5400 500 
+Wire Notes Line
+	5400 500  5400 1600
+Wire Notes Line
+	5400 1600 550  1600
+Wire Notes Line
+	550  1600 550  500 
+$Comp
+L Device:C C?
+U 1 1 5D9C2D04
+P 3750 2300
+AR Path="/5D80B4DC/5D9C2D04" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D04" Ref="C?"  Part="1" 
+F 0 "C?" H 3865 2346 50  0000 L CNN
+F 1 "1nF" H 3800 2200 50  0000 L CNN
+F 2 "" H 3788 2150 50  0001 C CNN
+F 3 "~" H 3750 2300 50  0001 C CNN
+	1    3750 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D0B
+P 4100 2300
+AR Path="/5D80B4DC/5D9C2D0B" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D0B" Ref="C?"  Part="1" 
+F 0 "C?" H 4215 2346 50  0000 L CNN
+F 1 "10nF" H 4150 2200 50  0000 L CNN
+F 2 "" H 4138 2150 50  0001 C CNN
+F 3 "~" H 4100 2300 50  0001 C CNN
+	1    4100 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D12
+P 4450 2300
+AR Path="/5D80B4DC/5D9C2D12" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D12" Ref="C?"  Part="1" 
+F 0 "C?" H 4565 2346 50  0000 L CNN
+F 1 "100nF" H 4500 2200 50  0000 L CNN
+F 2 "" H 4488 2150 50  0001 C CNN
+F 3 "~" H 4450 2300 50  0001 C CNN
+	1    4450 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D19
+P 4800 2300
+AR Path="/5D80B4DC/5D9C2D19" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D19" Ref="C?"  Part="1" 
+F 0 "C?" H 4915 2346 50  0000 L CNN
+F 1 "10uF" H 4850 2200 50  0000 L CNN
+F 2 "" H 4838 2150 50  0001 C CNN
+F 3 "~" H 4800 2300 50  0001 C CNN
+	1    4800 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D20
+P 1700 2300
+AR Path="/5D80B4DC/5D9C2D20" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D20" Ref="C?"  Part="1" 
+F 0 "C?" H 1450 2350 50  0000 L CNN
+F 1 "100uF" H 1400 2200 50  0000 L CNN
+F 2 "" H 1738 2150 50  0001 C CNN
+F 3 "~" H 1700 2300 50  0001 C CNN
+	1    1700 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D27
+P 2050 2300
+AR Path="/5D80B4DC/5D9C2D27" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D27" Ref="C?"  Part="1" 
+F 0 "C?" H 2165 2346 50  0000 L CNN
+F 1 "10uF" H 1850 2200 50  0000 L CNN
+F 2 "" H 2088 2150 50  0001 C CNN
+F 3 "~" H 2050 2300 50  0001 C CNN
+	1    2050 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D2E
+P 2400 2300
+AR Path="/5D80B4DC/5D9C2D2E" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D2E" Ref="C?"  Part="1" 
+F 0 "C?" H 2515 2346 50  0000 L CNN
+F 1 "100nF" H 2450 2200 50  0000 L CNN
+F 2 "" H 2438 2150 50  0001 C CNN
+F 3 "~" H 2400 2300 50  0001 C CNN
+	1    2400 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D9C2D35
+P 2750 2300
+AR Path="/5D80B4DC/5D9C2D35" Ref="C?"  Part="1" 
+AR Path="/5D7F9BD3/5D9C2D35" Ref="C?"  Part="1" 
+F 0 "C?" H 2865 2346 50  0000 L CNN
+F 1 "10nF" H 2800 2200 50  0000 L CNN
+F 2 "" H 2788 2150 50  0001 C CNN
+F 3 "~" H 2750 2300 50  0001 C CNN
+	1    2750 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2150 2750 2150
+Connection ~ 2050 2150
+Wire Wire Line
+	2050 2150 1700 2150
+Connection ~ 2400 2150
+Wire Wire Line
+	2400 2150 2050 2150
+Connection ~ 2750 2150
+Wire Wire Line
+	2750 2150 2400 2150
+Wire Wire Line
+	1700 2450 2050 2450
+Connection ~ 2050 2450
+Wire Wire Line
+	2050 2450 2400 2450
+Connection ~ 2400 2450
+Wire Wire Line
+	2400 2450 2750 2450
+Connection ~ 2750 2450
+Wire Wire Line
+	2750 2450 3250 2450
+Connection ~ 3250 2450
+Wire Wire Line
+	3250 2450 3750 2450
+Connection ~ 3750 2450
+Wire Wire Line
+	3750 2450 4100 2450
+Connection ~ 4100 2450
+Wire Wire Line
+	4100 2450 4450 2450
+Connection ~ 4450 2450
+Wire Wire Line
+	4450 2450 4800 2450
+Wire Wire Line
+	4800 2150 4450 2150
+Connection ~ 3750 2150
+Wire Wire Line
+	3750 2150 3550 2150
+Connection ~ 4100 2150
+Wire Wire Line
+	4100 2150 4000 2150
+Connection ~ 4450 2150
+Wire Wire Line
+	4450 2150 4100 2150
+Wire Wire Line
+	4000 2150 4000 1950
+Wire Wire Line
+	4000 1950 4250 1950
+Connection ~ 4000 2150
+Wire Wire Line
+	4000 2150 3750 2150
+Wire Wire Line
+	3250 2450 3250 2700
+Wire Wire Line
+	3250 2700 3450 2700
+Text Label 700  2150 0    50   ~ 0
+AVDD
+Text Label 4050 1950 0    50   ~ 0
+DVDD
+Text Label 3300 2700 0    50   ~ 0
+DGND
+Text Notes 2350 1800 0    79   ~ 0
++3.3V Regulated Supply\n
+Wire Notes Line
+	550  1650 5400 1650
+Wire Notes Line
+	5400 1650 5400 2750
+Wire Notes Line
+	5400 2750 550  2750
+Wire Notes Line
+	550  2750 550  1650
+$Comp
+L My_Regulator_Linear:LM3480-3.3 U?
+U 1 1 5DA7A913
+P 3250 2150
+F 0 "U?" H 3250 2392 50  0000 C CNN
+F 1 "LM3480-3.3" H 3250 2301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3250 2375 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lm3480.pdf" H 3250 2150 50  0001 C CNN
+	1    3250 2150
+	1    0    0    -1  
+$EndComp
+Connection ~ 1700 2150
+Wire Wire Line
+	700  2150 1700 2150
 $EndSCHEMATC
