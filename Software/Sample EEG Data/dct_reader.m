@@ -3,7 +3,7 @@ close all
 %load('CLA-SubjectJ-170504-3St-LRHand-Inter.mat');
 %load('CLASubjectB1510203StLRHand.mat');
 %load('CLASubjectA1601083StLRHand.mat');
-load('CLASubjectC1511263StLRHand (1).mat');
+load('CLASubjectC1511263StLRHand.mat');
 
 holdout_percentage = 0.2;
 epoch_seconds = 2;
@@ -97,7 +97,7 @@ for observation = 1:length(X)
     if (frequency_plotting == 1)
         subplot(1, 3, 2)
         plot(f, P1);
-        title({y{observation};"Hanning Window"});
+        title({y{observation}; 'Hanning Window'});
     end
     
     
