@@ -70,91 +70,59 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_01x06 J?
 U 1 1 5D8A8745
-P 8000 3750
+P 8500 3750
 AR Path="/5D899D49/5D8A8745" Ref="J?"  Part="1" 
-AR Path="/5D8A8745" Ref="J?"  Part="1" 
-F 0 "J?" H 7850 3350 50  0000 L CNN
-F 1 "HC-05 BT Module" H 7800 3250 50  0000 L CNN
-F 2 "" H 8000 3750 50  0001 C CNN
-F 3 "~" H 8000 3750 50  0001 C CNN
-	1    8000 3750
+AR Path="/5D8A8745" Ref="J5"  Part="1" 
+F 0 "J5" H 8350 3350 50  0000 L CNN
+F 1 "HC-05 BT Module" H 8300 3250 50  0000 L CNN
+F 2 "Resonators:HC-05" H 8500 3750 50  0001 C CNN
+F 3 "~" H 8500 3750 50  0001 C CNN
+	1    8500 3750
 	1    0    0    -1  
 $EndComp
-Text Notes 8100 3550 0    50   ~ 0
+Text Notes 8600 3550 0    50   ~ 0
 Enable AT Commands
-Text Notes 8100 3650 0    50   ~ 0
+Text Notes 8600 3650 0    50   ~ 0
 +5V
-Text Notes 8100 3750 0    50   ~ 0
+Text Notes 8600 3750 0    50   ~ 0
 GND
-Text Notes 8100 3850 0    50   ~ 0
+Text Notes 8600 3850 0    50   ~ 0
 TX
-Text Notes 8100 3950 0    50   ~ 0
+Text Notes 8600 3950 0    50   ~ 0
 RX
-Text Notes 8100 4050 0    50   ~ 0
+Text Notes 8600 4050 0    50   ~ 0
 LED
-Text Label 7450 3550 0    50   ~ 0
+Text Label 7950 3550 0    50   ~ 0
 AT_COMM
-Text Label 7450 3650 0    50   ~ 0
+Text Label 7950 3650 0    50   ~ 0
 +5V
-Text Label 7450 3750 0    50   ~ 0
+Text Label 7950 3750 0    50   ~ 0
 GND
-Text Label 7450 3850 0    50   ~ 0
-RX
-Text Label 7450 3950 0    50   ~ 0
-TX
+Text Label 7950 3850 0    50   ~ 0
+HC05_RX
+Text Label 7950 3950 0    50   ~ 0
+HC05_TX
 Wire Wire Line
-	7800 3650 7450 3650
+	8300 3650 7950 3650
 Wire Wire Line
-	7800 3750 7450 3750
+	8300 3750 7950 3750
 Wire Wire Line
-	7800 4050 7450 4050
-NoConn ~ 7450 4050
+	8300 4050 7950 4050
+NoConn ~ 7950 4050
 Wire Wire Line
 	5400 3200 5800 3200
 Text Label 5650 3200 0    50   ~ 0
 +5V
-$Comp
-L Device:Jumper_NC_Dual JP?
-U 1 1 5DB1F4DE
-P 6150 4050
-F 0 "JP?" H 6150 4196 50  0000 C CNN
-F 1 "BT_Jumper" H 6150 4287 50  0000 C CNN
-F 2 "" H 6150 4050 50  0001 C CNN
-F 3 "~" H 6150 4050 50  0001 C CNN
-	1    6150 4050
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:Jumper_NC_Dual JP?
-U 1 1 5DB1F989
-P 6150 3750
-F 0 "JP?" H 6150 3989 50  0000 C CNN
-F 1 "BT_Jumper" H 6150 3898 50  0000 C CNN
-F 2 "" H 6150 3750 50  0001 C CNN
-F 3 "~" H 6150 3750 50  0001 C CNN
-	1    6150 3750
-	1    0    0    -1  
-$EndComp
-NoConn ~ 5900 3750
-NoConn ~ 5900 4050
+Text Label 7250 3850 0    50   ~ 0
+HC05_RX
+Text Label 6250 3950 0    50   ~ 0
+HC05_TX
 Wire Wire Line
-	6400 3750 6650 3750
+	8300 3550 7950 3550
 Wire Wire Line
-	6400 4050 6650 4050
-Text Label 6550 3750 0    50   ~ 0
-RX
-Text Label 6550 4050 0    50   ~ 0
-TX
+	8300 3850 7950 3850
 Wire Wire Line
-	7800 3550 7450 3550
-Wire Wire Line
-	7800 3850 7450 3850
-Wire Wire Line
-	7800 3950 7450 3950
-Wire Wire Line
-	5400 3850 6150 3850
-Wire Wire Line
-	5400 3950 6150 3950
+	8300 3950 7950 3950
 Wire Wire Line
 	5400 3550 5800 3550
 Text Label 5450 3550 0    50   ~ 0
@@ -175,12 +143,12 @@ Wire Wire Line
 Text Label 5650 4350 0    50   ~ 0
 GND
 $Comp
-L Connector:Barrel_Jack J?
+L Connector:Barrel_Jack J4
 U 1 1 5DB47949
 P 1100 3800
-F 0 "J?" H 1155 4125 50  0000 C CNN
+F 0 "J4" H 1155 4125 50  0000 C CNN
 F 1 "DC Barrel Jack" H 1155 4034 50  0000 C CNN
-F 2 "" H 1150 3760 50  0001 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 1150 3760 50  0001 C CNN
 F 3 "~" H 1150 3760 50  0001 C CNN
 	1    1100 3800
 	1    0    0    -1  
@@ -192,14 +160,14 @@ Wire Wire Line
 Text Label 1650 3700 0    50   ~ 0
 GND
 Text Label 1600 3900 0    50   ~ 0
-VIN
+VIN_RAW
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J3
 U 1 1 5DB485DF
 P 950 3200
-F 0 "J?" H 870 2875 50  0000 C CNN
-F 1 "Board Connector" H 870 2966 50  0000 C CNN
-F 2 "" H 950 3200 50  0001 C CNN
+F 0 "J3" H 870 2875 50  0000 C CNN
+F 1 "Battery Connector" H 870 2966 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 950 3200 50  0001 C CNN
 F 3 "~" H 950 3200 50  0001 C CNN
 	1    950  3200
 	-1   0    0    1   
@@ -207,53 +175,53 @@ $EndComp
 Text Label 1250 3100 0    50   ~ 0
 GND
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW1
 U 1 1 5DB4C37F
 P 1600 3200
-F 0 "SW?" H 1750 3450 50  0000 C CNN
+F 0 "SW1" H 1750 3450 50  0000 C CNN
 F 1 "DIP" H 1750 3350 50  0000 C CNN
-F 2 "" H 1600 3200 50  0001 C CNN
+F 2 "Switches:DIP-Switch_01x01" H 1600 3200 50  0001 C CNN
 F 3 "" H 1600 3200 50  0001 C CNN
 	1    1600 3200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1900 3200 2250 3200
-Text Label 2100 3200 0    50   ~ 0
+	2300 3200 2650 3200
+Text Label 2500 3200 0    50   ~ 0
 VBAT
 Wire Wire Line
 	1150 3100 1400 3100
 Wire Wire Line
 	1300 3200 1150 3200
 $Comp
-L Device:D_Schottky D?
+L Device:D_Schottky D1
 U 1 1 5DB4F989
-P 1750 5250
-F 0 "D?" H 1750 5466 50  0000 C CNN
-F 1 "SS1P3L" H 1750 5375 50  0000 C CNN
-F 2 "" H 1750 5250 50  0001 C CNN
-F 3 "~" H 1750 5250 50  0001 C CNN
-	1    1750 5250
+P 1550 7150
+F 0 "D1" H 1550 7366 50  0000 C CNN
+F 1 "NSR20F40NXT5GOSCT-ND" H 1550 7275 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123F" H 1550 7150 50  0001 C CNN
+F 3 "~" H 1550 7150 50  0001 C CNN
+	1    1550 7150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1600 5250 1250 5250
+	1400 7150 1050 7150
 Wire Wire Line
-	1900 5250 2250 5250
-Text Label 1400 5250 0    50   ~ 0
+	1700 7150 2050 7150
+Text Label 1050 7150 0    50   ~ 0
 VIN
-Text Label 1950 5250 0    50   ~ 0
+Text Label 1750 7150 0    50   ~ 0
 VBAT
-Text Notes 1100 4850 0    79   ~ 0
+Text Notes 900  6750 0    79   ~ 0
 VIN Auto Selector
 Wire Notes Line
-	1000 4700 2450 4700
+	800  6600 2250 6600
 Wire Notes Line
-	2450 4700 2450 5550
+	2250 6600 2250 7450
 Wire Notes Line
-	1000 5550 1000 4700
+	800  7450 800  6600
 Wire Notes Line
-	1000 5550 2450 5550
+	800  7450 2250 7450
 Wire Wire Line
 	3450 3100 2950 3100
 Text Label 2950 3100 0    50   ~ 0
@@ -262,4 +230,195 @@ Wire Wire Line
 	5400 3000 5800 3000
 Text Label 5700 3000 0    50   ~ 0
 VIN
+$Comp
+L Device:R R20
+U 1 1 5DA0407B
+P 6750 4000
+F 0 "R20" H 6820 4046 50  0000 L CNN
+F 1 "2K" H 6820 3955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6680 4000 50  0001 C CNN
+F 3 "~" H 6750 4000 50  0001 C CNN
+	1    6750 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R21
+U 1 1 5DA04C13
+P 7050 3850
+F 0 "R21" V 6843 3850 50  0000 C CNN
+F 1 "1K" V 6934 3850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6980 3850 50  0001 C CNN
+F 3 "~" H 7050 3850 50  0001 C CNN
+	1    7050 3850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6750 4150 6750 4350
+Wire Wire Line
+	6750 4350 6950 4350
+Text Label 6800 4350 0    50   ~ 0
+GND
+Wire Wire Line
+	6250 3850 6750 3850
+Wire Wire Line
+	6900 3850 6750 3850
+Connection ~ 6750 3850
+$Comp
+L pspice:DIODE D2
+U 1 1 5DA64DE7
+P 2100 3200
+F 0 "D2" H 2100 3350 50  0000 C CNN
+F 1 "MURA140T3GOSCT-ND" H 2450 3050 50  0000 C CNN
+F 2 "Diode_SMD:D_SMA" H 2100 3200 50  0001 C CNN
+F 3 "" H 2100 3200 50  0001 C CNN
+	1    2100 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L My_dmp2100u:DMP2100U Q1
+U 1 1 5DA6E1B7
+P 4050 6600
+F 0 "Q1" V 4393 6600 50  0000 C CNN
+F 1 "DMP2100U" V 4302 6600 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4250 6525 50  0001 L CIN
+F 3 "C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Hardware/Electronics/Datasheets/MOSFETs/DMP2100U/DMP2100U.pdf" V 4050 6600 50  0001 L CNN
+	1    4050 6600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D_Zener D3
+U 1 1 5DA708B0
+P 4700 6650
+F 0 "D3" V 4654 6729 50  0000 L CNN
+F 1 "7.5V" V 4745 6729 50  0000 L CNN
+F 2 "Diode_SMD:D_SMA" H 4700 6650 50  0001 C CNN
+F 3 "~" H 4700 6650 50  0001 C CNN
+	1    4700 6650
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R19
+U 1 1 5DA70948
+P 4050 7100
+F 0 "R19" H 4120 7146 50  0000 L CNN
+F 1 "33k" H 4120 7055 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3980 7100 50  0001 C CNN
+F 3 "~" H 4050 7100 50  0001 C CNN
+	1    4050 7100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 6500 2850 6500
+Wire Wire Line
+	4050 6800 4050 6900
+Wire Wire Line
+	4250 6500 4700 6500
+Wire Wire Line
+	4700 6800 4700 6900
+Wire Wire Line
+	4700 6900 4050 6900
+Connection ~ 4050 6900
+Wire Wire Line
+	4050 6900 4050 6950
+Wire Wire Line
+	4050 7250 4050 7400
+Text Label 2850 7400 0    50   ~ 0
+GND
+Text Label 2850 6500 0    50   ~ 0
+VIN_RAW
+Text Label 5000 6500 0    50   ~ 0
+VIN
+$Comp
+L Device:Fuse F1
+U 1 1 5DA77262
+P 3500 6500
+F 0 "F1" V 3303 6500 50  0000 C CNN
+F 1 "0251004.NRT1L" V 3394 6500 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 3430 6500 50  0001 C CNN
+F 3 "~" H 3500 6500 50  0001 C CNN
+	1    3500 6500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4700 6500 5100 6500
+Wire Wire Line
+	3850 6500 3650 6500
+Connection ~ 4700 6500
+Wire Wire Line
+	2850 7400 4050 7400
+Text Notes 2700 6200 0    79   ~ 0
+Reverse Polarity and Overcurrent Protection
+Wire Notes Line
+	2700 6050 5400 6050
+Wire Notes Line
+	5400 6050 5400 7500
+Wire Notes Line
+	5400 7500 2700 7500
+Wire Notes Line
+	2700 7500 2700 6050
+$Comp
+L Switch:SW_DIP_x02 SW2
+U 1 1 5DA8AB68
+P 5950 3950
+F 0 "SW2" H 5950 4317 50  0000 C CNN
+F 1 "SW_DIP_x02" H 5950 4226 50  0000 C CNN
+F 2 "Switches:DIP-Switch_01x02" H 5950 3950 50  0001 C CNN
+F 3 "" H 5950 3950 50  0001 C CNN
+	1    5950 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 3850 5400 3850
+Wire Wire Line
+	5650 3950 5400 3950
+Text Notes 3300 6650 0    50   ~ 0
+4A Rating
+Wire Wire Line
+	7200 3850 7600 3850
+Wire Wire Line
+	6250 3950 6600 3950
+$Comp
+L Mechanical:MountingHole MH1
+U 1 1 5E2DFA9E
+P 1050 4950
+F 0 "MH1" H 1150 4996 50  0000 L CNN
+F 1 "MountingHole" H 1150 4905 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1050 4950 50  0001 C CNN
+F 3 "~" H 1050 4950 50  0001 C CNN
+	1    1050 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH2
+U 1 1 5E2DFB6D
+P 1050 5150
+F 0 "MH2" H 1150 5196 50  0000 L CNN
+F 1 "MountingHole" H 1150 5105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1050 5150 50  0001 C CNN
+F 3 "~" H 1050 5150 50  0001 C CNN
+	1    1050 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH3
+U 1 1 5E2E0B2B
+P 1050 5350
+F 0 "MH3" H 1150 5396 50  0000 L CNN
+F 1 "MountingHole" H 1150 5305 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1050 5350 50  0001 C CNN
+F 3 "~" H 1050 5350 50  0001 C CNN
+	1    1050 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH4
+U 1 1 5E2E1B3B
+P 1050 5550
+F 0 "MH4" H 1150 5596 50  0000 L CNN
+F 1 "MountingHole" H 1150 5505 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1050 5550 50  0001 C CNN
+F 3 "~" H 1050 5550 50  0001 C CNN
+	1    1050 5550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
