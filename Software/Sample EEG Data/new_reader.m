@@ -123,9 +123,11 @@ end
 figure();
 subplot(2, 1, 1);
 image = transpose(psd(1:100, 1:2458));
+%image = transpose(psd(1:100, 1:16000));
 imagesc(image);
 ylabel('Frequency Bin');
 xlabel('Observation');
+title('Time-Frequency Heatmap');
 subplot(2, 1, 2);
 plot(1:length(m(1:100)), m(1:100));
 ylim([0, 3]);
@@ -133,6 +135,7 @@ ylabel({'1 - Right Hand';'0 - Rest'});
 xlabel('Observation');
 
 psd = psd(:, 1:2458);
+%psd = psd(:, 1:16000);
 
 SVMModel = fitcsvm(psd, y, 'KernelFunction', 'gaussian', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
