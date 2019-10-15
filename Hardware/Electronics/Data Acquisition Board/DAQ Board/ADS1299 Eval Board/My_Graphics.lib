@@ -1,0 +1,37 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# SparkerLogo
+#
+DEF SparkerLogo LOGO 0 40 Y Y 1 F N
+F0 "LOGO" -50 0 50 H V C CNN
+F1 "SparkerLogo" 0 -50 50 H V C CNN
+F2 "" -100 50 50 H I C CNN
+F3 "" -100 50 50 H I C CNN
+DRAW
+ENDDRAW
+ENDDEF
+#
+# Text
+#
+DEF Text TEXT 0 40 Y Y 1 F N
+F0 "TEXT" 0 100 50 H V C CNN
+F1 "Text" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+ENDDRAW
+ENDDEF
+#
+# UoNLogo
+#
+DEF UoNLogo LOGO 0 40 Y Y 1 F N
+F0 "LOGO" 0 0 50 H V C CNN
+F1 "UoNLogo" 50 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+ENDDRAW
+ENDDEF
+#
+#End Library

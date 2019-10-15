@@ -421,4 +421,37 @@ F 3 "~" H 1050 5550 50  0001 C CNN
 	1    1050 5550
 	1    0    0    -1  
 $EndComp
+$Comp
+L My_Graphics:SparkerLogo LOGO2
+U 1 1 5E30CDEC
+P 1950 5550
+F 0 "LOGO2" H 1975 5596 50  0000 L CNN
+F 1 "SparkerLogo" H 1975 5505 50  0000 L CNN
+F 2 "Sparker:NASA" H 1850 5600 50  0001 C CNN
+F 3 "" H 1850 5600 50  0001 C CNN
+	1    1950 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L My_Graphics:UoNLogo LOGO1
+U 1 1 5E30DF5A
+P 1950 5300
+F 0 "LOGO1" H 1975 5346 50  0000 L CNN
+F 1 "UoNLogo" H 1975 5255 50  0000 L CNN
+F 2 "Sparker:UoN" H 1950 5300 50  0001 C CNN
+F 3 "" H 1950 5300 50  0001 C CNN
+	1    1950 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L My_Graphics:Text TEXT1
+U 1 1 5E30F336
+P 1950 5100
+F 0 "TEXT1" H 1975 5146 50  0000 L CNN
+F 1 "Text" H 1975 5055 50  0000 L CNN
+F 2 "Sparker:NASA_subtext" H 1950 5100 50  0001 C CNN
+F 3 "" H 1950 5100 50  0001 C CNN
+	1    1950 5100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

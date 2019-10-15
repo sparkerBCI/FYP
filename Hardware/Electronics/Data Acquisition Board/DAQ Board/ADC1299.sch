@@ -1555,7 +1555,7 @@ U 1 1 5E0F356F
 P 700 3400
 F 0 "J1" H 806 3978 50  0000 C CNN
 F 1 "Conn_01x09_Male" H 806 3887 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 700 3400 50  0001 C CNN
+F 2 "Connectors:TE-5-103669-8" H 700 3400 50  0001 C CNN
 F 3 "~" H 700 3400 50  0001 C CNN
 	1    700  3400
 	1    0    0    -1  
