@@ -1045,14 +1045,6 @@ Wire Notes Line
 	7250 5000 7250 5750
 Wire Notes Line
 	5800 5000 5800 5750
-Text HLabel 8600 6350 2    50   Input ~ 0
-AT_COMM
-Text Label 8250 6350 0    50   ~ 0
-AT_COMM
-Wire Wire Line
-	4150 4450 5450 4450
-Text Label 5050 4450 0    50   ~ 0
-AT_COMM
 Wire Notes Line
 	9050 5000 9050 6450
 Wire Notes Line
@@ -1097,8 +1089,6 @@ Wire Wire Line
 Text Notes 6900 2250 0    50   ~ 0
 500mA
 Wire Wire Line
-	8250 6350 8600 6350
-Wire Wire Line
 	8250 6250 8600 6250
 Wire Wire Line
 	8250 6150 8600 6150
@@ -1122,4 +1112,5 @@ Wire Wire Line
 	4850 3300 5000 3300
 Text Label 4850 3300 0    50   ~ 0
 GND
+NoConn ~ 4150 4450
 $EndSCHEMATC

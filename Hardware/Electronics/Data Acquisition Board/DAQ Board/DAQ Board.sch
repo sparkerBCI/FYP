@@ -92,8 +92,6 @@ Text Notes 8600 3950 0    50   ~ 0
 RX
 Text Notes 8600 4050 0    50   ~ 0
 LED
-Text Label 7950 3550 0    50   ~ 0
-AT_COMM
 Text Label 7950 3650 0    50   ~ 0
 +5V
 Text Label 7950 3750 0    50   ~ 0
@@ -454,4 +452,5 @@ F 3 "" H 1950 5100 50  0001 C CNN
 	1    1950 5100
 	1    0    0    -1  
 $EndComp
+NoConn ~ 7950 3550
 $EndSCHEMATC
