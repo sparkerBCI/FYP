@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Kineses_Board-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -319,20 +320,9 @@ Text Label 6300 5050 0    50   ~ 0
 TX
 NoConn ~ 6700 4650
 NoConn ~ 6700 5150
-$Comp
-L Connector:Barrel_Jack J1
-U 1 1 5E375E88
-P 1100 5050
-F 0 "J1" H 1155 5375 50  0000 C CNN
-F 1 "Barrel_Jack" H 1155 5284 50  0000 C CNN
-F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 1150 5010 50  0001 C CNN
-F 3 "~" H 1150 5010 50  0001 C CNN
-	1    1100 5050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	1400 5150 1850 5150
-Text Label 1750 5150 0    50   ~ 0
+	1400 5050 1850 5050
+Text Label 1750 5050 0    50   ~ 0
 VIN
 Wire Wire Line
 	1400 4950 1850 4950
@@ -401,6 +391,17 @@ F 1 "UoNLogo" H 3125 6205 50  0000 L CNN
 F 2 "Sparker:UoN_Small" H 3100 6250 50  0001 C CNN
 F 3 "" H 3100 6250 50  0001 C CNN
 	1    3100 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J1
+U 1 1 5DABE43A
+P 1200 4950
+F 0 "J1" H 1306 5128 50  0000 C CNN
+F 1 "Power" H 1306 5037 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 1200 4950 50  0001 C CNN
+F 3 "~" H 1200 4950 50  0001 C CNN
+	1    1200 4950
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
