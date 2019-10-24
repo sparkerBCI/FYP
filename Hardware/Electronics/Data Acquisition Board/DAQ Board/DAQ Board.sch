@@ -453,4 +453,71 @@ F 3 "" H 1950 5100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 7950 3550
+$Comp
+L Connector:Conn_01x02_Male J7
+U 1 1 5DB16C77
+P 7600 5300
+F 0 "J7" H 7572 5180 50  0000 R CNN
+F 1 "VIN_RAW_TP" H 7572 5271 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7600 5300 50  0001 C CNN
+F 3 "~" H 7600 5300 50  0001 C CNN
+	1    7600 5300
+	-1   0    0    1   
+$EndComp
+Text Label 7050 5200 0    50   ~ 0
+VIN_RAW
+Text Label 7050 5300 0    50   ~ 0
+GND
+Wire Wire Line
+	7050 5200 7400 5200
+Wire Wire Line
+	7050 5300 7400 5300
+$Comp
+L Connector:Conn_01x02_Male J12
+U 1 1 5DB1EA2E
+P 8950 5800
+F 0 "J12" H 8922 5680 50  0000 R CNN
+F 1 "START_TP" H 8922 5771 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8950 5800 50  0001 C CNN
+F 3 "~" H 8950 5800 50  0001 C CNN
+	1    8950 5800
+	-1   0    0    1   
+$EndComp
+Text Label 8400 5700 0    50   ~ 0
+START
+Text Label 8400 5800 0    50   ~ 0
+GND
+Wire Wire Line
+	8400 5700 8750 5700
+Wire Wire Line
+	8400 5800 8750 5800
+Text Label 8400 5300 0    50   ~ 0
+GND
+Wire Wire Line
+	8400 5300 8750 5300
+Wire Wire Line
+	8400 5200 8750 5200
+Text Label 8400 5200 0    50   ~ 0
+~CS
+$Comp
+L Connector:Conn_01x02_Male J10
+U 1 1 5DB1BF34
+P 8950 5300
+F 0 "J10" H 8923 5174 50  0000 R CNN
+F 1 "~CS~_TP" H 8923 5272 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8950 5300 50  0001 C CNN
+F 3 "~" H 8950 5300 50  0001 C CNN
+	1    8950 5300
+	-1   0    0    1   
+$EndComp
+Text Label 4400 3100 0    50   ~ 0
+~CS
+Text Label 4350 3750 0    50   ~ 0
+START
+Text Label 4350 3850 0    50   ~ 0
+~DRDY
+Text Label 4350 4350 0    50   ~ 0
+~RESET
+Text Label 4350 4450 0    50   ~ 0
+~PWDN
 $EndSCHEMATC

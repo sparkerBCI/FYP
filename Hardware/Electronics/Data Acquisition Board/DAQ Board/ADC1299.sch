@@ -1624,4 +1624,67 @@ Wire Wire Line
 Connection ~ 2250 1050
 Wire Wire Line
 	2250 1050 2150 1050
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5DBD0F05
+P 10100 1450
+AR Path="/5DBD0F05" Ref="J?"  Part="1" 
+AR Path="/5D7F9BD3/5DBD0F05" Ref="J14"  Part="1" 
+F 0 "J14" H 10072 1330 50  0000 R CNN
+F 1 "MID_SUPPLY_TP" H 10072 1421 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 1450 50  0001 C CNN
+F 3 "~" H 10100 1450 50  0001 C CNN
+	1    10100 1450
+	-1   0    0    1   
+$EndComp
+Text Label 9450 1350 0    50   ~ 0
+MID_SUPPLY
+Text Label 9450 1450 0    50   ~ 0
+DGND
+Wire Wire Line
+	9450 1350 9900 1350
+Wire Wire Line
+	9450 1450 9900 1450
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5DBEC62D
+P 10100 1800
+AR Path="/5DBEC62D" Ref="J?"  Part="1" 
+AR Path="/5D7F9BD3/5DBEC62D" Ref="J15"  Part="1" 
+F 0 "J15" H 10073 1680 50  0000 R CNN
+F 1 "AVDD_TP" H 10073 1771 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 1800 50  0001 C CNN
+F 3 "~" H 10100 1800 50  0001 C CNN
+	1    10100 1800
+	-1   0    0    1   
+$EndComp
+Text Label 9450 1700 0    50   ~ 0
+AVDD
+Text Label 9450 1800 0    50   ~ 0
+AVSS
+Wire Wire Line
+	9450 1700 9900 1700
+Wire Wire Line
+	9450 1800 9900 1800
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5DC0928B
+P 10100 2150
+AR Path="/5DC0928B" Ref="J?"  Part="1" 
+AR Path="/5D7F9BD3/5DC0928B" Ref="J16"  Part="1" 
+F 0 "J16" H 10072 2030 50  0000 R CNN
+F 1 "DVDD_TP" H 10072 2121 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 2150 50  0001 C CNN
+F 3 "~" H 10100 2150 50  0001 C CNN
+	1    10100 2150
+	-1   0    0    1   
+$EndComp
+Text Label 9450 2050 0    50   ~ 0
+DVDD
+Text Label 9450 2150 0    50   ~ 0
+DGND
+Wire Wire Line
+	9450 2050 9900 2050
+Wire Wire Line
+	9450 2150 9900 2150
 $EndSCHEMATC
