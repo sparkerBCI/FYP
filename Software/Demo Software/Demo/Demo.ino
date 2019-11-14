@@ -45,7 +45,7 @@ void debug_str(const char * input) {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(38400);
   
   for (int i = 0; i < PIN_MAX; i++) {
     Pin_Array[i].digital_pin = pins[i];
