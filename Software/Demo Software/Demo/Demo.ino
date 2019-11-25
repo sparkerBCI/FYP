@@ -113,7 +113,14 @@ void process_command(char* command, int num_chars) {
 
   for (int i = 0; i < PIN_MAX; i++) {
     if (!strcmp(finger, Pin_Array[i].finger_name)) {
-      Pin_Array[i].servo.write((float)(100-value_percent)/100.0 * Pin_Array[i].max_degs);
+      float angle = (float)(100-value_percent)/100.0 * Pin_Array[i].max_degs;
+      if (angle < 10) {
+        angle = 10;
+      }
+      else if (angle > Pin_Array[i].max_degs) {
+        angle = Pin_Array[i].max_degs;
+      }
+      Pin_Array[i].servo.write(angle);
       debug_str(Pin_Array[i].finger_name);
       Serial.println("changed to");
       Serial.println(value_percent);
