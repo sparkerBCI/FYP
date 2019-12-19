@@ -80,25 +80,25 @@ F 3 "~" H 7350 5400 50  0001 C CNN
 	1    7350 5400
 	1    0    0    -1  
 $EndComp
-Text Notes 7450 5200 0    50   ~ 0
-Enable AT Commands
-Text Notes 7450 5300 0    50   ~ 0
-+5V
-Text Notes 7450 5400 0    50   ~ 0
-GND
-Text Notes 7450 5500 0    50   ~ 0
-TX
-Text Notes 7450 5600 0    50   ~ 0
-RX
 Text Notes 7450 5700 0    50   ~ 0
-LED
-Text Label 6800 5300 0    50   ~ 0
+Enable AT Commands
+Text Notes 7450 5600 0    50   ~ 0
 +5V
-Text Label 6800 5400 0    50   ~ 0
+Text Notes 7450 5500 0    50   ~ 0
 GND
-Text Label 6800 5500 0    50   ~ 0
-HC05_RX
+Text Notes 7450 5400 0    50   ~ 0
+TX
+Text Notes 7450 5300 0    50   ~ 0
+RX
+Text Notes 7450 5200 0    50   ~ 0
+LED
 Text Label 6800 5600 0    50   ~ 0
++5V
+Text Label 6800 5500 0    50   ~ 0
+GND
+Text Label 6800 5400 0    50   ~ 0
+HC05_RX
+Text Label 6800 5300 0    50   ~ 0
 HC05_TX
 Wire Wire Line
 	7150 5300 6800 5300
@@ -111,9 +111,9 @@ Wire Wire Line
 	6300 2000 6700 2000
 Text Label 6550 2000 0    50   ~ 0
 +5V
-Text Label 8150 2650 0    50   ~ 0
+Text Label 7300 2650 0    50   ~ 0
 HC05_RX
-Text Label 7150 2750 0    50   ~ 0
+Text Label 8050 2750 0    50   ~ 0
 HC05_TX
 Wire Wire Line
 	7150 5200 6800 5200
@@ -159,67 +159,6 @@ Text Label 5200 7300 0    50   ~ 0
 GND
 Text Label 5150 7500 0    50   ~ 0
 VIN_RAW
-$Comp
-L Connector_Generic:Conn_01x02 J3
-U 1 1 5DB485DF
-P 4500 6800
-F 0 "J3" H 4420 6475 50  0000 C CNN
-F 1 "Battery Connector" H 4420 6566 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4500 6800 50  0001 C CNN
-F 3 "~" H 4500 6800 50  0001 C CNN
-	1    4500 6800
-	-1   0    0    1   
-$EndComp
-Text Label 4800 6700 0    50   ~ 0
-GND
-$Comp
-L Switch:SW_DIP_x01 SW1
-U 1 1 5DB4C37F
-P 5150 6800
-F 0 "SW1" H 5300 7050 50  0000 C CNN
-F 1 "DIP" H 5300 6950 50  0000 C CNN
-F 2 "Switches:DIP-Switch_01x01" H 5150 6800 50  0001 C CNN
-F 3 "" H 5150 6800 50  0001 C CNN
-	1    5150 6800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5850 6800 6200 6800
-Text Label 6050 6800 0    50   ~ 0
-VBAT
-Wire Wire Line
-	4700 6700 4950 6700
-Wire Wire Line
-	4850 6800 4700 6800
-$Comp
-L Device:D_Schottky D1
-U 1 1 5DB4F989
-P 3700 5700
-F 0 "D1" H 3700 5916 50  0000 C CNN
-F 1 "NSR20F40NXT5GOSCT-ND" H 3700 5825 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-123F" H 3700 5700 50  0001 C CNN
-F 3 "~" H 3700 5700 50  0001 C CNN
-	1    3700 5700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3550 5700 3200 5700
-Wire Wire Line
-	3850 5700 4200 5700
-Text Label 3200 5700 0    50   ~ 0
-VIN
-Text Label 3900 5700 0    50   ~ 0
-VBAT
-Text Notes 3050 5300 0    79   ~ 0
-VIN Auto Selector
-Wire Notes Line
-	2950 5150 4400 5150
-Wire Notes Line
-	4400 5150 4400 6000
-Wire Notes Line
-	2950 6000 2950 5150
-Wire Notes Line
-	2950 6000 4400 6000
 Wire Wire Line
 	4350 1900 3850 1900
 Text Label 3850 1900 0    50   ~ 0
@@ -231,47 +170,35 @@ VIN
 $Comp
 L Device:R R20
 U 1 1 5DA0407B
-P 7650 2800
-F 0 "R20" H 7720 2846 50  0000 L CNN
-F 1 "2K" H 7720 2755 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7580 2800 50  0001 C CNN
-F 3 "~" H 7650 2800 50  0001 C CNN
-	1    7650 2800
+P 7500 2900
+F 0 "R20" H 7570 2946 50  0000 L CNN
+F 1 "2K" H 7570 2855 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7430 2900 50  0001 C CNN
+F 3 "~" H 7500 2900 50  0001 C CNN
+	1    7500 2900
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R21
 U 1 1 5DA04C13
-P 7950 2650
-F 0 "R21" V 7743 2650 50  0000 C CNN
-F 1 "1K" V 7834 2650 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7880 2650 50  0001 C CNN
-F 3 "~" H 7950 2650 50  0001 C CNN
-	1    7950 2650
+P 7800 2750
+F 0 "R21" V 7593 2750 50  0000 C CNN
+F 1 "1K" V 7684 2750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7730 2750 50  0001 C CNN
+F 3 "~" H 7800 2750 50  0001 C CNN
+	1    7800 2750
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7650 2950 7650 3150
+	7500 3050 7500 3250
 Wire Wire Line
-	7650 3150 7850 3150
-Text Label 7700 3150 0    50   ~ 0
+	7500 3250 7700 3250
+Text Label 7550 3250 0    50   ~ 0
 GND
 Wire Wire Line
 	7150 2650 7650 2650
 Wire Wire Line
-	7800 2650 7650 2650
-Connection ~ 7650 2650
-$Comp
-L pspice:DIODE D2
-U 1 1 5DA64DE7
-P 5650 6800
-F 0 "D2" H 5650 6950 50  0000 C CNN
-F 1 "MURA140T3GOSCT-ND" H 6000 6650 50  0000 C CNN
-F 2 "Diode_SMD:D_SMA" H 5650 6800 50  0001 C CNN
-F 3 "" H 5650 6800 50  0001 C CNN
-	1    5650 6800
-	1    0    0    -1  
-$EndComp
+	7650 2750 7500 2750
 $Comp
 L My_dmp2100u:DMP2100U Q1
 U 1 1 5DA6E1B7
@@ -372,7 +299,7 @@ Wire Wire Line
 Text Notes 1500 6800 0    50   ~ 0
 4A Rating
 Wire Wire Line
-	8100 2650 8500 2650
+	7950 2750 8350 2750
 Wire Wire Line
 	7150 2750 7500 2750
 $Comp
@@ -439,17 +366,6 @@ F 1 "UoNLogo" H 2025 5555 50  0000 L CNN
 F 2 "Sparker:UoN" H 2000 5600 50  0001 C CNN
 F 3 "" H 2000 5600 50  0001 C CNN
 	1    2000 5600
-	1    0    0    -1  
-$EndComp
-$Comp
-L My_Graphics:Text TEXT1
-U 1 1 5E30F336
-P 2000 5400
-F 0 "TEXT1" H 2025 5446 50  0000 L CNN
-F 1 "Text" H 2025 5355 50  0000 L CNN
-F 2 "Sparker:NASA_subtext" H 2000 5400 50  0001 C CNN
-F 3 "" H 2000 5400 50  0001 C CNN
-	1    2000 5400
 	1    0    0    -1  
 $EndComp
 NoConn ~ 6800 5200
@@ -562,4 +478,5 @@ Text Notes 6700 4900 0    79   ~ 0
 HC-05 Bluetooth Module
 Text Notes 5100 900  0    98   ~ 20
 Data Acquisition System
+Connection ~ 7500 2750
 $EndSCHEMATC
