@@ -5,7 +5,10 @@
 /* Create enumerations for settings, etc */
 
  ADS1299_Module::ADS1299_Module(int TX, int RX, int num_channels) {
-//  Serial.begin(9600);
+  Serial.begin(9600);
+  Serial.print("The CH8SET address is ");
+  Serial.println(Reg_Array[CH8SET].Value_on_Reset);
+  
 //  Serial.print("The TX pin is ");
 //  Serial.println(TX);
 //  Serial.print("The RX pin is ");
