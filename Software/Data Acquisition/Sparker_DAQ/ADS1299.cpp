@@ -4,26 +4,27 @@
 
 /* Create enumerations for settings, etc */
 
- ADS1299_Module::ADS1299_Module(int TX, int RX, int num_channels) {
+ ADS1299_Module::ADS1299_Module() {
   Serial.begin(9600);
-  Serial.print("The CH8SET address is ");
-  Serial.println(Reg_Array[CH8SET].Value_on_Reset);
+  Serial.println("ADS1299 Module Initialised!");
+
   
-//  Serial.print("The TX pin is ");
-//  Serial.println(TX);
-//  Serial.print("The RX pin is ");
-//  Serial.println(RX);
-//  Serial.print("There are ");
-//  Serial.print(num_channels);
-//  Serial.println(" channels.");
 
 /* Set up SPI interface */
  }
 
- int ADS1299_Module::get_value() {
-  return value;
+ uint8_t ADS1299_Module::get_value(Reg_ID_t Register) {
+  if (Register >= ID && Register < NUM_REGS)
+  {
+  return Reg_Array[Register].Current_Value;
+  }
+  return 0xFF;
  }
 
-void ADS1299_Module::set_value(int new_value) {
-  value = new_value;
+void ADS1299_Module::set_value(Reg_ID_t Register, uint8_t new_value) {
+  if (Register >= ID && Register < NUM_REGS)
+  {
+  Reg_Array[Register].Current_Value = new_value;
+  }
+  return;
 }
