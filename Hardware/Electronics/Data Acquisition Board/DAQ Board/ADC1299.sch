@@ -387,8 +387,6 @@ Wire Wire Line
 Text Label 8050 4550 0    50   ~ 0
 START
 NoConn ~ 8000 4450
-Wire Wire Line
-	8000 4350 8250 4350
 Text Label 8050 4350 0    50   ~ 0
 ~CS
 Wire Wire Line
@@ -1691,4 +1689,30 @@ Text Notes 4600 2000 0    50   ~ 0
 Typical DVDD rail \nsupply current 0.5mA.\nVReg Imax = 100mA
 Text Notes 3700 1550 0    50   ~ 0
 Typical AVDD Rail\nsupply current 7.14mA.\nImax = 300mA
+$Comp
+L Device:R R27
+U 1 1 5E085F31
+P 8750 4450
+F 0 "R27" H 8900 4400 50  0000 C CNN
+F 1 "100k" H 8900 4500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 8680 4450 50  0001 C CNN
+F 3 "~" H 8750 4450 50  0001 C CNN
+	1    8750 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 4350 8550 4600
+Wire Wire Line
+	8550 4600 8750 4600
+Wire Wire Line
+	8000 4350 8550 4350
+Connection ~ 8750 4600
+Wire Wire Line
+	8750 4600 9050 4600
+Wire Wire Line
+	8750 4300 9000 4300
+Text Label 8800 4300 0    50   ~ 0
+DVDD
+Text Notes 9050 4550 0    50   ~ 0
+Pull-up CS\nto VDD for\nICP
 $EndSCHEMATC
