@@ -809,7 +809,7 @@ Wire Wire Line
 	1700 2800 1350 2800
 Text Label 1350 2800 0    50   ~ 0
 AVDD
-Text Notes 2500 6250 0    50   ~ 0
+Text Notes 1950 3050 0    50   ~ 0
 Jump unused\nanalog inputs\ndirectly to\nAVDD
 Text Label 9950 4400 0    50   ~ 0
 VIN
@@ -1687,4 +1687,8 @@ Wire Wire Line
 	9450 2050 9900 2050
 Wire Wire Line
 	9450 2150 9900 2150
+Text Notes 4600 2000 0    50   ~ 0
+Typical DVDD rail \nsupply current 0.5mA.\nVReg Imax = 100mA
+Text Notes 3700 1550 0    50   ~ 0
+Typical AVDD Rail\nsupply current 7.14mA.\nImax = 300mA
 $EndSCHEMATC

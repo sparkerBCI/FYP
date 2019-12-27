@@ -245,12 +245,6 @@ Text Notes 9750 4200 0    79   ~ 0
 Reset Pushbutton
 Wire Notes Line
 	9400 4050 11100 4050
-Wire Notes Line
-	11100 4050 11100 5650
-Wire Notes Line
-	11100 5650 9400 5650
-Wire Notes Line
-	9400 5650 9400 4050
 Wire Wire Line
 	10100 4650 10100 4500
 $Comp
@@ -402,22 +396,16 @@ GND
 $Comp
 L Device:C C60
 U 1 1 5D85A3D5
-P 10050 2550
-F 0 "C60" H 10165 2596 50  0000 L CNN
-F 1 "100nF" H 10165 2505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 10088 2400 50  0001 C CNN
-F 3 "~" H 10050 2550 50  0001 C CNN
-	1    10050 2550
-	1    0    0    -1  
+P 10050 2400
+F 0 "C60" V 10200 2350 50  0000 L CNN
+F 1 "100nF" V 9900 2250 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 10088 2250 50  0001 C CNN
+F 3 "~" H 10050 2400 50  0001 C CNN
+	1    10050 2400
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	10050 2400 9900 2400
-Wire Wire Line
-	10050 2700 10050 2850
-Text Label 10100 2850 0    50   ~ 0
-GND
-Wire Wire Line
-	10050 2850 10250 2850
+	10200 2400 10400 2400
 Wire Wire Line
 	8300 2000 8300 1600
 Wire Wire Line
@@ -1076,7 +1064,7 @@ F 1 "TE-1825910-6" V 10145 5398 50  0000 L CNN
 F 2 "Switches:1825910-6" H 10100 5450 50  0001 C CNN
 F 3 "" H 10100 5450 50  0001 C CNN
 	1    10100 5250
-	0    1    1    0   
+	0    1    -1   0   
 $EndComp
 Connection ~ 10100 5050
 Wire Wire Line
@@ -1125,4 +1113,34 @@ Wire Wire Line
 Connection ~ 2850 7050
 Wire Wire Line
 	2850 7050 2900 7050
+Text Label 10200 2400 0    50   ~ 0
+RESET
+$Comp
+L Device:C C62
+U 1 1 5E0B8F4F
+P 9900 5250
+F 0 "C62" H 9650 5300 50  0000 L CNN
+F 1 "10uF" H 9600 5200 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9938 5100 50  0001 C CNN
+F 3 "~" H 9900 5250 50  0001 C CNN
+	1    9900 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10100 5050 9900 5050
+Wire Wire Line
+	9900 5050 9900 5100
+Wire Wire Line
+	9900 5400 9900 5550
+Wire Wire Line
+	9900 5550 10100 5550
+Connection ~ 10100 5550
+Text Notes 9800 5750 0    50   ~ 0
+Additional cap here\nto enable serial programing
+Wire Notes Line
+	11100 4050 11100 5900
+Wire Notes Line
+	9400 5900 11100 5900
+Wire Notes Line
+	9400 4050 9400 5900
 $EndSCHEMATC

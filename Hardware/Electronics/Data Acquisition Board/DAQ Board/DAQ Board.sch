@@ -143,21 +143,21 @@ GND
 $Comp
 L Connector:Barrel_Jack J4
 U 1 1 5DB47949
-P 4650 7400
-F 0 "J4" H 4705 7725 50  0000 C CNN
-F 1 "DC Barrel Jack" H 4705 7634 50  0000 C CNN
-F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 4700 7360 50  0001 C CNN
-F 3 "~" H 4700 7360 50  0001 C CNN
-	1    4650 7400
+P 5000 7000
+F 0 "J4" H 5055 7325 50  0000 C CNN
+F 1 "DC Barrel Jack" H 5055 7234 50  0000 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 5050 6960 50  0001 C CNN
+F 3 "~" H 5050 6960 50  0001 C CNN
+	1    5000 7000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 7500 5350 7500
+	5300 7100 5700 7100
 Wire Wire Line
-	4950 7300 5350 7300
-Text Label 5200 7300 0    50   ~ 0
+	5300 6900 5700 6900
+Text Label 5550 6900 0    50   ~ 0
 GND
-Text Label 5150 7500 0    50   ~ 0
+Text Label 5500 7100 0    50   ~ 0
 VIN_RAW
 Wire Wire Line
 	4350 1900 3850 1900
