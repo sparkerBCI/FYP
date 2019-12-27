@@ -28,58 +28,58 @@
         REG_ENTRY(    CONFIG4,        0x17,     false,     0x00    )                     
 /* *INDENT-ON* */
 
-    typedef enum Reg_ID_t {
+typedef enum Reg_ID_t {
       #define REG_ENTRY(a, b, c, d) a,
-      REG_TABLE
+	REG_TABLE
       #undef REG_ENTRY
-      NUM_REGS
-    } Reg_ID_t;
+	NUM_REGS
+} Reg_ID_t;
 
-class ADS1299_Module {  
-   public:  
-    explicit ADS1299_Module();
-    
-    typedef enum Gain_Setting_t {PGA1  =  1,
-                                 PGA2  =  2, 
-                                 PGA4  =  4, 
-                                 PGA6  =  6, 
-                                 PGA8  =  8, 
-                                 PGA12 = 12, 
-                                 PGA24 = 24} Gain_Setting_t;
+class ADS1299_Module {
+public:
+explicit ADS1299_Module();
 
-    typedef enum Command_t      {WAKEUP  = 0x02,
-                                 STANDBY = 0x04, 
-                                 RESET   = 0x06, 
-                                 START   = 0x08, 
-                                 STOP    = 0x0A, 
-                                 RDATAC  = 0x10, 
-                                 SDATAC  = 0x11, 
-                                 RDATA   = 0x12} Command_t;
+typedef enum Gain_Setting_t {PGA1  =  1,
+	                     PGA2  =  2,
+	                     PGA4  =  4,
+	                     PGA6  =  6,
+	                     PGA8  =  8,
+	                     PGA12 = 12,
+	                     PGA24 = 24} Gain_Setting_t;
+
+typedef enum Command_t {WAKEUP  = 0x02,
+	                STANDBY = 0x04,
+	                RESET   = 0x06,
+	                START   = 0x08,
+	                STOP    = 0x0A,
+	                RDATAC  = 0x10,
+	                SDATAC  = 0x11,
+	                RDATA   = 0x12} Command_t;
 
 
-    typedef struct Reg_Array_t {
-      Reg_ID_t Reg_ID;
-      uint8_t Address;
-      bool Read_Only;
-      uint8_t Value_on_Reset;
-      uint8_t Current_Value;
-    } Reg_Areay_t;
+typedef struct Reg_Array_t {
+	Reg_ID_t Reg_ID;
+	uint8_t Address;
+	bool Read_Only;
+	uint8_t Value_on_Reset;
+	uint8_t Current_Value;
+} Reg_Areay_t;
 
 /* Create the register array and populate the value with default value */
     #define REG_ENTRY(a, b, c, d) {a, b, c, d, d},
-    Reg_Array_t Reg_Array[NUM_REGS] = {REG_TABLE};
+Reg_Array_t Reg_Array[NUM_REGS] = {REG_TABLE};
     #undef REG_ENTRY
 
-    void set_value(Reg_ID_t Register, uint8_t new_value);
+void set_value(Reg_ID_t Register, uint8_t new_value);
 
-    uint8_t get_value(Reg_ID_t Register);
+uint8_t get_value(Reg_ID_t Register);
 
 
-    
-  private:
 
-  
+private:
 
-  int value = 0;
-   
-};  
+
+
+int value = 0;
+
+};
