@@ -2,8 +2,6 @@
 
 #include "Arduino.h"
 
-/* Create enumerations for settings, etc */
-
  ADS1299_Module::ADS1299_Module() {
   Serial.begin(9600);
   Serial.println("ADS1299 Module Initialised!");
@@ -24,7 +22,10 @@
 void ADS1299_Module::set_value(Reg_ID_t Register, uint8_t new_value) {
   if (Register >= ID && Register < NUM_REGS)
   {
-  Reg_Array[Register].Current_Value = new_value;
+    if (!Reg_Array[Register].Read_Only)
+    {
+      Reg_Array[Register].Current_Value = new_value;
+    }
   }
   return;
 }
