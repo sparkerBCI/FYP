@@ -1,5 +1,6 @@
 #include "Arduino.h"
 
+/* *INDENT-OFF* */
 #define REG_TABLE /*     a             b          c          d     */                    \
         REG_ENTRY(    ID,             0x00,     true,      0xFF    )                     \
         REG_ENTRY(    CONFIG1,        0x01,     false,     0x96    )                     \
@@ -24,7 +25,8 @@
         REG_ENTRY(    GPIO,           0x14,     false,     0x0F    )                     \
         REG_ENTRY(    MISC1,          0x15,     false,     0x00    )                     \
         REG_ENTRY(    MISC2,          0x16,     false,     0x00    )                     \
-        REG_ENTRY(    CONFIG4,        0x17,     false,     0x00    )                     \
+        REG_ENTRY(    CONFIG4,        0x17,     false,     0x00    )                     
+/* *INDENT-ON* */
 
     typedef enum Reg_ID_t {
       #define REG_ENTRY(a, b, c, d) a,
