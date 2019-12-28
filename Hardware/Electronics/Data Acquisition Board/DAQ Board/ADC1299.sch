@@ -1521,17 +1521,6 @@ Wire Wire Line
 	2200 4350 2600 4350
 Wire Wire Line
 	1850 4900 2200 4900
-$Comp
-L Connector:Conn_01x09_Male J1
-U 1 1 5E0F356F
-P 700 3400
-F 0 "J1" H 806 3978 50  0000 C CNN
-F 1 "Conn_01x09_Male" H 806 3887 50  0000 C CNN
-F 2 "Connectors:TE-5-103669-8" H 700 3400 50  0001 C CNN
-F 3 "~" H 700 3400 50  0001 C CNN
-	1    700  3400
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	900  3000 1450 3000
 Wire Wire Line
@@ -1715,4 +1704,103 @@ Text Label 8800 4300 0    50   ~ 0
 DVDD
 Text Notes 9050 4550 0    50   ~ 0
 Pull-up CS\nto VDD for\nICP
+$Comp
+L Connector:Conn_01x01_Male J1
+U 1 1 5E0A3C00
+P 700 3000
+F 0 "J1" H -50 3000 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3000 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3000 50  0001 C CNN
+F 3 "~" H 700 3000 50  0001 C CNN
+	1    700  3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J3
+U 1 1 5E0A3DA4
+P 700 3100
+F 0 "J3" H -50 3100 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3100 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3100 50  0001 C CNN
+F 3 "~" H 700 3100 50  0001 C CNN
+	1    700  3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J8
+U 1 1 5E0C0599
+P 700 3200
+F 0 "J8" H -50 3200 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3200 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3200 50  0001 C CNN
+F 3 "~" H 700 3200 50  0001 C CNN
+	1    700  3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J9
+U 1 1 5E0DCD8F
+P 700 3300
+F 0 "J9" H -50 3300 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3300 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3300 50  0001 C CNN
+F 3 "~" H 700 3300 50  0001 C CNN
+	1    700  3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J11
+U 1 1 5E0F958A
+P 700 3400
+F 0 "J11" H -50 3400 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3400 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3400 50  0001 C CNN
+F 3 "~" H 700 3400 50  0001 C CNN
+	1    700  3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J13
+U 1 1 5E115D86
+P 700 3500
+F 0 "J13" H -50 3500 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3500 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3500 50  0001 C CNN
+F 3 "~" H 700 3500 50  0001 C CNN
+	1    700  3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J17
+U 1 1 5E132583
+P 700 3600
+F 0 "J17" H -50 3600 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3600 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3600 50  0001 C CNN
+F 3 "~" H 700 3600 50  0001 C CNN
+	1    700  3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J18
+U 1 1 5E14EE6E
+P 700 3700
+F 0 "J18" H -50 3700 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3700 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3700 50  0001 C CNN
+F 3 "~" H 700 3700 50  0001 C CNN
+	1    700  3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J19
+U 1 1 5E1A4862
+P 700 3800
+F 0 "J19" H -50 3800 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 350 3800 50  0000 C CNN
+F 2 "Sparker:DIN 42802-1" H 700 3800 50  0001 C CNN
+F 3 "~" H 700 3800 50  0001 C CNN
+	1    700  3800
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
