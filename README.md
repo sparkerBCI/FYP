@@ -1,6 +1,6 @@
 # Brain Computer Interface Controlled, 3-D Printed Prosthetic Hand
 
-This is an Electrical Engineering Final Year Project by Samuel Parker, from the University of Newcastle.
+This is an Electrical Engineering Final   Year Project by Samuel Parker, from the University of Newcastle.
 
 
 ### Scope
