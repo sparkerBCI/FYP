@@ -129,17 +129,6 @@ Wire Wire Line
 Wire Wire Line
 	6200 1850 6200 1550
 $Comp
-L Device:C C69
-U 1 1 5EB79F16
-P 7400 1700
-F 0 "C69" H 7500 1700 50  0000 L CNN
-F 1 "10u" H 7500 1600 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 7438 1550 50  0001 C CNN
-F 3 "~" H 7400 1700 50  0001 C CNN
-	1    7400 1700
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C67
 U 1 1 5EB79F1D
 P 6950 1700
@@ -161,11 +150,8 @@ F 3 "~" H 6550 1700 50  0001 C CNN
 	1    6550 1700
 	1    0    0    -1  
 $EndComp
-Connection ~ 6950 1550
 Wire Wire Line
 	6950 1550 6550 1550
-Wire Wire Line
-	7400 1550 6950 1550
 Wire Wire Line
 	6400 1850 6400 1550
 Wire Wire Line
@@ -174,8 +160,6 @@ Connection ~ 6550 1550
 Wire Wire Line
 	6550 1850 6950 1850
 Connection ~ 6950 1850
-Wire Wire Line
-	6950 1850 7400 1850
 Text Label 6750 1550 0    50   ~ 0
 +5V
 Text Label 7850 1850 0    50   ~ 0
@@ -189,17 +173,6 @@ F 1 "100n" H 5015 5305 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 4938 5200 50  0001 C CNN
 F 3 "~" H 4900 5350 50  0001 C CNN
 	1    4900 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C58
-U 1 1 5EB7BD4E
-P 4100 5350
-F 0 "C58" H 4215 5396 50  0000 L CNN
-F 1 "10u" H 4215 5305 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 4138 5200 50  0001 C CNN
-F 3 "~" H 4100 5350 50  0001 C CNN
-	1    4100 5350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -236,17 +209,6 @@ F 3 "~" H 7400 5350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C66
-U 1 1 5EB7D225
-P 6600 5350
-F 0 "C66" H 6715 5396 50  0000 L CNN
-F 1 "10u" H 6715 5305 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 6638 5200 50  0001 C CNN
-F 3 "~" H 6600 5350 50  0001 C CNN
-	1    6600 5350
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C68
 U 1 1 5EB7D22C
 P 7000 5350
@@ -268,8 +230,6 @@ F 3 "~" H 7800 5350 50  0001 C CNN
 	1    7800 5350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4100 5500 4500 5500
 Connection ~ 4500 5500
 Wire Wire Line
 	4500 5500 4900 5500
@@ -279,9 +239,6 @@ Wire Wire Line
 Connection ~ 5300 5500
 Wire Wire Line
 	5300 5500 5950 5500
-Connection ~ 6600 5500
-Wire Wire Line
-	6600 5500 7000 5500
 Connection ~ 7000 5500
 Wire Wire Line
 	7000 5500 7400 5500
@@ -291,10 +248,6 @@ Wire Wire Line
 Wire Wire Line
 	5950 5350 5950 5500
 Connection ~ 5950 5500
-Wire Wire Line
-	5950 5500 6600 5500
-Wire Wire Line
-	6400 5150 6600 5150
 Wire Wire Line
 	7800 5150 7800 5200
 Wire Wire Line
@@ -308,15 +261,8 @@ Connection ~ 7000 5150
 Wire Wire Line
 	7000 5150 7400 5150
 Wire Wire Line
-	6600 5200 6600 5150
-Connection ~ 6600 5150
-Wire Wire Line
-	6600 5150 7000 5150
-Wire Wire Line
 	5500 5200 5300 5200
 Connection ~ 4500 5200
-Wire Wire Line
-	4500 5200 4100 5200
 Connection ~ 4900 5200
 Wire Wire Line
 	4900 5200 4500 5200
@@ -329,14 +275,8 @@ Wire Wire Line
 	5300 5100 5300 5200
 Text HLabel 3700 5200 0    50   Input ~ 0
 VIN
-Wire Wire Line
-	4100 5200 3700 5200
-Connection ~ 4100 5200
 Text HLabel 3700 5500 0    50   Input ~ 0
 GND
-Wire Wire Line
-	4100 5500 3700 5500
-Connection ~ 4100 5500
 Text Label 6150 5500 0    50   ~ 0
 GND
 Text Label 7600 5150 0    50   ~ 0
@@ -438,30 +378,11 @@ F 3 "~" H 4550 2300 50  0001 C CNN
 	1    4550 2300
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C59
-U 1 1 5EB994AD
-P 4150 2300
-F 0 "C59" H 3950 2300 50  0000 L CNN
-F 1 "10u" H 3950 2200 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 4188 2150 50  0001 C CNN
-F 3 "~" H 4150 2300 50  0001 C CNN
-	1    4150 2300
-	1    0    0    -1  
-$EndComp
-Connection ~ 4550 2150
-Wire Wire Line
-	4550 2150 4150 2150
 Wire Wire Line
 	5000 2150 4550 2150
 Wire Wire Line
 	5500 2150 5300 2150
 Connection ~ 5000 2150
-Wire Wire Line
-	3700 2450 4150 2450
-Connection ~ 4150 2450
-Wire Wire Line
-	4150 2450 4550 2450
 Connection ~ 4550 2450
 Wire Wire Line
 	4550 2450 5000 2450
@@ -577,11 +498,20 @@ Text Label 2400 6700 0    50   ~ 0
 +5V
 Text Label 2400 6800 0    50   ~ 0
 GND
-Wire Wire Line
-	7400 1850 8000 1850
-Connection ~ 7400 1850
 Text Notes 5450 800  0    98   ~ 20
 Communications
 Text Notes 8400 5100 0    50   ~ 0
 +5V Status\n(Green)
+Wire Wire Line
+	6950 1850 8000 1850
+Wire Wire Line
+	3700 2450 4550 2450
+Wire Wire Line
+	3700 5200 4500 5200
+Wire Wire Line
+	3700 5500 4500 5500
+Wire Wire Line
+	5950 5500 7000 5500
+Wire Wire Line
+	6400 5150 7000 5150
 $EndSCHEMATC
