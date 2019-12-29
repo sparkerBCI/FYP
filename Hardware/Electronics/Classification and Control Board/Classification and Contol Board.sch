@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:Classification and Contol Board-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -60,17 +59,6 @@ F 3 "~" H 2150 5400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C56
-U 1 1 5EB74532
-P 2650 5400
-F 0 "C56" H 2765 5446 50  0000 L CNN
-F 1 "10u" H 2765 5355 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 2688 5250 50  0001 C CNN
-F 3 "~" H 2650 5400 50  0001 C CNN
-	1    2650 5400
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C57
 U 1 1 5EB74539
 P 3200 5400
@@ -81,56 +69,12 @@ F 3 "~" H 3200 5400 50  0001 C CNN
 	1    3200 5400
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:CP C54
-U 1 1 5EB7459B
-P 1600 5400
-F 0 "C54" H 1718 5446 50  0000 L CNN
-F 1 "100u" H 1718 5355 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 1638 5250 50  0001 C CNN
-F 3 "~" H 1600 5400 50  0001 C CNN
-	1    1600 5400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1050 5250 1600 5250
-Connection ~ 1600 5250
-Wire Wire Line
-	1600 5250 2150 5250
 Connection ~ 2150 5250
-Wire Wire Line
-	2150 5250 2650 5250
-Connection ~ 2650 5250
-Wire Wire Line
-	2650 5250 3200 5250
-Wire Wire Line
-	3200 5550 2650 5550
-Connection ~ 1600 5550
-Wire Wire Line
-	1600 5550 1050 5550
 Connection ~ 2150 5550
-Wire Wire Line
-	2150 5550 1600 5550
-Connection ~ 2650 5550
-Wire Wire Line
-	2650 5550 2150 5550
 Text Label 2000 5250 0    50   ~ 0
 V+
 Text Label 2100 5550 2    50   ~ 0
 GND
-$Comp
-L Device:Fuse F1
-U 1 1 5EB74E8E
-P 8850 5250
-F 0 "F1" V 8653 5250 50  0000 C CNN
-F 1 "Fuse" V 8744 5250 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_Power_L20.0mm_W6.4mm_P25.40mm" V 8780 5250 50  0001 C CNN
-F 3 "~" H 8850 5250 50  0001 C CNN
-	1    8850 5250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	9150 5250 9000 5250
 $Comp
 L Device:R R5
 U 1 1 5EB7546F
@@ -167,8 +111,6 @@ Wire Wire Line
 Connection ~ 9750 5250
 Wire Wire Line
 	9750 5250 10200 5250
-Wire Wire Line
-	8700 5250 8400 5250
 Text Label 10100 5250 0    47   ~ 0
 V+
 $Comp
@@ -249,8 +191,8 @@ Text Notes 4550 700  0    98   ~ 20
 Classification and Control Board
 Text Notes 1650 5150 0    79   ~ 0
 Bulk supply caps
-Text Notes 7650 4900 0    79   ~ 0
-Overcurrent and Reverse Polarity Protection
+Text Notes 8350 4900 0    79   ~ 0
+Reverse Polarity Protection
 Wire Notes Line
 	800  5000 3550 5000
 Wire Notes Line
@@ -339,17 +281,6 @@ F 3 "~" H 1100 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole MH4
-U 1 1 5ECBFE44
-P 1100 7050
-F 0 "MH4" H 1200 7096 50  0000 L CNN
-F 1 "MountingHole" H 1200 7005 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 1100 7050 50  0001 C CNN
-F 3 "~" H 1100 7050 50  0001 C CNN
-	1    1100 7050
-	1    0    0    -1  
-$EndComp
-$Comp
 L My_Graphics:UoNLogo LOGO2
 U 1 1 5ECC0AB9
 P 2100 6950
@@ -366,15 +297,13 @@ U 1 1 5ECC0B3A
 P 2100 6600
 F 0 "LOGO1" H 2125 6646 50  0000 L CNN
 F 1 "SparkerLogo" H 2125 6555 50  0000 L CNN
-F 2 "Sparker:NASA" H 2000 6650 50  0001 C CNN
+F 2 "Sparker:NASA_small" H 2000 6650 50  0001 C CNN
 F 3 "" H 2000 6650 50  0001 C CNN
 	1    2100 6600
 	1    0    0    -1  
 $EndComp
 Text Notes 1250 6100 0    79   ~ 0
 Mounting Holes and Logos
-Text Notes 8700 5400 0    50   ~ 0
-10A Rated
 Wire Notes Line
 	800  5950 3550 5950
 Wire Notes Line
@@ -394,4 +323,14 @@ F 3 "" H 9050 5400 50  0001 C CNN
 	1    9350 5300
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	1050 5250 2150 5250
+Wire Wire Line
+	1050 5550 2150 5550
+Wire Wire Line
+	2150 5250 3200 5250
+Wire Wire Line
+	2150 5550 3200 5550
+Wire Wire Line
+	8400 5250 9150 5250
 $EndSCHEMATC

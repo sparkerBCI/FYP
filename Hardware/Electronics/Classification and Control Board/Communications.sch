@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:Classification and Contol Board-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -16,8 +15,6 @@ Comment4 ""
 $EndDescr
 Text HLabel 7400 2150 2    79   Input ~ 0
 TX
-Text HLabel 7400 2250 2    79   Output ~ 0
-RX
 Wire Wire Line
 	7400 2250 7100 2250
 Wire Wire Line
@@ -60,72 +57,8 @@ Wire Wire Line
 Wire Wire Line
 	5000 3850 5500 3850
 Connection ~ 5500 3850
-$Comp
-L Device:R R26
-U 1 1 5EB78162
-P 7750 2900
-F 0 "R26" H 7820 2946 50  0000 L CNN
-F 1 "150" H 7820 2855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7680 2900 50  0001 C CNN
-F 3 "~" H 7750 2900 50  0001 C CNN
-	1    7750 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R27
-U 1 1 5EB781D1
-P 8150 2900
-F 0 "R27" H 8220 2946 50  0000 L CNN
-F 1 "150" H 8220 2855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 8080 2900 50  0001 C CNN
-F 3 "~" H 8150 2900 50  0001 C CNN
-	1    8150 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED D4
-U 1 1 5EB782E5
-P 7750 2400
-F 0 "D4" V 7788 2283 50  0000 R CNN
-F 1 "LED" V 7697 2283 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric" H 7750 2400 50  0001 C CNN
-F 3 "~" H 7750 2400 50  0001 C CNN
-	1    7750 2400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED D5
-U 1 1 5EB78376
-P 8150 2400
-F 0 "D5" V 8188 2283 50  0000 R CNN
-F 1 "LED" V 8097 2283 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric" H 8150 2400 50  0001 C CNN
-F 3 "~" H 8150 2400 50  0001 C CNN
-	1    8150 2400
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	7750 2550 7750 2750
-Wire Wire Line
-	8150 2550 8150 2750
-Wire Wire Line
-	7750 2250 7750 2100
-Wire Wire Line
-	7750 2100 8150 2100
-Wire Wire Line
-	8150 2100 8150 2250
-Text Label 7850 2100 0    50   ~ 0
-+5V
 Text Label 5000 3850 0    50   ~ 0
 GND
-Wire Wire Line
-	7750 3150 7750 3050
-Wire Wire Line
-	8150 3250 8150 3050
-Wire Wire Line
-	7750 3150 7100 3150
-Wire Wire Line
-	7100 3250 8150 3250
 Wire Wire Line
 	6200 1850 6200 1550
 $Comp
@@ -480,10 +413,6 @@ Wire Notes Line
 	5050 6200 5050 7550
 Wire Notes Line
 	6350 6200 6350 7550
-Text Notes 7350 2600 0    50   ~ 0
-USB_RX\n(Red)
-Text Notes 8350 2650 0    50   ~ 0
-USB_TX\n(Green)
 Text Notes 7700 3700 0    50   ~ 0
 2V LED Voltage\n20mA\n5V - 2V = 3V\n3V / 20mA = 150 Ohms
 Wire Notes Line
@@ -514,4 +443,6 @@ Wire Wire Line
 	5950 5500 7000 5500
 Wire Wire Line
 	6400 5150 7000 5150
+NoConn ~ 7100 3150
+NoConn ~ 7100 3250
 $EndSCHEMATC
