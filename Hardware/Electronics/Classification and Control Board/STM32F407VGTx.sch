@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Classification and Contol Board-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -782,13 +783,13 @@ Wire Wire Line
 	8150 4750 8750 4750
 Text Label 8250 4750 0    50   ~ 0
 ADC123_IN13
-Text HLabel 10600 4600 2    50   Input ~ 0
-FB1
-Text HLabel 10600 4750 2    50   Input ~ 0
-FB2
-Text HLabel 10600 4900 2    50   Input ~ 0
-FB3
 Text HLabel 10600 5050 2    50   Input ~ 0
+FB1
+Text HLabel 10600 4900 2    50   Input ~ 0
+FB2
+Text HLabel 10600 4750 2    50   Input ~ 0
+FB3
+Text HLabel 10600 4600 2    50   Input ~ 0
 FB4
 Text HLabel 10600 5200 2    50   Input ~ 0
 FB5
