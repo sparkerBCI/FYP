@@ -1,7 +1,10 @@
 #include "ADS1299.h"
+#include "DAQ_Pin_Map.h"
 
 void setup() {
 	ADS1299_Module* ADS1299 = new ADS1299_Module();
+  Serial.begin(9600);
+  Serial.println("ADS1299 Module Initialised!");
 	Serial.print("The default value of CH8SET is ");
 	Serial.println(ADS1299->get_value(CH8SET));
 	Serial.println("Setting CH8SET to 40");

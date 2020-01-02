@@ -1,14 +1,13 @@
+#include <SPI.h>
+
 #include "ADS1299.h"
 
-#include "Arduino.h"
+
 
 ADS1299_Module::ADS1299_Module() {
-	Serial.begin(9600);
-	Serial.println("ADS1299 Module Initialised!");
-
-
 
 /* Set up SPI interface */
+SPI.beginTransaction(SPISettings(4000000,MSBFIRST, SPI_MODE1));
 }
 
 uint8_t ADS1299_Module::get_value(Reg_ID_t Register) {

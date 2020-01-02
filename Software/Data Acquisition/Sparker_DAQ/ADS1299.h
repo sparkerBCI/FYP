@@ -1,4 +1,8 @@
-#include "Arduino.h"
+#ifndef _ADS1299_H
+#define _ADS1299_H
+
+#include <Arduino.h>
+
 
 /* *INDENT-OFF* */
 #define REG_TABLE /*     a             b          c          d     */                    \
@@ -79,7 +83,6 @@ uint8_t get_value(Reg_ID_t Register);
 private:
 
 
-
-int value = 0;
-
 };
+
+#endif
