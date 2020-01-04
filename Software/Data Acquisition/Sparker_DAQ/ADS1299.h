@@ -1,6 +1,8 @@
 #ifndef _ADS1299_H
 #define _ADS1299_H
 
+#include "DAQ_Pin_Map.h"
+
 #include <Arduino.h>
 
 
@@ -39,27 +41,28 @@ typedef enum Reg_ID_t {
 	NUM_REGS
 } Reg_ID_t;
 
-class ADS1299_Module {
-public:
-explicit ADS1299_Module();
-
 typedef enum Gain_Setting_t {PGA1  =  1,
-	                     PGA2  =  2,
-	                     PGA4  =  4,
-	                     PGA6  =  6,
-	                     PGA8  =  8,
-	                     PGA12 = 12,
-	                     PGA24 = 24} Gain_Setting_t;
+                       PGA2  =  2,
+                       PGA4  =  4,
+                       PGA6  =  6,
+                       PGA8  =  8,
+                       PGA12 = 12,
+                       PGA24 = 24} Gain_Setting_t;
 
 typedef enum Command_t {WAKEUP  = 0x02,
-	                STANDBY = 0x04,
-	                RESET   = 0x06,
-	                START   = 0x08,
-	                STOP    = 0x0A,
-	                RDATAC  = 0x10,
-	                SDATAC  = 0x11,
-	                RDATA   = 0x12} Command_t;
+                  STANDBY = 0x04,
+                  RESET   = 0x06,
+                  START   = 0x08,
+                  STOP    = 0x0A,
+                  RDATAC  = 0x10,
+                  SDATAC  = 0x11,
+                  RDATA   = 0x12, 
+                  RREG    = 0x20,
+                  WREG    = 0x40} Command_t;
 
+class ADS1299_Module {
+public:
+explicit ADS1299_Module(DAQ_Pin_Map* m_Hardware_Info);
 
 typedef struct Reg_Array_t {
 	Reg_ID_t Reg_ID;
@@ -78,9 +81,29 @@ void set_value(Reg_ID_t Register, uint8_t new_value);
 
 uint8_t get_value(Reg_ID_t Register);
 
+uint8_t read_register(Reg_ID_t Register);
+
+uint8_t write_register(Reg_ID_t Register, uint8_t value);
+
+uint8_t send_command(Command_t command);
+
+void reset(void);
+
+uint8_t get_device_version(void);
+
+uint8_t get_device_id(void);
+
+uint8_t get_num_channels(void);
+
+bool get_daisy_mode(void);
+
+bool set_daisy_mode(bool enable);
+
 
 
 private:
+
+DAQ_Pin_Map* Hardware_Info;
 
 
 };

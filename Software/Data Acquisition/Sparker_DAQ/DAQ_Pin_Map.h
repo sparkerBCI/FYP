@@ -2,12 +2,14 @@
 #define _DAQ_PIN_MAP_H
 
 #include <Arduino.h>
+#include <SPI.h>
 
 /* #define all the pins */
+
 /* *INDENT-OFF* */
 #define PIN_TABLE /*     a                  b          c               d          */                                   \
         PIN_ENTRY(    NOT_CHIP_SELECT,      13,     OUTPUT,      "Chip Select"    )                                    \
-        PIN_ENTRY(    START,                11,     OUTPUT,      "Start"          )                                    \
+        PIN_ENTRY(    START_PIN,            11,     OUTPUT,      "Start"          )                                    \
         PIN_ENTRY(    NOT_DATA_READY,       10,      INPUT,      "Data Ready"     )                                    \
         PIN_ENTRY(    NOT_POWER_DOWN,        9,     OUTPUT,      "Power Down"     )                                    \
         PIN_ENTRY(    STATUS_LED,           12,     OUTPUT,      "Status LED"     )                                                            
@@ -35,6 +37,10 @@ typedef struct Pin_Array_t {
     #define PIN_ENTRY(a, b, c, d) {a, b, c, d},
 Pin_Array_t Pin_Array[NUM_PINS] = {PIN_TABLE};
     #undef PIN_ENTRY
+
+    const long long SPI_SPEED_HZ = 4000000;
+    const int SPI_ENDIAN = MSBFIRST;
+    const int SPI_MODE = SPI_MODE1;
 
 private:
 };
