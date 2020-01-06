@@ -42,23 +42,38 @@ typedef enum Reg_ID_t {
 } Reg_ID_t;
 
 typedef enum Gain_Setting_t {PGA1  =  1,
-                       PGA2  =  2,
-                       PGA4  =  4,
-                       PGA6  =  6,
-                       PGA8  =  8,
-                       PGA12 = 12,
-                       PGA24 = 24} Gain_Setting_t;
+                             PGA2  =  2,
+                             PGA4  =  4,
+                             PGA6  =  6,
+                             PGA8  =  8,
+                             PGA12 = 12,
+                             PGA24 = 24, 
+                             PGA_ERROR} Gain_Setting_t;
+
+typedef enum Data_Rate_Setting_t {SPS16k,
+                                  SPS8k,
+                                  SPS4k,
+                                  SPS2k,
+                                  SPS1k,
+                                  SPS500,
+                                  SPS250,
+                                  SPS_ERROR} Data_Rate_Setting_t;
 
 typedef enum Command_t {WAKEUP  = 0x02,
-                  STANDBY = 0x04,
-                  RESET   = 0x06,
-                  START   = 0x08,
-                  STOP    = 0x0A,
-                  RDATAC  = 0x10,
-                  SDATAC  = 0x11,
-                  RDATA   = 0x12, 
-                  RREG    = 0x20,
-                  WREG    = 0x40} Command_t;
+                        STANDBY = 0x04,
+                        RESET   = 0x06,
+                        START   = 0x08,
+                        STOP    = 0x0A,
+                        RDATAC  = 0x10,
+                        SDATAC  = 0x11,
+                        RDATA   = 0x12, 
+                        RREG    = 0x20,
+                        WREG    = 0x40} Command_t;
+
+typedef enum Test_Frequency_t {TEST_FREQ_FCLK_DIV_2_21  = 0x02,
+                               TEST_FREQ_FCLK_DIV_2_20  = 0x04,
+                               TEST_FREQ_INVALID        = 0x06,
+                               TEST_FREQ_0              = 0x08 } Test_Frequency_t;
 
 class ADS1299_Module {
 public:
@@ -98,6 +113,30 @@ uint8_t get_num_channels(void);
 bool get_daisy_mode(void);
 
 bool set_daisy_mode(bool enable);
+
+bool get_clock_mode(void);
+
+bool set_clock_mode(bool enable);
+
+Data_Rate_Setting_t get_data_rate(void);
+
+bool set_data_rate(Data_Rate_Setting_t new_rate);
+
+bool get_int_cal(void);
+
+bool set_int_cal(bool state);
+
+bool get_cal_amp(void);
+
+bool set_cal_amp(bool state);
+
+Test_Frequency_t get_cal_freq(void);
+
+bool set_cal_freq(Test_Frequency_t new_freq);
+
+bool get_reference_buffer_state(void);
+
+bool set_reference_buffer_state(bool new_state);
 
 
 
