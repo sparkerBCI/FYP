@@ -89,6 +89,47 @@ typedef enum Test_Frequency_t
   TEST_FREQ_0             = 0x08
 } Test_Frequency_t;
 
+typedef enum Bias_Source_t
+{
+  BIAS_INTERNAL,
+  BIAS_EXTERNAL,
+  BIAS_ERROR
+} Bias_Source_t;
+
+typedef enum Bias_Power_State_t
+{
+  BIAS_POWER_OFF,
+  BIAS_POWER_ON,
+  BIAS_POWER_ERROR
+} Bias_Power_State_t;
+
+typedef enum Bias_Sense_Enable_t
+{
+  BIAS_SENSE_DISABLED,
+  BIAS_SENSE_ENABLED,
+  BIAS_SENSE_ERROR
+} Bias_Sense_Enable_t;
+
+typedef enum Bias_LOff_Status_t
+{
+  BIAS_CONNECTED,
+  BIAS_DISCONNECTED,
+  BIAS_LOFF_ERROR
+} Bias_LOff_Status_t;
+
+typedef enum LOff_Comp_Threshold_Var__t
+{
+  LOFF_5Per,
+  LOFF_7Per5,
+  LOFF_10Per,
+  LOFF_12Per5,
+  LOFF_15Per,
+  LOFF_20Per,
+  LOFF_25Per,
+  LOFF_30Per,
+  LOFF_THRESH_ERROR
+} LOff_Comp_Threshold_Var__t;
+
 class ADS1299_Module {
 public:
   explicit ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info);
@@ -175,10 +216,35 @@ public:
 
   bool set_reference_buffer_state(bool new_state);
 
+
   bool get_bias_measurement_state(void);
 
-
+  
   bool set_bias_measurement_state(bool new_state);
+
+
+  Bias_Source_t get_bias_source(void);
+
+
+  bool set_bias_source(Bias_Source_t new_source);
+
+
+  Bias_Power_State_t get_bias_buffer_power_state(void);
+
+
+  bool set_bias_power_state(Bias_Power_State_t new_state);
+
+
+  Bias_Sense_Enable_t get_bias_sense_state(void);
+
+
+  bool set_bias_sense_state(Bias_Sense_Enable_t new_state);
+
+
+  Bias_LOff_Status_t get_bias_lead_off_state(void);
+
+
+  LOff_Comp_Threshold_Var__t get_lead_off_comp_thresh(void);
 
 
 private:

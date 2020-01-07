@@ -339,7 +339,7 @@ bool ADS1299_Module::get_bias_measurement_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x80;
+  reg_data &= 0x10;
   return(reg_data);
 }
 
@@ -348,10 +348,155 @@ bool ADS1299_Module::set_bias_measurement_state(bool new_state)
 {
   if (new_state)
   {
-    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | 0x80));
+    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | 0x10));
   }
   else
   {
-    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value & 0x7F));
+    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value & 0xEF));
+  }
+}
+
+
+Bias_Source_t ADS1299_Module::get_bias_source(void)
+{
+  uint8_t reg_data = read_register(CONFIG3);
+
+  reg_data &= 0x08;
+  switch (reg_data)
+  {
+  case BIAS_INTERNAL:
+    return BIAS_INTERNAL;
+
+  case BIAS_EXTERNAL:
+    return BIAS_EXTERNAL;
+
+  default:
+    return BIAS_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_bias_source(Bias_Source_t new_source)
+{
+  if ((new_source >= BIAS_INTERNAL) && (new_source < BIAS_ERROR))
+  {
+    return write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | ((static_cast<uint8_t>(new_source)) << 3));
+  }
+
+  return false;
+}
+
+
+Bias_Power_State_t ADS1299_Module::get_bias_buffer_power_state(void)
+{
+  uint8_t reg_data = read_register(CONFIG3);
+
+  reg_data &= 0x04;
+  switch (reg_data)
+  {
+  case BIAS_POWER_OFF:
+    return BIAS_POWER_OFF;
+
+  case BIAS_POWER_ON:
+    return BIAS_POWER_ON;
+
+  default:
+    return BIAS_POWER_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_bias_power_state(Bias_Power_State_t new_state)
+{
+  if ((new_state >= BIAS_POWER_OFF) && (new_state < BIAS_POWER_ERROR))
+  {
+    return write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | ((static_cast<uint8_t>(new_state)) << 2));
+  }
+  return false;
+}
+
+
+Bias_Sense_Enable_t ADS1299_Module::get_bias_sense_state(void)
+{
+  uint8_t reg_data = read_register(CONFIG3);
+
+  reg_data &= 0x02;
+  switch (reg_data)
+  {
+  case BIAS_SENSE_DISABLED:
+    return BIAS_SENSE_DISABLED;
+
+  case BIAS_SENSE_ENABLED:
+    return BIAS_SENSE_ENABLED;
+
+  default:
+    return BIAS_SENSE_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_bias_sense_state(Bias_Sense_Enable_t new_state)
+{
+  if ((new_state >= BIAS_SENSE_DISABLED) && (new_state < BIAS_SENSE_ERROR))
+  {
+    return write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | ((static_cast<uint8_t>(new_state)) << 1));
+  }
+  return false;
+}
+
+
+Bias_LOff_Status_t ADS1299_Module::get_bias_lead_off_state(void)
+{
+  uint8_t reg_data = read_register(CONFIG3);
+
+  reg_data &= 0x01;
+  switch (reg_data)
+  {
+  case BIAS_CONNECTED:
+    return BIAS_CONNECTED;
+
+  case BIAS_DISCONNECTED:
+    return BIAS_DISCONNECTED;
+
+  default:
+    return BIAS_LOFF_ERROR;
+  }
+}
+
+
+LOff_Comp_Threshold_Var__t ADS1299_Module::get_lead_off_comp_thresh(void)
+{
+  uint8_t reg_data = read_register(LOFF);
+
+  reg_data  &= 0xE0;
+  reg_data >>= 5;
+  switch (reg_data)
+  {
+  case LOFF_5Per:
+    return LOFF_5Per;
+
+  case LOFF_7Per5:
+    return LOFF_7Per5;
+
+  case LOFF_10Per:
+    return LOFF_10Per;
+
+  case LOFF_12Per5:
+    return LOFF_12Per5;
+
+  case LOFF_15Per:
+    return LOFF_15Per;
+
+  case LOFF_20Per:
+    return LOFF_20Per;
+
+  case LOFF_25Per:
+    return LOFF_25Per;
+
+  case LOFF_30Per:
+    return LOFF_30Per;
+
+  default:
+    return LOFF_THRESH_ERROR;
   }
 }
