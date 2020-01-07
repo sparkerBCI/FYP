@@ -40,20 +40,9 @@ typedef enum Reg_ID_t
 #define REG_ENTRY(a, b, c, d)    a,
   REG_TABLE
 #undef REG_ENTRY
-  NUM_REGS
+  NUM_REGS,
+  REG_ERROR
 } Reg_ID_t;
-
-typedef enum Gain_Setting_t
-{
-  PGA1  =  1,
-  PGA2  =  2,
-  PGA4  =  4,
-  PGA6  =  6,
-  PGA8  =  8,
-  PGA12 = 12,
-  PGA24 = 24,
-  PGA_ERROR
-} Gain_Setting_t;
 
 typedef enum Data_Rate_Setting_t
 {
@@ -139,6 +128,83 @@ typedef enum LOff_Current_t
   LOFF_CURRENT_ERROR
 } LOff_Current_t;
 
+typedef enum LOff_Freq_t
+{
+  LOFF_FREQ_DC,
+  LOFF_FREQ_7Hz8,
+  LOFF_FREQ_31Hz2,
+  LOFF_FREQ_SPS_OVER_4,
+  LOFF_FREQ_ERROR
+} LOff_Freq_t;
+
+typedef enum Channel_t
+{
+  CH1,
+  CH2,
+  CH3,
+  CH4,
+  CH5,
+  CH6,
+  CH7,
+  CH8,
+  CH_ERROR
+} Channel_t;
+
+typedef enum Channel_Power_State_t
+{
+  CH_POWER_ON,
+  CH_POWER_OFF,
+  CH_POWER_ERROR
+} Channel_Power_State_t;
+
+typedef enum Gain_Setting_t
+{
+  PGA1,
+  PGA2,
+  PGA4,
+  PGA6,
+  PGA8,
+  PGA12,
+  PGA24,
+  PGA_ERROR
+} Gain_Setting_t;
+
+typedef enum SRB2_Connection_Status_t
+{
+  SRB2_OPEN,
+  SRB2_CLOSED,
+  SRB2_ERROR
+} SRB2_Connection_Status_t;
+
+typedef enum Channel_Connection_Type_t
+{
+  CH_ELECTRODE_INPUT,
+  CH_SHORTED,
+  CH_BIAS_MEAS,
+  CH_SUPPLY_MEAS,
+  CH_TEMP_SENS,
+  CH_TEST_SIG,
+  CH_BIAS_DRIVE_POS,
+  CH_BIAS_DRIVE_NEG,
+  CH_CONNECTION_ERROR
+} Channel_Connection_Type_t;
+
+typedef enum GPIO_Pin_t
+{
+  GPIO1,
+  GPIO2,
+  GPIO3,
+  GPIO4,
+  GPIO_ERROR
+} GPIO_Pin_t;
+
+typedef enum GPIO_Mode_t
+{
+  GPIO_OUTPUT,
+  GPIO_INPUT,
+  GPIO_MODE_ERROR
+} GPIO_Mode_t;
+
 class ADS1299_Module {
 public:
   explicit ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info);
@@ -166,7 +232,16 @@ public:
   uint8_t read_register(Reg_ID_t Register);
 
 
-  uint8_t write_register(Reg_ID_t Register, uint8_t value);
+  uint8_t read_register(int Register_Address);
+
+
+  Reg_ID_t get_Reg_ID_from_Address(uint8_t register_address);
+
+
+  bool write_register(Reg_ID_t Register, uint8_t value);
+
+
+  bool write_register(int Register_Address, uint8_t value);
 
 
   uint8_t send_command(Command_t command);
@@ -263,6 +338,79 @@ public:
 
 
   bool set_lead_off_current_mag(LOff_Current_t new_current);
+
+
+  LOff_Freq_t get_lead_off_frequency(void);
+
+
+  bool set_lead_off_frequency(LOff_Freq_t new_freq);
+
+
+  Channel_Power_State_t get_channel_power_state(Channel_t channel);
+
+
+  bool set_channel_power_state(Channel_t channel, Channel_Power_State_t new_state);
+
+
+  Gain_Setting_t get_channel_gain(Channel_t channel);
+
+
+  bool set_channel_gain(Channel_t channel, Gain_Setting_t new_state);
+
+
+  SRB2_Connection_Status_t get_channel_SRB1_connection_status(Channel_t);
+
+
+  bool set_channel_SRB1_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state);
+
+
+  Channel_Connection_Type_t get_channel_connection_type(Channel_t channel);
+
+
+  bool set_channel_connection_type(Channel_t channel, Channel_Connection_Type_t new_state);
+
+
+  bool get_channel_bias_drive_pos_derivation(Channel_t channel);
+
+
+  bool set_channel_bias_drive_pos_derivation(Channel_t channel, bool new_state);
+
+  bool get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel);
+
+  bool set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
+
+  bool get_channel_bias_drive_neg_derivation(Channel_t channel);
+
+  bool set_channel_bias_drive_neg_derivation(Channel_t channel, bool new_state);
+
+  bool get_channel_LOff_pos_enabled(Channel_t channel);
+
+  bool set_channel_LOff_pos_enabled(Channel_t channel, bool new_state);
+
+
+  bool get_channel_LOff_neg_enabled(Channel_t channel);
+
+
+  bool set_channel_LOff_neg_enabled(Channel_t channel, bool new_state);
+
+
+  bool get_channel_LOff_flip_enabled(Channel_t channel);
+
+  bool set_channel_LOff_flip_enabled(Channel_t channel, bool new_state);
+
+
+  bool get_channel_LOff_pos(Channel_t channel);
+
+
+  bool get_channel_LOff_neg(Channel_t channel);
+
+
+  GPIO_Mode_t get_GPIO_Pin_Mode(GPIO_Pin_t pin);
+
+  bool set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode);
+
+
+  bool set_GPIO_Pin_State(GPIO_Pin_t pin, bool state);
 
 
 private:

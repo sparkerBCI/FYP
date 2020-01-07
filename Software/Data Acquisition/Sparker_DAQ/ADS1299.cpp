@@ -2,6 +2,8 @@
 
 #include "ADS1299.h"
 
+#define NUM_CHANNELS    8
+
 
 ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
 {
@@ -48,7 +50,32 @@ uint8_t ADS1299_Module::read_register(Reg_ID_t Register)
 }
 
 
-uint8_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
+uint8_t ADS1299_Module::read_register(int Register_Address)
+{
+  Reg_ID_t temp_ID = get_Reg_ID_from_Address(Register_Address);
+
+  if (temp_ID != REG_ERROR)
+  {
+    return read_register(temp_ID);
+  }
+  return(0);
+}
+
+
+Reg_ID_t ADS1299_Module::get_Reg_ID_from_Address(uint8_t register_address)
+{
+  for (int i = 0; i < NUM_REGS; i++)
+  {
+    if (register_address == Reg_Array[i].Address)
+    {
+      return Reg_Array[i].Reg_ID;
+    }
+  }
+  return REG_ERROR;
+}
+
+
+bool ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
 {
   if ((Register >= ID) && (Register < NUM_REGS) && !(Reg_Array[Register].Read_Only))
   {
@@ -58,9 +85,21 @@ uint8_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
     SPI.transfer(value);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
     Reg_Array[Register].Current_Value = value;
-    return(1);
+    return(true);
   }
-  return(0);
+  return(false);
+}
+
+
+bool ADS1299_Module::write_register(int Register_Address, uint8_t value)
+{
+  Reg_ID_t temp_ID = get_Reg_ID_from_Address(Register_Address);
+
+  if (temp_ID != REG_ERROR)
+  {
+    return write_register(temp_ID, value);
+  }
+  return false;
 }
 
 
@@ -361,7 +400,8 @@ Bias_Source_t ADS1299_Module::get_bias_source(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x08;
+  reg_data  &= 0x08;
+  reg_data >>= 3;
   switch (reg_data)
   {
   case BIAS_INTERNAL:
@@ -391,7 +431,8 @@ Bias_Power_State_t ADS1299_Module::get_bias_buffer_power_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x04;
+  reg_data  &= 0x04;
+  reg_data >>= 2;
   switch (reg_data)
   {
   case BIAS_POWER_OFF:
@@ -420,7 +461,8 @@ Bias_Sense_Enable_t ADS1299_Module::get_bias_sense_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x02;
+  reg_data  &= 0x02;
+  reg_data >>= 1;
   switch (reg_data)
   {
   case BIAS_SENSE_DISABLED:
@@ -544,5 +586,370 @@ bool ADS1299_Module::set_lead_off_current_mag(LOff_Current_t new_current)
   {
     return write_register(LOFF, Reg_Array[LOFF].Current_Value | ((static_cast<uint8_t>(new_current)) << 2));
   }
+  return false;
+}
+
+
+LOff_Freq_t ADS1299_Module::get_lead_off_frequency(void)
+{
+  uint8_t reg_data = read_register(LOFF);
+
+  reg_data &= 0x03;
+  switch (reg_data)
+  {
+  case LOFF_FREQ_DC:
+    return LOFF_FREQ_DC;
+
+  case LOFF_FREQ_7Hz8:
+    return LOFF_FREQ_7Hz8;
+
+  case LOFF_FREQ_31Hz2:
+    return LOFF_FREQ_31Hz2;
+
+  case LOFF_FREQ_SPS_OVER_4:
+    return LOFF_FREQ_SPS_OVER_4;
+
+  default:
+    return LOFF_FREQ_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_lead_off_frequency(LOff_Freq_t new_freq)
+{
+  if ((new_freq >= LOFF_FREQ_DC) && (new_freq < LOFF_FREQ_ERROR))
+  {
+    return write_register(LOFF, Reg_Array[LOFF].Current_Value | (static_cast<uint8_t>(new_freq)));
+  }
+  return false;
+}
+
+
+Channel_Power_State_t ADS1299_Module::get_channel_power_state(Channel_t channel)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  {
+    uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
+    reg_data  &= 0x80;
+    reg_data >>= 7;
+    switch (reg_data)
+    {
+    case CH_POWER_ON:
+      return CH_POWER_ON;
+
+    case CH_POWER_OFF:
+      return CH_POWER_OFF;
+
+    default:
+      return CH_POWER_ERROR;
+    }
+  }
+  else
+  {
+    return CH_POWER_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_channel_power_state(Channel_t channel, Channel_Power_State_t new_state)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= CH_POWER_ON) && (new_state < CH_POWER_ERROR))
+  {
+    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | ((static_cast<uint8_t>(new_state)) << 7));
+  }
+  else
+  {
+    return false;
+  }
+}
+
+
+Gain_Setting_t ADS1299_Module::get_channel_gain(Channel_t channel)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  {
+    uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
+    reg_data  &= 0x70;
+    reg_data >>= 4;
+    switch (reg_data)
+    {
+    case PGA1:
+      return PGA1;
+
+    case PGA2:
+      return PGA2;
+
+    case PGA4:
+      return PGA4;
+
+    case PGA6:
+      return PGA6;
+
+    case PGA8:
+      return PGA8;
+
+    case PGA12:
+      return PGA12;
+
+    case PGA24:
+      return PGA24;
+
+    default:
+      return PGA_ERROR;
+    }
+  }
+  else
+  {
+    return PGA_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Setting_t new_state)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= PGA1) && (new_state < PGA_ERROR))
+  {
+    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | ((static_cast<uint8_t>(new_state)) << 4));
+  }
+  return false;
+}
+
+
+SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB1_connection_status(Channel_t channel)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  {
+    uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
+    reg_data  &= 0x04;
+    reg_data >>= 3;
+    switch (reg_data)
+    {
+    case SRB2_OPEN:
+      return SRB2_OPEN;
+
+    case SRB2_CLOSED:
+      return SRB2_CLOSED;
+
+    default:
+      return SRB2_ERROR;
+    }
+  }
+
+  return SRB2_ERROR;
+}
+
+
+bool ADS1299_Module::set_channel_SRB1_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= SRB2_OPEN) && (new_state < SRB2_ERROR))
+  {
+    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | ((static_cast<uint8_t>(new_state)) << 3));
+  }
+
+  return false;
+}
+
+
+Channel_Connection_Type_t ADS1299_Module::get_channel_connection_type(Channel_t channel)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  {
+    uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
+    reg_data &= 0x03;
+    switch (reg_data)
+    {
+    case CH_ELECTRODE_INPUT:
+      return CH_ELECTRODE_INPUT;
+
+    case CH_SHORTED:
+      return CH_SHORTED;
+
+    case CH_BIAS_MEAS:
+      return CH_BIAS_MEAS;
+
+    case CH_SUPPLY_MEAS:
+      return CH_SUPPLY_MEAS;
+
+    case CH_TEMP_SENS:
+      return CH_TEMP_SENS;
+
+    case CH_TEST_SIG:
+      return CH_TEST_SIG;
+
+    case CH_BIAS_DRIVE_POS:
+      return CH_BIAS_DRIVE_POS;
+
+    case CH_BIAS_DRIVE_NEG:
+      return CH_BIAS_DRIVE_NEG;
+
+    default:
+      return CH_CONNECTION_ERROR;
+    }
+  }
+
+  return CH_CONNECTION_ERROR;
+}
+
+
+bool ADS1299_Module::set_channel_connection_type(Channel_t channel, Channel_Connection_Type_t new_state)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= CH_ELECTRODE_INPUT) && (new_state < CH_CONNECTION_ERROR))
+  {
+    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | (static_cast<uint8_t>(new_state)));
+  }
+  return false;
+}
+
+
+bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (Register >= ID) && (Register < NUM_REGS))
+  {
+    uint8_t reg_data = read_register(Register);
+    uint8_t bitmask  = 0x01 << channel;
+    reg_data &= bitmask;
+    return reg_data;
+  }
+
+  return false;
+}
+
+
+bool ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state)
+{
+  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (Register >= ID) && (Register < NUM_REGS))
+  {
+    if (new_state)
+    {
+      uint8_t bitmask = 0x01 << channel;
+      return write_register(Register, Reg_Array[Register].Current_Value | bitmask);
+    }
+    else
+    {
+      uint8_t bitmask = (0xFE << channel) + channel;
+      return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
+    }
+  }
+  return false;
+}
+
+
+bool ADS1299_Module::get_channel_bias_drive_pos_derivation(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(BIAS_SENSP, channel);
+}
+
+
+bool ADS1299_Module::set_channel_bias_drive_pos_derivation(Channel_t channel, bool new_state)
+{
+  return set_bit_addressable_channel_info(BIAS_SENSP, channel, new_state);
+}
+
+
+bool ADS1299_Module::get_channel_bias_drive_neg_derivation(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(BIAS_SENSN, channel);
+}
+
+
+bool ADS1299_Module::set_channel_bias_drive_neg_derivation(Channel_t channel, bool new_state)
+{
+  return set_bit_addressable_channel_info(BIAS_SENSN, channel, new_state);
+}
+
+
+bool ADS1299_Module::get_channel_LOff_pos_enabled(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(LOFF_SENSP, channel);
+}
+
+
+bool ADS1299_Module::set_channel_LOff_pos_enabled(Channel_t channel, bool new_state)
+{
+  return set_bit_addressable_channel_info(LOFF_SENSP, channel, new_state);
+}
+
+
+bool ADS1299_Module::get_channel_LOff_neg_enabled(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(LOFF_SENSN, channel);
+}
+
+
+bool ADS1299_Module::set_channel_LOff_neg_enabled(Channel_t channel, bool new_state)
+{
+  return set_bit_addressable_channel_info(LOFF_SENSN, channel, new_state);
+}
+
+
+bool ADS1299_Module::get_channel_LOff_flip_enabled(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(LOFF_FLIP, channel);
+}
+
+
+bool ADS1299_Module::set_channel_LOff_flip_enabled(Channel_t channel, bool new_state)
+{
+  return set_bit_addressable_channel_info(LOFF_FLIP, channel, new_state);
+}
+
+
+bool ADS1299_Module::get_channel_LOff_pos(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(LOFF_STATP, channel);
+}
+
+
+bool ADS1299_Module::get_channel_LOff_neg(Channel_t channel)
+{
+  return get_bit_addressable_channel_info(LOFF_STATN, channel);
+}
+
+
+GPIO_Mode_t ADS1299_Module::get_GPIO_Pin_Mode(GPIO_Pin_t pin)
+{
+  if ((pin >= GPIO1) && (pin < GPIO_ERROR))
+  {
+    uint8_t reg_data = read_register(GPIO);
+    uint8_t bitmask  = 0x01 << pin;
+    reg_data &= bitmask;
+    if (reg_data)
+    {
+      return GPIO_INPUT;
+    }
+    else
+    {
+      return GPIO_OUTPUT;
+    }
+  }
+  return GPIO_MODE_ERROR;
+}
+
+
+bool ADS1299_Module::set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode)
+{
+  if ((pin >= GPIO1) && (pin < GPIO_ERROR) && (mode >= GPIO_OUTPUT) && (mode < GPIO_MODE_ERROR))
+  {
+    uint8_t bitmask = 0x01 << pin;
+    return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
+  }
+
+  return false;
+}
+
+
+bool ADS1299_Module::set_GPIO_Pin_State(GPIO_Pin_t pin, bool state)
+{
+  if ((pin >= GPIO1) && (pin < GPIO_ERROR) && (state >= GPIO_OUTPUT) && (state < GPIO_MODE_ERROR))
+  {
+    if (state)
+    {
+      uint8_t bitmask = 0x10 << pin;
+      return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
+    }
+    uint8_t bitmask = (0xEF << pin) + (static_cast<uint8_t>(pin) << 4);
+    return write_register(GPIO, Reg_Array[GPIO].Current_Value & bitmask);
+  }
+
   return false;
 }
