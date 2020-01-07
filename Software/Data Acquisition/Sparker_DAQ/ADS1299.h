@@ -117,7 +117,7 @@ typedef enum Bias_LOff_Status_t
   BIAS_LOFF_ERROR
 } Bias_LOff_Status_t;
 
-typedef enum LOff_Comp_Threshold_Var__t
+typedef enum LOff_Comp_Threshold_Var_t
 {
   LOFF_5Per,
   LOFF_7Per5,
@@ -128,7 +128,16 @@ typedef enum LOff_Comp_Threshold_Var__t
   LOFF_25Per,
   LOFF_30Per,
   LOFF_THRESH_ERROR
-} LOff_Comp_Threshold_Var__t;
+} LOff_Comp_Threshold_Var_t;
+
+typedef enum LOff_Current_t
+{
+  LOFF_CURRENT_6nA,
+  LOFF_CURRENT_24nA,
+  LOFF_CURRENT_6uA,
+  LOFF_CURRENT_24uA,
+  LOFF_CURRENT_ERROR
+} LOff_Current_t;
 
 class ADS1299_Module {
 public:
@@ -219,7 +228,7 @@ public:
 
   bool get_bias_measurement_state(void);
 
-  
+
   bool set_bias_measurement_state(bool new_state);
 
 
@@ -244,7 +253,16 @@ public:
   Bias_LOff_Status_t get_bias_lead_off_state(void);
 
 
-  LOff_Comp_Threshold_Var__t get_lead_off_comp_thresh(void);
+  LOff_Comp_Threshold_Var_t get_lead_off_comp_thresh(void);
+
+
+  bool set_lead_off_comp_thresh(LOff_Comp_Threshold_Var_t new_thresh);
+
+
+  LOff_Current_t get_lead_off_current_mag(void);
+
+
+  bool set_lead_off_current_mag(LOff_Current_t new_current);
 
 
 private:

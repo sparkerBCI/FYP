@@ -464,7 +464,7 @@ Bias_LOff_Status_t ADS1299_Module::get_bias_lead_off_state(void)
 }
 
 
-LOff_Comp_Threshold_Var__t ADS1299_Module::get_lead_off_comp_thresh(void)
+LOff_Comp_Threshold_Var_t ADS1299_Module::get_lead_off_comp_thresh(void)
 {
   uint8_t reg_data = read_register(LOFF);
 
@@ -499,4 +499,50 @@ LOff_Comp_Threshold_Var__t ADS1299_Module::get_lead_off_comp_thresh(void)
   default:
     return LOFF_THRESH_ERROR;
   }
+}
+
+
+bool ADS1299_Module::set_lead_off_comp_thresh(LOff_Comp_Threshold_Var_t new_thresh)
+{
+  if ((new_thresh >= LOFF_5Per) && (new_thresh < LOFF_THRESH_ERROR))
+  {
+    return write_register(LOFF, Reg_Array[LOFF].Current_Value | ((static_cast<uint8_t>(new_thresh)) << 5));
+  }
+  return false;
+}
+
+
+LOff_Current_t ADS1299_Module::get_lead_off_current_mag(void)
+{
+  uint8_t reg_data = read_register(LOFF);
+
+  reg_data  &= 0x0C;
+  reg_data >>= 2;
+  switch (reg_data)
+  {
+  case LOFF_CURRENT_6nA:
+    return LOFF_CURRENT_6nA;
+
+  case LOFF_CURRENT_24nA:
+    return LOFF_CURRENT_24nA;
+
+  case LOFF_CURRENT_6uA:
+    return LOFF_CURRENT_6uA;
+
+  case LOFF_CURRENT_24uA:
+    return LOFF_CURRENT_24uA;
+
+  default:
+    return LOFF_CURRENT_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_lead_off_current_mag(LOff_Current_t new_current)
+{
+  if ((new_current >= LOFF_CURRENT_6nA) && (new_current < LOFF_CURRENT_ERROR))
+  {
+    return write_register(LOFF, Reg_Array[LOFF].Current_Value | ((static_cast<uint8_t>(new_current)) << 2));
+  }
+  return false;
 }
