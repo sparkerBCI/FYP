@@ -1,3 +1,5 @@
 ../Sparker_DAQ.ino
 ../ADS1299.h
 ../ADS1299.cpp
+../DAQ_Pin_Map.h
+../DAQ_Pin_Map.cpp
