@@ -826,7 +826,7 @@ bool ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Register, Channel
     }
     else
     {
-      uint8_t bitmask = (0xFE << channel) + channel;
+      uint8_t bitmask = 0xFF & (0xFE << channel);
       return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
     }
   }
@@ -938,6 +938,18 @@ bool ADS1299_Module::set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode)
 }
 
 
+bool ADS1299_Module::get_GPIO_Pin_State(GPIO_Pin_t pin)
+{
+  if ((pin >= GPIO1) && (pin < GPIO_ERROR))
+  {
+    uint8_t reg_data = read_register(GPIO);
+    uint8_t bitmask  = 0x10 << pin;
+    return(reg_data & bitmask);
+  }
+  return false;
+}
+
+
 bool ADS1299_Module::set_GPIO_Pin_State(GPIO_Pin_t pin, bool state)
 {
   if ((pin >= GPIO1) && (pin < GPIO_ERROR) && (state >= GPIO_OUTPUT) && (state < GPIO_MODE_ERROR))
@@ -947,9 +959,72 @@ bool ADS1299_Module::set_GPIO_Pin_State(GPIO_Pin_t pin, bool state)
       uint8_t bitmask = 0x10 << pin;
       return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
     }
-    uint8_t bitmask = (0xEF << pin) + (static_cast<uint8_t>(pin) << 4);
+    uint8_t bitmask = 0xFF & (0xEF << pin);
     return write_register(GPIO, Reg_Array[GPIO].Current_Value & bitmask);
   }
 
+  return false;
+}
+
+
+SRB1_Connection_Status_t ADS1299_Module::get_all_channel_SRB1_connection_status(void)
+{
+  uint8_t reg_data = read_register(MISC1);
+
+  reg_data &= 0x20;
+  switch (reg_data)
+  {
+  case SRB1_OPEN_ALL_CHANNELS:
+    return SRB1_OPEN_ALL_CHANNELS;
+
+  case SRB1_CLOSED_ALL_CHANNELS:
+    return SRB1_CLOSED_ALL_CHANNELS;
+
+  default:
+    return SRB1_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_all_channel_SRB1_connection_status(SRB1_Connection_Status_t new_state)
+{
+  if ((new_state >= SRB1_OPEN_ALL_CHANNELS) && (new_state < SRB1_ERROR))
+  {
+    if (new_state)
+    {
+      return write_register(MISC1, Reg_Array[MISC1].Current_Value | 0x20);
+    }
+    return write_register(MISC1, Reg_Array[MISC1].Current_Value & 0xDF);
+  }
+  return false;
+}
+
+
+LOff_Conv_Mode_t ADS1299_Module::get_LOff_conversion_mode(void)
+{
+  uint8_t reg_data = read_register(CONFIG4);
+
+  reg_data  &= 0x04;
+  reg_data >>= 3;
+  switch (reg_data)
+  {
+  case LOFF_CONTINUOUS_CONVERSION:
+    return LOFF_CONTINUOUS_CONVERSION;
+
+  case LOFF_SINGLE_SHOT:
+    return LOFF_SINGLE_SHOT;
+
+  default:
+    return LOFF_CONV_MODE_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_LOff_conversion_mode(LOff_Conv_Mode_t new_state)
+{
+  if ((new_state >= LOFF_CONTINUOUS_CONVERSION) && (new_state < LOFF_CONV_MODE_ERROR))
+  {
+    return write_register(CONFIG4, Reg_Array[CONFIG4].Current_Value | (static_cast<uint8_t>(new_state) << 3));
+  }
   return false;
 }

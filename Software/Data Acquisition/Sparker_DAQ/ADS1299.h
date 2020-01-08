@@ -176,6 +176,13 @@ typedef enum SRB2_Connection_Status_t
   SRB2_ERROR
 } SRB2_Connection_Status_t;
 
+typedef enum SRB1_Connection_Status_t
+{
+  SRB1_OPEN_ALL_CHANNELS,
+  SRB1_CLOSED_ALL_CHANNELS,
+  SRB1_ERROR
+} SRB1_Connection_Status_t;
+
 typedef enum Channel_Connection_Type_t
 {
   CH_ELECTRODE_INPUT,
@@ -204,6 +211,13 @@ typedef enum GPIO_Mode_t
   GPIO_INPUT,
   GPIO_MODE_ERROR
 } GPIO_Mode_t;
+
+typedef enum LOff_Conv_Mode_t
+{
+  LOFF_CONTINUOUS_CONVERSION,
+  LOFF_SINGLE_SHOT,
+  LOFF_CONV_MODE_ERROR
+} LOff_Conv_Mode_t;
 
 class ADS1299_Module {
 public:
@@ -375,15 +389,21 @@ public:
 
   bool set_channel_bias_drive_pos_derivation(Channel_t channel, bool new_state);
 
+
   bool get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel);
+
 
   bool set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
 
+
   bool get_channel_bias_drive_neg_derivation(Channel_t channel);
+
 
   bool set_channel_bias_drive_neg_derivation(Channel_t channel, bool new_state);
 
+
   bool get_channel_LOff_pos_enabled(Channel_t channel);
+
 
   bool set_channel_LOff_pos_enabled(Channel_t channel, bool new_state);
 
@@ -396,6 +416,7 @@ public:
 
   bool get_channel_LOff_flip_enabled(Channel_t channel);
 
+
   bool set_channel_LOff_flip_enabled(Channel_t channel, bool new_state);
 
 
@@ -407,10 +428,26 @@ public:
 
   GPIO_Mode_t get_GPIO_Pin_Mode(GPIO_Pin_t pin);
 
+
   bool set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode);
 
 
+  bool get_GPIO_Pin_State(GPIO_Pin_t pin);
+
+
   bool set_GPIO_Pin_State(GPIO_Pin_t pin, bool state);
+
+
+  SRB1_Connection_Status_t get_all_channel_SRB1_connection_status(void);
+
+
+  bool set_all_channel_SRB1_connection_status(SRB1_Connection_Status_t new_state);
+
+
+  LOff_Conv_Mode_t get_LOff_conversion_mode(void);
+
+
+  bool set_LOff_conversion_mode(LOff_Conv_Mode_t new_state);
 
 
 private:
