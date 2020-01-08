@@ -44,6 +44,7 @@ uint8_t ADS1299_Module::read_register(Reg_ID_t Register)
     uint16_t command = (RREG | Reg_Array[Register].Address) << 8;
     uint8_t  result  = SPI.transfer16(command & 0xFF00);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
+    Reg_Array[Register].Current_Value = result;
     return(result);
   }
   return(0);
