@@ -81,7 +81,7 @@ bool ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
   {
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
     uint16_t command = (WREG | Reg_Array[Register].Address) << 8;
-    SPI.transfer16(command & 0xFF00);
+    SPI.transfer16(command & 0xFF00); //Think the bitwise op can be removed, bitshifting should always pad with 0s
     SPI.transfer(value);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
     Reg_Array[Register].Current_Value = value;
@@ -264,7 +264,8 @@ bool ADS1299_Module::set_data_rate(Data_Rate_Setting_t new_rate)
 {
   if ((new_rate >= SPS16k) && (new_rate < SPS_ERROR))
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | new_rate));                       /* Write the new data rate */
+    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF4;                 /* Clear the old data */
+    return(write_register(CONFIG1, value | new_rate));                       /* Write the new data rate */
   }
   else
   {
@@ -343,7 +344,8 @@ bool ADS1299_Module::set_cal_freq(Test_Frequency_t new_freq)
 {
   if ((new_freq >= TEST_FREQ_FCLK_DIV_2_21) && (new_freq <= TEST_FREQ_0) && (new_freq != TEST_FREQ_INVALID))
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | static_cast<uint8_t>(new_freq)));                 /* Set the 2nd bit of the CONFIG2 register */
+    uint8_t value = Reg_Array[CONFIG2].Current_Value & 0xFC;                                 /* Clear the old data */
+    return(write_register(CONFIG2, value | static_cast<uint8_t>(new_freq)));                 /* Set the bits of the CONFIG2 register */
   }
   else
   {
@@ -420,7 +422,8 @@ bool ADS1299_Module::set_bias_source(Bias_Source_t new_source)
 {
   if ((new_source >= BIAS_INTERNAL) && (new_source < BIAS_ERROR))
   {
-    return write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | ((static_cast<uint8_t>(new_source)) << 3));
+    uint8_t value = Reg_Array[CONFIG3].Current_Value & 0xF7;
+    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_source)) << 3));
   }
 
   return false;
@@ -451,7 +454,8 @@ bool ADS1299_Module::set_bias_power_state(Bias_Power_State_t new_state)
 {
   if ((new_state >= BIAS_POWER_OFF) && (new_state < BIAS_POWER_ERROR))
   {
-    return write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | ((static_cast<uint8_t>(new_state)) << 2));
+    uint8_t value = Reg_Array[CONFIG3].Current_Value & 0xFB;
+    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_state)) << 2));
   }
   return false;
 }
@@ -481,7 +485,8 @@ bool ADS1299_Module::set_bias_sense_state(Bias_Sense_Enable_t new_state)
 {
   if ((new_state >= BIAS_SENSE_DISABLED) && (new_state < BIAS_SENSE_ERROR))
   {
-    return write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | ((static_cast<uint8_t>(new_state)) << 1));
+    uint8_t value = Reg_Array[CONFIG3].Current_Value & 0xFD;
+    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_state)) << 1));
   }
   return false;
 }
@@ -548,7 +553,8 @@ bool ADS1299_Module::set_lead_off_comp_thresh(LOff_Comp_Threshold_Var_t new_thre
 {
   if ((new_thresh >= LOFF_5Per) && (new_thresh < LOFF_THRESH_ERROR))
   {
-    return write_register(LOFF, Reg_Array[LOFF].Current_Value | ((static_cast<uint8_t>(new_thresh)) << 5));
+    uint8_t value = Reg_Array[LOFF].Current_Value & 0x1F;
+    return write_register(LOFF, value | ((static_cast<uint8_t>(new_thresh)) << 5));
   }
   return false;
 }
@@ -584,7 +590,8 @@ bool ADS1299_Module::set_lead_off_current_mag(LOff_Current_t new_current)
 {
   if ((new_current >= LOFF_CURRENT_6nA) && (new_current < LOFF_CURRENT_ERROR))
   {
-    return write_register(LOFF, Reg_Array[LOFF].Current_Value | ((static_cast<uint8_t>(new_current)) << 2));
+    uint8_t value = Reg_Array[LOFF].Current_Value & 0xF3;
+    return write_register(LOFF, value | ((static_cast<uint8_t>(new_current)) << 2));
   }
   return false;
 }
@@ -619,7 +626,8 @@ bool ADS1299_Module::set_lead_off_frequency(LOff_Freq_t new_freq)
 {
   if ((new_freq >= LOFF_FREQ_DC) && (new_freq < LOFF_FREQ_ERROR))
   {
-    return write_register(LOFF, Reg_Array[LOFF].Current_Value | (static_cast<uint8_t>(new_freq)));
+    uint8_t value = Reg_Array[LOFF].Current_Value & 0xFC;
+    return write_register(LOFF, value | (static_cast<uint8_t>(new_freq)));
   }
   return false;
 }
@@ -655,7 +663,8 @@ bool ADS1299_Module::set_channel_power_state(Channel_t channel, Channel_Power_St
 {
   if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= CH_POWER_ON) && (new_state < CH_POWER_ERROR))
   {
-    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | ((static_cast<uint8_t>(new_state)) << 7));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0x7F;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 7));
   }
   else
   {
@@ -709,13 +718,14 @@ bool ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Setting_t new_stat
 {
   if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= PGA1) && (new_state < PGA_ERROR))
   {
-    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | ((static_cast<uint8_t>(new_state)) << 4));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0x8F;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 4));
   }
   return false;
 }
 
 
-SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB1_connection_status(Channel_t channel)
+SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB2_connection_status(Channel_t channel)
 {
   if ((channel >= CH1) && (channel < NUM_CHANNELS))
   {
@@ -739,11 +749,12 @@ SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB1_connection_status(Chan
 }
 
 
-bool ADS1299_Module::set_channel_SRB1_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state)
+bool ADS1299_Module::set_channel_SRB2_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state)
 {
   if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= SRB2_OPEN) && (new_state < SRB2_ERROR))
   {
-    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | ((static_cast<uint8_t>(new_state)) << 3));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0xF7;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 3));
   }
 
   return false;
@@ -795,7 +806,8 @@ bool ADS1299_Module::set_channel_connection_type(Channel_t channel, Channel_Conn
 {
   if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= CH_ELECTRODE_INPUT) && (new_state < CH_CONNECTION_ERROR))
   {
-    return write_register(Reg_Array[CH1SET].Address + channel, Reg_Array[CH1SET + channel].Current_Value | (static_cast<uint8_t>(new_state)));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0xF8;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | (static_cast<uint8_t>(new_state)));
   }
   return false;
 }
@@ -930,8 +942,16 @@ bool ADS1299_Module::set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode)
 {
   if ((pin >= GPIO1) && (pin < GPIO_ERROR) && (mode >= GPIO_OUTPUT) && (mode < GPIO_MODE_ERROR))
   {
-    uint8_t bitmask = 0x01 << pin;
-    return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
+    if (mode)
+    {
+      uint8_t bitmask = 0x01 << pin;
+      return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
+    }
+    else
+    {
+      uint8_t bitmask = 0xFF & (0xFE << pin);
+      return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
+    }
   }
 
   return false;
@@ -1024,7 +1044,39 @@ bool ADS1299_Module::set_LOff_conversion_mode(LOff_Conv_Mode_t new_state)
 {
   if ((new_state >= LOFF_CONTINUOUS_CONVERSION) && (new_state < LOFF_CONV_MODE_ERROR))
   {
-    return write_register(CONFIG4, Reg_Array[CONFIG4].Current_Value | (static_cast<uint8_t>(new_state) << 3));
+    uint8_t value = Reg_Array[CONFIG4].Current_Value & 0xF7;
+    return write_register(CONFIG4, value | (static_cast<uint8_t>(new_state) << 3));
+  }
+  return false;
+}
+
+
+LOff_Power_Status_t ADS1299_Module::get_LOff_power_status(void)
+{
+  uint8_t reg_data = read_register(CONFIG4);
+
+  reg_data  &= 0x02;
+  reg_data >>= 1;
+  switch (reg_data)
+  {
+  case LOFF_POWER_DISABLED:
+    return LOFF_POWER_DISABLED;
+
+  case LOFF_POWER_ENABLED:
+    return LOFF_POWER_ENABLED;
+
+  default:
+    return LOFF_POWER_ERROR;
+  }
+}
+
+
+bool ADS1299_Module::set_LOff_power_status(LOff_Power_Status_t new_state)
+{
+  if ((new_state >= LOFF_POWER_DISABLED) && (new_state < LOFF_POWER_ERROR))
+  {
+    uint8_t value = Reg_Array[CONFIG4].Current_Value & 0xFD;
+    return write_register(CONFIG4, value | ((static_cast<uint8_t>(new_state)) << 1));
   }
   return false;
 }

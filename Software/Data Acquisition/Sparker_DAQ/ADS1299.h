@@ -219,6 +219,13 @@ typedef enum LOff_Conv_Mode_t
   LOFF_CONV_MODE_ERROR
 } LOff_Conv_Mode_t;
 
+typedef enum LOff_Power_Status_t
+{
+  LOFF_POWER_DISABLED,
+  LOFF_POWER_ENABLED,
+  LOFF_POWER_ERROR
+} LOff_Power_Status_t;
+
 class ADS1299_Module {
 public:
   explicit ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info);
@@ -372,10 +379,10 @@ public:
   bool set_channel_gain(Channel_t channel, Gain_Setting_t new_state);
 
 
-  SRB2_Connection_Status_t get_channel_SRB1_connection_status(Channel_t);
+  SRB2_Connection_Status_t get_channel_SRB2_connection_status(Channel_t);
 
 
-  bool set_channel_SRB1_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state);
+  bool set_channel_SRB2_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state);
 
 
   Channel_Connection_Type_t get_channel_connection_type(Channel_t channel);
@@ -448,6 +455,12 @@ public:
 
 
   bool set_LOff_conversion_mode(LOff_Conv_Mode_t new_state);
+
+
+  LOff_Power_Status_t get_LOff_power_status(void);
+
+
+  bool set_LOff_power_status(LOff_Power_Status_t new_state);
 
 
 private:
