@@ -264,7 +264,7 @@ bool ADS1299_Module::set_data_rate(Data_Rate_Setting_t new_rate)
 {
   if ((new_rate >= SPS16k) && (new_rate < SPS_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF4;                 /* Clear the old data */
+    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF8;                 /* Clear the old data */
     return(write_register(CONFIG1, value | new_rate));                       /* Write the new data rate */
   }
   else
