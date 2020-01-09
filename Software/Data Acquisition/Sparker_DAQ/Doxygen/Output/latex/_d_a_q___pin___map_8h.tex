@@ -1,0 +1,86 @@
+\hypertarget{_d_a_q___pin___map_8h}{}\doxysection{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h File Reference}
+\label{_d_a_q___pin___map_8h}\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}}
+\item 
+struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}{P\+I\+N\+\_\+\+T\+A\+B\+LE}}
+\item 
+\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d)~a,
+\item 
+\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d)~\{ a, b, c, d \},
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_d_a_q___pin___map_8h_a43828adff5594815f6ce0cdfd851fd50}{Pin\+\_\+\+I\+D\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} \{ \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}{N\+U\+M\+\_\+\+P\+I\+NS}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}\label{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}} 
+\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_ENTRY@{PIN\_ENTRY}}
+\index{PIN\_ENTRY@{PIN\_ENTRY}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})~a,}
+
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}\label{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}} 
+\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_ENTRY@{PIN\_ENTRY}}
+\index{PIN\_ENTRY@{PIN\_ENTRY}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})~\{ a, b, c, d \},}
+
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}\label{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}} 
+\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_TABLE@{PIN\_TABLE}}
+\index{PIN\_TABLE@{PIN\_TABLE}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_TABLE}{PIN\_TABLE}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+T\+A\+B\+LE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \textcolor{comment}{/*     a                  b          c               d                   */}                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_CHIP\_SELECT,       13,         OUTPUT,         \textcolor{stringliteral}{"Chip Select"})                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(START\_PIN,             11,         OUTPUT,               \textcolor{stringliteral}{"Start"})                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_DATA\_READY,        10,          INPUT,          \textcolor{stringliteral}{"Data Ready"})                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_POWER\_DOWN,         9,         OUTPUT,          \textcolor{stringliteral}{"Power Down"})                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(STATUS\_LED,            12,         OUTPUT,          \textcolor{stringliteral}{"Status LED"})}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_a43828adff5594815f6ce0cdfd851fd50}\label{_d_a_q___pin___map_8h_a43828adff5594815f6ce0cdfd851fd50}} 
+\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!Pin\_ID\_t@{Pin\_ID\_t}}
+\index{Pin\_ID\_t@{Pin\_ID\_t}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+\doxysubsubsection{\texorpdfstring{Pin\_ID\_t}{Pin\_ID\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}\label{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}} 
+\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!Pin\_ID\_t@{Pin\_ID\_t}}
+\index{Pin\_ID\_t@{Pin\_ID\_t}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+\doxysubsubsection{\texorpdfstring{Pin\_ID\_t}{Pin\_ID\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_PINS@{NUM\_PINS}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!NUM\_PINS@{NUM\_PINS}}}\mbox{\Hypertarget{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}\label{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}} 
+N\+U\+M\+\_\+\+P\+I\+NS&\\
+\hline
+
+\end{DoxyEnumFields}
