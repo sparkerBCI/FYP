@@ -5,7 +5,7 @@
  *  @mainpage The Sparker Wireless EEG Data Acquisition System
  *  
  *  @author Sam Parker
- *  @version $ID: $
+ *  @version $Rev$
  *  
  *  @section intro_sec Introduction
  *  This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed
