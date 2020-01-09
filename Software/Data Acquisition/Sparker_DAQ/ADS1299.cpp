@@ -1,5 +1,7 @@
 #include <SPI.h>
 
+/* $Rev$ */
+
 #include "ADS1299.h"
 
 #define NUM_CHANNELS    8
