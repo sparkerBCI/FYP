@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['rdata_448',['RDATA',['../_a_d_s1299___params_8h.html#afe8d33d42ee3ed4867090180ef38afbda19179fef8f37317859c38513f1d05416',1,'ADS1299_Params.h']]],
-  ['rdatac_449',['RDATAC',['../_a_d_s1299___params_8h.html#afe8d33d42ee3ed4867090180ef38afbda5694044a538efd02036f6b4810dde7a3',1,'ADS1299_Params.h']]],
-  ['reg_5ferror_450',['REG_ERROR',['../_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337',1,'ADS1299_Params.h']]],
-  ['reset_451',['RESET',['../_a_d_s1299___params_8h.html#afe8d33d42ee3ed4867090180ef38afbda589b7d94a3d91d145720e2fed0eb3a05',1,'ADS1299_Params.h']]],
-  ['rreg_452',['RREG',['../_a_d_s1299___params_8h.html#afe8d33d42ee3ed4867090180ef38afbda831f7014397d31a43eaf555b8555322b',1,'ADS1299_Params.h']]]
+  ['num_5fpins_448',['NUM_PINS',['../_d_a_q___pin___map_8h.html#ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923',1,'DAQ_Pin_Map.h']]],
+  ['num_5fregs_449',['NUM_REGS',['../_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774',1,'ADS1299_Params.h']]]
 ];

@@ -41,6 +41,13 @@ typedef enum Reg_ID_t
   REG_ERROR
 } Reg_ID_t;
 
+typedef enum Daisy_Chain_Mode_t
+{
+  DAISY_CHAIN_MODE,
+  MULTIPLE_READBACK_MODE,
+  DAISY_MODE_ERROR
+} Daisy_Chain_Mode_t;
+
 typedef enum Data_Rate_Setting_t
 {
   SPS16k,
@@ -69,10 +76,11 @@ typedef enum Command_t
 
 typedef enum Test_Frequency_t
 {
-  TEST_FREQ_FCLK_DIV_2_21 = 0x02,
-  TEST_FREQ_FCLK_DIV_2_20 = 0x04,
-  TEST_FREQ_INVALID       = 0x06,
-  TEST_FREQ_0             = 0x08
+  TEST_FREQ_FCLK_DIV_2_21,
+  TEST_FREQ_FCLK_DIV_2_20,
+  TEST_FREQ_INVALID,
+  TEST_FREQ_0,
+  TEST_FREQ_ERROR
 } Test_Frequency_t;
 
 typedef enum Bias_Source_t

@@ -85,6 +85,7 @@ Macros</h2></td></tr>
 <hr  />
 <p>All the getters and setters are here. There are also functions to send commands (of type Command_t) to the device. The functions to write raw data to the registers are private to try to limit what people can throw at the device (some register bits are reserved, and may cause <em>undefined behaviour</em> if they are changed).</p>
 <dl class="section author"><dt>Author</dt><dd>Sam Parker</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Make the setters get the value from the device before bitbanging</dd></dl>
 <p>Copyright (c) Sam Parker. 2020. All rights reserved. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ae5597ce31d23d11493e6e674fe257d73"></a>
@@ -99,7 +100,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <hr  />
- <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Replace this with a private variable that is set by the get_num_channels function.</dd></dl>
+ <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Replace this with a private variable that is set by the get_num_channels function.</dd></dl>
 
 </div>
 </div>

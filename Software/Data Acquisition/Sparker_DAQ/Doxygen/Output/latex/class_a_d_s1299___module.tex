@@ -20,103 +20,103 @@ typedef struct \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t}{A\
 \mbox{\hyperlink{class_a_d_s1299___module_aac31dc4f070157739a2c76269cff5fc9}{A\+D\+S1299\+\_\+\+Module}} (\mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} $\ast$m\+\_\+\+Hardware\+\_\+\+Info)
 \begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} and opens the S\+PI interface over which to communicate. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_d_s1299___module_a7066bb70727d355278f43cab1ee98be7}{set\+\_\+value}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} Register, uint8\+\_\+t new\+\_\+value)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the current value of a Register from local memory. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_a19a51af9c662a54b1aa7b8112159c940}{get\+\_\+value}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} Register)
-\begin{DoxyCompactList}\small\item\em Gets the current value of a Register from the Reg\+\_\+\+Array. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the current value of a Register from local memory. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a2460f0e7fc4a8750d6632236e1b17331}{get\+\_\+\+Reg\+\_\+\+I\+D\+\_\+from\+\_\+\+Address}} (uint8\+\_\+t register\+\_\+address)
-\item 
-uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_a30ecb1a2858526871ef08af08dc783d0}{send\+\_\+command}} (\mbox{\hyperlink{_a_d_s1299___params_8h_afe8d33d42ee3ed4867090180ef38afbd}{Command\+\_\+t}} command)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts a memory address to a Reg\+\_\+\+ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_d_s1299___module_aac644c10f20299b43a7ad1fa9c71f11a}{send\+\_\+command}} (\mbox{\hyperlink{_a_d_s1299___params_8h_afe8d33d42ee3ed4867090180ef38afbd}{Command\+\_\+t}} command)
+\begin{DoxyCompactList}\small\item\em Sends a single byte command to the A\+D\+S1299. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_d_s1299___module_a92e7bac8a242735fc97fbab6e1563409}{reset}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Resets the device and waits the required time. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_a6f4e545bfa035e16d89556ec8bd9a1bd}{get\+\_\+device\+\_\+version}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the device version from the A\+D\+S1299. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_ac4531df96d0a3293459063979b0e759b}{get\+\_\+device\+\_\+id}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the device ID from the A\+D\+S1299. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_aabd1ded03d376c5c7629ae150d667141}{get\+\_\+num\+\_\+channels}} (void)
-\item 
-bool \mbox{\hyperlink{class_a_d_s1299___module_adfacc5aeba027cbaf979311593bac1c8}{get\+\_\+daisy\+\_\+mode}} (void)
-\item 
-bool \mbox{\hyperlink{class_a_d_s1299___module_ad338d058373a5a7fd9d8b1f1d28320d1}{set\+\_\+daisy\+\_\+mode}} (bool enable)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the number of channels from the A\+D\+S1299. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a5b8a11ad96258d51b8b49fdfd43279da}{get\+\_\+daisy\+\_\+mode}} (void)
+\begin{DoxyCompactList}\small\item\em Gets whether the device is in daisy chain mode or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_d_s1299___module_a6554443078aefb98ae7f14625e8f6561}{set\+\_\+daisy\+\_\+mode}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} new\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em Sets whether the device is in daisy chain mode or not. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ad467f0b9d429a370e680c2ef0dbf062b}{get\+\_\+clock\+\_\+mode}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the current clock mode. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_aedcbe4868d810dae32096bfa45593b82}{set\+\_\+clock\+\_\+mode}} (bool enable)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the clock mode. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a36c1904cc5408c5174b71587580a1cb9}{get\+\_\+data\+\_\+rate}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the current data rate. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_af5b8dd0a62a6264e7e6d7b024170967f}{set\+\_\+data\+\_\+rate}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}} new\+\_\+rate)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the current data rate. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a07fe7612fda7f2b1343fd80d919c62f7}{get\+\_\+int\+\_\+cal}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets whether the test signal is sourced internally or externally. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a1eb0b5bffc2d923082ab5749807b49ab}{set\+\_\+int\+\_\+cal}} (bool state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets whether the test signal is sourced internally or externally. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ab9bbb73b7e9836e5a9e544f1a023eef1}{get\+\_\+cal\+\_\+amp}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the amplitude of the test functions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a973b0e6d9dd4caec7f35292c1397ca9d}{set\+\_\+cal\+\_\+amp}} (bool state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the amplitude of the test functions. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a6e8a2b08d62321d15d3cf9a16bb2951a}{Test\+\_\+\+Frequency\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a9a4e00b2adbb16f89e8029ff2a41b903}{get\+\_\+cal\+\_\+freq}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the frequency of the test functions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a7d5093453f61a925d3042ebdf7d64713}{set\+\_\+cal\+\_\+freq}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a6e8a2b08d62321d15d3cf9a16bb2951a}{Test\+\_\+\+Frequency\+\_\+t}} new\+\_\+freq)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the frequency of the test functions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ae8c625255085e5fc9ddb770e70884345}{get\+\_\+reference\+\_\+buffer\+\_\+state}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the power state of the internal reference buffer. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a761146ae227a8cbc9dde156d92c55b9c}{set\+\_\+reference\+\_\+buffer\+\_\+state}} (bool new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the power state of the internal reference buffer. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a4cb290ee267e356c1f2041edcdd89c67}{get\+\_\+bias\+\_\+measurement\+\_\+state}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a386288bce84b2998ee29f7b310fe8cff}{set\+\_\+bias\+\_\+measurement\+\_\+state}} (bool new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_aa1200e72ca5cc974be2312a066ac1d96}{Bias\+\_\+\+Source\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a91046e15b8afe607f85bd2875c59bc2e}{get\+\_\+bias\+\_\+source}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_af16de7bb701914f51dd6acadceadfae5}{set\+\_\+bias\+\_\+source}} (\mbox{\hyperlink{_a_d_s1299___params_8h_aa1200e72ca5cc974be2312a066ac1d96}{Bias\+\_\+\+Source\+\_\+t}} new\+\_\+source)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a62cb448baaeead1b9013065e5b74dca8}{Bias\+\_\+\+Power\+\_\+\+State\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_af1f65431a8c8f462e482c6856bb013e5}{get\+\_\+bias\+\_\+buffer\+\_\+power\+\_\+state}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the current B\+I\+AS buffer state. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_aa66faa8fdf7b677c52caf3b04d06c279}{set\+\_\+bias\+\_\+power\+\_\+state}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a62cb448baaeead1b9013065e5b74dca8}{Bias\+\_\+\+Power\+\_\+\+State\+\_\+t}} new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the current B\+I\+AS buffer state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ad684f558ec7e8820ac02e8065e9e654f}{Bias\+\_\+\+Sense\+\_\+\+Enable\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a1c9a4025705335561d256dd845d933a5}{get\+\_\+bias\+\_\+sense\+\_\+state}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the status of the bias sense function. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a65d124eb4df45ab4cf33faef81000299}{set\+\_\+bias\+\_\+sense\+\_\+state}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ad684f558ec7e8820ac02e8065e9e654f}{Bias\+\_\+\+Sense\+\_\+\+Enable\+\_\+t}} new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Enables or disables the bias sense function. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ab081f368191da968404402a779b45d00}{Bias\+\_\+\+L\+Off\+\_\+\+Status\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a22c85dca10b564ae9bf85c9a75f0d49c}{get\+\_\+bias\+\_\+lead\+\_\+off\+\_\+state}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets whether the B\+I\+AS lead is attached. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a89cde6b32a22b47f08c7072d97b85140}{L\+Off\+\_\+\+Comp\+\_\+\+Threshold\+\_\+\+Var\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a79f5a467b2d9533bad69e5a3871a04ea}{get\+\_\+lead\+\_\+off\+\_\+comp\+\_\+thresh}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the leadoff comparator threshold level. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_aaf5a518fe79609e9d4e16c3e4d5a4523}{set\+\_\+lead\+\_\+off\+\_\+comp\+\_\+thresh}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a89cde6b32a22b47f08c7072d97b85140}{L\+Off\+\_\+\+Comp\+\_\+\+Threshold\+\_\+\+Var\+\_\+t}} new\+\_\+thresh)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the leadoff comparator threshold level. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_aace2388092bff68ecb944e1dffa151e6}{L\+Off\+\_\+\+Current\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_aa0a020cf2070d85e5c710266761bb1fd}{get\+\_\+lead\+\_\+off\+\_\+current\+\_\+mag}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the lead-\/off current (like Amps) magnitude. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a45edcc9d67563d7e724144809feda4dd}{set\+\_\+lead\+\_\+off\+\_\+current\+\_\+mag}} (\mbox{\hyperlink{_a_d_s1299___params_8h_aace2388092bff68ecb944e1dffa151e6}{L\+Off\+\_\+\+Current\+\_\+t}} new\+\_\+current)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the lead-\/off current (like Amps) magnitude. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_afc9a68c4bb8ef05991c6a15e2fc6a290}{L\+Off\+\_\+\+Freq\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a66c52d07559da66da339b3068dfd40df}{get\+\_\+lead\+\_\+off\+\_\+frequency}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the lead-\/off detection frequency. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ae2c22fc0d28b74d775770c753a410f64}{set\+\_\+lead\+\_\+off\+\_\+frequency}} (\mbox{\hyperlink{_a_d_s1299___params_8h_afc9a68c4bb8ef05991c6a15e2fc6a290}{L\+Off\+\_\+\+Freq\+\_\+t}} new\+\_\+freq)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the lead-\/off detection frequency. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a084ae6a3d7a5ba758dade14c779d63bb}{Channel\+\_\+\+Power\+\_\+\+State\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_afb4f1b0c82be9e5bfbd750449a393194}{get\+\_\+channel\+\_\+power\+\_\+state}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the power state of the requested channel. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a50ba48c0b885745077fa2dfd33609028}{set\+\_\+channel\+\_\+power\+\_\+state}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, \mbox{\hyperlink{_a_d_s1299___params_8h_a084ae6a3d7a5ba758dade14c779d63bb}{Channel\+\_\+\+Power\+\_\+\+State\+\_\+t}} new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the power state of the requested channel. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_aba9b1346d1e7e30f5647d586805b93ce}{Gain\+\_\+\+Setting\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_af0e282321956e0f1b9e9e7f23a17cfa1}{get\+\_\+channel\+\_\+gain}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the Programmable Gain Array gain setting of the requested channel. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a467902676e993f4a014597f3c1aeefe0}{set\+\_\+channel\+\_\+gain}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, \mbox{\hyperlink{_a_d_s1299___params_8h_aba9b1346d1e7e30f5647d586805b93ce}{Gain\+\_\+\+Setting\+\_\+t}} new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the Programmable Gain Array gain setting of the requested channel. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a9cc0a25935efb83ea9aa6936d550c7d8}{S\+R\+B2\+\_\+\+Connection\+\_\+\+Status\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a863d35eba229da6387d55f7c600d9312}{get\+\_\+channel\+\_\+\+S\+R\+B2\+\_\+connection\+\_\+status}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}})
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the S\+R\+B2 connection status of the channel. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ad31609a61b259df66f2ddb768c311f85}{set\+\_\+channel\+\_\+\+S\+R\+B2\+\_\+connection\+\_\+status}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, \mbox{\hyperlink{_a_d_s1299___params_8h_a9cc0a25935efb83ea9aa6936d550c7d8}{S\+R\+B2\+\_\+\+Connection\+\_\+\+Status\+\_\+t}} new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the S\+R\+B2 connection status of the channel. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a13c6e7e66aabba13f6011e31ea21c34e}{Channel\+\_\+\+Connection\+\_\+\+Type\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a704c18ff2fab021c09cd55778a2d813b}{get\+\_\+channel\+\_\+connection\+\_\+type}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets info about the channel connection type. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a1f242763701440ef88b4cba38e001eed}{set\+\_\+channel\+\_\+connection\+\_\+type}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, \mbox{\hyperlink{_a_d_s1299___params_8h_a13c6e7e66aabba13f6011e31ea21c34e}{Channel\+\_\+\+Connection\+\_\+\+Type\+\_\+t}} new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets info about the channel connection type. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a373b0c55c20b70502f3f779eb9f7c289}{get\+\_\+channel\+\_\+bias\+\_\+drive\+\_\+pos\+\_\+derivation}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the bias drive positive derivation. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ad61247b1f542bbe74635b4b39e03118c}{set\+\_\+channel\+\_\+bias\+\_\+drive\+\_\+pos\+\_\+derivation}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, bool new\+\_\+state)
 \item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a6f01601b118597364aacf773ea35ba7d}{get\+\_\+bit\+\_\+addressable\+\_\+channel\+\_\+info}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} Register, \mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets info from a bit-\/addressable register. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ad0fb160aaac0bf89b75a005ea0d388b2}{set\+\_\+bit\+\_\+addressable\+\_\+channel\+\_\+info}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} Register, \mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, bool new\+\_\+state)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets a bit-\/addressable register. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_ac4d6b39eca973fc65bc615f701095714}{get\+\_\+channel\+\_\+bias\+\_\+drive\+\_\+neg\+\_\+derivation}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel)
 \item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_a06542450866139630f376d2f9a9ef086}{set\+\_\+channel\+\_\+bias\+\_\+drive\+\_\+neg\+\_\+derivation}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}} channel, bool new\+\_\+state)
@@ -200,48 +200,147 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 \doxysubsubsection{\texorpdfstring{get\_bias\_buffer\_power\_state()}{get\_bias\_buffer\_power\_state()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a62cb448baaeead1b9013065e5b74dca8}{Bias\+\_\+\+Power\+\_\+\+State\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+bias\+\_\+buffer\+\_\+power\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the current B\+I\+AS buffer state. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The current B\+I\+AS buffer state. B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR if error 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a22c85dca10b564ae9bf85c9a75f0d49c}\label{class_a_d_s1299___module_a22c85dca10b564ae9bf85c9a75f0d49c}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_bias\_lead\_off\_state@{get\_bias\_lead\_off\_state}}
 \index{get\_bias\_lead\_off\_state@{get\_bias\_lead\_off\_state}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_bias\_lead\_off\_state()}{get\_bias\_lead\_off\_state()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_ab081f368191da968404402a779b45d00}{Bias\+\_\+\+L\+Off\+\_\+\+Status\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+bias\+\_\+lead\+\_\+off\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets whether the B\+I\+AS lead is attached. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The status of the B\+I\+AS lead. B\+I\+A\+S\+\_\+\+L\+O\+F\+F\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a4cb290ee267e356c1f2041edcdd89c67}\label{class_a_d_s1299___module_a4cb290ee267e356c1f2041edcdd89c67}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_bias\_measurement\_state@{get\_bias\_measurement\_state}}
 \index{get\_bias\_measurement\_state@{get\_bias\_measurement\_state}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_bias\_measurement\_state()}{get\_bias\_measurement\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+bias\+\_\+measurement\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. 
+
+\DoxyHorRuler{0}
+
+
+If the B\+I\+A\+S\+\_\+\+IN state is true, the B\+I\+AS signal can be measured by any channel configured as a C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS by the set\+\_\+channel\+\_\+connection\+\_\+type function.
+
+\begin{DoxyReturn}{Returns}
+-\/ True if the B\+I\+AS signal is routed to the channels. False if the B\+I\+AS signal is Open. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a1c9a4025705335561d256dd845d933a5}\label{class_a_d_s1299___module_a1c9a4025705335561d256dd845d933a5}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_bias\_sense\_state@{get\_bias\_sense\_state}}
 \index{get\_bias\_sense\_state@{get\_bias\_sense\_state}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_bias\_sense\_state()}{get\_bias\_sense\_state()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_ad684f558ec7e8820ac02e8065e9e654f}{Bias\+\_\+\+Sense\+\_\+\+Enable\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+bias\+\_\+sense\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the status of the bias sense function. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The state of the bias sense function. B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a91046e15b8afe607f85bd2875c59bc2e}\label{class_a_d_s1299___module_a91046e15b8afe607f85bd2875c59bc2e}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_bias\_source@{get\_bias\_source}}
 \index{get\_bias\_source@{get\_bias\_source}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_bias\_source()}{get\_bias\_source()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_aa1200e72ca5cc974be2312a066ac1d96}{Bias\+\_\+\+Source\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+bias\+\_\+source (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. 
+
+\DoxyHorRuler{0}
+ (A\+V\+DD + A\+V\+SS) / 2).
+
+If a B\+I\+A\+S\+\_\+\+R\+EF electrode is being used, this should be set to B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL.
+
+\begin{DoxyReturn}{Returns}
+-\/ The bias signal source. B\+I\+A\+S\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a6f01601b118597364aacf773ea35ba7d}\label{class_a_d_s1299___module_a6f01601b118597364aacf773ea35ba7d}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_bit\_addressable\_channel\_info@{get\_bit\_addressable\_channel\_info}}
 \index{get\_bit\_addressable\_channel\_info@{get\_bit\_addressable\_channel\_info}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_bit\_addressable\_channel\_info()}{get\_bit\_addressable\_channel\_info()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+bit\+\_\+addressable\+\_\+channel\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}]{Register,  }\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
 
+
+
+Gets info from a bit-\/addressable register. 
+
+\DoxyHorRuler{0}
+
+
+There are several registers where each bit corresponds to a channel. All of these can be interfaced in the same way. In this function, given a register and a channel, the correct bit from the correct register can be found. On A\+D\+S1299-\/4 or A\+D\+S1299-\/6 devices, not all bits are available. This function will stop before reaching those (if num\+\_\+channels is at its default value it will query the device for how many channels it has).
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]if num\+\_\+channels has some initial value (i.\+e. not 4, 6 or 8, maybe 0?), run get\+\_\+num \+\_\+channels to determine the number of channels here.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Register} & -\/ The Reg\+\_\+\+ID of the register we are looking at. \\
+\hline
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The value of the bit. False if a invalid channel (i.\+e. bit) or register is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ab9bbb73b7e9836e5a9e544f1a023eef1}\label{class_a_d_s1299___module_ab9bbb73b7e9836e5a9e544f1a023eef1}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_cal\_amp@{get\_cal\_amp}}
 \index{get\_cal\_amp@{get\_cal\_amp}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_cal\_amp()}{get\_cal\_amp()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+cal\+\_\+amp (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the amplitude of the test functions. 
+
+\DoxyHorRuler{0}
+
+
+Amplitude will be 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to false\mbox{]} or 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to true\mbox{]}.
+
+\begin{DoxyReturn}{Returns}
+-\/ True if the amplitude of the test signal is 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400. False if the amplitude of the test signal is 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a9a4e00b2adbb16f89e8029ff2a41b903}\label{class_a_d_s1299___module_a9a4e00b2adbb16f89e8029ff2a41b903}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_cal\_freq@{get\_cal\_freq}}
 \index{get\_cal\_freq@{get\_cal\_freq}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_cal\_freq()}{get\_cal\_freq()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a6e8a2b08d62321d15d3cf9a16bb2951a}{Test\+\_\+\+Frequency\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+cal\+\_\+freq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the frequency of the test functions. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The frequency of the test signal. T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ac4d6b39eca973fc65bc615f701095714}\label{class_a_d_s1299___module_ac4d6b39eca973fc65bc615f701095714}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_channel\_bias\_drive\_neg\_derivation@{get\_channel\_bias\_drive\_neg\_derivation}}
 \index{get\_channel\_bias\_drive\_neg\_derivation@{get\_channel\_bias\_drive\_neg\_derivation}!ADS1299\_Module@{ADS1299\_Module}}
@@ -254,18 +353,67 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 \doxysubsubsection{\texorpdfstring{get\_channel\_bias\_drive\_pos\_derivation()}{get\_channel\_bias\_drive\_pos\_derivation()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+channel\+\_\+bias\+\_\+drive\+\_\+pos\+\_\+derivation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
 
+
+
+Sets the bias drive positive derivation. 
+
+\DoxyHorRuler{0}
+
+
+This selects if any channels\textquotesingle{} positive signal is used for the bias voltage signal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the channel is set to be a bias drive channel. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a704c18ff2fab021c09cd55778a2d813b}\label{class_a_d_s1299___module_a704c18ff2fab021c09cd55778a2d813b}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_channel\_connection\_type@{get\_channel\_connection\_type}}
 \index{get\_channel\_connection\_type@{get\_channel\_connection\_type}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_channel\_connection\_type()}{get\_channel\_connection\_type()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a13c6e7e66aabba13f6011e31ea21c34e}{Channel\+\_\+\+Connection\+\_\+\+Type\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+channel\+\_\+connection\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
 
+
+
+Gets info about the channel connection type. 
+
+\DoxyHorRuler{0}
+
+
+Channels can be electrodes, shorted to A\+V\+DD (off), bias measurements, mid-\/supply, temp sensors, test signals, positive side bias drivers, or negative side bias drivers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct register.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The channel connection configuration. C\+H\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR if error. C\+H\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR if an invalid channel is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_af0e282321956e0f1b9e9e7f23a17cfa1}\label{class_a_d_s1299___module_af0e282321956e0f1b9e9e7f23a17cfa1}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_channel\_gain@{get\_channel\_gain}}
 \index{get\_channel\_gain@{get\_channel\_gain}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_channel\_gain()}{get\_channel\_gain()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_aba9b1346d1e7e30f5647d586805b93ce}{Gain\+\_\+\+Setting\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+channel\+\_\+gain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
 
+
+
+Gets the Programmable Gain Array gain setting of the requested channel. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct register.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The gain setting associated with this channel. P\+G\+A\+\_\+\+E\+R\+R\+OR if error. P\+G\+A\+\_\+\+E\+R\+R\+OR if an invalid channel is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a3c22ad80e4728aeba2b40bd5087d9d61}\label{class_a_d_s1299___module_a3c22ad80e4728aeba2b40bd5087d9d61}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_channel\_LOff\_flip\_enabled@{get\_channel\_LOff\_flip\_enabled}}
 \index{get\_channel\_LOff\_flip\_enabled@{get\_channel\_LOff\_flip\_enabled}!ADS1299\_Module@{ADS1299\_Module}}
@@ -302,42 +450,134 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 \doxysubsubsection{\texorpdfstring{get\_channel\_power\_state()}{get\_channel\_power\_state()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a084ae6a3d7a5ba758dade14c779d63bb}{Channel\+\_\+\+Power\+\_\+\+State\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+channel\+\_\+power\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
 
+
+
+Gets the power state of the requested channel. 
+
+\DoxyHorRuler{0}
+
+
+If the channel is powered down, TI recommends the channel is shorted. This can be achieved using the get\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct register.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The channel power state of the requested channel. C\+H\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR if error. C\+H\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR if an invalid channel is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a863d35eba229da6387d55f7c600d9312}\label{class_a_d_s1299___module_a863d35eba229da6387d55f7c600d9312}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_channel\_SRB2\_connection\_status@{get\_channel\_SRB2\_connection\_status}}
 \index{get\_channel\_SRB2\_connection\_status@{get\_channel\_SRB2\_connection\_status}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_channel\_SRB2\_connection\_status()}{get\_channel\_SRB2\_connection\_status()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a9cc0a25935efb83ea9aa6936d550c7d8}{S\+R\+B2\+\_\+\+Connection\+\_\+\+Status\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+channel\+\_\+\+S\+R\+B2\+\_\+connection\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
 
+
+
+Gets the S\+R\+B2 connection status of the channel. 
+
+\DoxyHorRuler{0}
+
+
+S\+R\+B2 is the secondary reference channel. For a referential montage, application notes from TI use S\+R\+B1, which can be set en masse using set\+\_\+all\+\_\+channel\+\_\+\+S\+R\+B1\+\_\+connection\+\_\+status.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct register.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The S\+R\+B2 connection status of the requested channel. S\+R\+B2\+\_\+\+E\+R\+R\+OR if error or an invalid channel is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ad467f0b9d429a370e680c2ef0dbf062b}\label{class_a_d_s1299___module_ad467f0b9d429a370e680c2ef0dbf062b}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_clock\_mode@{get\_clock\_mode}}
 \index{get\_clock\_mode@{get\_clock\_mode}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_clock\_mode()}{get\_clock\_mode()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+clock\+\_\+mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_a_d_s1299___module_adfacc5aeba027cbaf979311593bac1c8}\label{class_a_d_s1299___module_adfacc5aeba027cbaf979311593bac1c8}} 
+
+
+Gets the current clock mode. 
+
+\DoxyHorRuler{0}
+
+
+If clock mode is true, the oscillator will output to the C\+LK pins if the C\+L\+K\+S\+EL pin is H\+I\+GH.
+
+\begin{DoxyReturn}{Returns}
+-\/ True if the oscillator will output on C\+LK pins if C\+L\+K\+S\+EL is H\+I\+GH. False otherwise. False if read error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_d_s1299___module_a5b8a11ad96258d51b8b49fdfd43279da}\label{class_a_d_s1299___module_a5b8a11ad96258d51b8b49fdfd43279da}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_daisy\_mode@{get\_daisy\_mode}}
 \index{get\_daisy\_mode@{get\_daisy\_mode}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_daisy\_mode()}{get\_daisy\_mode()}}
-{\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+daisy\+\_\+mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+daisy\+\_\+mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets whether the device is in daisy chain mode or not. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The current daisy chain mode, or D\+A\+I\+S\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a36c1904cc5408c5174b71587580a1cb9}\label{class_a_d_s1299___module_a36c1904cc5408c5174b71587580a1cb9}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_data\_rate@{get\_data\_rate}}
 \index{get\_data\_rate@{get\_data\_rate}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_data\_rate()}{get\_data\_rate()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+data\+\_\+rate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the current data rate. 
+
+\DoxyHorRuler{0}
+
+
+The data rate determines how many samples per second the A\+D\+S1299 reads at.
+
+\begin{DoxyReturn}{Returns}
+-\/ The current data rate. S\+P\+S\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ac4531df96d0a3293459063979b0e759b}\label{class_a_d_s1299___module_ac4531df96d0a3293459063979b0e759b}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_device\_id@{get\_device\_id}}
 \index{get\_device\_id@{get\_device\_id}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_device\_id()}{get\_device\_id()}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::get\+\_\+device\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the device ID from the A\+D\+S1299. 
+
+\DoxyHorRuler{0}
+
+
+If the value is not 0x03, something is wrong. Or check the datasheet, TI may have changed things.
+
+\begin{DoxyReturn}{Returns}
+-\/ The device ID (expect 0x03). 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a6f4e545bfa035e16d89556ec8bd9a1bd}\label{class_a_d_s1299___module_a6f4e545bfa035e16d89556ec8bd9a1bd}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_device\_version@{get\_device\_version}}
 \index{get\_device\_version@{get\_device\_version}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_device\_version()}{get\_device\_version()}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::get\+\_\+device\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the device version from the A\+D\+S1299. 
+
+\DoxyHorRuler{0}
+
+
+This value is baked in to the A\+D\+S1299 by TI, and the datasheet doesn\textquotesingle{}t give much info about what the value represents, but we can read it!
+
+\begin{DoxyReturn}{Returns}
+-\/ The device version. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_aa06b4d78747eb50209c7405b92fa9c2d}\label{class_a_d_s1299___module_aa06b4d78747eb50209c7405b92fa9c2d}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_GPIO\_Pin\_Mode@{get\_GPIO\_Pin\_Mode}}
 \index{get\_GPIO\_Pin\_Mode@{get\_GPIO\_Pin\_Mode}!ADS1299\_Module@{ADS1299\_Module}}
@@ -356,24 +596,68 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 \doxysubsubsection{\texorpdfstring{get\_int\_cal()}{get\_int\_cal()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+int\+\_\+cal (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets whether the test signal is sourced internally or externally. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ True if the test signals are generated internally. False if the test signals are driven externally. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a79f5a467b2d9533bad69e5a3871a04ea}\label{class_a_d_s1299___module_a79f5a467b2d9533bad69e5a3871a04ea}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_lead\_off\_comp\_thresh@{get\_lead\_off\_comp\_thresh}}
 \index{get\_lead\_off\_comp\_thresh@{get\_lead\_off\_comp\_thresh}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_lead\_off\_comp\_thresh()}{get\_lead\_off\_comp\_thresh()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_a89cde6b32a22b47f08c7072d97b85140}{L\+Off\+\_\+\+Comp\+\_\+\+Threshold\+\_\+\+Var\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+lead\+\_\+off\+\_\+comp\+\_\+thresh (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the leadoff comparator threshold level. 
+
+\DoxyHorRuler{0}
+
+
+On the positive side, threshold will be 100\% -\/ return value. On the negative side, threshold is return value.
+
+\begin{DoxyReturn}{Returns}
+-\/ The leadoff comparator threshold level. L\+O\+F\+F\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_aa0a020cf2070d85e5c710266761bb1fd}\label{class_a_d_s1299___module_aa0a020cf2070d85e5c710266761bb1fd}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_lead\_off\_current\_mag@{get\_lead\_off\_current\_mag}}
 \index{get\_lead\_off\_current\_mag@{get\_lead\_off\_current\_mag}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_lead\_off\_current\_mag()}{get\_lead\_off\_current\_mag()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_aace2388092bff68ecb944e1dffa151e6}{L\+Off\+\_\+\+Current\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+lead\+\_\+off\+\_\+current\+\_\+mag (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the lead-\/off current (like Amps) magnitude. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The lead-\/off current level. L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a66c52d07559da66da339b3068dfd40df}\label{class_a_d_s1299___module_a66c52d07559da66da339b3068dfd40df}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_lead\_off\_frequency@{get\_lead\_off\_frequency}}
 \index{get\_lead\_off\_frequency@{get\_lead\_off\_frequency}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_lead\_off\_frequency()}{get\_lead\_off\_frequency()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_afc9a68c4bb8ef05991c6a15e2fc6a290}{L\+Off\+\_\+\+Freq\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+lead\+\_\+off\+\_\+frequency (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the lead-\/off detection frequency. 
+
+\DoxyHorRuler{0}
+
+
+This is the rate that the leads are polled to see if they have disconnected. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4 means the leads will be sampled at 1 quarter of the data rate.
+
+\begin{DoxyReturn}{Returns}
+-\/ The lead-\/off detection frequency. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a8a1e74d34432c439da5c1a495af34cd0}\label{class_a_d_s1299___module_a8a1e74d34432c439da5c1a495af34cd0}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_LOff\_conversion\_mode@{get\_LOff\_conversion\_mode}}
 \index{get\_LOff\_conversion\_mode@{get\_LOff\_conversion\_mode}!ADS1299\_Module@{ADS1299\_Module}}
@@ -392,18 +676,59 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 \doxysubsubsection{\texorpdfstring{get\_num\_channels()}{get\_num\_channels()}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::get\+\_\+num\+\_\+channels (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the number of channels from the A\+D\+S1299. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyReturn}{Returns}
+-\/ The number of channels (4, 6, or 8). 0 if error.
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Make this function set a num\+\_\+channels variable, to be created.\end{DoxyRefDesc}
 \mbox{\Hypertarget{class_a_d_s1299___module_ae8c625255085e5fc9ddb770e70884345}\label{class_a_d_s1299___module_ae8c625255085e5fc9ddb770e70884345}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_reference\_buffer\_state@{get\_reference\_buffer\_state}}
 \index{get\_reference\_buffer\_state@{get\_reference\_buffer\_state}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_reference\_buffer\_state()}{get\_reference\_buffer\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::get\+\_\+reference\+\_\+buffer\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Gets the power state of the internal reference buffer. 
+
+\DoxyHorRuler{0}
+
+
+Unless an external voltage reference is supplied, this should be powered on.
+
+\begin{DoxyReturn}{Returns}
+-\/ True if the internal reference buffer is powered on. False if the internal reference buffer is powered off. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a2460f0e7fc4a8750d6632236e1b17331}\label{class_a_d_s1299___module_a2460f0e7fc4a8750d6632236e1b17331}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_Reg\_ID\_from\_Address@{get\_Reg\_ID\_from\_Address}}
 \index{get\_Reg\_ID\_from\_Address@{get\_Reg\_ID\_from\_Address}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{get\_Reg\_ID\_from\_Address()}{get\_Reg\_ID\_from\_Address()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::get\+\_\+\+Reg\+\_\+\+I\+D\+\_\+from\+\_\+\+Address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{register\+\_\+address }\end{DoxyParamCaption})}
 
+
+
+Converts a memory address to a Reg\+\_\+\+ID. 
+
+\DoxyHorRuler{0}
+
+
+This function searches through the Reg\+\_\+\+Array and returns the Reg\+\_\+\+ID of the first register with the provided address.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em register\+\_\+address} & -\/ Which register address to match.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The Reg\+\_\+\+ID of the first register to possess the address provided. R\+E\+G\+\_\+\+E\+R\+R\+OR if error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a19a51af9c662a54b1aa7b8112159c940}\label{class_a_d_s1299___module_a19a51af9c662a54b1aa7b8112159c940}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!get\_value@{get\_value}}
 \index{get\_value@{get\_value}!ADS1299\_Module@{ADS1299\_Module}}
@@ -412,22 +737,22 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 
 
 
-Gets the current value of a Register from the Reg\+\_\+\+Array. 
+Gets the current value of a Register from local memory. 
 
 \DoxyHorRuler{0}
 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Remove this function\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Remove this function\end{DoxyRefDesc}
 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em Register} & -\/ A Reg\+\_\+\+I\+D\+\_\+t indicating which register to read from.\\
+\mbox{\texttt{ in}}  & {\em Register} & -\/ Which register to read from.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register as stored in the Reg\+\_\+\+Array. 0x\+FF if error. This isn\textquotesingle{}t great, because if the register contains 0x\+FF it may be seen as an error. 
+-\/ The current value of the Register as stored in the Reg\+\_\+\+Array. 0x\+FF if error. This isn\textquotesingle{}t great, because if the register contains 0x\+FF it may be interpreted as an error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a92e7bac8a242735fc97fbab6e1563409}\label{class_a_d_s1299___module_a92e7bac8a242735fc97fbab6e1563409}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!reset@{reset}}
@@ -435,12 +760,36 @@ uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register a
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily void A\+D\+S1299\+\_\+\+Module\+::reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_a_d_s1299___module_a30ecb1a2858526871ef08af08dc783d0}\label{class_a_d_s1299___module_a30ecb1a2858526871ef08af08dc783d0}} 
+
+
+Resets the device and waits the required time. 
+
+\DoxyHorRuler{0}
+
+
+The datasheet calls for a delay of 1.\+96us after issuing the R\+E\+S\+ET command, but we wait 1ms just to be safe. \mbox{\Hypertarget{class_a_d_s1299___module_aac644c10f20299b43a7ad1fa9c71f11a}\label{class_a_d_s1299___module_aac644c10f20299b43a7ad1fa9c71f11a}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!send\_command@{send\_command}}
 \index{send\_command@{send\_command}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{send\_command()}{send\_command()}}
-{\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::send\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_afe8d33d42ee3ed4867090180ef38afbd}{Command\+\_\+t}}}]{command }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::send\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_afe8d33d42ee3ed4867090180ef38afbd}{Command\+\_\+t}}}]{command }\end{DoxyParamCaption})}
 
+
+
+Sends a single byte command to the A\+D\+S1299. 
+
+\DoxyHorRuler{0}
+
+
+Single byte commands are mostly used for setting device states.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em command} & -\/ The command to send to the device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command was successfully sent, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a259a7352c03f93f9f3d71cb00b2128c2}\label{class_a_d_s1299___module_a259a7352c03f93f9f3d71cb00b2128c2}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_all\_channel\_SRB1\_connection\_status@{set\_all\_channel\_SRB1\_connection\_status}}
 \index{set\_all\_channel\_SRB1\_connection\_status@{set\_all\_channel\_SRB1\_connection\_status}!ADS1299\_Module@{ADS1299\_Module}}
@@ -453,42 +802,163 @@ uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register a
 \doxysubsubsection{\texorpdfstring{set\_bias\_measurement\_state()}{set\_bias\_measurement\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+bias\+\_\+measurement\+\_\+state (\begin{DoxyParamCaption}\item[{bool}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. 
+
+\DoxyHorRuler{0}
+
+
+If the B\+I\+A\+S\+\_\+\+IN state is true, the B\+I\+AS signal can be measured by any channel configured as a C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS by the set\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ True if the B\+I\+AS signal is routed to the channels. False if the B\+I\+AS signal is Open.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the B\+I\+AS routing was sent successfully, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_aa66faa8fdf7b677c52caf3b04d06c279}\label{class_a_d_s1299___module_aa66faa8fdf7b677c52caf3b04d06c279}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_bias\_power\_state@{set\_bias\_power\_state}}
 \index{set\_bias\_power\_state@{set\_bias\_power\_state}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_bias\_power\_state()}{set\_bias\_power\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+bias\+\_\+power\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a62cb448baaeead1b9013065e5b74dca8}{Bias\+\_\+\+Power\+\_\+\+State\+\_\+t}}}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets the current B\+I\+AS buffer state. 
+
+\DoxyHorRuler{0}
+
+
+If there is no subject biasing or right-\/leg-\/drive this can be powered off to save power.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The power state to set the B\+I\+AS buffer to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to set the new power state was sent successfully. False otherwise. False if an invalid power state is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a65d124eb4df45ab4cf33faef81000299}\label{class_a_d_s1299___module_a65d124eb4df45ab4cf33faef81000299}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_bias\_sense\_state@{set\_bias\_sense\_state}}
 \index{set\_bias\_sense\_state@{set\_bias\_sense\_state}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_bias\_sense\_state()}{set\_bias\_sense\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+bias\+\_\+sense\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ad684f558ec7e8820ac02e8065e9e654f}{Bias\+\_\+\+Sense\+\_\+\+Enable\+\_\+t}}}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Enables or disables the bias sense function. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The new state to set, enabling or disabling the bias sense function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the status of the bias sense function was sent successfully. False otherwise. False if an invalid state was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_af16de7bb701914f51dd6acadceadfae5}\label{class_a_d_s1299___module_af16de7bb701914f51dd6acadceadfae5}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_bias\_source@{set\_bias\_source}}
 \index{set\_bias\_source@{set\_bias\_source}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_bias\_source()}{set\_bias\_source()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+bias\+\_\+source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_aa1200e72ca5cc974be2312a066ac1d96}{Bias\+\_\+\+Source\+\_\+t}}}]{new\+\_\+source }\end{DoxyParamCaption})}
 
+
+
+Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. 
+
+\DoxyHorRuler{0}
+ (A\+V\+DD + A\+V\+SS) / 2).
+
+If a B\+I\+A\+S\+\_\+\+R\+EF electrode is being used, this should be set to B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+source} & -\/ The new source of the B\+I\+AS signal.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to set the new B\+I\+AS source as sent successfully. False otherwise. False if an invalid source was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ad0fb160aaac0bf89b75a005ea0d388b2}\label{class_a_d_s1299___module_ad0fb160aaac0bf89b75a005ea0d388b2}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_bit\_addressable\_channel\_info@{set\_bit\_addressable\_channel\_info}}
 \index{set\_bit\_addressable\_channel\_info@{set\_bit\_addressable\_channel\_info}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_bit\_addressable\_channel\_info()}{set\_bit\_addressable\_channel\_info()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+bit\+\_\+addressable\+\_\+channel\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}]{Register,  }\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel,  }\item[{bool}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets a bit-\/addressable register. 
+
+\DoxyHorRuler{0}
+
+
+There are several registers where each bit corresponds to a channel. All of these can be interfaced in the same way. In this function, given a register and a channel, the correct bit from the correct register can be set. Here, if we are setting a bit, the bitmask starts at 0x01 for channel 1, then moves left for each channel up we are looking at. This works because when we bitshift, the new bits are set to 0. But when we\textquotesingle{}re clearing a bit, we want the new bits to be 1. To get this done, we fill the shifted bits with ((0x01 $<$$<$ channel) -\/ 1). This follows 0, 1, 3, 7, ... 127.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Register} & -\/ The Reg\+\_\+\+ID of the register we are looking at. \\
+\hline
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct bit. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The new state to set the bit to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The value of the bit. False if a invalid channel (i.\+e. bit) or register is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a973b0e6d9dd4caec7f35292c1397ca9d}\label{class_a_d_s1299___module_a973b0e6d9dd4caec7f35292c1397ca9d}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_cal\_amp@{set\_cal\_amp}}
 \index{set\_cal\_amp@{set\_cal\_amp}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_cal\_amp()}{set\_cal\_amp()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+cal\+\_\+amp (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
 
+
+
+Sets the amplitude of the test functions. 
+
+\DoxyHorRuler{0}
+
+
+Amplitude will be 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to false\mbox{]} or 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to true\mbox{]}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & -\/ The new ampltitude state. True if the amplitude of the test signal is 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400. False if the amplitude of the test signal is 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the test signal amplitude was sent successfully. False otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a7d5093453f61a925d3042ebdf7d64713}\label{class_a_d_s1299___module_a7d5093453f61a925d3042ebdf7d64713}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_cal\_freq@{set\_cal\_freq}}
 \index{set\_cal\_freq@{set\_cal\_freq}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_cal\_freq()}{set\_cal\_freq()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+cal\+\_\+freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a6e8a2b08d62321d15d3cf9a16bb2951a}{Test\+\_\+\+Frequency\+\_\+t}}}]{new\+\_\+freq }\end{DoxyParamCaption})}
 
+
+
+Sets the frequency of the test functions. 
+
+\DoxyHorRuler{0}
+
+
+Looks to local memory for the current value, and clears the current frequency setting. Then O\+Rs the register value with the new frequency setting. Writes that value to the device.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+freq} & -\/ The new test signal frequency setting.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the test signal frequency was sent successfully. False otherwise. False if an invalid frequency setting was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a06542450866139630f376d2f9a9ef086}\label{class_a_d_s1299___module_a06542450866139630f376d2f9a9ef086}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_channel\_bias\_drive\_neg\_derivation@{set\_channel\_bias\_drive\_neg\_derivation}}
 \index{set\_channel\_bias\_drive\_neg\_derivation@{set\_channel\_bias\_drive\_neg\_derivation}!ADS1299\_Module@{ADS1299\_Module}}
@@ -507,12 +977,48 @@ uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register a
 \doxysubsubsection{\texorpdfstring{set\_channel\_connection\_type()}{set\_channel\_connection\_type()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+channel\+\_\+connection\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a13c6e7e66aabba13f6011e31ea21c34e}{Channel\+\_\+\+Connection\+\_\+\+Type\+\_\+t}}}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets info about the channel connection type. 
+
+\DoxyHorRuler{0}
+
+
+Channels can be electrodes, shorted to A\+V\+DD (off), bias measurements, mid-\/supply, temp sensors, test signals, positive side bias drivers, or negative side bias drivers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct register. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The new connection configuration for this channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the connection config was sent successfully. False otherwise. False if an invalid channel or connection type was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a467902676e993f4a014597f3c1aeefe0}\label{class_a_d_s1299___module_a467902676e993f4a014597f3c1aeefe0}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_channel\_gain@{set\_channel\_gain}}
 \index{set\_channel\_gain@{set\_channel\_gain}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_channel\_gain()}{set\_channel\_gain()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+channel\+\_\+gain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_aba9b1346d1e7e30f5647d586805b93ce}{Gain\+\_\+\+Setting\+\_\+t}}}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets the Programmable Gain Array gain setting of the requested channel. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct register. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The gain level to set for the given channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the gain setting was sent successfully. False otherwise. False if an invalid channel or gain setting was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_abb6b6d12871566022b66a6e953864976}\label{class_a_d_s1299___module_abb6b6d12871566022b66a6e953864976}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_channel\_LOff\_flip\_enabled@{set\_channel\_LOff\_flip\_enabled}}
 \index{set\_channel\_LOff\_flip\_enabled@{set\_channel\_LOff\_flip\_enabled}!ADS1299\_Module@{ADS1299\_Module}}
@@ -537,30 +1043,117 @@ uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register a
 \doxysubsubsection{\texorpdfstring{set\_channel\_power\_state()}{set\_channel\_power\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+channel\+\_\+power\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a084ae6a3d7a5ba758dade14c779d63bb}{Channel\+\_\+\+Power\+\_\+\+State\+\_\+t}}}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets the power state of the requested channel. 
+
+\DoxyHorRuler{0}
+
+
+If the channel is powered down, TI recommends the channel is shorted. This can be achieved using the get\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct register. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The power state to set this channel to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to set the power state was sent successfully. False otherwise. False if an invalid channel or power state was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ad31609a61b259df66f2ddb768c311f85}\label{class_a_d_s1299___module_ad31609a61b259df66f2ddb768c311f85}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_channel\_SRB2\_connection\_status@{set\_channel\_SRB2\_connection\_status}}
 \index{set\_channel\_SRB2\_connection\_status@{set\_channel\_SRB2\_connection\_status}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_channel\_SRB2\_connection\_status()}{set\_channel\_SRB2\_connection\_status()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+channel\+\_\+\+S\+R\+B2\+\_\+connection\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a98c7ef0270800815d74cb371e50f93fb}{Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a9cc0a25935efb83ea9aa6936d550c7d8}{S\+R\+B2\+\_\+\+Connection\+\_\+\+Status\+\_\+t}}}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets the S\+R\+B2 connection status of the channel. 
+
+\DoxyHorRuler{0}
+
+
+S\+R\+B2 is the secondary reference channel. For a referential montage, application notes from TI use S\+R\+B1, which can be set en masse using set\+\_\+all\+\_\+channel\+\_\+\+S\+R\+B1\+\_\+connection\+\_\+status.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct register. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The connection status for this channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the S\+R\+B2 connection status of this channel was sent successfully. False otherwise. False if an invalid channel or connection state is requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_aedcbe4868d810dae32096bfa45593b82}\label{class_a_d_s1299___module_aedcbe4868d810dae32096bfa45593b82}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_clock\_mode@{set\_clock\_mode}}
 \index{set\_clock\_mode@{set\_clock\_mode}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_clock\_mode()}{set\_clock\_mode()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+clock\+\_\+mode (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_a_d_s1299___module_ad338d058373a5a7fd9d8b1f1d28320d1}\label{class_a_d_s1299___module_ad338d058373a5a7fd9d8b1f1d28320d1}} 
+
+
+Sets the clock mode. 
+
+\DoxyHorRuler{0}
+
+
+If clock mode is true, the oscillator will output to the C\+LK pins if the C\+L\+K\+S\+EL pin is H\+I\+GH.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em enable} & -\/ True if oscillator output is enabled, false otherwise.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the clock was sent successfully. False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_d_s1299___module_a6554443078aefb98ae7f14625e8f6561}\label{class_a_d_s1299___module_a6554443078aefb98ae7f14625e8f6561}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_daisy\_mode@{set\_daisy\_mode}}
 \index{set\_daisy\_mode@{set\_daisy\_mode}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_daisy\_mode()}{set\_daisy\_mode()}}
-{\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+daisy\+\_\+mode (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+daisy\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}}}]{new\+\_\+mode }\end{DoxyParamCaption})}
 
+
+
+Sets whether the device is in daisy chain mode or not. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+mode} & -\/ The new daisy chain state.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the daisy chain mode was sent successfully, false otherwise. False if invalid mode requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_af5b8dd0a62a6264e7e6d7b024170967f}\label{class_a_d_s1299___module_af5b8dd0a62a6264e7e6d7b024170967f}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_data\_rate@{set\_data\_rate}}
 \index{set\_data\_rate@{set\_data\_rate}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_data\_rate()}{set\_data\_rate()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+data\+\_\+rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}}}]{new\+\_\+rate }\end{DoxyParamCaption})}
 
+
+
+Sets the current data rate. 
+
+\DoxyHorRuler{0}
+
+
+The data rate determines how many samples per second the A\+D\+S1299 reads at.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+rate} & -\/ The new data rate to sample at.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the data rate was sent successfully. False otherwise. False if invalid data rate requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a94819762e8f87a974f004758673ad1ab}\label{class_a_d_s1299___module_a94819762e8f87a974f004758673ad1ab}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_GPIO\_Pin\_Mode@{set\_GPIO\_Pin\_Mode}}
 \index{set\_GPIO\_Pin\_Mode@{set\_GPIO\_Pin\_Mode}!ADS1299\_Module@{ADS1299\_Module}}
@@ -579,24 +1172,88 @@ uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register a
 \doxysubsubsection{\texorpdfstring{set\_int\_cal()}{set\_int\_cal()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+int\+\_\+cal (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
 
+
+
+Sets whether the test signal is sourced internally or externally. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & -\/ True if the test signals are to be generated internally. False if the test signals are to be driven externally.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to set the test signal source was sent successfully. False otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_aaf5a518fe79609e9d4e16c3e4d5a4523}\label{class_a_d_s1299___module_aaf5a518fe79609e9d4e16c3e4d5a4523}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_lead\_off\_comp\_thresh@{set\_lead\_off\_comp\_thresh}}
 \index{set\_lead\_off\_comp\_thresh@{set\_lead\_off\_comp\_thresh}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_lead\_off\_comp\_thresh()}{set\_lead\_off\_comp\_thresh()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+lead\+\_\+off\+\_\+comp\+\_\+thresh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_a89cde6b32a22b47f08c7072d97b85140}{L\+Off\+\_\+\+Comp\+\_\+\+Threshold\+\_\+\+Var\+\_\+t}}}]{new\+\_\+thresh }\end{DoxyParamCaption})}
 
+
+
+Sets the leadoff comparator threshold level. 
+
+\DoxyHorRuler{0}
+
+
+On the positive side, threshold will be 100\% -\/ new\+\_\+thresh. On the negative side, threshold is new\+\_\+thresh.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+thresh} & -\/ The new threshold level to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the leadoff comparator threshold was sent successfully. False otherwise. False if an invalid threshold was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a45edcc9d67563d7e724144809feda4dd}\label{class_a_d_s1299___module_a45edcc9d67563d7e724144809feda4dd}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_lead\_off\_current\_mag@{set\_lead\_off\_current\_mag}}
 \index{set\_lead\_off\_current\_mag@{set\_lead\_off\_current\_mag}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_lead\_off\_current\_mag()}{set\_lead\_off\_current\_mag()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+lead\+\_\+off\+\_\+current\+\_\+mag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_aace2388092bff68ecb944e1dffa151e6}{L\+Off\+\_\+\+Current\+\_\+t}}}]{new\+\_\+current }\end{DoxyParamCaption})}
 
+
+
+Sets the lead-\/off current (like Amps) magnitude. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+current} & -\/ The new current level for the lead-\/off detection.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the current level was sent successfully. False otherwise. False if an invalid current level was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ae2c22fc0d28b74d775770c753a410f64}\label{class_a_d_s1299___module_ae2c22fc0d28b74d775770c753a410f64}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_lead\_off\_frequency@{set\_lead\_off\_frequency}}
 \index{set\_lead\_off\_frequency@{set\_lead\_off\_frequency}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_lead\_off\_frequency()}{set\_lead\_off\_frequency()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+lead\+\_\+off\+\_\+frequency (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_afc9a68c4bb8ef05991c6a15e2fc6a290}{L\+Off\+\_\+\+Freq\+\_\+t}}}]{new\+\_\+freq }\end{DoxyParamCaption})}
 
+
+
+Sets the lead-\/off detection frequency. 
+
+\DoxyHorRuler{0}
+
+
+This is the rate that the leads are polled to see if they have disconnected. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4 means the leads will be sampled at 1 quarter of the data rate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+freq} & -\/ The new lead-\/off detection frequency.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the command to change the lead off detection frequency was sent successfully. False otherwise. False if an invalid frequency was requested. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a94c9bfa268953e64cdf12ceeeda5e161}\label{class_a_d_s1299___module_a94c9bfa268953e64cdf12ceeeda5e161}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_LOff\_conversion\_mode@{set\_LOff\_conversion\_mode}}
 \index{set\_LOff\_conversion\_mode@{set\_LOff\_conversion\_mode}!ADS1299\_Module@{ADS1299\_Module}}
@@ -615,12 +1272,47 @@ uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register a
 \doxysubsubsection{\texorpdfstring{set\_reference\_buffer\_state()}{set\_reference\_buffer\_state()}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::set\+\_\+reference\+\_\+buffer\+\_\+state (\begin{DoxyParamCaption}\item[{bool}]{new\+\_\+state }\end{DoxyParamCaption})}
 
+
+
+Sets the power state of the internal reference buffer. 
+
+\DoxyHorRuler{0}
+
+
+Unless an external voltage reference is supplied, this should be powered on.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em -\/} & True to power on the internal reference buffer. False to power off the internal reference buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ True if the internal reference buffer is powered on. False if the internal reference buffer is powered off. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a7066bb70727d355278f43cab1ee98be7}\label{class_a_d_s1299___module_a7066bb70727d355278f43cab1ee98be7}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!set\_value@{set\_value}}
 \index{set\_value@{set\_value}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{set\_value()}{set\_value()}}
 {\footnotesize\ttfamily void A\+D\+S1299\+\_\+\+Module\+::set\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}]{Register,  }\item[{uint8\+\_\+t}]{new\+\_\+value }\end{DoxyParamCaption})}
 
+
+
+Sets the current value of a Register from local memory. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Remove this function\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Register} & -\/ Which register to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+\_\+value} & -\/ The new value of this register in memory. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}

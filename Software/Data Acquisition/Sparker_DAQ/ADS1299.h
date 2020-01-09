@@ -34,7 +34,7 @@ public:
   Reg_ID_t get_Reg_ID_from_Address(uint8_t register_address);
 
 
-  uint8_t send_command(Command_t command);
+  bool send_command(Command_t command);
 
 
   void reset(void);
@@ -49,10 +49,10 @@ public:
   uint8_t get_num_channels(void);
 
 
-  bool get_daisy_mode(void);
+  Daisy_Chain_Mode_t get_daisy_mode(void);
 
 
-  bool set_daisy_mode(bool enable);
+  bool set_daisy_mode(Daisy_Chain_Mode_t new_mode);
 
 
   bool get_clock_mode(void);
