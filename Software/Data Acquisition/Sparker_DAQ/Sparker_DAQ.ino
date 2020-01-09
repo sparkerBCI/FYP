@@ -27,20 +27,20 @@ void setup()
 
 
   /* Configure the ADC for the recording montage */
-  ADS1299->reset();                                     /* Reset device */
-  ADS1299->send_command(SDATAC);                        /* Device defaults to continuous recording mode */
-  ADS1299->write_register(CONFIG3, 0x40);               /* Enable internal reference */
-  ADS1299->write_register(CONFIG1, 0x96);               /* Set device to 250 SPS */
-  ADS1299->write_register(CH1SET, 0x60);                /* Set channel 1 gain as 24 */
-  ADS1299->write_register(CH2SET, 0x81);                /* Disable channel 2 */
-  ADS1299->write_register(CH3SET, 0x81);                /* Disable channel 3 */
-  ADS1299->write_register(CH4SET, 0x81);                /* Disable channel 4 */
-  ADS1299->write_register(CH5SET, 0x81);                /* Disable channel 5 */
-  ADS1299->write_register(CH6SET, 0x81);                /* Disable channel 6 */
-  ADS1299->write_register(CH7SET, 0x81);                /* Disable channel 7 */
-  ADS1299->write_register(CH8SET, 0x81);                /* Disable channel 8 */
-  ADS1299->write_register(MISC1, 0x20);                 /* Connect all channel negative rails to reference electrode */
-  ADS1299->send_command(STANDBY);                       /* Put device into standby mode. Will probably delete this later, or replace with a start command */
+  ADS1299->reset();                                                                                /* Reset device */
+  ADS1299->send_command(SDATAC);                                                                   /* Device defaults to continuous recording mode */
+  ADS1299->write_register(CONFIG3, 0x40);                                                          /* Enable internal reference */
+  ADS1299->write_register(CONFIG1, 0x96);                                                          /* Set device to 250 SPS */
+  ADS1299->write_register(CH1SET, 0x60);                                                           /* Set channel 1 gain as 24 */
+  ADS1299->write_register(CH2SET, 0x81);                                                           /* Disable channel 2 */
+  ADS1299->write_register(CH3SET, 0x81);                                                           /* Disable channel 3 */
+  ADS1299->write_register(CH4SET, 0x81);                                                           /* Disable channel 4 */
+  ADS1299->write_register(CH5SET, 0x81);                                                           /* Disable channel 5 */
+  ADS1299->write_register(CH6SET, 0x81);                                                           /* Disable channel 6 */
+  ADS1299->write_register(CH7SET, 0x81);                                                           /* Disable channel 7 */
+  ADS1299->write_register(CH8SET, 0x81);                                                           /* Disable channel 8 */
+  ADS1299->write_register(MISC1, 0x20);                                                            /* Connect all channel negative rails to reference electrode */
+  ADS1299->send_command(STANDBY);                                                                  /* Put device into standby mode. Will probably delete this later, or replace with a start command */
 }
 
 
