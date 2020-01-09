@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>- Data Acquisition System: Main Page</title>
+<title>- Data Acquisition System: The Sparker Wireless EEG Data Acquisition System</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,11 +62,21 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">- Data Acquisition System Documentation</div>  </div>
+<div class="title">The Sparker Wireless EEG Data Acquisition System </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><hr  />
+<dl class="section author"><dt>Author</dt><dd>Sam Parker </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.01</dd></dl>
+<h1><a class="anchor" id="intro_sec"></a>
+Introduction</h1>
+<p>This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed by Sam Parker as part of his Electrical Engineering Final Year Project at the University of Newcastle, Australia. This software contains interface functions to set-up, configure, and operate a Texas Instruments ADS1299 EEG Analog Front End device. It then pipes the data to a serial port (USB or Bluetooth).</p>
+<h1><a class="anchor" id="mech"></a>
+Mechanics</h1>
+<p>The software is relatively simple. It instantiates a Pin_Map, which tells the device how the pins are mapped. If this software is being run on a board other than the Sparker Data Acquisition System, you need to check the Pin_Map is still correct. It then uses the Pin_Map to communicate with the ADS1299 over an SPI interface. The device is configured for the Sparker Data Acquisition board, so if it is to be used with a different recording montage, new data rate, etc. the setup process will need to be altered. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

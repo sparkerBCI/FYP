@@ -18,11 +18,11 @@ typedef struct \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t}{A\
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_a_d_s1299___module_aac31dc4f070157739a2c76269cff5fc9}{A\+D\+S1299\+\_\+\+Module}} (\mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} $\ast$m\+\_\+\+Hardware\+\_\+\+Info)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} and opens the S\+PI interface over which to communicate. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_d_s1299___module_a7066bb70727d355278f43cab1ee98be7}{set\+\_\+value}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} Register, uint8\+\_\+t new\+\_\+value)
 \item 
 uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_a19a51af9c662a54b1aa7b8112159c940}{get\+\_\+value}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} Register)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the current value of a Register from the Reg\+\_\+\+Array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a2460f0e7fc4a8750d6632236e1b17331}{get\+\_\+\+Reg\+\_\+\+I\+D\+\_\+from\+\_\+\+Address}} (uint8\+\_\+t register\+\_\+address)
 \item 
 uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_a30ecb1a2858526871ef08af08dc783d0}{send\+\_\+command}} (\mbox{\hyperlink{_a_d_s1299___params_8h_afe8d33d42ee3ed4867090180ef38afbd}{Command\+\_\+t}} command)
@@ -181,6 +181,11 @@ bool \mbox{\hyperlink{class_a_d_s1299___module_a6ee392fa7baea7426f2a1edd49b581ff
 {\footnotesize\ttfamily A\+D\+S1299\+\_\+\+Module\+::\+A\+D\+S1299\+\_\+\+Module (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} $\ast$}]{m\+\_\+\+Hardware\+\_\+\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
+
+Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} and opens the S\+PI interface over which to communicate. 
+
+\DoxyHorRuler{0}
+ 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_a_d_s1299___module_a1323edec30512c3059116178c9a9206c}\label{class_a_d_s1299___module_a1323edec30512c3059116178c9a9206c}} 
@@ -405,6 +410,25 @@ bool \mbox{\hyperlink{class_a_d_s1299___module_a6ee392fa7baea7426f2a1edd49b581ff
 \doxysubsubsection{\texorpdfstring{get\_value()}{get\_value()}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::get\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}]{Register }\end{DoxyParamCaption})}
 
+
+
+Gets the current value of a Register from the Reg\+\_\+\+Array. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Remove this function\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Register} & -\/ A Reg\+\_\+\+I\+D\+\_\+t indicating which register to read from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t -\/ A uint8\+\_\+t representing the current value of the Register as stored in the Reg\+\_\+\+Array. 0x\+FF if error. This isn\textquotesingle{}t great, because if the register contains 0x\+FF it may be seen as an error. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a92e7bac8a242735fc97fbab6e1563409}\label{class_a_d_s1299___module_a92e7bac8a242735fc97fbab6e1563409}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!reset@{reset}}
 \index{reset@{reset}!ADS1299\_Module@{ADS1299\_Module}}

@@ -89,10 +89,12 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aac31dc4f070157739a2c76269cff5fc9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_s1299___module.html#aac31dc4f070157739a2c76269cff5fc9">ADS1299_Module</a> (<a class="el" href="class_d_a_q___pin___map.html">DAQ_Pin_Map</a> *m_Hardware_Info)</td></tr>
+<tr class="memdesc:aac31dc4f070157739a2c76269cff5fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a> and opens the SPI interface over which to communicate.  <a href="class_a_d_s1299___module.html#aac31dc4f070157739a2c76269cff5fc9">More...</a><br /></td></tr>
 <tr class="separator:aac31dc4f070157739a2c76269cff5fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7066bb70727d355278f43cab1ee98be7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_s1299___module.html#a7066bb70727d355278f43cab1ee98be7">set_value</a> (<a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1f">Reg_ID_t</a> Register, uint8_t new_value)</td></tr>
 <tr class="separator:a7066bb70727d355278f43cab1ee98be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19a51af9c662a54b1aa7b8112159c940"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_s1299___module.html#a19a51af9c662a54b1aa7b8112159c940">get_value</a> (<a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1f">Reg_ID_t</a> Register)</td></tr>
+<tr class="memdesc:a19a51af9c662a54b1aa7b8112159c940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current value of a Register from the Reg_Array.  <a href="class_a_d_s1299___module.html#a19a51af9c662a54b1aa7b8112159c940">More...</a><br /></td></tr>
 <tr class="separator:a19a51af9c662a54b1aa7b8112159c940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2460f0e7fc4a8750d6632236e1b17331"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1f">Reg_ID_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_s1299___module.html#a2460f0e7fc4a8750d6632236e1b17331">get_Reg_ID_from_Address</a> (uint8_t register_address)</td></tr>
 <tr class="separator:a2460f0e7fc4a8750d6632236e1b17331"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,6 +276,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an <a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a> and opens the SPI interface over which to communicate. </p>
+<hr  />
+ 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -950,6 +955,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gets the current value of a Register from the Reg_Array. </p>
+<hr  />
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Remove this function</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Register</td><td>- A Reg_ID_t indicating which register to read from.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t - A uint8_t representing the current value of the Register as stored in the Reg_Array. 0xFF if error. This isn't great, because if the register contains 0xFF it may be seen as an error. </dd></dl>
 
 </div>
 </div>

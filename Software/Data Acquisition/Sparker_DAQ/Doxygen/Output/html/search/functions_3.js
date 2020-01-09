@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reset_272',['reset',['../class_a_d_s1299___module.html#a92e7bac8a242735fc97fbab6e1563409',1,'ADS1299_Module']]]
+  ['loop_278',['loop',['../_sparker___d_a_q_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'Sparker_DAQ.ino']]]
 ];

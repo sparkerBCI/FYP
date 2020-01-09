@@ -29,5 +29,6 @@ var searchData=
   ['loff_5fpower_5ferror_125',['LOFF_POWER_ERROR',['../_a_d_s1299___params_8h.html#a7188d127ccf93f62cfeebf269192f2f5adba655a296abd197249ab96f2df68392',1,'ADS1299_Params.h']]],
   ['loff_5fpower_5fstatus_5ft_126',['LOff_Power_Status_t',['../_a_d_s1299___params_8h.html#a7188d127ccf93f62cfeebf269192f2f5',1,'LOff_Power_Status_t():&#160;ADS1299_Params.h'],['../_a_d_s1299___params_8h.html#a4338f0170276adf5c55aaa45543681b3',1,'LOff_Power_Status_t():&#160;ADS1299_Params.h']]],
   ['loff_5fsingle_5fshot_127',['LOFF_SINGLE_SHOT',['../_a_d_s1299___params_8h.html#abea780665b9b78bd9439a45d44fd6b9da72f2bd2782973d71cc49497df105738f',1,'ADS1299_Params.h']]],
-  ['loff_5fthresh_5ferror_128',['LOFF_THRESH_ERROR',['../_a_d_s1299___params_8h.html#a89cde6b32a22b47f08c7072d97b85140a140ec291ac6eb0f423d9d48e893184e1',1,'ADS1299_Params.h']]]
+  ['loff_5fthresh_5ferror_128',['LOFF_THRESH_ERROR',['../_a_d_s1299___params_8h.html#a89cde6b32a22b47f08c7072d97b85140a140ec291ac6eb0f423d9d48e893184e1',1,'ADS1299_Params.h']]],
+  ['loop_129',['loop',['../_sparker___d_a_q_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'Sparker_DAQ.ino']]]
 ];
