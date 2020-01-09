@@ -1,17 +1,17 @@
 /*! ******************************************************************************************
  *  @file ADS1299.cpp
- *  
+ *
  *  @brief This file holds the ADS1299_Module class function definitions.
- *  
+ *
  *  All the getters and setters are here. There are also functions to send commands (of type
  *  Command_t) to the device. The functions to write raw data to the registers are private to
  *  try to limit what people can throw at the device (some register bits are reserved, and may
  *  cause *undefined behaviour* if they are changed).
- *  
+ *
  *  @author Sam Parker
- *  
+ *
  *  Copyright (c) Sam Parker. 2020. All rights reserved.
- *  
+ *
  *********************************************************************************************/
 
 #include <SPI.h>
@@ -20,13 +20,13 @@
 
 /*! ******************************************************************************************
  * @todo Replace this with a private variable that is set by the get_num_channels function.
- *  
+ *
  *********************************************************************************************/
 #define NUM_CHANNELS    8
 
 /*! ******************************************************************************************
  * @brief Creates an ADS1299_Module and opens the SPI interface over which to communicate.
- *  
+ *
  *********************************************************************************************/
 ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
 {
@@ -36,17 +36,18 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
   SPI.beginTransaction(SPISettings(Hardware_Info->SPI_SPEED_HZ, Hardware_Info->SPI_ENDIAN, Hardware_Info->SPI_MODE));
 }
 
+
 /*! ******************************************************************************************
  * @brief Gets the current value of a Register from the Reg_Array.
- * 
+ *
  * @todo Remove this function
- * 
+ *
  * @param[in] Register        - Which register to read from.
- * 
- * @return                    - The current value of the Register as stored in the Reg_Array. 
- *                              0xFF if error. This isn't great, because if the register 
+ *
+ * @return                    - The current value of the Register as stored in the Reg_Array.
+ *                              0xFF if error. This isn't great, because if the register
  *                              contains 0xFF it may be interpreted as an error.
- *  
+ *
  *********************************************************************************************/
 uint8_t ADS1299_Module::get_value(Reg_ID_t Register)
 {

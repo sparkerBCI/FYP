@@ -1,16 +1,16 @@
 /*! ******************************************************************************************
  *  @file Sparker_DAQ.ino
- *  
+ *
  *  @brief The main file for the Sparker DAQ.
- *  
+ *
  *  Everything starts here. Gets the hardware info from the DAQ_Pin_Map class, and creates a
  *  ADS1299_Module for working with the ADC. Also opens the UART connection for talking over
  *  USB or Bluetooth.
- *  
+ *
  *  @author Sam Parker
- *  
+ *
  *  Copyright (c) Sam Parker. 2020. All rights reserved.
- *  
+ *
  *********************************************************************************************/
 
 #include "ADS1299.h"
@@ -18,7 +18,7 @@
 
 /*! ******************************************************************************************
  *  @brief Sets up the ADS1299 and required interfaces.
- *  
+ *
  *********************************************************************************************/
 void setup()
 {
@@ -62,9 +62,10 @@ void setup()
 //  ADS1299->send_command(STANDBY);                                                                  /* Put device into standby mode. Will probably delete this later, or replace with a start command */
 }
 
+
 /*! ******************************************************************************************
  *  @brief The main program loop. Plays all the jazz.
- *  
+ *
  *********************************************************************************************/
 void loop()
 {

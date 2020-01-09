@@ -54,22 +54,22 @@ private:
 
 /*! ******************************************************************************************
  *  @mainpage The Sparker Wireless EEG Data Acquisition System
- *  
+ *
  *  @author Sam Parker
  *  @version 0.01
- *  
+ *
  *  @section intro_sec Introduction
  *  This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed
  *  by Sam Parker as part of his Electrical Engineering Final Year Project at the University
- *  of Newcastle, Australia. This software contains interface functions to set-up, configure, 
+ *  of Newcastle, Australia. This software contains interface functions to set-up, configure,
  *  and operate a Texas Instruments ADS1299 EEG Analog Front End device. It then pipes the data
  *  to a serial port (USB or Bluetooth).
- *  
+ *
  *  @section mech Mechanics
  *  The software is relatively simple. It instantiates a Pin_Map, which tells the device how
  *  the pins are mapped. If this software is being run on a board other than the Sparker
  *  Data Acquisition System, you need to check the Pin_Map is still correct. It then uses
  *  the Pin_Map to communicate with the ADS1299 over an SPI interface. The device is configured
  *  for the Sparker Data Acquisition board, so if it is to be used with a different recording
- *  montage, new data rate, etc. the setup process will need to be altered. 
+ *  montage, new data rate, etc. the setup process will need to be altered.
  *********************************************************************************************/
