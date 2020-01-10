@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['read_5fonly_324',['Read_Only',['../struct_a_d_s1299___module_1_1_reg___array__t.html#aba28ca80e3b51ea392b520070eac2162',1,'ADS1299_Module::Reg_Array_t']]],
-  ['reg_5farray_325',['Reg_Array',['../class_a_d_s1299___module.html#ab9133760f4798dfd46d7d21995e25ce6',1,'ADS1299_Module']]],
-  ['reg_5fid_326',['Reg_ID',['../struct_a_d_s1299___module_1_1_reg___array__t.html#ad878023fa3c1a37af405a120fdd30f7e',1,'ADS1299_Module::Reg_Array_t']]]
+  ['pin_319',['Pin',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#a35599fc9db1d7dcb166e2c6096e11b69',1,'DAQ_Pin_Map::Pin_Array_t']]],
+  ['pin_5farray_320',['Pin_Array',['../class_d_a_q___pin___map.html#a1d775ad6c9a1458021b571b5ac5ac818',1,'DAQ_Pin_Map']]],
+  ['pin_5fid_321',['Pin_ID',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#aa6a48f3ec2e7397882eb10200f210940',1,'DAQ_Pin_Map::Pin_Array_t']]]
 ];

@@ -68,7 +68,7 @@ void setup()
 
 
   /* Configure the ADC for the recording montage */
-  ADS1299->reset();                                                                                /* Reset device */
+  ADS1299->reset();                                                       /* Reset device */
 //  ADS1299->send_command(SDATAC);                                                                   /* Device defaults to continuous recording mode */
 //  ADS1299->write_register(CONFIG3, 0x40);                                                          /* Enable internal reference */
 //  ADS1299->write_register(CONFIG1, 0x96);                                                          /* Set device to 250 SPS */

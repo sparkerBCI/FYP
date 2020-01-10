@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['spi_5fendian_327',['SPI_ENDIAN',['../class_d_a_q___pin___map.html#a5d69f9462fa6b59d0fae109d329e8a79',1,'DAQ_Pin_Map']]],
-  ['spi_5fmode_328',['SPI_MODE',['../class_d_a_q___pin___map.html#a4e1f66a257b2055dedc2ff8716d961c0',1,'DAQ_Pin_Map']]],
-  ['spi_5fspeed_5fhz_329',['SPI_SPEED_HZ',['../class_d_a_q___pin___map.html#a31247bf87dc608526c52a0d296895180',1,'DAQ_Pin_Map']]]
+  ['read_5fonly_322',['Read_Only',['../struct_a_d_s1299___module_1_1_reg___array__t.html#aba28ca80e3b51ea392b520070eac2162',1,'ADS1299_Module::Reg_Array_t']]],
+  ['reg_5farray_323',['Reg_Array',['../class_a_d_s1299___module.html#ab9133760f4798dfd46d7d21995e25ce6',1,'ADS1299_Module']]],
+  ['reg_5fid_324',['Reg_ID',['../struct_a_d_s1299___module_1_1_reg___array__t.html#ad878023fa3c1a37af405a120fdd30f7e',1,'ADS1299_Module::Reg_Array_t']]]
 ];

@@ -107,7 +107,7 @@ public:
   Bias_Power_State_t get_bias_buffer_power_state(void);
 
 
-  bool set_bias_power_state(Bias_Power_State_t new_state);
+  bool set_bias_buffer_power_state(Bias_Power_State_t new_state);
 
 
   Bias_Sense_Enable_t get_bias_sense_state(void);
