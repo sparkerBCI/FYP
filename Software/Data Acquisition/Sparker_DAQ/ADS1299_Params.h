@@ -1,40 +1,40 @@
-#ifndef _ADS1299_PARAMS_H
-#define _ADS1299_PARAMS_H
+#ifndef ADS1299_PARAMS_H
+#define ADS1299_PARAMS_H
 
 #include <Arduino.h>
 
 /* *INDENT-OFF* */
-#define REG_TABLE                                                                    \
-   /*           a                b              c                d  */               \
-   REG_ENTRY(ID,               0x00,           true,            0xFF)                \
-   REG_ENTRY(CONFIG1,          0x01,          false,            0x96)                \
-   REG_ENTRY(CONFIG2,          0x02,          false,            0xC0)                \
-   REG_ENTRY(CONFIG3,          0x03,          false,            0x60)                \
-   REG_ENTRY(LOFF,             0x04,          false,            0x00)                \
-   REG_ENTRY(CH1SET,           0x05,          false,            0x61)                \
-   REG_ENTRY(CH2SET,           0x06,          false,            0x61)                \
-   REG_ENTRY(CH3SET,           0x07,          false,            0x61)                \
-   REG_ENTRY(CH4SET,           0x08,          false,            0x61)                \
-   REG_ENTRY(CH5SET,           0x09,          false,            0x61)                \
-   REG_ENTRY(CH6SET,           0x0A,          false,            0x61)                \
-   REG_ENTRY(CH7SET,           0x0B,          false,            0x61)                \
-   REG_ENTRY(CH8SET,           0x0C,          false,            0x61)                \
-   REG_ENTRY(BIAS_SENSP,       0x0D,          false,            0x00)                \
-   REG_ENTRY(BIAS_SENSN,       0x0E,          false,            0x00)                \
-   REG_ENTRY(LOFF_SENSP,       0x0F,          false,            0x00)                \
-   REG_ENTRY(LOFF_SENSN,       0x10,          false,            0x00)                \
-   REG_ENTRY(LOFF_FLIP,        0x11,          false,            0x00)                \
-   REG_ENTRY(LOFF_STATP,       0x12,          false,            0x00)                \
-   REG_ENTRY(LOFF_STATN,       0x13,          false,            0x00)                \
-   REG_ENTRY(GPIO,             0x14,          false,            0x0F)                \
-   REG_ENTRY(MISC1,            0x15,          false,            0x00)                \
-   REG_ENTRY(MISC2,            0x16,          false,            0x00)                \
-   REG_ENTRY(CONFIG4,          0x17,          false,            0x00)
+#define REG_TABLE                                                                                                         \
+   /*           Reg_ID        Address      Is Read Only     Default Value       Is Bit per Channel       */               \
+   REG_ENTRY(ID,               0x00,           true,            0xFF,               false)                \
+   REG_ENTRY(CONFIG1,          0x01,          false,            0x96,               false)                \
+   REG_ENTRY(CONFIG2,          0x02,          false,            0xC0,               false)                \
+   REG_ENTRY(CONFIG3,          0x03,          false,            0x60,               false)                \
+   REG_ENTRY(LOFF,             0x04,          false,            0x00,               false)                \
+   REG_ENTRY(CH1SET,           0x05,          false,            0x61,               false)                \
+   REG_ENTRY(CH2SET,           0x06,          false,            0x61,               false)                \
+   REG_ENTRY(CH3SET,           0x07,          false,            0x61,               false)                \
+   REG_ENTRY(CH4SET,           0x08,          false,            0x61,               false)                \
+   REG_ENTRY(CH5SET,           0x09,          false,            0x61,               false)                \
+   REG_ENTRY(CH6SET,           0x0A,          false,            0x61,               false)                \
+   REG_ENTRY(CH7SET,           0x0B,          false,            0x61,               false)                \
+   REG_ENTRY(CH8SET,           0x0C,          false,            0x61,               false)                \
+   REG_ENTRY(BIAS_SENSP,       0x0D,          false,            0x00,                true)                \
+   REG_ENTRY(BIAS_SENSN,       0x0E,          false,            0x00,                true)                \
+   REG_ENTRY(LOFF_SENSP,       0x0F,          false,            0x00,                true)                \
+   REG_ENTRY(LOFF_SENSN,       0x10,          false,            0x00,                true)                \
+   REG_ENTRY(LOFF_FLIP,        0x11,          false,            0x00,                true)                \
+   REG_ENTRY(LOFF_STATP,       0x12,          true,             0x00,                true)                \
+   REG_ENTRY(LOFF_STATN,       0x13,          true,             0x00,                true)                \
+   REG_ENTRY(GPIO,             0x14,          false,            0x0F,               false)                \
+   REG_ENTRY(MISC1,            0x15,          false,            0x00,               false)                \
+   REG_ENTRY(MISC2,            0x16,          false,            0x00,               false)                \
+   REG_ENTRY(CONFIG4,          0x17,          false,            0x00,               false)
 /* *INDENT-ON* */
 
 typedef enum Reg_ID_t
 {
-#define REG_ENTRY(a, b, c, d)    a,
+#define REG_ENTRY(a, b, c, d, e)    a,
   REG_TABLE
 #undef REG_ENTRY
   NUM_REGS,
@@ -217,12 +217,12 @@ typedef enum GPIO_Mode_t
   GPIO_MODE_ERROR
 } GPIO_Mode_t;
 
-typedef enum LOff_Conv_Mode_t
+typedef enum Conv_Mode_t
 {
-  LOFF_CONTINUOUS_CONVERSION,
-  LOFF_SINGLE_SHOT,
-  LOFF_CONV_MODE_ERROR
-} LOff_Conv_Mode_t;
+  CONTINUOUS_CONVERSION,
+  SINGLE_SHOT,
+  CONV_MODE_ERROR
+} Conv_Mode_t;
 
 typedef enum LOff_Power_Status_t
 {

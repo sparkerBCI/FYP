@@ -1,5 +1,5 @@
-#ifndef _ADS1299_H
-#define _ADS1299_H
+#ifndef ADS1299_H
+#define ADS1299_H
 
 #include "DAQ_Pin_Map.h"
 #include "ADS1299_Params.h"
@@ -18,10 +18,11 @@ public:
     bool     Read_Only;
     uint8_t  Value_on_Reset;
     uint8_t  Current_Value;
+    bool     Bit_Per_Channel;
   } Reg_Areay_t;
 
 /* Create the register array and populate the value with default value */
-#define REG_ENTRY(a, b, c, d)    { a, b, c, d, d },
+#define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },
   Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
 #undef REG_ENTRY
 
@@ -166,12 +167,6 @@ public:
   bool set_channel_bias_drive_pos_derivation(Channel_t channel, bool new_state);
 
 
-  bool get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel);
-
-
-  bool set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
-
-
   bool get_channel_bias_drive_neg_derivation(Channel_t channel);
 
 
@@ -220,10 +215,10 @@ public:
   bool set_all_channel_SRB1_connection_status(SRB1_Connection_Status_t new_state);
 
 
-  LOff_Conv_Mode_t get_LOff_conversion_mode(void);
+  Conv_Mode_t get_conversion_mode(void);
 
 
-  bool set_LOff_conversion_mode(LOff_Conv_Mode_t new_state);
+  bool set_conversion_mode(Conv_Mode_t new_state);
 
 
   LOff_Power_Status_t get_LOff_power_status(void);
@@ -244,6 +239,12 @@ private:
 
 
   uint8_t read_register(int Register_Address);
+
+
+  bool get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel);
+
+
+  bool set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
 
   DAQ_Pin_Map *Hardware_Info;
 };

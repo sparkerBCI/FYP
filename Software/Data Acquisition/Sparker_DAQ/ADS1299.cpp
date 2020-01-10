@@ -1409,7 +1409,12 @@ bool ADS1299_Module::set_channel_connection_type(Channel_t channel, Channel_Conn
  *********************************************************************************************/
 bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (Register >= ID) && (Register < NUM_REGS))
+  if ((channel >= CH1) &&
+      (channel < NUM_CHANNELS) &&
+      (Register >= ID) &&
+      (Register < NUM_REGS) &&
+      (Reg_Array[Register].Bit_Per_Channel) &&
+      (Reg_Array[Register].Read_Only))
   {
     uint8_t reg_data = read_register(Register);
     uint8_t bitmask  = 0x01 << channel;
@@ -1429,8 +1434,8 @@ bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel
  * bit from the correct register can be set. Here, if we are setting a bit, the bitmask starts
  * at 0x01 for channel 1, then moves left for each channel up we are looking at. This works
  * because when we bitshift, the new bits are set to 0. But when we're clearing a bit, we want
- * the new bits to be 1. To get this done, we fill the shifted bits with
- * ((0x01 << channel) - 1). This follows 0, 1, 3, 7, ... 127.
+ * the new bits to be 1. To achieve this, the bitmask is still calculated the same way, but
+ * it is then inverted, so the bit where the 1 was is now 0 and everything else is 1.
  *
  * @param[in] Register              - The Reg_ID of the register we are looking at.
  * @param[in] channel               - The channel to set. This is used to select the correct
@@ -1443,32 +1448,34 @@ bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel
  *********************************************************************************************/
 bool ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state)
 {
-  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (Register >= ID) && (Register < NUM_REGS))
+  if ((channel >= CH1) &&
+      (channel < NUM_CHANNELS) &&
+      (Register >= ID) &&
+      (Register < NUM_REGS) &&
+      (Reg_Array[Register].Bit_Per_Channel) &&
+      (Reg_Array[Register].Read_Only))
   {
+    uint8_t bitmask = 0x01 << channel;
     if (new_state)
     {
-      uint8_t bitmask = 0x01 << channel;
       return write_register(Register, Reg_Array[Register].Current_Value | bitmask);
     }
-    else
-    {
-      uint8_t bitmask = (0xFE << channel) | ((0x01 << channel) - 1);
-      return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
-    }
+    bitmask = !bitmask;                                                                            /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
+    return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
   }
   return false;
 }
 
 
 /*! ******************************************************************************************
- * @brief Sets the bias drive positive derivation.
- *
- * This selects if any channels' positive signal is used for the bias voltage signal.
+ * @brief Gets if the provided channel's positive signal is used for the bias positive voltage
+ * signal.
  *
  * @param[in] channel               - The channel to check. This is used to select the correct
  *                                    bit.
  *
  * @return                          - True if the channel is set to be a bias drive channel.
+ *                                    False otherwise. False if error.
  *
  *********************************************************************************************/
 bool ADS1299_Module::get_channel_bias_drive_pos_derivation(Channel_t channel)
@@ -1477,72 +1484,213 @@ bool ADS1299_Module::get_channel_bias_drive_pos_derivation(Channel_t channel)
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets if the provided channel's positive signal is used for the bias positive voltage
+ * signal.
+ *
+ * @param[in] channel               - The channel to connect to the positive bias voltage
+ *                                    signal. This is used to select the correct bit.
+ * @param[in] new_state             - True if the channel's positive signal is a positive
+ *                                    bias voltage driver.
+ *
+ * @return                          - True if the command to set the channel as the bias
+ *                                    positive voltage signal source was sent successfully.
+ *                                    False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_channel_bias_drive_pos_derivation(Channel_t channel, bool new_state)
 {
   return set_bit_addressable_channel_info(BIAS_SENSP, channel, new_state);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets if the provided channel's negative signal is used for the bias negative voltage
+ * signal.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel is set to be a bias drive channel.
+ *                                    False otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_channel_bias_drive_neg_derivation(Channel_t channel)
 {
   return get_bit_addressable_channel_info(BIAS_SENSN, channel);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets if the provided channel's negative signal is used for the bias negative voltage
+ * signal.
+ *
+ * @param[in] channel               - The channel to connect to the positive bias voltage
+ *                                    signal. This is used to select the correct bit.
+ * @param[in] new_state             - True if the channel's negative signal is a negative
+ *                                    bias voltage driver.
+ *
+ * @return                          - True if the command to set the channel as the bias
+ *                                    positive voltage signal source was sent successfully.
+ *                                    False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_channel_bias_drive_neg_derivation(Channel_t channel, bool new_state)
 {
   return set_bit_addressable_channel_info(BIAS_SENSN, channel, new_state);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets whether a channel's positive lead has lead-off detection enabled.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel's positive lead has lead-off
+ *                                    detection enabled. False otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_channel_LOff_pos_enabled(Channel_t channel)
 {
   return get_bit_addressable_channel_info(LOFF_SENSP, channel);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets whether a channel's positive lead has lead-off detection enabled.
+ *
+ * @param[in] channel               - The channel to set. This is used to select the correct
+ *                                    bit.
+ * @param[in] new_state             - The new positive signal lead-off detection state.
+ *
+ * @return                          - True if the command to set the channel's positive lead
+ *                                    lead-off enabled state was sent correctly. False
+ *                                    otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_channel_LOff_pos_enabled(Channel_t channel, bool new_state)
 {
   return set_bit_addressable_channel_info(LOFF_SENSP, channel, new_state);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets whether a channel's negative lead has lead-off detection enabled.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel's negative lead has lead-off
+ *                                    detection enabled. False otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_channel_LOff_neg_enabled(Channel_t channel)
 {
   return get_bit_addressable_channel_info(LOFF_SENSN, channel);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets whether a channel's negative lead has lead-off detection enabled.
+ *
+ * @param[in] channel               - The channel to set. This is used to select the correct
+ *                                    bit.
+ * @param[in] new_state             - The new negative signal lead-off detection state.
+ *
+ * @return                          - True if the command to set the channel's negative lead
+ *                                    lead-off enabled state was sent correctly. False
+ *                                    otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_channel_LOff_neg_enabled(Channel_t channel, bool new_state)
 {
   return set_bit_addressable_channel_info(LOFF_SENSN, channel, new_state);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets whether a channel's lead-off detection pull-X configuration is flipped.
+ *
+ * If no flip, a channel's positive signal is pulled up to AVDD and negative is pulled down
+ * to AVSS. If there is a flip, the channel's positive signal is pulled down to AVSS and its
+ * negative channel is pulled up to AVDD.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel's lead-off pull-X configuration is
+ *                                    flipped. False otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_channel_LOff_flip_enabled(Channel_t channel)
 {
   return get_bit_addressable_channel_info(LOFF_FLIP, channel);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets whether a channel's lead-off detection pull-X configuration is flipped.
+ *
+ * If no flip, a channel's positive signal is pulled up to AVDD and negative is pulled down
+ * to AVSS. If there is a flip, the channel's positive signal is pulled down to AVSS and its
+ * negative channel is pulled up to AVDD.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel's lead-off pull-X configuration is
+ *                                    flipped. False otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_channel_LOff_flip_enabled(Channel_t channel, bool new_state)
 {
   return set_bit_addressable_channel_info(LOFF_FLIP, channel, new_state);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets the lead-off status of the positive lead of a channel.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel's positive lead is off. False
+ *                                    otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_channel_LOff_pos(Channel_t channel)
 {
   return get_bit_addressable_channel_info(LOFF_STATP, channel);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets the lead-off status of the negative lead of a channel.
+ *
+ * @param[in] channel               - The channel to check. This is used to select the correct
+ *                                    bit.
+ *
+ * @return                          - True if the channel's negative lead is off. False
+ *                                    otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_channel_LOff_neg(Channel_t channel)
 {
   return get_bit_addressable_channel_info(LOFF_STATN, channel);
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets the GPIO mode of a GPIO Pin.
+ *
+ * GPIO modes are Input or Output.
+ *
+ * @param[in] pin                   - The GPIO pin to check.
+ *
+ * @return                          - The GPIO mode of the supplied pin.
+ *
+ *********************************************************************************************/
 GPIO_Mode_t ADS1299_Module::get_GPIO_Pin_Mode(GPIO_Pin_t pin)
 {
   if ((pin >= GPIO1) && (pin < GPIO_ERROR))
@@ -1563,26 +1711,45 @@ GPIO_Mode_t ADS1299_Module::get_GPIO_Pin_Mode(GPIO_Pin_t pin)
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets the GPIO mode of a GPIO Pin.
+ *
+ * GPIO modes are Input or Output.
+ *
+ * @param[in] pin                   - The GPIO pin to set.
+ *
+ * @return                          - True if the command to set the GPIO mode of the provided
+ *                                    pin was sent successfully. False otherwise. False if
+ *                                    error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode)
 {
   if ((pin >= GPIO1) && (pin < GPIO_ERROR) && (mode >= GPIO_OUTPUT) && (mode < GPIO_MODE_ERROR))
   {
+    uint8_t bitmask = 0x01 << pin;
     if (mode)
     {
-      uint8_t bitmask = 0x01 << pin;
       return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
     }
-    else
-    {
-      uint8_t bitmask = 0xFF & (0xFE << pin);
-      return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
-    }
+    bitmask = !bitmask;
+    return write_register(GPIO, Reg_Array[GPIO].Current_Value & bitmask);
   }
 
   return false;
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets the GPIO state of a GPIO Pin.
+ *
+ * GPIO states are HIGH or LOW.
+ *
+ * @param[in] pin                   - The GPIO pin to check.
+ *
+ * @return                          - The GPIO state of the supplied pin.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::get_GPIO_Pin_State(GPIO_Pin_t pin)
 {
   if ((pin >= GPIO1) && (pin < GPIO_ERROR))
@@ -1595,16 +1762,28 @@ bool ADS1299_Module::get_GPIO_Pin_State(GPIO_Pin_t pin)
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets the GPIO state of a GPIO Pin.
+ *
+ * GPIO states are HIGH or LOW.
+ *
+ * @param[in] pin                   - The GPIO pin to set.
+ *
+ * @return                          - True if the command to set the GPIO state of the provided
+ *                                    pin was sent successfully. False otherwise. False if
+ *                                    error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_GPIO_Pin_State(GPIO_Pin_t pin, bool state)
 {
   if ((pin >= GPIO1) && (pin < GPIO_ERROR) && (state >= GPIO_OUTPUT) && (state < GPIO_MODE_ERROR))
   {
+    uint8_t bitmask = 0x10 << pin;
     if (state)
     {
-      uint8_t bitmask = 0x10 << pin;
       return write_register(GPIO, Reg_Array[GPIO].Current_Value | bitmask);
     }
-    uint8_t bitmask = 0xFF & (0xEF << pin);
+    bitmask = !bitmask;
     return write_register(GPIO, Reg_Array[GPIO].Current_Value & bitmask);
   }
 
@@ -1612,6 +1791,14 @@ bool ADS1299_Module::set_GPIO_Pin_State(GPIO_Pin_t pin, bool state)
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets whether all electrods are referenced to SRB1.
+ *
+ * This is the preferred setup for referential montage.
+ *
+ * @return                          - The SRB1 connection status of the device.
+ *
+ *********************************************************************************************/
 SRB1_Connection_Status_t ADS1299_Module::get_all_channel_SRB1_connection_status(void)
 {
   uint8_t reg_data = read_register(MISC1);
@@ -1631,6 +1818,17 @@ SRB1_Connection_Status_t ADS1299_Module::get_all_channel_SRB1_connection_status(
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets whether all electrods are referenced to SRB1.
+ *
+ * This is the preferred setup for referential montage.
+ *
+ * @param[in]                       - The requested SRB1 connection status.
+ *
+ * @return                          - True if the command to change the SRB1 connection status
+ *                                    was sent successfully. False otherwise. False if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_all_channel_SRB1_connection_status(SRB1_Connection_Status_t new_state)
 {
   if ((new_state >= SRB1_OPEN_ALL_CHANNELS) && (new_state < SRB1_ERROR))
@@ -1645,7 +1843,15 @@ bool ADS1299_Module::set_all_channel_SRB1_connection_status(SRB1_Connection_Stat
 }
 
 
-LOff_Conv_Mode_t ADS1299_Module::get_LOff_conversion_mode(void)
+/*! ******************************************************************************************
+ * @brief Gets the current device conversion mode.
+ *
+ * Conversion modes are single shot or continuous.
+ *
+ * @return                          - The current conversion mode of the device.
+ *
+ *********************************************************************************************/
+Conv_Mode_t ADS1299_Module::get_conversion_mode(void)
 {
   uint8_t reg_data = read_register(CONFIG4);
 
@@ -1653,21 +1859,33 @@ LOff_Conv_Mode_t ADS1299_Module::get_LOff_conversion_mode(void)
   reg_data >>= 3;
   switch (reg_data)
   {
-  case LOFF_CONTINUOUS_CONVERSION:
-    return LOFF_CONTINUOUS_CONVERSION;
+  case CONTINUOUS_CONVERSION:
+    return CONTINUOUS_CONVERSION;
 
-  case LOFF_SINGLE_SHOT:
-    return LOFF_SINGLE_SHOT;
+  case SINGLE_SHOT:
+    return SINGLE_SHOT;
 
   default:
-    return LOFF_CONV_MODE_ERROR;
+    return CONV_MODE_ERROR;
   }
 }
 
 
-bool ADS1299_Module::set_LOff_conversion_mode(LOff_Conv_Mode_t new_state)
+/*! ******************************************************************************************
+ * @brief Sets the current device conversion mode.
+ *
+ * Conversion modes are single shot or continuous. When switching modes, the current conversion
+ * must be stopped. @todo make it stop
+ *
+ * @param[in] new_state             - The requested conversion mode of the device.
+ *
+ * @return                          - True if the command to set the new conversion mode was
+ *                                    sent successfully. False otherwise. False if error.
+ *
+ *********************************************************************************************/
+bool ADS1299_Module::set_conversion_mode(Conv_Mode_t new_state)
 {
-  if ((new_state >= LOFF_CONTINUOUS_CONVERSION) && (new_state < LOFF_CONV_MODE_ERROR))
+  if ((new_state >= CONTINUOUS_CONVERSION) && (new_state < CONV_MODE_ERROR))
   {
     uint8_t value = Reg_Array[CONFIG4].Current_Value & 0xF7;
     return write_register(CONFIG4, value | (static_cast<uint8_t>(new_state) << 3));
@@ -1676,6 +1894,12 @@ bool ADS1299_Module::set_LOff_conversion_mode(LOff_Conv_Mode_t new_state)
 }
 
 
+/*! ******************************************************************************************
+ * @brief Gets the current lead-off comparator status.
+ *
+ * @return                          - The current lead-off comparator status.
+ *
+ *********************************************************************************************/
 LOff_Power_Status_t ADS1299_Module::get_LOff_power_status(void)
 {
   uint8_t reg_data = read_register(CONFIG4);
@@ -1696,6 +1920,16 @@ LOff_Power_Status_t ADS1299_Module::get_LOff_power_status(void)
 }
 
 
+/*! ******************************************************************************************
+ * @brief Sets the current lead-off comparator status.
+ *
+ * @param[in] new_state             - The requested lead-off comparator power state.
+ *
+ * @return                          - True if the command to set the new lead-off comparator
+ *                                    power state was sent successfully. False otherwise. False
+ *                                    if error.
+ *
+ *********************************************************************************************/
 bool ADS1299_Module::set_LOff_power_status(LOff_Power_Status_t new_state)
 {
   if ((new_state >= LOFF_POWER_DISABLED) && (new_state < LOFF_POWER_ERROR))
