@@ -5,9 +5,9 @@ var indexSectionsWithContent =
   2: "ads",
   3: "adglrs",
   4: "abcmnprsv",
-  5: "bcdglprst",
-  6: "bcdglprst",
-  7: "bcdglmnprstw",
+  5: "abcdglprst",
+  6: "abcdglprst",
+  7: "abcdglmnprstw",
   8: "npr",
   9: "t"
 };

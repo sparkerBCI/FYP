@@ -229,7 +229,7 @@ public:
 
 private:
 
-ADS1299_Status_t write_register(Reg_ID_t Register, uint8_t value);
+  ADS1299_Status_t write_register(Reg_ID_t Register, uint8_t value);
 
 
   ADS1299_Status_t write_register(int Register_Address, uint8_t value);

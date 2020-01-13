@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['channel_5fconnection_5ftype_5ft_358',['Channel_Connection_Type_t',['../_a_d_s1299___params_8h.html#a13c6e7e66aabba13f6011e31ea21c34e',1,'ADS1299_Params.h']]],
-  ['channel_5fpower_5fstate_5ft_359',['Channel_Power_State_t',['../_a_d_s1299___params_8h.html#a084ae6a3d7a5ba758dade14c779d63bb',1,'ADS1299_Params.h']]],
-  ['channel_5ft_360',['Channel_t',['../_a_d_s1299___params_8h.html#a98c7ef0270800815d74cb371e50f93fb',1,'ADS1299_Params.h']]],
-  ['command_5ft_361',['Command_t',['../_a_d_s1299___params_8h.html#afe8d33d42ee3ed4867090180ef38afbd',1,'ADS1299_Params.h']]],
-  ['conv_5fmode_5ft_362',['Conv_Mode_t',['../_a_d_s1299___params_8h.html#adbc9e973f03cc34eeb86bb359295b5d4',1,'ADS1299_Params.h']]]
+  ['bias_5floff_5fstatus_5ft_361',['Bias_LOff_Status_t',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00',1,'ADS1299_Params.h']]],
+  ['bias_5fpower_5fstate_5ft_362',['Bias_Power_State_t',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8',1,'ADS1299_Params.h']]],
+  ['bias_5fsense_5fenable_5ft_363',['Bias_Sense_Enable_t',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654f',1,'ADS1299_Params.h']]],
+  ['bias_5fsource_5ft_364',['Bias_Source_t',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96',1,'ADS1299_Params.h']]]
 ];

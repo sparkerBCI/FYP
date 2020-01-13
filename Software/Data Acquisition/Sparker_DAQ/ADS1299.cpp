@@ -173,8 +173,7 @@ Reg_ID_t ADS1299_Module::get_Reg_ID_from_Address(uint8_t register_address)
  * @param[in] Register              - The register to write to.
  * @param[in] value                 - The value to write to the register.
  *
- * @return                          - True if the command was successfully sent, false
- *                                    otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
@@ -183,7 +182,7 @@ ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value
   {
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
     uint16_t command = (WREG | Reg_Array[Register].Address) << 8;
-    SPI.transfer16(command & 0xFF00);                                                              //Think the bitwise op can be removed, bitshifting should always pad with 0s
+    SPI.transfer16(command & 0xFF00);                                     //Think the bitwise op can be removed, bitshifting should always pad with 0s
     SPI.transfer(value);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
     Reg_Array[Register].Current_Value = value;
@@ -206,8 +205,7 @@ ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value
  * @param[in] Register              - The register to write to.
  * @param[in] value                 - The value to write to the register.
  *
- * @return                          - The result of trying to send the value, false
- *                                    otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::write_register(int Register_Address, uint8_t value)
@@ -229,8 +227,7 @@ ADS1299_Status_t ADS1299_Module::write_register(int Register_Address, uint8_t va
  *
  * @param[in] command               - The command to send to the device.
  *
- * @return                          - True if the command was successfully sent, false
- *                                    otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::send_command(Command_t command)
@@ -273,8 +270,8 @@ uint8_t ADS1299_Module::get_device_version(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  id_reg  &= 0xE0;                                                                                 /* Isolate the version section */
-  id_reg >>= 5;                                                                                    /* Move the version info to bit 0 */
+  id_reg  &= 0xE0;                                                        /* Isolate the version section */
+  id_reg >>= 5;                                                           /* Move the version info to bit 0 */
   return(id_reg);
 }
 
@@ -292,8 +289,8 @@ uint8_t ADS1299_Module::get_device_id(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  id_reg  &= 0x0C;                                                                                 /* Isolate the device ID section */
-  id_reg >>= 2;                                                                                    /* Move the device ID to bit 0 */
+  id_reg  &= 0x0C;                                                        /* Isolate the device ID section */
+  id_reg >>= 2;                                                           /* Move the device ID to bit 0 */
   return(id_reg);
 }
 
@@ -310,11 +307,11 @@ uint8_t ADS1299_Module::get_num_channels(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  if (!id_reg)                                                                                     /* if read_register failed */
+  if (!id_reg)                                                            /* if read_register failed */
   {
     return(0);
   }
-  id_reg &= 0x03;                                                                                  /* Isolate the num channels section */
+  id_reg &= 0x03;                                                         /* Isolate the num channels section */
   switch (id_reg)
   {
   case 0x00:
@@ -343,11 +340,11 @@ Daisy_Chain_Mode_t ADS1299_Module::get_daisy_mode(void)
 {
   uint8_t reg_data = read_register(CONFIG1);
 
-  if (!reg_data)                                                                                   /* if read_register failed */
+  if (!reg_data)                                                          /* if read_register failed */
   {
     return(DAISY_MODE_ERROR);
   }
-  reg_data &= 0x40;                                                                                /* Isolate the daisy chain section */
+  reg_data &= 0x40;                                                       /* Isolate the daisy chain section */
   if (!reg_data)
   {
     return DAISY_CHAIN_MODE;
@@ -361,9 +358,7 @@ Daisy_Chain_Mode_t ADS1299_Module::get_daisy_mode(void)
  *
  * @param[in] new_mode              - The new daisy chain state.
  *
- * @return                          - True if the command to change the daisy chain mode was
- *                                    sent successfully, false otherwise. False if invalid
- *                                    mode requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_daisy_mode(Daisy_Chain_Mode_t new_mode)
@@ -376,9 +371,9 @@ ADS1299_Status_t ADS1299_Module::set_daisy_mode(Daisy_Chain_Mode_t new_mode)
     }
     if (new_mode == MULTIPLE_READBACK_MODE)
     {
-      return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x40));                    /* Set the 6th bit of the register */
+      return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x40)); /* Set the 6th bit of the register */
     }
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xBF));                      /* Clear the 6th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xBF)); /* Clear the 6th bit of the register */
   }
 
   return ADS1299_INVALID;
@@ -398,12 +393,12 @@ bool ADS1299_Module::get_clock_mode(void)
 {
   uint8_t reg_data = read_register(CONFIG1);
 
-  if (!reg_data)                                                                                   /* if read_register failed */
+  if (!reg_data)                                                          /* if read_register failed */
   {
     return(false);
   }
-  reg_data &= 0x20;                                                                                /* Isolate the clock mode section */
-  return(reg_data);                                                                                /* Reg data will contain a non-zero (0x20) if oscillator output connected to CLK pins, else 0 */
+  reg_data &= 0x20;                                                       /* Isolate the clock mode section */
+  return(reg_data);                                                       /* Reg data will contain a non-zero (0x20) if oscillator output connected to CLK pins, else 0 */
 }
 
 
@@ -414,8 +409,7 @@ bool ADS1299_Module::get_clock_mode(void)
  *
  * @param[in] enable                - True if oscillator output is enabled, false otherwise.
  *
- * @return                          - True if the command to change the clock was sent
- *                                    successfully. False otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_clock_mode(bool enable)
@@ -426,11 +420,11 @@ ADS1299_Status_t ADS1299_Module::set_clock_mode(bool enable)
   }
   if (enable)
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x20));                      /* Set the 5th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x20)); /* Set the 5th bit of the register */
   }
   else
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xDF));                      /* Clear the 5th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xDF)); /* Clear the 5th bit of the register */
   }
 }
 
@@ -447,13 +441,13 @@ Data_Rate_Setting_t ADS1299_Module::get_data_rate(void)
 {
   uint8_t reg_data = read_register(CONFIG1);
 
-  if (!reg_data)                                                                                   /* if read_register failed */
+  if (!reg_data)                                                          /* if read_register failed */
   {
     return(SPS_ERROR);
   }
-  reg_data &= 0x07;                                                                                /* Isolate the clock mode section */
+  reg_data &= 0x07;                                                       /* Isolate the clock mode section */
 
-  switch (reg_data)                                                                                /* Decode the value */
+  switch (reg_data)                                                       /* Decode the value */
   {
   case SPS16k:
     return(SPS16k);
@@ -489,9 +483,7 @@ Data_Rate_Setting_t ADS1299_Module::get_data_rate(void)
  *
  * @param[in] new_rate              - The new data rate to sample at.
  *
- * @return                          - True if the command to change the data rate was sent
- *                                    successfully. False otherwise. False if invalid data rate
- *                                    requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_data_rate(Data_Rate_Setting_t new_rate)
@@ -502,12 +494,12 @@ ADS1299_Status_t ADS1299_Module::set_data_rate(Data_Rate_Setting_t new_rate)
   }
   if ((new_rate >= SPS16k) && (new_rate < SPS_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF8;                                       /* Clear the old data */
-    return(write_register(CONFIG1, value | new_rate));                                             /* Write the new data rate */
+    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF8;              /* Clear the old data */
+    return(write_register(CONFIG1, value | new_rate));                    /* Write the new data rate */
   }
   else
   {
-    return(ADS1299_INVALID);                                                                                 /* The requested rate is invalid */
+    return(ADS1299_INVALID);                                              /* The requested rate is invalid */
   }
 }
 
@@ -534,8 +526,7 @@ bool ADS1299_Module::get_int_cal(void)
  * @param[in] state                 - True if the test signals are to be generated internally.
  *                                    False if the test signals are to be driven externally.
  *
- * @return                          - True if the command to set the test signal source was
- *                                    sent successfully. False otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_int_cal(bool state)
@@ -546,11 +537,11 @@ ADS1299_Status_t ADS1299_Module::set_int_cal(bool state)
   }
   if (state)
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x10));                      /* Set the 4th bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x10)); /* Set the 4th bit of the CONFIG2 register */
   }
   else
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xEF));                      /* Clear the 4th bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xEF)); /* Clear the 4th bit of the CONFIG2 register */
   }
 }
 
@@ -586,8 +577,7 @@ bool ADS1299_Module::get_cal_amp(void)
  *                                    amplitude of the test signal is
  *                                    1 x -(VREFP - VREFN) / 2400.
  *
- * @return                          - True if the command to change the test signal amplitude
- *                                    was sent successfully. False otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_cal_amp(bool state)
@@ -598,11 +588,11 @@ ADS1299_Status_t ADS1299_Module::set_cal_amp(bool state)
   }
   if (state)
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x04));                      /* Set the 2nd bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x04)); /* Set the 2nd bit of the CONFIG2 register */
   }
   else
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xFB));                      /* Clear the 2nd bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xFB)); /* Clear the 2nd bit of the CONFIG2 register */
   }
 }
 
@@ -644,9 +634,7 @@ Test_Frequency_t ADS1299_Module::get_cal_freq(void)
  *
  * @param[in] new_freq              - The new test signal frequency setting.
  *
- * @return                          - True if the command to change the test signal frequency
- *                                    was sent successfully. False otherwise. False if an
- *                                    invalid frequency setting was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_cal_freq(Test_Frequency_t new_freq)
@@ -657,12 +645,12 @@ ADS1299_Status_t ADS1299_Module::set_cal_freq(Test_Frequency_t new_freq)
   }
   if ((new_freq >= TEST_FREQ_FCLK_DIV_2_21) && (new_freq < TEST_FREQ_ERROR) && (new_freq != TEST_FREQ_INVALID))
   {
-    uint8_t value = Reg_Array[CONFIG2].Current_Value & 0xFC;                                       /* Clear the old data */
-    return(write_register(CONFIG2, value | static_cast<uint8_t>(new_freq)));                       /* Set the bits of the CONFIG2 register */
+    uint8_t value = Reg_Array[CONFIG2].Current_Value & 0xFC;              /* Clear the old data */
+    return(write_register(CONFIG2, value | static_cast<uint8_t>(new_freq))); /* Set the bits of the CONFIG2 register */
   }
   else
   {
-    return(ADS1299_INVALID);                                                                                 /* The requested frequency is invalid */
+    return(ADS1299_INVALID);                                              /* The requested frequency is invalid */
   }
 }
 
@@ -693,8 +681,7 @@ bool ADS1299_Module::get_reference_buffer_state(void)
  * @param[in]                       - True to power on the internal reference buffer.
  *                                    False to power off the internal reference buffer.
  *
- * @return                          - True if the internal reference buffer is powered on.
- *                                    False if the internal reference buffer is powered off.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_reference_buffer_state(bool new_state)
@@ -742,8 +729,7 @@ bool ADS1299_Module::get_bias_measurement_state(void)
  * @param[in] new_state             - True if the BIAS signal is routed to the channels.
  *                                    False if the BIAS signal is Open.
  *
- * @return                          - True if the command to change the BIAS routing was sent
- *                                    successfully, false otherwise.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_bias_measurement_state(bool new_state)
@@ -800,9 +786,7 @@ Bias_Source_t ADS1299_Module::get_bias_source(void)
  *
  * @param[in] new_source            - The new source of the BIAS signal.
  *
- * @return                          - True if the command to set the new BIAS source as sent
- *                                    successfully. False otherwise. False if an invalid
- *                                    source was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_bias_source(Bias_Source_t new_source)
@@ -854,9 +838,7 @@ Bias_Power_State_t ADS1299_Module::get_bias_buffer_power_state(void)
  *
  * @param[in] new_state             - The power state to set the BIAS buffer to.
  *
- * @return                          - True if the command to set the new power state was sent
- *                                    successfully. False otherwise. False if an invalid power
- *                                    state is requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_bias_buffer_power_state(Bias_Power_State_t new_state)
@@ -907,9 +889,7 @@ Bias_Sense_Enable_t ADS1299_Module::get_bias_sense_state(void)
  * @param[in] new_state             - The new state to set, enabling or disabling the bias
  *                                    sense function.
  *
- * @return                          - True if the command to change the status of the bias
- *                                    sense function was sent successfully. False otherwise.
- *                                    False if an invalid state was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_bias_sense_state(Bias_Sense_Enable_t new_state)
@@ -1008,9 +988,7 @@ LOff_Comp_Threshold_Var_t ADS1299_Module::get_lead_off_comp_thresh(void)
  *
  * @param[in] new_thresh            - The new threshold level to set.
  *
- * @return                          - True if the command to change the leadoff comparator
- *                                    threshold was sent successfully. False otherwise. False
- *                                    if an invalid threshold was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_lead_off_comp_thresh(LOff_Comp_Threshold_Var_t new_thresh)
@@ -1065,9 +1043,7 @@ LOff_Current_t ADS1299_Module::get_lead_off_current_mag(void)
  *
  * @param[in] new_current           - The new current level for the lead-off detection.
  *
- * @return                          - True if the command to change the current level was sent
- *                                    successfully. False otherwise. False if an invalid
- *                                    current level was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_lead_off_current_mag(LOff_Current_t new_current)
@@ -1128,9 +1104,7 @@ LOff_Freq_t ADS1299_Module::get_lead_off_frequency(void)
  *
  * @param[in] new_freq              - The new lead-off detection frequency.
  *
- * @return                          - True if the command to change the lead off detection
- *                                    frequency was sent successfully. False otherwise. False
- *                                    if an invalid frequency was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_lead_off_frequency(LOff_Freq_t new_freq)
@@ -1198,9 +1172,7 @@ Channel_Power_State_t ADS1299_Module::get_channel_power_state(Channel_t channel)
  *                                    register.
  * @param[in] new_state             - The power state to set this channel to.
  *
- * @return                          - True if the command to set the power state was sent
- *                                    successfully. False otherwise. False if an invalid
- *                                    channel or power state was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_power_state(Channel_t channel, Channel_Power_State_t new_state)
@@ -1281,9 +1253,7 @@ Gain_Setting_t ADS1299_Module::get_channel_gain(Channel_t channel)
  *                                    register.
  * @param[in] new_state             - The gain level to set for the given channel.
  *
- * @return                          - True if the command to change the gain setting was sent
- *                                    successfully. False otherwise. False if an invalid
- *                                    channel or gain setting was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Setting_t new_state)
@@ -1350,10 +1320,7 @@ SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB2_connection_status(Chan
  *                                    register.
  * @param[in] new_state             - The connection status for this channel.
  *
- * @return                          - True if the command to change the SRB2 connection status
- *                                    of this channel was sent successfully. False otherwise.
- *                                    False if an invalid channel or connection state is
- *                                    requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_SRB2_connection_status(Channel_t channel, SRB2_Connection_Status_t new_state)
@@ -1437,9 +1404,7 @@ Channel_Connection_Type_t ADS1299_Module::get_channel_connection_type(Channel_t 
  *                                    register.
  * @param[in] new_state             - The new connection configuration for this channel.
  *
- * @return                          - True if the command to change the connection config was
- *                                    sent successfully. False otherwise. False if an invalid
- *                                    channel or connection type was requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_connection_type(Channel_t channel, Channel_Connection_Type_t new_state)
@@ -1512,8 +1477,7 @@ bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel
  *                                    bit.
  * @param[in] new_state             - The new state to set the bit to.
  *
- * @return                          - The value of the bit. False if a invalid channel (i.e.
- *                                    bit) or register is requested.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state)
@@ -1534,7 +1498,7 @@ ADS1299_Status_t ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Regis
     {
       return write_register(Register, Reg_Array[Register].Current_Value | bitmask);
     }
-    bitmask = !bitmask;                                                                            /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
+    bitmask = !bitmask;                                                   /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
     return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
   }
   return ADS1299_INVALID;
@@ -1567,9 +1531,7 @@ bool ADS1299_Module::get_channel_bias_drive_pos_derivation(Channel_t channel)
  * @param[in] new_state             - True if the channel's positive signal is a positive
  *                                    bias voltage driver.
  *
- * @return                          - True if the command to set the channel as the bias
- *                                    positive voltage signal source was sent successfully.
- *                                    False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_bias_drive_pos_derivation(Channel_t channel, bool new_state)
@@ -1604,9 +1566,7 @@ bool ADS1299_Module::get_channel_bias_drive_neg_derivation(Channel_t channel)
  * @param[in] new_state             - True if the channel's negative signal is a negative
  *                                    bias voltage driver.
  *
- * @return                          - True if the command to set the channel as the bias
- *                                    positive voltage signal source was sent successfully.
- *                                    False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_bias_drive_neg_derivation(Channel_t channel, bool new_state)
@@ -1638,9 +1598,7 @@ bool ADS1299_Module::get_channel_LOff_pos_enabled(Channel_t channel)
  *                                    bit.
  * @param[in] new_state             - The new positive signal lead-off detection state.
  *
- * @return                          - True if the command to set the channel's positive lead
- *                                    lead-off enabled state was sent correctly. False
- *                                    otherwise. False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_LOff_pos_enabled(Channel_t channel, bool new_state)
@@ -1672,9 +1630,7 @@ bool ADS1299_Module::get_channel_LOff_neg_enabled(Channel_t channel)
  *                                    bit.
  * @param[in] new_state             - The new negative signal lead-off detection state.
  *
- * @return                          - True if the command to set the channel's negative lead
- *                                    lead-off enabled state was sent correctly. False
- *                                    otherwise. False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_LOff_neg_enabled(Channel_t channel, bool new_state)
@@ -1713,8 +1669,7 @@ bool ADS1299_Module::get_channel_LOff_flip_enabled(Channel_t channel)
  * @param[in] channel               - The channel to check. This is used to select the correct
  *                                    bit.
  *
- * @return                          - True if the channel's lead-off pull-X configuration is
- *                                    flipped. False otherwise. False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_channel_LOff_flip_enabled(Channel_t channel, bool new_state)
@@ -1792,9 +1747,7 @@ GPIO_Mode_t ADS1299_Module::get_GPIO_Pin_Mode(GPIO_Pin_t pin)
  *
  * @param[in] pin                   - The GPIO pin to set.
  *
- * @return                          - True if the command to set the GPIO mode of the provided
- *                                    pin was sent successfully. False otherwise. False if
- *                                    error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_GPIO_Pin_Mode(GPIO_Pin_t pin, GPIO_Mode_t mode)
@@ -1847,9 +1800,7 @@ bool ADS1299_Module::get_GPIO_Pin_State(GPIO_Pin_t pin)
  *
  * @param[in] pin                   - The GPIO pin to set.
  *
- * @return                          - True if the command to set the GPIO state of the provided
- *                                    pin was sent successfully. False otherwise. False if
- *                                    error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_GPIO_Pin_State(GPIO_Pin_t pin, bool state)
@@ -1907,8 +1858,7 @@ SRB1_Connection_Status_t ADS1299_Module::get_all_channel_SRB1_connection_status(
  *
  * @param[in]                       - The requested SRB1 connection status.
  *
- * @return                          - True if the command to change the SRB1 connection status
- *                                    was sent successfully. False otherwise. False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_all_channel_SRB1_connection_status(SRB1_Connection_Status_t new_state)
@@ -1965,8 +1915,7 @@ Conv_Mode_t ADS1299_Module::get_conversion_mode(void)
  *
  * @param[in] new_state             - The requested conversion mode of the device.
  *
- * @return                          - True if the command to set the new conversion mode was
- *                                    sent successfully. False otherwise. False if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_conversion_mode(Conv_Mode_t new_state)
@@ -2015,9 +1964,7 @@ LOff_Power_Status_t ADS1299_Module::get_LOff_power_status(void)
  *
  * @param[in] new_state             - The requested lead-off comparator power state.
  *
- * @return                          - True if the command to set the new lead-off comparator
- *                                    power state was sent successfully. False otherwise. False
- *                                    if error.
+ * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::set_LOff_power_status(LOff_Power_Status_t new_state)

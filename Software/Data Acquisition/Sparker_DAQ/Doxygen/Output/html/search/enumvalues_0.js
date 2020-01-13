@@ -1,15 +1,7 @@
 var searchData=
 [
-  ['bias_5fconnected_377',['BIAS_CONNECTED',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00a01ae67b9bde845425531cb387aa476da',1,'ADS1299_Params.h']]],
-  ['bias_5fdisconnected_378',['BIAS_DISCONNECTED',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00a501dbfff1f688f49158651942771d2a3',1,'ADS1299_Params.h']]],
-  ['bias_5ferror_379',['BIAS_ERROR',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96a3cc2205c6203e2b2db295b6392de00b6',1,'ADS1299_Params.h']]],
-  ['bias_5fexternal_380',['BIAS_EXTERNAL',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96a84acdfe95fbe89e3c1d55bbdd871982c',1,'ADS1299_Params.h']]],
-  ['bias_5finternal_381',['BIAS_INTERNAL',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96a407f0dcecdca56940a72e303d8809187',1,'ADS1299_Params.h']]],
-  ['bias_5floff_5ferror_382',['BIAS_LOFF_ERROR',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00ad23a8fdbc1ffb88c46dfdf1992baa143',1,'ADS1299_Params.h']]],
-  ['bias_5fpower_5ferror_383',['BIAS_POWER_ERROR',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8adfdcfeb1909ccad72428845fa8ce8bfe',1,'ADS1299_Params.h']]],
-  ['bias_5fpower_5foff_384',['BIAS_POWER_OFF',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8a38cd127f918d9046fda391fe590e5e88',1,'ADS1299_Params.h']]],
-  ['bias_5fpower_5fon_385',['BIAS_POWER_ON',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8a8ea4c493ec83075e02ac7ef0b9385abd',1,'ADS1299_Params.h']]],
-  ['bias_5fsense_5fdisabled_386',['BIAS_SENSE_DISABLED',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654faddd34d95d56886fbd12e64c8ef069b99',1,'ADS1299_Params.h']]],
-  ['bias_5fsense_5fenabled_387',['BIAS_SENSE_ENABLED',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654faa25fff30b67a847b0e5a7c41c910de21',1,'ADS1299_Params.h']]],
-  ['bias_5fsense_5ferror_388',['BIAS_SENSE_ERROR',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654fa9f8143a8066ee77c928181c3c85a1da4',1,'ADS1299_Params.h']]]
+  ['ads1299_5fcomms_5ferror_384',['ADS1299_COMMS_ERROR',['../_a_d_s1299___params_8h.html#aac96550cc8a6fe2dfdd26931df97f238a8537224bfa7e1deca89ab56ee25ab5cb',1,'ADS1299_Params.h']]],
+  ['ads1299_5finvalid_385',['ADS1299_INVALID',['../_a_d_s1299___params_8h.html#aac96550cc8a6fe2dfdd26931df97f238a47118522dd234e4c22657ad51b7407e6',1,'ADS1299_Params.h']]],
+  ['ads1299_5fsuccess_386',['ADS1299_SUCCESS',['../_a_d_s1299___params_8h.html#aac96550cc8a6fe2dfdd26931df97f238addd6609f419af9f4a1de79813838f08e',1,'ADS1299_Params.h']]],
+  ['ads1299_5funhandled_387',['ADS1299_UNHANDLED',['../_a_d_s1299___params_8h.html#aac96550cc8a6fe2dfdd26931df97f238a4957a4140e984655f000862357fdf9cf',1,'ADS1299_Params.h']]]
 ];

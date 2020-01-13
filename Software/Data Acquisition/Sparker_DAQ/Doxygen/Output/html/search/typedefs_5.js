@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['pin_5farray_5ft_347',['Pin_Array_t',['../class_d_a_q___pin___map.html#a240d02aeb784e113d8cca6bf9ca83baa',1,'DAQ_Pin_Map']]],
-  ['pin_5fid_5ft_348',['Pin_ID_t',['../_d_a_q___pin___map_8h.html#a43828adff5594815f6ce0cdfd851fd50',1,'DAQ_Pin_Map.h']]]
+  ['loff_5fcomp_5fthreshold_5fvar_5ft_349',['LOff_Comp_Threshold_Var_t',['../_a_d_s1299___params_8h.html#aae9b3d0a706eb1f40797593b7ceb8ee2',1,'ADS1299_Params.h']]],
+  ['loff_5fcurrent_5ft_350',['LOff_Current_t',['../_a_d_s1299___params_8h.html#ab47bb41c5b59fca0d51fab291075480b',1,'ADS1299_Params.h']]],
+  ['loff_5ffreq_5ft_351',['LOff_Freq_t',['../_a_d_s1299___params_8h.html#a72457158c236bfd683b74fcf3c509cec',1,'ADS1299_Params.h']]],
+  ['loff_5fpower_5fstatus_5ft_352',['LOff_Power_Status_t',['../_a_d_s1299___params_8h.html#a4338f0170276adf5c55aaa45543681b3',1,'ADS1299_Params.h']]]
 ];

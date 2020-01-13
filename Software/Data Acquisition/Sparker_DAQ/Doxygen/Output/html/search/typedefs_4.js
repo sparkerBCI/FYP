@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['loff_5fcomp_5fthreshold_5fvar_5ft_343',['LOff_Comp_Threshold_Var_t',['../_a_d_s1299___params_8h.html#aae9b3d0a706eb1f40797593b7ceb8ee2',1,'ADS1299_Params.h']]],
-  ['loff_5fcurrent_5ft_344',['LOff_Current_t',['../_a_d_s1299___params_8h.html#ab47bb41c5b59fca0d51fab291075480b',1,'ADS1299_Params.h']]],
-  ['loff_5ffreq_5ft_345',['LOff_Freq_t',['../_a_d_s1299___params_8h.html#a72457158c236bfd683b74fcf3c509cec',1,'ADS1299_Params.h']]],
-  ['loff_5fpower_5fstatus_5ft_346',['LOff_Power_Status_t',['../_a_d_s1299___params_8h.html#a4338f0170276adf5c55aaa45543681b3',1,'ADS1299_Params.h']]]
+  ['gain_5fsetting_5ft_346',['Gain_Setting_t',['../_a_d_s1299___params_8h.html#a8012609c028d27e0d34c946264a36071',1,'ADS1299_Params.h']]],
+  ['gpio_5fmode_5ft_347',['GPIO_Mode_t',['../_a_d_s1299___params_8h.html#a1170a849a2d5167c9129ef867af2db2f',1,'ADS1299_Params.h']]],
+  ['gpio_5fpin_5ft_348',['GPIO_Pin_t',['../_a_d_s1299___params_8h.html#a0f63a4f960ce2f4cc09f312fb600daa0',1,'ADS1299_Params.h']]]
 ];
