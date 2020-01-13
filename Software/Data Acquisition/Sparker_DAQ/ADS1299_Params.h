@@ -231,4 +231,12 @@ typedef enum LOff_Power_Status_t
   LOFF_POWER_ERROR
 } LOff_Power_Status_t;
 
+typedef enum ADS1299_Status_t
+{
+  ADS1299_SUCCESS,
+  ADS1299_INVALID,
+  ADS1299_COMMS_ERROR,
+  ADS1299_UNHANDLED
+} ADS1299_Status_t;
+
 #endif
