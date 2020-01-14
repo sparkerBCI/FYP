@@ -11,21 +11,6 @@ class ADS1299_Module {
 public:
   explicit ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info);
 
-  typedef struct Reg_Array_t
-  {
-    Reg_ID_t Reg_ID;
-    uint8_t  Address;
-    bool     Read_Only;
-    uint8_t  Value_on_Reset;
-    uint8_t  Current_Value;
-    bool     Bit_Per_Channel;
-  } Reg_Areay_t;
-
-/* Create the register array and populate the value with default value */
-#define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },
-  Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
-#undef REG_ENTRY
-
   void set_value(Reg_ID_t Register, uint8_t new_value);
 
 
@@ -47,8 +32,13 @@ public:
   uint8_t get_device_id(void);
 
 
-  uint8_t get_num_channels(void);
+  uint8_t get_num_channels_from_device(void);
 
+
+  uint8_t get_num_channels(void)
+  {
+    return number_of_channels;
+  }
 
   Daisy_Chain_Mode_t get_daisy_mode(void);
 
@@ -227,6 +217,25 @@ public:
   ADS1299_Status_t set_LOff_power_status(LOff_Power_Status_t new_state);
 
 
+  typedef struct Reg_Array_t
+  {
+    Reg_ID_t Reg_ID;
+    uint8_t  Address;
+    bool     Read_Only;
+    uint8_t  Value_on_Reset;
+    uint8_t  Current_Value;
+    bool     Bit_Per_Channel;
+  } Reg_Areay_t;
+
+/* Create the register array and populate the value with default value */
+#define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },
+  Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
+#undef REG_ENTRY
+
+
+  bool is_running = false;
+
+
 private:
 
   ADS1299_Status_t write_register(Reg_ID_t Register, uint8_t value);
@@ -246,7 +255,11 @@ private:
 
   ADS1299_Status_t set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
 
+
   DAQ_Pin_Map *Hardware_Info;
+
+
+  uint8_t number_of_channels = 0;
 };
 
 #endif

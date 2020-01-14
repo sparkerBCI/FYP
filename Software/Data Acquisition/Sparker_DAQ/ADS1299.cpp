@@ -22,10 +22,12 @@
  * @todo Replace this with a private variable that is set by the get_num_channels function.
  *
  *********************************************************************************************/
-#define NUM_CHANNELS    8
 
 /*! ******************************************************************************************
  * @brief Creates an ADS1299_Module and opens the SPI interface over which to communicate.
+ *
+ * @todo Remove the comments. Right now this causes the program to hang as the device waits for
+ * an SPI response.
  *
  *********************************************************************************************/
 ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
@@ -34,49 +36,12 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
 
   /* Set up SPI interface */
   SPI.beginTransaction(SPISettings(Hardware_Info->SPI_SPEED_HZ, Hardware_Info->SPI_ENDIAN, Hardware_Info->SPI_MODE));
-}
 
+  /* Configure the ADC for the recording montage */
+  //reset();                                                       /* Reset device */
+  //send_command(SDATAC);                                          /* Device defaults to continuous recording mode */
 
-/*! ******************************************************************************************
- * @brief Gets the current value of a Register from local memory.
- *
- * @todo Remove this function
- *
- * @param[in] Register        - Which register to read from.
- *
- * @return                    - The current value of the Register as stored in the Reg_Array.
- *                              0xFF if error. This isn't great, because if the register
- *                              contains 0xFF it may be interpreted as an error.
- *
- *********************************************************************************************/
-uint8_t ADS1299_Module::get_value(Reg_ID_t Register)
-{
-  if ((Register >= ID) && (Register < NUM_REGS))
-  {
-    return(Reg_Array[Register].Current_Value);
-  }
-  return(0xFF);
-}
-
-
-/*! ******************************************************************************************
- * @brief Sets the current value of a Register from local memory.
- *
- * @todo Remove this function
- *
- * @param[in] Register        - Which register to write to.
- * @param[in] new_value       - The new value of this register in memory.
- *
- *********************************************************************************************/
-void ADS1299_Module::set_value(Reg_ID_t Register, uint8_t new_value)
-{
-  if ((Register >= ID) && (Register < NUM_REGS))
-  {
-    if (!Reg_Array[Register].Read_Only)
-    {
-      Reg_Array[Register].Current_Value = new_value;
-    }
-  }
+  //number_of_channels = get_num_channels_from_device();
 }
 
 
@@ -237,6 +202,15 @@ ADS1299_Status_t ADS1299_Module::send_command(Command_t command)
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
     SPI.transfer(command);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
+
+    if (command == START)
+    {
+      is_running = true;
+    }
+    else if (command == STOP)
+    {
+      is_running = false;
+    }
     return(ADS1299_SUCCESS);
   }
   return(ADS1299_COMMS_ERROR);
@@ -303,7 +277,7 @@ uint8_t ADS1299_Module::get_device_id(void)
  * @todo Make this function set a num_channels variable, to be created.
  *
  *********************************************************************************************/
-uint8_t ADS1299_Module::get_num_channels(void)
+uint8_t ADS1299_Module::get_num_channels_from_device(void)
 {
   uint8_t id_reg = read_register(ID);
 
@@ -1138,7 +1112,7 @@ ADS1299_Status_t ADS1299_Module::set_lead_off_frequency(LOff_Freq_t new_freq)
  *********************************************************************************************/
 Channel_Power_State_t ADS1299_Module::get_channel_power_state(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  if ((channel >= CH1) && (channel < number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
     reg_data  &= 0x80;
@@ -1181,7 +1155,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_power_state(Channel_t channel, Chan
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= CH_POWER_ON) && (new_state < CH_POWER_ERROR))
+  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= CH_POWER_ON) && (new_state < CH_POWER_ERROR))
   {
     uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0x7F;
     return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 7));
@@ -1206,7 +1180,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_power_state(Channel_t channel, Chan
  *********************************************************************************************/
 Gain_Setting_t ADS1299_Module::get_channel_gain(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  if ((channel >= CH1) && (channel < number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
     reg_data  &= 0x70;
@@ -1262,7 +1236,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Settin
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= PGA1) && (new_state < PGA_ERROR))
+  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= PGA1) && (new_state < PGA_ERROR))
   {
     uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0x8F;
     return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 4));
@@ -1287,7 +1261,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Settin
  *********************************************************************************************/
 SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB2_connection_status(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  if ((channel >= CH1) && (channel < number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
     reg_data  &= 0x04;
@@ -1329,7 +1303,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_SRB2_connection_status(Channel_t ch
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= SRB2_OPEN) && (new_state < SRB2_ERROR))
+  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= SRB2_OPEN) && (new_state < SRB2_ERROR))
   {
     uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0xF7;
     return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 3));
@@ -1355,7 +1329,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_SRB2_connection_status(Channel_t ch
  *********************************************************************************************/
 Channel_Connection_Type_t ADS1299_Module::get_channel_connection_type(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < NUM_CHANNELS))
+  if ((channel >= CH1) && (channel < number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
     reg_data &= 0x03;
@@ -1413,7 +1387,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_connection_type(Channel_t channel, 
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < NUM_CHANNELS) && (new_state >= CH_ELECTRODE_INPUT) && (new_state < CH_CONNECTION_ERROR))
+  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= CH_ELECTRODE_INPUT) && (new_state < CH_CONNECTION_ERROR))
   {
     uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0xF8;
     return write_register(Reg_Array[CH1SET].Address + channel, value | (static_cast<uint8_t>(new_state)));
@@ -1445,7 +1419,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_connection_type(Channel_t channel, 
 bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel)
 {
   if ((channel >= CH1) &&
-      (channel < NUM_CHANNELS) &&
+      (channel < number_of_channels) &&
       (Register >= ID) &&
       (Register < NUM_REGS) &&
       (Reg_Array[Register].Bit_Per_Channel) &&
@@ -1487,7 +1461,7 @@ ADS1299_Status_t ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Regis
     return ADS1299_SUCCESS;
   }
   if ((channel >= CH1) &&
-      (channel < NUM_CHANNELS) &&
+      (channel < number_of_channels) &&
       (Register >= ID) &&
       (Register < NUM_REGS) &&
       (Reg_Array[Register].Bit_Per_Channel) &&

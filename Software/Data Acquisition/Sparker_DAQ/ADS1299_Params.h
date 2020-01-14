@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#define VALID_DEVICE_ID    0x03
+
 /* *INDENT-OFF* */
 #define REG_TABLE                                                                                                         \
    /*           Reg_ID        Address      Is Read Only     Default Value       Is Bit per Channel       */               \

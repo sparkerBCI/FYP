@@ -4,3 +4,5 @@
 ../ADS1299.cpp
 ../DAQ_Pin_Map.h
 ../DAQ_Pin_Map.cpp
+../Serial_Module.h
+../Serial_Module.cpp
