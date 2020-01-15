@@ -18,6 +18,10 @@
 
 #include "ADS1299.h"
 
+#ifndef NO_SPI
+#define NO_SPI
+#endif
+
 /*! ******************************************************************************************
  * @todo Replace this with a private variable that is set by the get_num_channels function.
  *
@@ -37,11 +41,13 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
   /* Set up SPI interface */
   SPI.beginTransaction(SPISettings(Hardware_Info->SPI_SPEED_HZ, Hardware_Info->SPI_ENDIAN, Hardware_Info->SPI_MODE));
 
+#ifndef NO_SPI
   /* Configure the ADC for the recording montage */
-  //reset();                                                       /* Reset device */
-  //send_command(SDATAC);                                          /* Device defaults to continuous recording mode */
+  reset();                                                       /* Reset device */
+  send_command(SDATAC);                                          /* Device defaults to continuous recording mode */
 
-  //number_of_channels = get_num_channels_from_device();
+  number_of_channels = get_num_channels_from_device();
+  #endif
 }
 
 
