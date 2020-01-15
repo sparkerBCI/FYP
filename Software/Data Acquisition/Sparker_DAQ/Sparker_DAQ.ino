@@ -62,16 +62,21 @@ void setup()
   Comms->msg_enabled   = true;
   Comms->debug_enabled = true;
 
-  #ifndef NO_SPI
-
-    if (ADS1299->get_device_id() != VALID_DEVICE_ID) {
-      Serial.println("Error: Device ID Invalid!");
-      while(1) {}
+#ifndef NO_SPI
+  if (ADS1299->get_device_id() != VALID_DEVICE_ID)
+  {
+    Serial.println("Error: Device ID Invalid!");
+    while (1)
+    {
     }
-    if (ADS1299->get_num_channels() == 0) {
-      Serial.println("Error: Invalid Number of Channels!");
-      while(1) {}
+  }
+  if (ADS1299->get_num_channels() == 0)
+  {
+    Serial.println("Error: Invalid Number of Channels!");
+    while (1)
+    {
     }
+  }
 
 
   /* Set up ADS1299 */
@@ -83,35 +88,35 @@ void setup()
   ADS1299->set_channel_connection_type(CH1, CH_ELECTRODE_INPUT);          /* Set channel 1 as an electrode input */
 
   /* Set Up Channel 2 */
-  ADS1299->set_channel_power_state(CH2, CH_POWER_OFF);     /* Turn off Channel 2 */
-  ADS1299->set_channel_connection_type(CH2, CH_SHORTED);  /* Short Channel 2 to power */
+  ADS1299->set_channel_power_state(CH2, CH_POWER_OFF);                    /* Turn off Channel 2 */
+  ADS1299->set_channel_connection_type(CH2, CH_SHORTED);                  /* Short Channel 2 to power */
 
   /* Set Up Channel 3 */
-  ADS1299->set_channel_power_state(CH3, CH_POWER_OFF);     /* Turn off Channel 3 */
-  ADS1299->set_channel_connection_type(CH3, CH_SHORTED);   /* Short Channel 3 to power */
+  ADS1299->set_channel_power_state(CH3, CH_POWER_OFF);                    /* Turn off Channel 3 */
+  ADS1299->set_channel_connection_type(CH3, CH_SHORTED);                  /* Short Channel 3 to power */
 
   /* Set Up Channel 4 */
-  ADS1299->set_channel_power_state(CH4, CH_POWER_OFF);     /* Turn off Channel 4 */
-  ADS1299->set_channel_connection_type(CH4, CH_SHORTED);    /* Short Channel 4 to power */
+  ADS1299->set_channel_power_state(CH4, CH_POWER_OFF);                    /* Turn off Channel 4 */
+  ADS1299->set_channel_connection_type(CH4, CH_SHORTED);                  /* Short Channel 4 to power */
 
   /* Set Up Channel 5 */
-  ADS1299->set_channel_power_state(CH5, CH_POWER_OFF);    /* Turn off Channel 5 */
-  ADS1299->set_channel_connection_type(CH5, CH_SHORTED);    /* Short Channel 5 to power */
+  ADS1299->set_channel_power_state(CH5, CH_POWER_OFF);                    /* Turn off Channel 5 */
+  ADS1299->set_channel_connection_type(CH5, CH_SHORTED);                  /* Short Channel 5 to power */
 
   /* Set Up Channel 6 */
-  ADS1299->set_channel_power_state(CH6, CH_POWER_OFF);    /* Turn off Channel 6 */
-  ADS1299->set_channel_connection_type(CH6, CH_SHORTED);    /* Short Channel 6 to power */
+  ADS1299->set_channel_power_state(CH6, CH_POWER_OFF);                    /* Turn off Channel 6 */
+  ADS1299->set_channel_connection_type(CH6, CH_SHORTED);                  /* Short Channel 6 to power */
 
   /* Set Up Channel 7 */
-  ADS1299->set_channel_power_state(CH7, CH_POWER_OFF);     /* Turn off Channel 7 */
-  ADS1299->set_channel_connection_type(CH7, CH_SHORTED);    /* Short Channel 7 to power */
+  ADS1299->set_channel_power_state(CH7, CH_POWER_OFF);                    /* Turn off Channel 7 */
+  ADS1299->set_channel_connection_type(CH7, CH_SHORTED);                  /* Short Channel 7 to power */
 
   /* Set Up Channel 8 */
-  ADS1299->set_channel_power_state(CH8, CH_POWER_OFF);     /* Turn off Channel 8 */
-  ADS1299->set_channel_connection_type(CH8, CH_SHORTED);    /* Short Channel 8 to power */
+  ADS1299->set_channel_power_state(CH8, CH_POWER_OFF);                    /* Turn off Channel 8 */
+  ADS1299->set_channel_connection_type(CH8, CH_SHORTED);                  /* Short Channel 8 to power */
 
   /* Set Up Reference Channel */
-  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);   /* Reference all channels to the reference electrode */
+  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS); /* Reference all channels to the reference electrode */
   ADS1299->send_command(STANDBY);                                         /* Put device into standby mode. Will probably delete this later, or replace with a start command */
 #endif
   unsigned long last_toggle_millis = 0;
