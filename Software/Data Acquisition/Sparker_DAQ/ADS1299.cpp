@@ -18,10 +18,6 @@
 
 #include "ADS1299.h"
 
-#ifndef NO_SPI
-#define NO_SPI
-#endif
-
 /*! ******************************************************************************************
  * @todo Replace this with a private variable that is set by the get_num_channels function.
  *

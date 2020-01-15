@@ -39,8 +39,6 @@
 #include "DAQ_Pin_Map.h"
 #include "Serial_Module.h"
 
-#define NO_SPI
-
 
 DAQ_Pin_Map    *Hardware_Map;
 ADS1299_Module *ADS1299;

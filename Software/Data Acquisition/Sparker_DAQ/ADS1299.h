@@ -6,6 +6,10 @@
 
 #include <Arduino.h>
 
+#ifndef NO_SPI
+#define NO_SPI
+#endif
+
 
 class ADS1299_Module {
 public:
