@@ -150,7 +150,7 @@ void loop()
     if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)
     {
       ADS1299->read_sample(input_buffer);
-      if (input_buffer[0] & 0xC0 != 0xC0)
+      if ((input_buffer[0] >> 4) != 0x0C)
       {
         Comms->warningMsg("Corrupt Sample! Skipping.");
       }
