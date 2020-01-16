@@ -39,6 +39,15 @@
 #include "DAQ_Pin_Map.h"
 #include "Serial_Module.h"
 
+typedef struct Sample_Data_t
+{
+  unsigned long id;
+  uint8_t       Positive_Lead_Off_Status;
+  uint8_t       Negative_Lead_Off_Status;
+  uint8_t       GPIO_Data;
+  uint32_t      Channel_Data[CH_ERROR];
+} Sample_Data_t;
+
 
 DAQ_Pin_Map    *Hardware_Map;
 ADS1299_Module *ADS1299;
@@ -128,12 +137,48 @@ void setup()
  *********************************************************************************************/
 void loop()
 {
+  static uint8_t       input_buffer[27] = { 0 };
+  static unsigned long sample_ID        = 0;
+  static Sample_Data_t processed_sample = { 0, 0, 0, 0, { 0 } };
+
   /* put your main code here, to run repeatedly: */
   if (ADS1299->is_running)
   {
     toggleLED();
 
     /* To do: Implement data reading */
+    if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)
+    {
+      ADS1299->read_sample(input_buffer);
+      if (input_buffer[0] & 0xC0 != 0xC0)
+      {
+        Comms->warningMsg("Corrupt Sample! Skipping.");
+      }
+      else
+      {
+        processed_sample.id = sample_ID;
+        sample_ID++;
+
+        uint8_t temp_loff_p = input_buffer[0] << 4;
+        uint8_t temp_loff_n = input_buffer[1] >> 4;
+        processed_sample.Positive_Lead_Off_Status = temp_loff_p | temp_loff_n;
+
+        temp_loff_n = input_buffer[1] << 4;
+        uint8_t temp_gpio = input_buffer[2] >> 4;
+        processed_sample.Negative_Lead_Off_Status = temp_loff_n | temp_gpio;
+
+        processed_sample.GPIO_Data = input_buffer[2] & 0x0F;
+
+        for (uint8_t current_channel = 0; current_channel < CH_ERROR; current_channel++)
+        {
+          uint32_t first_byte  = input_buffer[3 + 3 * current_channel];
+          uint32_t second_byte = input_buffer[4 + 3 * current_channel];
+          uint32_t third_byte  = input_buffer[5 + 3 * current_channel];
+
+          processed_sample.Channel_Data[current_channel] = (first_byte << 16) | (second_byte << 8) | third_byte;
+        }
+      }
+    }
   }
 }
 
@@ -141,6 +186,7 @@ void loop()
 void toggleLED(void)
 {
   static unsigned long last_toggle_millis = 0;
+
 
   if (!(millis() % 500) && (millis() > (last_toggle_millis + 50)))
   {

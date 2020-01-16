@@ -221,6 +221,9 @@ public:
   ADS1299_Status_t set_LOff_power_status(LOff_Power_Status_t new_state);
 
 
+  ADS1299_Status_t read_sample(uint8_t *output_buffer);
+
+
   typedef struct Reg_Array_t
   {
     Reg_ID_t Reg_ID;

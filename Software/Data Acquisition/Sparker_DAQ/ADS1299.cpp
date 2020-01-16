@@ -202,6 +202,7 @@ ADS1299_Status_t ADS1299_Module::send_command(Command_t command)
   if ((command >= WAKEUP) && (command < RREG))
   {
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
+    delay(1);
     SPI.transfer(command);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
 
@@ -1955,4 +1956,36 @@ ADS1299_Status_t ADS1299_Module::set_LOff_power_status(LOff_Power_Status_t new_s
     return write_register(CONFIG4, value | ((static_cast<uint8_t>(new_state)) << 1));
   }
   return ADS1299_INVALID;
+}
+
+
+/*! ******************************************************************************************
+ * @brief Reads back one sample from the ADS1299
+ *
+ * @param[in] output_buffer         - A buffer to write the data to.
+ *
+ * @return                          - ADS1299_Status_t indicating success / failure.
+ *
+ *********************************************************************************************/
+ADS1299_Status_t ADS1299_Module::read_sample(uint8_t *output_buffer)
+{
+#ifndef NO_SPI
+  if (!is_running || (number_of_channels == 0))
+  {
+    return ADS1299_INVALID;
+  }
+  digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
+  delay(1);
+  SPI.transfer(RREG);
+  for (uint8_t byte_number = 0; byte_number < (3 + 3 * number_of_channels); byte_number++)
+  {
+    output_buffer[byte_number] = SPI.transfer(0x00);
+#else
+  for (uint8_t byte_number = 0; byte_number < (3 + 3 * 8); byte_number++)
+  {
+    output_buffer[byte_number] = 0xFF;
+#endif
+  }
+  digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
+  return ADS1299_SUCCESS;
 }
