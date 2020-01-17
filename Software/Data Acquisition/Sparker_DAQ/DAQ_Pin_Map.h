@@ -11,7 +11,7 @@
    /*               a                b             c                  d                e*/                 \
    PIN_ENTRY(NOT_CHIP_SELECT,       13,         OUTPUT,         "Chip Select",        LOW)                 \
    PIN_ENTRY(START_PIN,             11,         OUTPUT,               "Start",        LOW)                 \
-   PIN_ENTRY(NOT_DATA_READY,        10,          INPUT,          "Data Ready",        LOW)                 \
+   PIN_ENTRY(NOT_DATA_READY,        10,   INPUT_PULLUP,          "Data Ready",       HIGH)                 \
    PIN_ENTRY(NOT_POWER_DOWN,         9,         OUTPUT,          "Power Down",        LOW)                 \
    PIN_ENTRY(STATUS_LED,            12,         OUTPUT,          "Status LED",        LOW)
 /* *INDENT-ON* */

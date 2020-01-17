@@ -17,7 +17,7 @@
  *  @mainpage The Sparker Wireless EEG Data Acquisition System
  *
  *  @author Sam Parker
- *  @version 0.01
+ *  @version 0.02
  *
  *  @section intro_sec Introduction
  *  This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed
@@ -39,14 +39,6 @@
 #include "DAQ_Pin_Map.h"
 #include "Serial_Module.h"
 
-typedef struct Sample_Data_t
-{
-  unsigned long id;
-  uint8_t       Positive_Lead_Off_Status;
-  uint8_t       Negative_Lead_Off_Status;
-  uint8_t       GPIO_Data;
-  uint32_t      Channel_Data[CH_ERROR];
-} Sample_Data_t;
 
 
 DAQ_Pin_Map    *Hardware_Map;
@@ -72,14 +64,14 @@ void setup()
 #ifndef NO_SPI
   if (ADS1299->get_device_id() != VALID_DEVICE_ID)
   {
-    Serial.println("Error: Device ID Invalid!");
+    Comms->errorMsg("Device ID Invalid!");
     while (1)
     {
     }
   }
   if (ADS1299->get_num_channels() == 0)
   {
-    Serial.println("Error: Invalid Number of Channels!");
+    Comms->errorMsg("Invalid Number of Channels!");
     while (1)
     {
     }
@@ -140,7 +132,7 @@ void loop()
   static uint8_t       input_buffer[27] = { 0 };
   static unsigned long sample_ID        = 0;
 
-  /* put your main code here, to run repeatedly: */
+
   if (ADS1299->is_running)
   {
     toggleLED();
@@ -149,13 +141,17 @@ void loop()
     if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)
     {
       ADS1299->read_sample(input_buffer);
-      if ((input_buffer[0] >> 4) != 0x0C)
+      Sample_Data_t this_sample = process_sample(input_buffer);
+      if (this_sample.id != 0)
       {
-        Comms->warningMsg("Corrupt Sample! Skipping.");
+        if (!(Comms->send_sample(this_sample)))
+        {
+          Comms->warningMsg("Could not send processed sample!");
+        }
       }
       else
       {
-        Sample_Data_t this_sample = process_sample(input_buffer);
+        Comms->warningMsg("Invalid Sample ID. This happens if there is a problem, or if the device has been recording for 192 days.");
       }
     }
   }
@@ -171,41 +167,32 @@ void toggleLED(void)
   {
     last_toggle_millis = millis();
     Comms->debugMsg("Toggling");
-//  Hardware_Map->toggle_pin(STATUS_LED);
-//  Hardware_Map->update_pins();
+    Hardware_Map->toggle_pin(STATUS_LED);
+    Hardware_Map->update_pins();
   }
 }
 
 
 Sample_Data_t process_sample(uint8_t *input_buffer)
 {
-  static unsigned long sample_ID = 0;
+  static unsigned long sample_ID        = 1;
+  Sample_Data_t        processed_sample = { 0, 0, 0, 0, { 0 } };
 
   if (input_buffer == nullptr)
   {
     Comms->errorMsg("Can't process nullptr sample buffer!");
-    return {
-             0, 0, 0, 0, {
-               0
-             }
-    };
+    return processed_sample;
   }
 
   if ((input_buffer[0] >> 4) != 0x0C)
   {
     Comms->warningMsg("Corrupt Sample! Skipping.");
     sample_ID++;
-    return {
-             0, 0, 0, 0, {
-               0
-             }
-    };
+    return processed_sample;
   }
 
   else
   {
-    Sample_Data_t processed_sample = { 0, 0, 0, 0, { 0 } };
-
     processed_sample.id = sample_ID;
     sample_ID++;
 
