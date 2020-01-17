@@ -1,24 +1,27 @@
 \hypertarget{_a_d_s1299___params_8h}{}\doxysection{A\+D\+S1299\+\_\+\+Params.\+h File Reference}
 \label{_a_d_s1299___params_8h}\index{ADS1299\_Params.h@{ADS1299\_Params.h}}
+
+
+This file holds the X\+Macros Table of register info, and many enums that make getting and setting configuration values more readable.  
+
+
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
-Include dependency graph for A\+D\+S1299\+\_\+\+Params.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}{V\+A\+L\+I\+D\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+ID}}~0x03
+\begin{DoxyCompactList}\small\item\em This is the valid Device ID, as defined in the datasheet. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}{R\+E\+G\+\_\+\+T\+A\+B\+LE}}
-\item 
+\begin{DoxyCompactList}\small\item\em The Reg\+\_\+\+Table holds information about the registers, which is used to generate the Reg\+\_\+\+Array. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_a_d_s1299___params_8h_a8223fb9a78f63793ee7b20b64d964e70}{R\+E\+G\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~a,
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This macro lists the I\+Ds of the registers in the Reg\+\_\+\+Table as a comma separated list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a3b5e8f9b8cd095db1f1c6acd3a87505c}{Reg\+\_\+\+I\+D\+\_\+t}}
-\item 
+\begin{DoxyCompactList}\small\item\em ! @breif This enum assigns a unique register ID to each register, and counts the number of registers. \end{DoxyCompactList}\item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a3d0ad9d8f6bfe6fe7d2bd5e757e20460}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}}
-\item 
+\begin{DoxyCompactList}\small\item\em ! \end{DoxyCompactList}\item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a12ad6164b5a83fb2bcd691f1c6ae8441}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}}
 \item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_afe8d33d42ee3ed4867090180ef38afbd}{Command\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_ad7694e117688274047b5e2fae6039181}{Command\+\_\+t}}
@@ -67,12 +70,12 @@ typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_aac96550cc8a6fe2dfdd26931df
 enum \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \{ \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774}{N\+U\+M\+\_\+\+R\+E\+GS}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337}{R\+E\+G\+\_\+\+E\+R\+R\+OR}}
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em ! @breif This enum assigns a unique register ID to each register, and counts the number of registers. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} \{ \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dba5d11147bebff3a544474b4cd64afeca2}{D\+A\+I\+S\+Y\+\_\+\+C\+H\+A\+I\+N\+\_\+\+M\+O\+DE}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dbaf7ae09e4583a0c67f7856837395557af}{M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+R\+E\+A\+D\+B\+A\+C\+K\+\_\+\+M\+O\+DE}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dbae51e3ad8fb9910fed3725825b111f96e}{D\+A\+I\+S\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR}}
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em ! \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}} \{ \newline
 \mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6af2cd99cb43bea19e06f04891113c300d}{S\+P\+S16k}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ad424eb8e25c9261b9fa4af8e9b53e2c6ab389883498023bc008a9ac4e7a687b1e}{S\+P\+S8k}}, 
@@ -248,12 +251,28 @@ enum \mbox{\hyperlink{_a_d_s1299___params_8h_aac96550cc8a6fe2dfdd26931df97f238}{
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+This file holds the X\+Macros Table of register info, and many enums that make getting and setting configuration values more readable. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyAuthor}{Author}
+Sam Parker
+\end{DoxyAuthor}
+Copyright (c) Sam Parker 2020 ~\newline
+ All rights reserved. 
+
 \doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{_a_d_s1299___params_8h_a8223fb9a78f63793ee7b20b64d964e70}\label{_a_d_s1299___params_8h_a8223fb9a78f63793ee7b20b64d964e70}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!REG\_ENTRY@{REG\_ENTRY}}
 \index{REG\_ENTRY@{REG\_ENTRY}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{REG\_ENTRY}{REG\_ENTRY}}
 {\footnotesize\ttfamily \#define R\+E\+G\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~a,}
+
+
+
+This macro lists the I\+Ds of the registers in the Reg\+\_\+\+Table as a comma separated list. 
 
 \mbox{\Hypertarget{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}\label{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!REG\_TABLE@{REG\_TABLE}}
@@ -291,6 +310,23 @@ enum \mbox{\hyperlink{_a_d_s1299___params_8h_aac96550cc8a6fe2dfdd26931df97f238}{
 
 \end{DoxyCode}
 
+
+The Reg\+\_\+\+Table holds information about the registers, which is used to generate the Reg\+\_\+\+Array. 
+
+\DoxyHorRuler{0}
+
+
+Column A\+: Reg\+\_\+\+ID\+: \textbackslash{}t\+The unique identifier for each register Column B\+: Address\+: \textbackslash{}t\+The address of the register in the A\+D\+S1299\textquotesingle{}s memory Column C\+: Is Read Only\+: \textbackslash{}t\+True if the register is read only. Column D\+: Default Value\+:\textbackslash{}t\+The value of the register on reset Column E\+: Is Bit Per Channel\+: \textbackslash{}t\+True if the register corresponds 1 bit to 1 channel \mbox{\Hypertarget{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}\label{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!VALID\_DEVICE\_ID@{VALID\_DEVICE\_ID}}
+\index{VALID\_DEVICE\_ID@{VALID\_DEVICE\_ID}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{VALID\_DEVICE\_ID}{VALID\_DEVICE\_ID}}
+{\footnotesize\ttfamily \#define V\+A\+L\+I\+D\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+ID~0x03}
+
+
+
+This is the valid Device ID, as defined in the datasheet. 
+
+All other device I\+Ds are considered invalid 
 
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{_a_d_s1299___params_8h_ab84805570617881848924c2148c462be}\label{_a_d_s1299___params_8h_ab84805570617881848924c2148c462be}} 
@@ -359,7 +395,11 @@ enum \mbox{\hyperlink{_a_d_s1299___params_8h_aac96550cc8a6fe2dfdd26931df97f238}{
 \doxysubsubsection{\texorpdfstring{Daisy\_Chain\_Mode\_t}{Daisy\_Chain\_Mode\_t}}
 {\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}}}
 
-\mbox{\Hypertarget{_a_d_s1299___params_8h_a12ad6164b5a83fb2bcd691f1c6ae8441}\label{_a_d_s1299___params_8h_a12ad6164b5a83fb2bcd691f1c6ae8441}} 
+
+
+! 
+
+This enum assigns a value to the different daisy chain modes \mbox{\Hypertarget{_a_d_s1299___params_8h_a12ad6164b5a83fb2bcd691f1c6ae8441}\label{_a_d_s1299___params_8h_a12ad6164b5a83fb2bcd691f1c6ae8441}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!Data\_Rate\_Setting\_t@{Data\_Rate\_Setting\_t}}
 \index{Data\_Rate\_Setting\_t@{Data\_Rate\_Setting\_t}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{Data\_Rate\_Setting\_t}{Data\_Rate\_Setting\_t}}
@@ -413,7 +453,11 @@ enum \mbox{\hyperlink{_a_d_s1299___params_8h_aac96550cc8a6fe2dfdd26931df97f238}{
 \doxysubsubsection{\texorpdfstring{Reg\_ID\_t}{Reg\_ID\_t}}
 {\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}
 
-\mbox{\Hypertarget{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}\label{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}} 
+
+
+! @breif This enum assigns a unique register ID to each register, and counts the number of registers. 
+
+It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example \mbox{\Hypertarget{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}\label{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!SRB1\_Connection\_Status\_t@{SRB1\_Connection\_Status\_t}}
 \index{SRB1\_Connection\_Status\_t@{SRB1\_Connection\_Status\_t}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{SRB1\_Connection\_Status\_t}{SRB1\_Connection\_Status\_t}}
@@ -720,9 +764,13 @@ C\+O\+N\+V\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&\\
 \doxysubsubsection{\texorpdfstring{Daisy\_Chain\_Mode\_t}{Daisy\_Chain\_Mode\_t}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447db}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+
+
+! 
+
+This enum assigns a value to the different daisy chain modes \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{DAISY\_CHAIN\_MODE@{DAISY\_CHAIN\_MODE}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!DAISY\_CHAIN\_MODE@{DAISY\_CHAIN\_MODE}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dba5d11147bebff3a544474b4cd64afeca2}\label{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dba5d11147bebff3a544474b4cd64afeca2}} 
-D\+A\+I\+S\+Y\+\_\+\+C\+H\+A\+I\+N\+\_\+\+M\+O\+DE&\\
+D\+A\+I\+S\+Y\+\_\+\+C\+H\+A\+I\+N\+\_\+\+M\+O\+DE&The device is in daisy chain mode, and can be synchronised with other devices (default) \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{MULTIPLE\_READBACK\_MODE@{MULTIPLE\_READBACK\_MODE}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!MULTIPLE\_READBACK\_MODE@{MULTIPLE\_READBACK\_MODE}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dbaf7ae09e4583a0c67f7856837395557af}\label{_a_d_s1299___params_8h_a46f2693e65fd5368a69e0102016447dbaf7ae09e4583a0c67f7856837395557af}} 
@@ -988,13 +1036,17 @@ L\+O\+F\+F\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&\\
 \doxysubsubsection{\texorpdfstring{Reg\_ID\_t}{Reg\_ID\_t}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+
+
+! @breif This enum assigns a unique register ID to each register, and counts the number of registers. 
+
+It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_REGS@{NUM\_REGS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_REGS@{NUM\_REGS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774}\label{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774}} 
-N\+U\+M\+\_\+\+R\+E\+GS&\\
+N\+U\+M\+\_\+\+R\+E\+GS&The number of registers in the Reg\+\_\+\+Array. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{REG\_ERROR@{REG\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!REG\_ERROR@{REG\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337}\label{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337}} 
-R\+E\+G\+\_\+\+E\+R\+R\+OR&\\
+R\+E\+G\+\_\+\+E\+R\+R\+OR&A value to return if there was an error finding a Reg\+\_\+\+ID. \\
 \hline
 
 \end{DoxyEnumFields}

@@ -71,34 +71,32 @@ $(function() {
 <div class="title">ADS1299_Params.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file holds the XMacros Table of register info, and many enums that make getting and setting configuration values more readable.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for ADS1299_Params.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="_a_d_s1299___params_8h__incl.png" border="0" usemap="#_a_d_s1299___params_8h" alt=""/></div>
-<!-- MAP 0 -->
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="_a_d_s1299___params_8h__dep__incl.png" border="0" usemap="#_a_d_s1299___params_8hdep" alt=""/></div>
-<!-- MAP 1 -->
-</div>
 </div>
 <p><a href="_a_d_s1299___params_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ab96768e739ca99a17de94f3048ff6405"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#ab96768e739ca99a17de94f3048ff6405">VALID_DEVICE_ID</a>&#160;&#160;&#160;0x03</td></tr>
+<tr class="memdesc:ab96768e739ca99a17de94f3048ff6405"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the valid Device ID, as defined in the datasheet.  <a href="_a_d_s1299___params_8h.html#ab96768e739ca99a17de94f3048ff6405">More...</a><br /></td></tr>
+<tr class="separator:ab96768e739ca99a17de94f3048ff6405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad31b206e97e5e8cc5c70f8713669b27f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#ad31b206e97e5e8cc5c70f8713669b27f">REG_TABLE</a></td></tr>
+<tr class="memdesc:ad31b206e97e5e8cc5c70f8713669b27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Reg_Table holds information about the registers, which is used to generate the Reg_Array.  <a href="_a_d_s1299___params_8h.html#ad31b206e97e5e8cc5c70f8713669b27f">More...</a><br /></td></tr>
 <tr class="separator:ad31b206e97e5e8cc5c70f8713669b27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8223fb9a78f63793ee7b20b64d964e70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#a8223fb9a78f63793ee7b20b64d964e70">REG_ENTRY</a>(a,  b,  c,  d,  e)&#160;&#160;&#160;a,</td></tr>
+<tr class="memdesc:a8223fb9a78f63793ee7b20b64d964e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro lists the IDs of the registers in the Reg_Table as a comma separated list.  <a href="_a_d_s1299___params_8h.html#a8223fb9a78f63793ee7b20b64d964e70">More...</a><br /></td></tr>
 <tr class="separator:a8223fb9a78f63793ee7b20b64d964e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a3b5e8f9b8cd095db1f1c6acd3a87505c"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1f">Reg_ID_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#a3b5e8f9b8cd095db1f1c6acd3a87505c">Reg_ID_t</a></td></tr>
+<tr class="memdesc:a3b5e8f9b8cd095db1f1c6acd3a87505c"><td class="mdescLeft">&#160;</td><td class="mdescRight">! @breif This enum assigns a unique register ID to each register, and counts the number of registers.  <a href="_a_d_s1299___params_8h.html#a3b5e8f9b8cd095db1f1c6acd3a87505c">More...</a><br /></td></tr>
 <tr class="separator:a3b5e8f9b8cd095db1f1c6acd3a87505c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0ad9d8f6bfe6fe7d2bd5e757e20460"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447db">Daisy_Chain_Mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#a3d0ad9d8f6bfe6fe7d2bd5e757e20460">Daisy_Chain_Mode_t</a></td></tr>
+<tr class="memdesc:a3d0ad9d8f6bfe6fe7d2bd5e757e20460"><td class="mdescLeft">&#160;</td><td class="mdescRight">!  <a href="_a_d_s1299___params_8h.html#a3d0ad9d8f6bfe6fe7d2bd5e757e20460">More...</a><br /></td></tr>
 <tr class="separator:a3d0ad9d8f6bfe6fe7d2bd5e757e20460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12ad6164b5a83fb2bcd691f1c6ae8441"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_a_d_s1299___params_8h.html#ad424eb8e25c9261b9fa4af8e9b53e2c6">Data_Rate_Setting_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#a12ad6164b5a83fb2bcd691f1c6ae8441">Data_Rate_Setting_t</a></td></tr>
 <tr class="separator:a12ad6164b5a83fb2bcd691f1c6ae8441"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,11 +146,13 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ac21547e38fb0ad7824bff2905c1b4f1f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1f">Reg_ID_t</a> { <a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774">NUM_REGS</a>, 
 <a class="el" href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337">REG_ERROR</a>
  }</td></tr>
+<tr class="memdesc:ac21547e38fb0ad7824bff2905c1b4f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">! @breif This enum assigns a unique register ID to each register, and counts the number of registers.  <a href="_a_d_s1299___params_8h.html#ac21547e38fb0ad7824bff2905c1b4f1f">More...</a><br /></td></tr>
 <tr class="separator:ac21547e38fb0ad7824bff2905c1b4f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46f2693e65fd5368a69e0102016447db"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447db">Daisy_Chain_Mode_t</a> { <a class="el" href="_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447dba5d11147bebff3a544474b4cd64afeca2">DAISY_CHAIN_MODE</a>, 
 <a class="el" href="_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447dbaf7ae09e4583a0c67f7856837395557af">MULTIPLE_READBACK_MODE</a>, 
 <a class="el" href="_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447dbae51e3ad8fb9910fed3725825b111f96e">DAISY_MODE_ERROR</a>
  }</td></tr>
+<tr class="memdesc:a46f2693e65fd5368a69e0102016447db"><td class="mdescLeft">&#160;</td><td class="mdescRight">!  <a href="_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447db">More...</a><br /></td></tr>
 <tr class="separator:a46f2693e65fd5368a69e0102016447db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad424eb8e25c9261b9fa4af8e9b53e2c6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299___params_8h.html#ad424eb8e25c9261b9fa4af8e9b53e2c6">Data_Rate_Setting_t</a> { <br />
 &#160;&#160;<a class="el" href="_a_d_s1299___params_8h.html#ad424eb8e25c9261b9fa4af8e9b53e2c6af2cd99cb43bea19e06f04891113c300d">SPS16k</a>, 
@@ -338,7 +338,13 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:aac96550cc8a6fe2dfdd26931df97f238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file holds the XMacros Table of register info, and many enums that make getting and setting configuration values more readable. </p>
+<hr  />
+<dl class="section author"><dt>Author</dt><dd>Sam Parker</dd></dl>
+<p>Copyright (c) Sam Parker 2020 <br  />
+ All rights reserved. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a8223fb9a78f63793ee7b20b64d964e70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8223fb9a78f63793ee7b20b64d964e70">&#9670;&nbsp;</a></span>REG_ENTRY</h2>
 
@@ -383,6 +389,8 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>This macro lists the IDs of the registers in the Reg_Table as a comma separated list. </p>
+
 </div>
 </div>
 <a id="ad31b206e97e5e8cc5c70f8713669b27f"></a>
@@ -422,6 +430,27 @@ Enumerations</h2></td></tr>
 <div class="line">   REG_ENTRY(MISC2,            0x16,          <span class="keyword">false</span>,            0x00,               <span class="keyword">false</span>)                \</div>
 <div class="line">   REG_ENTRY(CONFIG4,          0x17,          <span class="keyword">false</span>,            0x00,               <span class="keyword">false</span>)</div>
 </div><!-- fragment -->
+<p>The Reg_Table holds information about the registers, which is used to generate the Reg_Array. </p>
+<hr  />
+<p>Column A: Reg_ID: \tThe unique identifier for each register Column B: Address: \tThe address of the register in the ADS1299's memory Column C: Is Read Only: \tTrue if the register is read only. Column D: Default Value:\tThe value of the register on reset Column E: Is Bit Per Channel: \tTrue if the register corresponds 1 bit to 1 channel </p>
+
+</div>
+</div>
+<a id="ab96768e739ca99a17de94f3048ff6405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab96768e739ca99a17de94f3048ff6405">&#9670;&nbsp;</a></span>VALID_DEVICE_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VALID_DEVICE_ID&#160;&#160;&#160;0x03</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the valid Device ID, as defined in the datasheet. </p>
+<p>All other device IDs are considered invalid </p>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -577,6 +606,9 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>! </p>
+<p>This enum assigns a value to the different daisy chain modes </p>
+
 </div>
 </div>
 <a id="a12ad6164b5a83fb2bcd691f1c6ae8441"></a>
@@ -702,6 +734,9 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>! @breif This enum assigns a unique register ID to each register, and counts the number of registers. </p>
+<p>It also creates a REG_ERROR, which can be returned if no REG_ID is found, for example </p>
 
 </div>
 </div>
@@ -969,8 +1004,12 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>! </p>
+<p>This enum assigns a value to the different daisy chain modes </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46f2693e65fd5368a69e0102016447dba5d11147bebff3a544474b4cd64afeca2"></a>DAISY_CHAIN_MODE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46f2693e65fd5368a69e0102016447dba5d11147bebff3a544474b4cd64afeca2"></a>DAISY_CHAIN_MODE&#160;</td><td class="fielddoc"><p>The device is in daisy chain mode, and can be synchronised with other devices (default) </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a46f2693e65fd5368a69e0102016447dbaf7ae09e4583a0c67f7856837395557af"></a>MULTIPLE_READBACK_MODE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a46f2693e65fd5368a69e0102016447dbae51e3ad8fb9910fed3725825b111f96e"></a>DAISY_MODE_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
@@ -1162,9 +1201,14 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>! @breif This enum assigns a unique register ID to each register, and counts the number of registers. </p>
+<p>It also creates a REG_ERROR, which can be returned if no REG_ID is found, for example </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774"></a>NUM_REGS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337"></a>REG_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774"></a>NUM_REGS&#160;</td><td class="fielddoc"><p>The number of registers in the Reg_Array. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337"></a>REG_ERROR&#160;</td><td class="fielddoc"><p>A value to return if there was an error finding a Reg_ID. </p>
+</td></tr>
 </table>
 
 </div>

@@ -2,24 +2,35 @@
 \label{struct_a_d_s1299___module_1_1_reg___array__t}\index{ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}}
 
 
+This struct contains information about a register.  
+
+
+
+
 {\ttfamily \#include $<$A\+D\+S1299.\+h$>$}
 
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_ad878023fa3c1a37af405a120fdd30f7e}{Reg\+\_\+\+ID}}
-\item 
+\begin{DoxyCompactList}\small\item\em The unique Register ID associated with the register. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_a00ad3af6b8f41ca3b7e50d864095f2ad}{Address}}
-\item 
+\begin{DoxyCompactList}\small\item\em The address of the register in the A\+D\+S1299\textquotesingle{}s memory. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_aba28ca80e3b51ea392b520070eac2162}{Read\+\_\+\+Only}}
-\item 
+\begin{DoxyCompactList}\small\item\em True if the register is read only. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_a604ccb665a8bb4b9713b6cd42cdefd6e}{Value\+\_\+on\+\_\+\+Reset}}
-\item 
+\begin{DoxyCompactList}\small\item\em The value of the register on reset. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_a401b9ca462a339b100c95cb8bfe2c5f7}{Current\+\_\+\+Value}}
-\item 
+\begin{DoxyCompactList}\small\item\em The current value of the register. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_aa2c8401b820a1718df0663fd6687c3d4}{Bit\+\_\+\+Per\+\_\+\+Channel}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em True if the regsiter holds info about all the channels, 1 bit per channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This struct contains information about a register. 
+
+\DoxyHorRuler{0}
+ 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_a00ad3af6b8f41ca3b7e50d864095f2ad}\label{struct_a_d_s1299___module_1_1_reg___array__t_a00ad3af6b8f41ca3b7e50d864095f2ad}} 
@@ -28,11 +39,19 @@ bool \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_aa2c8401b820a
 \doxysubsubsection{\texorpdfstring{Address}{Address}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t\+::\+Address}
 
+
+
+The address of the register in the A\+D\+S1299\textquotesingle{}s memory. 
+
 \mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_aa2c8401b820a1718df0663fd6687c3d4}\label{struct_a_d_s1299___module_1_1_reg___array__t_aa2c8401b820a1718df0663fd6687c3d4}} 
 \index{ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}!Bit\_Per\_Channel@{Bit\_Per\_Channel}}
 \index{Bit\_Per\_Channel@{Bit\_Per\_Channel}!ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}}
 \doxysubsubsection{\texorpdfstring{Bit\_Per\_Channel}{Bit\_Per\_Channel}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t\+::\+Bit\+\_\+\+Per\+\_\+\+Channel}
+
+
+
+True if the regsiter holds info about all the channels, 1 bit per channel. 
 
 \mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_a401b9ca462a339b100c95cb8bfe2c5f7}\label{struct_a_d_s1299___module_1_1_reg___array__t_a401b9ca462a339b100c95cb8bfe2c5f7}} 
 \index{ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}!Current\_Value@{Current\_Value}}
@@ -40,23 +59,39 @@ bool \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t_aa2c8401b820a
 \doxysubsubsection{\texorpdfstring{Current\_Value}{Current\_Value}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t\+::\+Current\+\_\+\+Value}
 
+
+
+The current value of the register. 
+
 \mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_aba28ca80e3b51ea392b520070eac2162}\label{struct_a_d_s1299___module_1_1_reg___array__t_aba28ca80e3b51ea392b520070eac2162}} 
 \index{ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}!Read\_Only@{Read\_Only}}
 \index{Read\_Only@{Read\_Only}!ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}}
 \doxysubsubsection{\texorpdfstring{Read\_Only}{Read\_Only}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t\+::\+Read\+\_\+\+Only}
 
-\mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_ad878023fa3c1a37af405a120fdd30f7e}\label{struct_a_d_s1299___module_1_1_reg___array__t_ad878023fa3c1a37af405a120fdd30f7e}} 
+
+
+True if the register is read only. 
+
+False otherwise \mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_ad878023fa3c1a37af405a120fdd30f7e}\label{struct_a_d_s1299___module_1_1_reg___array__t_ad878023fa3c1a37af405a120fdd30f7e}} 
 \index{ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}!Reg\_ID@{Reg\_ID}}
 \index{Reg\_ID@{Reg\_ID}!ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}}
 \doxysubsubsection{\texorpdfstring{Reg\_ID}{Reg\_ID}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t\+::\+Reg\+\_\+\+ID}
+
+
+
+The unique Register ID associated with the register. 
 
 \mbox{\Hypertarget{struct_a_d_s1299___module_1_1_reg___array__t_a604ccb665a8bb4b9713b6cd42cdefd6e}\label{struct_a_d_s1299___module_1_1_reg___array__t_a604ccb665a8bb4b9713b6cd42cdefd6e}} 
 \index{ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}!Value\_on\_Reset@{Value\_on\_Reset}}
 \index{Value\_on\_Reset@{Value\_on\_Reset}!ADS1299\_Module::Reg\_Array\_t@{ADS1299\_Module::Reg\_Array\_t}}
 \doxysubsubsection{\texorpdfstring{Value\_on\_Reset}{Value\_on\_Reset}}
 {\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t\+::\+Value\+\_\+on\+\_\+\+Reset}
+
+
+
+The value of the register on reset. 
 
 
 

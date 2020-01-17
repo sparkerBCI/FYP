@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['read_5fonly_327',['Read_Only',['../struct_a_d_s1299___module_1_1_reg___array__t.html#aba28ca80e3b51ea392b520070eac2162',1,'ADS1299_Module::Reg_Array_t']]],
-  ['reg_5farray_328',['Reg_Array',['../class_a_d_s1299___module.html#ab9133760f4798dfd46d7d21995e25ce6',1,'ADS1299_Module']]],
-  ['reg_5fid_329',['Reg_ID',['../struct_a_d_s1299___module_1_1_reg___array__t.html#ad878023fa3c1a37af405a120fdd30f7e',1,'ADS1299_Module::Reg_Array_t']]]
+  ['id_377',['id',['../struct_sample___data__t.html#a61be84b21ab477f909e1193320adcecc',1,'Sample_Data_t']]],
+  ['is_5frunning_378',['is_running',['../class_a_d_s1299___module.html#aa8132c8ccfbcdb3fd8edf07884e10533',1,'ADS1299_Module']]]
 ];

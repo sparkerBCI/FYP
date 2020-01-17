@@ -7,11 +7,11 @@
 
 typedef struct Sample_Data_t
 {
-  unsigned long id;
-  uint8_t       Positive_Lead_Off_Status;
-  uint8_t       Negative_Lead_Off_Status;
-  uint8_t       GPIO_Data;
-  uint32_t      Channel_Data[MAX_ADC_CHANNELS];
+  uint32_t id;
+  uint8_t  Positive_Lead_Off_Status;
+  uint8_t  Negative_Lead_Off_Status;
+  uint8_t  GPIO_Data;
+  uint32_t Channel_Data[MAX_ADC_CHANNELS];
 } Sample_Data_t;
 
 class Serial_Module {

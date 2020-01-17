@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reg_5fentry_500',['REG_ENTRY',['../_a_d_s1299_8h.html#a8223fb9a78f63793ee7b20b64d964e70',1,'REG_ENTRY():&#160;ADS1299.h'],['../_a_d_s1299___params_8h.html#a8223fb9a78f63793ee7b20b64d964e70',1,'REG_ENTRY():&#160;ADS1299_Params.h']]],
-  ['reg_5ftable_501',['REG_TABLE',['../_a_d_s1299___params_8h.html#ad31b206e97e5e8cc5c70f8713669b27f',1,'ADS1299_Params.h']]]
+  ['pin_5fentry_561',['PIN_ENTRY',['../_d_a_q___pin___map_8h.html#ac793e62cb9bb08318171c7aa60b72bec',1,'PIN_ENTRY():&#160;DAQ_Pin_Map.h'],['../_d_a_q___pin___map_8h.html#ac793e62cb9bb08318171c7aa60b72bec',1,'PIN_ENTRY():&#160;DAQ_Pin_Map.h']]],
+  ['pin_5ftable_562',['PIN_TABLE',['../_d_a_q___pin___map_8h.html#a76e1e40487c710b2ff1fc4b79c16d2d9',1,'DAQ_Pin_Map.h']]]
 ];

@@ -1,30 +1,61 @@
 \hypertarget{_a_d_s1299_8h}{}\doxysection{A\+D\+S1299.\+h File Reference}
 \label{_a_d_s1299_8h}\index{ADS1299.h@{ADS1299.h}}
+
+
+This file holds the \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} class function declarations.  
+
+
 {\ttfamily \#include \char`\"{}D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}A\+D\+S1299\+\_\+\+Params.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
-Include dependency graph for A\+D\+S1299.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}}
-\item 
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} facilitates communication to and control of the A\+DC device. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t}{A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct contains information about a register. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \mbox{\hyperlink{_a_d_s1299_8h_a89b71fa3cd544d8233116464ea913ebb}{N\+O\+\_\+\+S\+PI}}
+\begin{DoxyCompactList}\small\item\em This is defined if we don\textquotesingle{}t want to communicate to the A\+D\+S1299 over S\+PI. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}{R\+E\+G\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~\{ a, b, c, d, d, e \},
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This macro generates an array of Reg\+\_\+\+Array\+\_\+t entries, and sets the current value of the registers to their default value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This file holds the \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} class function declarations. 
+
+\DoxyHorRuler{0}
+
+
+All the getters and setters are here. There are also functions to send commands (of type Command\+\_\+t) to the device. The functions to write raw data to the registers are private to try to limit what people can throw at the device (some register bits are reserved, and may cause {\itshape undefined behaviour} if they are changed).
+
+\begin{DoxyAuthor}{Author}
+Sam Parker
+\end{DoxyAuthor}
+Copyright (c) Sam Parker 2020 ~\newline
+ All rights reserved. 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}\label{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}} 
+\mbox{\Hypertarget{_a_d_s1299_8h_a89b71fa3cd544d8233116464ea913ebb}\label{_a_d_s1299_8h_a89b71fa3cd544d8233116464ea913ebb}} 
+\index{ADS1299.h@{ADS1299.h}!NO\_SPI@{NO\_SPI}}
+\index{NO\_SPI@{NO\_SPI}!ADS1299.h@{ADS1299.h}}
+\doxysubsubsection{\texorpdfstring{NO\_SPI}{NO\_SPI}}
+{\footnotesize\ttfamily \#define N\+O\+\_\+\+S\+PI}
+
+
+
+This is defined if we don\textquotesingle{}t want to communicate to the A\+D\+S1299 over S\+PI. 
+
+Remove this to communicate \mbox{\Hypertarget{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}\label{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}} 
 \index{ADS1299.h@{ADS1299.h}!REG\_ENTRY@{REG\_ENTRY}}
 \index{REG\_ENTRY@{REG\_ENTRY}!ADS1299.h@{ADS1299.h}}
 \doxysubsubsection{\texorpdfstring{REG\_ENTRY}{REG\_ENTRY}}
 {\footnotesize\ttfamily \#define R\+E\+G\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~\{ a, b, c, d, d, e \},}
+
+
+
+This macro generates an array of Reg\+\_\+\+Array\+\_\+t entries, and sets the current value of the registers to their default value. 
 

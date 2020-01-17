@@ -69,13 +69,16 @@ $(function() {
 <div class="contents">
 <div class="textblock"><hr  />
 <dl class="section author"><dt>Author</dt><dd>Sam Parker </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.01</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.02</dd></dl>
 <h1><a class="anchor" id="intro_sec"></a>
 Introduction</h1>
 <p>This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed by Sam Parker as part of his Electrical Engineering Final Year Project at the University of Newcastle, Australia. This software contains interface functions to set-up, configure, and operate a Texas Instruments ADS1299 EEG Analog Front End device. It then pipes the data to a serial port (USB or Bluetooth).</p>
 <h1><a class="anchor" id="mech"></a>
 Mechanics</h1>
-<p>The software is relatively simple. It instantiates a Pin_Map, which tells the device how the pins are mapped. If this software is being run on a board other than the Sparker Data Acquisition System, you need to check the Pin_Map is still correct. It then uses the Pin_Map to communicate with the ADS1299 over an SPI interface. The device is configured for the Sparker Data Acquisition board, so if it is to be used with a different recording montage, new data rate, etc. the setup process will need to be altered. </p>
+<p>The software is relatively simple. It instantiates a Pin_Map, which tells the device how the pins are mapped. If this software is being run on a board other than the Sparker Data Acquisition System, you need to check the Pin_Map is still correct. It then uses the Pin_Map to communicate with the ADS1299 over an SPI interface. The device is configured for the Sparker Data Acquisition board, so if it is to be used with a different recording montage, new data rate, etc. the setup process will need to be altered. Serial communications are managed by the Serial Module, which also has debug, warning, and error messages. These messages should only be used when send data over USB and you will need to check for the ID byte to distinguish between real data ana a message. If communicating over bluetooth, or these messages aren't desired, they can be switched off individually.</p>
+<h1><a class="anchor" id="walkthrough"></a>
+Walkthrough of the Read Process</h1>
+<p>Assuming your device has been set up correctly (big assumption), the main loop checks to see if the device is running. At this point there is no way to start the device remotely (i.e. from the host serial device), but I might add this later if I think it is useful. If the device is running, the status LED will flash. The device will then poll the Data Ready pin until it goes low, when it issues the RDATA command, which sends 1 sample over the SPI interface. The sample ID bits are checked to make sure it's not corrupt, then it's processed and given a sequential sample ID. Sample IDs start at 1, and sample IDs of 0 mean the sample is invalid. But Sam, you say, doesn't that mean that when the Sample IDs overflow a good sample will be read as invalid? Yes it does. But the sample IDs won't overflow for 192 days of continuous recording, and if you're running this thing for 192 days you should use a better DAQ system. Valid samples are then sent over the serial interface (38400 baud) in the format &lt;sample ID&gt;&lt;Channel 1&gt;&lt;Channel 2&gt;&lt;Channel 3&gt; ...&lt;Channel 8&gt;&lt;0xFF&gt;. Everything except the 0xFF are uint32_ts in 8 data bits, no parity, 1 stop bit. It then polls the Data Ready pin and starts again. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

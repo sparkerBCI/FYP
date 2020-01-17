@@ -63,64 +63,23 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">ADS1299.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file holds the <a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a> class function definitions.  
+<p>This file holds the <a class="el" href="class_a_d_s1299___module.html" title="The ADS1299_Module facilitates communication to and control of the ADC device.">ADS1299_Module</a> class function definitions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;SPI.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_a_d_s1299_8h_source.html">ADS1299.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for ADS1299.cpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="_a_d_s1299_8cpp__incl.png" border="0" usemap="#_a_d_s1299_8cpp" alt=""/></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ae5597ce31d23d11493e6e674fe257d73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299_8cpp.html#ae5597ce31d23d11493e6e674fe257d73">NUM_CHANNELS</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:ae5597ce31d23d11493e6e674fe257d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file holds the <a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a> class function definitions. </p>
+</div><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file holds the <a class="el" href="class_a_d_s1299___module.html" title="The ADS1299_Module facilitates communication to and control of the ADC device.">ADS1299_Module</a> class function definitions. </p>
 <hr  />
 <p>All the getters and setters are here. There are also functions to send commands (of type Command_t) to the device. The functions to write raw data to the registers are private to try to limit what people can throw at the device (some register bits are reserved, and may cause <em>undefined behaviour</em> if they are changed).</p>
 <dl class="section author"><dt>Author</dt><dd>Sam Parker</dd></dl>
 <p>Copyright (c) Sam Parker 2020 <br  />
  All rights reserved. </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae5597ce31d23d11493e6e674fe257d73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5597ce31d23d11493e6e674fe257d73">&#9670;&nbsp;</a></span>NUM_CHANNELS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NUM_CHANNELS&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<hr  />
- <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Replace this with a private variable that is set by the get_num_channels function.</dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
-<div class="ttc" id="aclass_a_d_s1299___module_html"><div class="ttname"><a href="class_a_d_s1299___module.html">ADS1299_Module</a></div><div class="ttdef"><b>Definition:</b> ADS1299.h:10</div></div>
-<div class="ttc" id="a_a_d_s1299_8h_html"><div class="ttname"><a href="_a_d_s1299_8h.html">ADS1299.h</a></div></div>
-<div class="ttc" id="aclass_a_d_s1299___module_html_a19a51af9c662a54b1aa7b8112159c940"><div class="ttname"><a href="class_a_d_s1299___module.html#a19a51af9c662a54b1aa7b8112159c940">ADS1299_Module::get_value</a></div><div class="ttdeci">uint8_t get_value(Reg_ID_t Register)</div><div class="ttdoc">Gets the current value of a Register from local memory.</div><div class="ttdef"><b>Definition:</b> ADS1299.cpp:52</div></div>
-<div class="ttc" id="astruct_d_a_q___pin___map_1_1_pin___array__t_html_a35599fc9db1d7dcb166e2c6096e11b69"><div class="ttname"><a href="struct_d_a_q___pin___map_1_1_pin___array__t.html#a35599fc9db1d7dcb166e2c6096e11b69">DAQ_Pin_Map::Pin_Array_t::Pin</a></div><div class="ttdeci">uint8_t Pin</div><div class="ttdef"><b>Definition:</b> DAQ_Pin_Map.h:34</div></div>
-<div class="ttc" id="aclass_d_a_q___pin___map_html_a1d775ad6c9a1458021b571b5ac5ac818"><div class="ttname"><a href="class_d_a_q___pin___map.html#a1d775ad6c9a1458021b571b5ac5ac818">DAQ_Pin_Map::Pin_Array</a></div><div class="ttdeci">Pin_Array_t Pin_Array[NUM_PINS]</div><div class="ttdef"><b>Definition:</b> DAQ_Pin_Map.h:41</div></div>
-<div class="ttc" id="aclass_a_d_s1299___module_html_a7066bb70727d355278f43cab1ee98be7"><div class="ttname"><a href="class_a_d_s1299___module.html#a7066bb70727d355278f43cab1ee98be7">ADS1299_Module::set_value</a></div><div class="ttdeci">void set_value(Reg_ID_t Register, uint8_t new_value)</div><div class="ttdoc">Sets the current value of a Register from local memory.</div><div class="ttdef"><b>Definition:</b> ADS1299.cpp:71</div></div>
-<div class="ttc" id="aclass_d_a_q___pin___map_html"><div class="ttname"><a href="class_d_a_q___pin___map.html">DAQ_Pin_Map</a></div><div class="ttdef"><b>Definition:</b> DAQ_Pin_Map.h:27</div></div>
-<div class="ttc" id="aclass_a_d_s1299___module_html_a92e7bac8a242735fc97fbab6e1563409"><div class="ttname"><a href="class_a_d_s1299___module.html#a92e7bac8a242735fc97fbab6e1563409">ADS1299_Module::reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdoc">Resets the device and waits the required time.</div><div class="ttdef"><b>Definition:</b> ADS1299.cpp:253</div></div>
-<div class="ttc" id="a_d_a_q___pin___map_8h_html"><div class="ttname"><a href="_d_a_q___pin___map_8h.html">DAQ_Pin_Map.h</a></div></div>
-<div class="ttc" id="a_sparker___d_a_q_8ino_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="_sparker___d_a_q_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdoc">The main program loop.</div><div class="ttdef"><b>Definition:</b> Sparker_DAQ.ino:92</div></div>
-<div class="ttc" id="a_sparker___d_a_q_8ino_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="_sparker___d_a_q_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdoc">Sets up the ADS1299 and required interfaces.</div><div class="ttdef"><b>Definition:</b> Sparker_DAQ.ino:45</div></div>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

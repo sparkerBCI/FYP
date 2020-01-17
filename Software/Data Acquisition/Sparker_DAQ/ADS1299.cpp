@@ -24,10 +24,11 @@
  *********************************************************************************************/
 
 /*! ******************************************************************************************
- * @brief Creates an ADS1299_Module and opens the SPI interface over which to communicate.
+ *  @brief Creates an ADS1299_Module and opens the SPI interface over which to communicate.
  *
- * @todo Remove the comments. Right now this causes the program to hang as the device waits for
- * an SPI response.
+ *  @param[in] Hardware_Info            - A Hardware Map so the module knows which pin to pull
+ *                                        LOW to initiate a SPI transfer, which pin is START,
+ *                                        etc.
  *
  *********************************************************************************************/
 ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
@@ -39,8 +40,8 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
 
 #ifndef NO_SPI
   /* Configure the ADC for the recording montage */
-  reset();                                                                /* Reset device */
-  send_command(SDATAC);                                                   /* Device defaults to continuous recording mode */
+  reset();                                                                               /* Reset device */
+  send_command(SDATAC);                                                                  /* Device defaults to continuous recording mode */
 
   number_of_channels = get_num_channels_from_device();
 #endif
@@ -149,7 +150,7 @@ ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value
   {
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
     uint16_t command = (WREG | Reg_Array[Register].Address) << 8;
-    SPI.transfer16(command & 0xFF00);                                     //Think the bitwise op can be removed, bitshifting should always pad with 0s
+    SPI.transfer16(command & 0xFF00);
     SPI.transfer(value);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
     Reg_Array[Register].Current_Value = value;
@@ -209,10 +210,14 @@ ADS1299_Status_t ADS1299_Module::send_command(Command_t command)
     if (command == START)
     {
       is_running = true;
+      Hardware_Info->set_state(Hardware_Info->Pin_Array[START_PIN].Pin_ID, HIGH);
+      delay(1);
     }
     else if (command == STOP)
     {
       is_running = false;
+      Hardware_Info->set_state(Hardware_Info->Pin_Array[START_PIN].Pin_ID, LOW);
+      delay(1);
     }
     return(ADS1299_SUCCESS);
   }
@@ -247,8 +252,8 @@ uint8_t ADS1299_Module::get_device_version(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  id_reg  &= 0xE0;                                                        /* Isolate the version section */
-  id_reg >>= 5;                                                           /* Move the version info to bit 0 */
+  id_reg  &= 0xE0;                                                                       /* Isolate the version section */
+  id_reg >>= 5;                                                                          /* Move the version info to bit 0 */
   return(id_reg);
 }
 
@@ -266,8 +271,8 @@ uint8_t ADS1299_Module::get_device_id(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  id_reg  &= 0x0C;                                                        /* Isolate the device ID section */
-  id_reg >>= 2;                                                           /* Move the device ID to bit 0 */
+  id_reg  &= 0x0C;                                                                       /* Isolate the device ID section */
+  id_reg >>= 2;                                                                          /* Move the device ID to bit 0 */
   return(id_reg);
 }
 
@@ -277,32 +282,34 @@ uint8_t ADS1299_Module::get_device_id(void)
  *
  * @return                          - The number of channels (4, 6, or 8). 0 if error.
  *
- * @todo Make this function set a num_channels variable, to be created.
- *
  *********************************************************************************************/
 uint8_t ADS1299_Module::get_num_channels_from_device(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  if (!id_reg)                                                            /* if read_register failed */
+  if (!id_reg)                                                                           /* if read_register failed */
   {
     return(0);
   }
-  id_reg &= 0x03;                                                         /* Isolate the num channels section */
+  id_reg &= 0x03;                                                                        /* Isolate the num channels section */
   switch (id_reg)
   {
   case 0x00:
-    return(4);
+    number_of_channels = 4;
+    break;
 
   case 0x01:
-    return(6);
+    number_of_channels = 6;
+    break;
 
   case 0x10:
-    return(8);
+    number_of_channels = 8;
+    break;
 
   default:
-    return(0);
+    number_of_channels = 0;
   }
+  return number_of_channels;
 }
 
 
@@ -317,11 +324,11 @@ Daisy_Chain_Mode_t ADS1299_Module::get_daisy_mode(void)
 {
   uint8_t reg_data = read_register(CONFIG1);
 
-  if (!reg_data)                                                          /* if read_register failed */
+  if (!reg_data)                                                                         /* if read_register failed */
   {
     return(DAISY_MODE_ERROR);
   }
-  reg_data &= 0x40;                                                       /* Isolate the daisy chain section */
+  reg_data &= 0x40;                                                                      /* Isolate the daisy chain section */
   if (!reg_data)
   {
     return DAISY_CHAIN_MODE;
@@ -348,9 +355,9 @@ ADS1299_Status_t ADS1299_Module::set_daisy_mode(Daisy_Chain_Mode_t new_mode)
     }
     if (new_mode == MULTIPLE_READBACK_MODE)
     {
-      return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x40)); /* Set the 6th bit of the register */
+      return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x40));          /* Set the 6th bit of the register */
     }
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xBF)); /* Clear the 6th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xBF));            /* Clear the 6th bit of the register */
   }
 
   return ADS1299_INVALID;
@@ -370,12 +377,12 @@ bool ADS1299_Module::get_clock_mode(void)
 {
   uint8_t reg_data = read_register(CONFIG1);
 
-  if (!reg_data)                                                          /* if read_register failed */
+  if (!reg_data)                                                                         /* if read_register failed */
   {
     return(false);
   }
-  reg_data &= 0x20;                                                       /* Isolate the clock mode section */
-  return(reg_data);                                                       /* Reg data will contain a non-zero (0x20) if oscillator output connected to CLK pins, else 0 */
+  reg_data &= 0x20;                                                                      /* Isolate the clock mode section */
+  return(reg_data);                                                                      /* Reg data will contain a non-zero (0x20) if oscillator output connected to CLK pins, else 0 */
 }
 
 
@@ -397,11 +404,11 @@ ADS1299_Status_t ADS1299_Module::set_clock_mode(bool enable)
   }
   if (enable)
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x20)); /* Set the 5th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x20));            /* Set the 5th bit of the register */
   }
   else
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xDF)); /* Clear the 5th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xDF));            /* Clear the 5th bit of the register */
   }
 }
 
@@ -418,13 +425,13 @@ Data_Rate_Setting_t ADS1299_Module::get_data_rate(void)
 {
   uint8_t reg_data = read_register(CONFIG1);
 
-  if (!reg_data)                                                          /* if read_register failed */
+  if (!reg_data)                                                                         /* if read_register failed */
   {
     return(SPS_ERROR);
   }
-  reg_data &= 0x07;                                                       /* Isolate the clock mode section */
+  reg_data &= 0x07;                                                                      /* Isolate the clock mode section */
 
-  switch (reg_data)                                                       /* Decode the value */
+  switch (reg_data)                                                                      /* Decode the value */
   {
   case SPS16k:
     return(SPS16k);
@@ -471,12 +478,12 @@ ADS1299_Status_t ADS1299_Module::set_data_rate(Data_Rate_Setting_t new_rate)
   }
   if ((new_rate >= SPS16k) && (new_rate < SPS_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF8;              /* Clear the old data */
-    return(write_register(CONFIG1, value | new_rate));                    /* Write the new data rate */
+    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF8;                             /* Clear the old data */
+    return(write_register(CONFIG1, value | new_rate));                                   /* Write the new data rate */
   }
   else
   {
-    return(ADS1299_INVALID);                                              /* The requested rate is invalid */
+    return(ADS1299_INVALID);                                                             /* The requested rate is invalid */
   }
 }
 
@@ -514,11 +521,11 @@ ADS1299_Status_t ADS1299_Module::set_int_cal(bool state)
   }
   if (state)
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x10)); /* Set the 4th bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x10));            /* Set the 4th bit of the CONFIG2 register */
   }
   else
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xEF)); /* Clear the 4th bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xEF));            /* Clear the 4th bit of the CONFIG2 register */
   }
 }
 
@@ -565,11 +572,11 @@ ADS1299_Status_t ADS1299_Module::set_cal_amp(bool state)
   }
   if (state)
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x04)); /* Set the 2nd bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x04));            /* Set the 2nd bit of the CONFIG2 register */
   }
   else
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xFB)); /* Clear the 2nd bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xFB));            /* Clear the 2nd bit of the CONFIG2 register */
   }
 }
 
@@ -622,12 +629,12 @@ ADS1299_Status_t ADS1299_Module::set_cal_freq(Test_Frequency_t new_freq)
   }
   if ((new_freq >= TEST_FREQ_FCLK_DIV_2_21) && (new_freq < TEST_FREQ_ERROR) && (new_freq != TEST_FREQ_INVALID))
   {
-    uint8_t value = Reg_Array[CONFIG2].Current_Value & 0xFC;              /* Clear the old data */
-    return(write_register(CONFIG2, value | static_cast<uint8_t>(new_freq))); /* Set the bits of the CONFIG2 register */
+    uint8_t value = Reg_Array[CONFIG2].Current_Value & 0xFC;                             /* Clear the old data */
+    return(write_register(CONFIG2, value | static_cast<uint8_t>(new_freq)));             /* Set the bits of the CONFIG2 register */
   }
   else
   {
-    return(ADS1299_INVALID);                                              /* The requested frequency is invalid */
+    return(ADS1299_INVALID);                                                             /* The requested frequency is invalid */
   }
 }
 
@@ -1475,7 +1482,7 @@ ADS1299_Status_t ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Regis
     {
       return write_register(Register, Reg_Array[Register].Current_Value | bitmask);
     }
-    bitmask = !bitmask;                                                   /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
+    bitmask = !bitmask;                                                                  /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
     return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
   }
   return ADS1299_INVALID;

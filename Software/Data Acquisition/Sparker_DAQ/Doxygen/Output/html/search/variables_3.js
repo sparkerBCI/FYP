@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode_322',['Mode',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#aa6be2e4489eeb1a729067db3df3775d8',1,'DAQ_Pin_Map::Pin_Array_t']]]
+  ['debug_5fenabled_374',['debug_enabled',['../class_serial___module.html#a941ab15b49274eba8fd667bea5583ef4',1,'Serial_Module']]]
 ];

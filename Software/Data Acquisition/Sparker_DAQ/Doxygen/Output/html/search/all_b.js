@@ -1,11 +1,20 @@
 var searchData=
 [
-  ['the_20sparker_20wireless_20eeg_20data_20acquisition_20system_227',['The Sparker Wireless EEG Data Acquisition System',['../index.html',1,'']]],
-  ['test_5ffreq_5f0_228',['TEST_FREQ_0',['../_a_d_s1299___params_8h.html#a6e8a2b08d62321d15d3cf9a16bb2951aa81934954d3fbd7134b5908f6e3d47d71',1,'ADS1299_Params.h']]],
-  ['test_5ffreq_5ferror_229',['TEST_FREQ_ERROR',['../_a_d_s1299___params_8h.html#a6e8a2b08d62321d15d3cf9a16bb2951aa73e632c113b5ab0721ecf11f532c9849',1,'ADS1299_Params.h']]],
-  ['test_5ffreq_5ffclk_5fdiv_5f2_5f20_230',['TEST_FREQ_FCLK_DIV_2_20',['../_a_d_s1299___params_8h.html#a6e8a2b08d62321d15d3cf9a16bb2951aa478637a9cc6d297e0a7cb2f45eb27824',1,'ADS1299_Params.h']]],
-  ['test_5ffreq_5ffclk_5fdiv_5f2_5f21_231',['TEST_FREQ_FCLK_DIV_2_21',['../_a_d_s1299___params_8h.html#a6e8a2b08d62321d15d3cf9a16bb2951aabcc05964cb132496349aa9793c4e758b',1,'ADS1299_Params.h']]],
-  ['test_5ffreq_5finvalid_232',['TEST_FREQ_INVALID',['../_a_d_s1299___params_8h.html#a6e8a2b08d62321d15d3cf9a16bb2951aa75115d43bba2dd887bd4114255371e8c',1,'ADS1299_Params.h']]],
-  ['test_5ffrequency_5ft_233',['Test_Frequency_t',['../_a_d_s1299___params_8h.html#a6e8a2b08d62321d15d3cf9a16bb2951a',1,'Test_Frequency_t():&#160;ADS1299_Params.h'],['../_a_d_s1299___params_8h.html#ab21337ddb912f77e0c33fdde5545994c',1,'Test_Frequency_t():&#160;ADS1299_Params.h']]],
-  ['todo_20list_234',['Todo List',['../todo.html',1,'']]]
+  ['pga1_159',['PGA1',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceade5235c6862d2e20a909c055dae05d9b',1,'ADS1299_Params.h']]],
+  ['pga12_160',['PGA12',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceaad2077a153a30b96fe0736f5138573a5',1,'ADS1299_Params.h']]],
+  ['pga2_161',['PGA2',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceaaae92d4c0889a5817b2b6148cb703237',1,'ADS1299_Params.h']]],
+  ['pga24_162',['PGA24',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceab5a507d293ca6df39e28422f0e0e3eab',1,'ADS1299_Params.h']]],
+  ['pga4_163',['PGA4',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceaaa133d46d77fb1632a5e47517f040342',1,'ADS1299_Params.h']]],
+  ['pga6_164',['PGA6',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93cead28833982857d32f0f5e9fd55355af9f',1,'ADS1299_Params.h']]],
+  ['pga8_165',['PGA8',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceaa9024ada8105224b248d166a48447c9d',1,'ADS1299_Params.h']]],
+  ['pga_5ferror_166',['PGA_ERROR',['../_a_d_s1299___params_8h.html#aba9b1346d1e7e30f5647d586805b93ceaf57eab0909d01ee0ca8743dcd3a84fbe',1,'ADS1299_Params.h']]],
+  ['pin_167',['Pin',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#a35599fc9db1d7dcb166e2c6096e11b69',1,'DAQ_Pin_Map::Pin_Array_t']]],
+  ['pin_5farray_168',['Pin_Array',['../class_d_a_q___pin___map.html#a1d775ad6c9a1458021b571b5ac5ac818',1,'DAQ_Pin_Map']]],
+  ['pin_5farray_5ft_169',['Pin_Array_t',['../struct_d_a_q___pin___map_1_1_pin___array__t.html',1,'DAQ_Pin_Map::Pin_Array_t'],['../class_d_a_q___pin___map.html#a240d02aeb784e113d8cca6bf9ca83baa',1,'DAQ_Pin_Map::Pin_Array_t()']]],
+  ['pin_5fentry_170',['PIN_ENTRY',['../_d_a_q___pin___map_8h.html#ac793e62cb9bb08318171c7aa60b72bec',1,'PIN_ENTRY():&#160;DAQ_Pin_Map.h'],['../_d_a_q___pin___map_8h.html#ac793e62cb9bb08318171c7aa60b72bec',1,'PIN_ENTRY():&#160;DAQ_Pin_Map.h']]],
+  ['pin_5fid_171',['Pin_ID',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#aa6a48f3ec2e7397882eb10200f210940',1,'DAQ_Pin_Map::Pin_Array_t']]],
+  ['pin_5fid_5ft_172',['Pin_ID_t',['../_d_a_q___pin___map_8h.html#ad5e2221c90467c1cd1e92af8dc519dcb',1,'Pin_ID_t():&#160;DAQ_Pin_Map.h'],['../_d_a_q___pin___map_8h.html#a43828adff5594815f6ce0cdfd851fd50',1,'Pin_ID_t():&#160;DAQ_Pin_Map.h']]],
+  ['pin_5ftable_173',['PIN_TABLE',['../_d_a_q___pin___map_8h.html#a76e1e40487c710b2ff1fc4b79c16d2d9',1,'DAQ_Pin_Map.h']]],
+  ['positive_5flead_5foff_5fstatus_174',['Positive_Lead_Off_Status',['../struct_sample___data__t.html#ad879d062ee77bacf6b111666f9b53de7',1,'Sample_Data_t']]],
+  ['process_5fsample_175',['process_sample',['../_sparker___d_a_q_8ino.html#ae1ffba7b30c314b6c6e4685b3575107e',1,'Sparker_DAQ.ino']]]
 ];

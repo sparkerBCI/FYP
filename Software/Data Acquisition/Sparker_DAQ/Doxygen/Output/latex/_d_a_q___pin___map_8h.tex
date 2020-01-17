@@ -2,10 +2,6 @@
 \label{_d_a_q___pin___map_8h}\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
 {\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
-Include dependency graph for D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,9 +14,9 @@ struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_
 \item 
 \#define \mbox{\hyperlink{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}{P\+I\+N\+\_\+\+T\+A\+B\+LE}}
 \item 
-\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d)~a,
+\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~a,
 \item 
-\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d)~\{ a, b, c, d \},
+\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~\{ a, b, c, d, e, false \},
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -36,17 +32,17 @@ enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{P
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}\label{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}} 
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_ENTRY@{PIN\_ENTRY}}
 \index{PIN\_ENTRY@{PIN\_ENTRY}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})~a,}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~a,}
 
-\mbox{\Hypertarget{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}\label{_d_a_q___pin___map_8h_aa52660e9249f2ea12561063754d9673c}} 
+\mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_ENTRY@{PIN\_ENTRY}}
 \index{PIN\_ENTRY@{PIN\_ENTRY}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})~\{ a, b, c, d \},}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~\{ a, b, c, d, e, false \},}
 
 \mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}\label{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_TABLE@{PIN\_TABLE}}
@@ -56,12 +52,12 @@ enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{P
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{   \textcolor{comment}{/*     a                  b          c               d                   */}                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(NOT\_CHIP\_SELECT,       13,         OUTPUT,         \textcolor{stringliteral}{"Chip Select"})                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(START\_PIN,             11,         OUTPUT,               \textcolor{stringliteral}{"Start"})                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(NOT\_DATA\_READY,        10,          INPUT,          \textcolor{stringliteral}{"Data Ready"})                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(NOT\_POWER\_DOWN,         9,         OUTPUT,          \textcolor{stringliteral}{"Power Down"})                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(STATUS\_LED,            12,         OUTPUT,          \textcolor{stringliteral}{"Status LED"})}
+\DoxyCodeLine{   \textcolor{comment}{/*               a                b             c                  d                e*/}                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_CHIP\_SELECT,       13,         OUTPUT,         \textcolor{stringliteral}{"Chip Select"},       HIGH)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(START\_PIN,             11,         OUTPUT,               \textcolor{stringliteral}{"Start"},        LOW)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_DATA\_READY,        10,   INPUT\_PULLUP,          \textcolor{stringliteral}{"Data Ready"},       HIGH)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_POWER\_DOWN,         9,         OUTPUT,          \textcolor{stringliteral}{"Power Down"},       HIGH)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(STATUS\_LED,            12,         OUTPUT,          \textcolor{stringliteral}{"Status LED"},        LOW)}
 
 \end{DoxyCode}
 

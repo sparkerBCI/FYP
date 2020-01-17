@@ -1,11 +1,35 @@
+/*! ******************************************************************************************
+ *  @file ADS1299_Params.h
+ *
+ *  @brief This file holds the XMacros Table of register info, and many enums that make
+ *  getting and setting configuration values more readable.
+ *
+ *  @author Sam Parker
+ *
+ *  Copyright (c) Sam Parker 2020 <br/> All rights reserved.
+ *
+ *********************************************************************************************/
+
 #ifndef ADS1299_PARAMS_H
 #define ADS1299_PARAMS_H
 
 #include <Arduino.h>
 
-#define VALID_DEVICE_ID    0x03
+#define VALID_DEVICE_ID    0x03                                                          /**< This is the valid Device ID, as defined in the datasheet. All other device IDs are considered invalid */
 
 /* *INDENT-OFF* */
+/*! ******************************************************************************************
+ *
+ *  @brief The Reg_Table holds information about the registers, which is used to generate
+ *  the Reg_Array.
+ *  
+ *  Column A: Reg_ID: \tThe unique identifier for each register
+ *  Column B: Address: \tThe address of the register in the ADS1299's memory
+ *  Column C: Is Read Only: \tTrue if the register is read only.
+ *  Column D: Default Value:\tThe value of the register on reset
+ *  Column E: Is Bit Per Channel: \tTrue if the register corresponds 1 bit to 1 channel
+ *
+ *********************************************************************************************/
 #define REG_TABLE                                                                                                         \
    /*           Reg_ID        Address      Is Read Only     Default Value       Is Bit per Channel       */               \
    REG_ENTRY(ID,               0x00,           true,            0xFF,               false)                \
@@ -34,18 +58,20 @@
    REG_ENTRY(CONFIG4,          0x17,          false,            0x00,               false)
 /* *INDENT-ON* */
 
+/**! @breif This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a REG_ERROR, which can be returned if no REG_ID is found, for example */
 typedef enum Reg_ID_t
 {
-#define REG_ENTRY(a, b, c, d, e)    a,
+#define REG_ENTRY(a, b, c, d, e)    a,                                                   /**< This macro lists the IDs of the registers in the Reg_Table as a comma separated list */
   REG_TABLE
 #undef REG_ENTRY
-  NUM_REGS,
-  REG_ERROR
+  NUM_REGS,                                                                              /**< The number of registers in the Reg_Array */
+  REG_ERROR                                                                              /**< A value to return if there was an error finding a Reg_ID */
 } Reg_ID_t;
 
+/**! @brief This enum assigns a value to the different daisy chain modes */
 typedef enum Daisy_Chain_Mode_t
 {
-  DAISY_CHAIN_MODE,
+  DAISY_CHAIN_MODE,                                                                      /**< The device is in daisy chain mode, and can be synchronised with other devices (default) */
   MULTIPLE_READBACK_MODE,
   DAISY_MODE_ERROR
 } Daisy_Chain_Mode_t;
