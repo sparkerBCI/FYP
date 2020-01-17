@@ -139,7 +139,6 @@ void loop()
 {
   static uint8_t       input_buffer[27] = { 0 };
   static unsigned long sample_ID        = 0;
-  static Sample_Data_t processed_sample = { 0, 0, 0, 0, { 0 } };
 
   /* put your main code here, to run repeatedly: */
   if (ADS1299->is_running)
@@ -156,27 +155,7 @@ void loop()
       }
       else
       {
-        processed_sample.id = sample_ID;
-        sample_ID++;
-
-        uint8_t temp_loff_p = input_buffer[0] << 4;
-        uint8_t temp_loff_n = input_buffer[1] >> 4;
-        processed_sample.Positive_Lead_Off_Status = temp_loff_p | temp_loff_n;
-
-        temp_loff_n = input_buffer[1] << 4;
-        uint8_t temp_gpio = input_buffer[2] >> 4;
-        processed_sample.Negative_Lead_Off_Status = temp_loff_n | temp_gpio;
-
-        processed_sample.GPIO_Data = input_buffer[2] & 0x0F;
-
-        for (uint8_t current_channel = 0; current_channel < CH_ERROR; current_channel++)
-        {
-          uint32_t first_byte  = input_buffer[3 + 3 * current_channel];
-          uint32_t second_byte = input_buffer[4 + 3 * current_channel];
-          uint32_t third_byte  = input_buffer[5 + 3 * current_channel];
-
-          processed_sample.Channel_Data[current_channel] = (first_byte << 16) | (second_byte << 8) | third_byte;
-        }
+        Sample_Data_t this_sample = process_sample(input_buffer);
       }
     }
   }
@@ -194,5 +173,61 @@ void toggleLED(void)
     Comms->debugMsg("Toggling");
 //  Hardware_Map->toggle_pin(STATUS_LED);
 //  Hardware_Map->update_pins();
+  }
+}
+
+
+Sample_Data_t process_sample(uint8_t *input_buffer)
+{
+  static unsigned long sample_ID = 0;
+
+  if (input_buffer == nullptr)
+  {
+    Comms->errorMsg("Can't process nullptr sample buffer!");
+    return {
+             0, 0, 0, 0, {
+               0
+             }
+    };
+  }
+
+  if ((input_buffer[0] >> 4) != 0x0C)
+  {
+    Comms->warningMsg("Corrupt Sample! Skipping.");
+    sample_ID++;
+    return {
+             0, 0, 0, 0, {
+               0
+             }
+    };
+  }
+
+  else
+  {
+    Sample_Data_t processed_sample = { 0, 0, 0, 0, { 0 } };
+
+    processed_sample.id = sample_ID;
+    sample_ID++;
+
+    uint8_t temp_loff_p = input_buffer[0] << 4;
+    uint8_t temp_loff_n = input_buffer[1] >> 4;
+    processed_sample.Positive_Lead_Off_Status = temp_loff_p | temp_loff_n;
+
+    temp_loff_n = input_buffer[1] << 4;
+    uint8_t temp_gpio = input_buffer[2] >> 4;
+    processed_sample.Negative_Lead_Off_Status = temp_loff_n | temp_gpio;
+
+    processed_sample.GPIO_Data = input_buffer[2] & 0x0F;
+
+    for (uint8_t current_channel = 0; current_channel < CH_ERROR; current_channel++)
+    {
+      uint32_t first_byte  = input_buffer[3 + 3 * current_channel];
+      uint32_t second_byte = input_buffer[4 + 3 * current_channel];
+      uint32_t third_byte  = input_buffer[5 + 3 * current_channel];
+
+      processed_sample.Channel_Data[current_channel] = (first_byte << 16) | (second_byte << 8) | third_byte;
+    }
+
+    return processed_sample;
   }
 }
