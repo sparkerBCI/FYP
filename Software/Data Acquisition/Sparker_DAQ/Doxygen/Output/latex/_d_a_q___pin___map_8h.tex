@@ -1,35 +1,54 @@
 \hypertarget{_d_a_q___pin___map_8h}{}\doxysection{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h File Reference}
 \label{_d_a_q___pin___map_8h}\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+
+
+This file holds declarations for functions to interact with the hardware on a pin level.  
+
+
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
 {\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}}
-\item 
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} class contains methods for interacting with the pins of the M\+CU. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct contains information for each entry in the Pin Array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}{P\+I\+N\+\_\+\+T\+A\+B\+LE}}
-\item 
+\begin{DoxyCompactList}\small\item\em The Pin\+\_\+\+Table holds information about the often used pins, which is used to generate the Pin\+\_\+\+Array. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~a,
-\item 
+\begin{DoxyCompactList}\small\item\em Creates the Pin Array and fills it with the default values from the Pin Table. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~\{ a, b, c, d, e, false \},
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates the Pin Array and fills it with the default values from the Pin Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_d_a_q___pin___map_8h_a43828adff5594815f6ce0cdfd851fd50}{Pin\+\_\+\+I\+D\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This enum assigns a unique identifier for each Pin\+\_\+\+ID in the Pin Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} \{ \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}{N\+U\+M\+\_\+\+P\+I\+NS}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This enum assigns a unique identifier for each Pin\+\_\+\+ID in the Pin Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This file holds declarations for functions to interact with the hardware on a pin level. 
+
+\DoxyHorRuler{0}
+
+
+It also assigns names and I\+Ds to often-\/used pins. Rather than conducting a digital read every time we need to query a pin status, and to allow for batch pin changes, a local copy of the pin states are kept in the Pin\+\_\+\+Array. If a pin state changes in the array, it will be marked as dirty, then when an update is called, all the dirty pins will be actually digitally written. This introduces some complexity, as if we query the state of a pin before issuing an update, the array will hold different data to what is actually on the pin, so we need to flip it. I might remove this, and have the set\+\_\+state function perform the digital write itself, but for now it\textquotesingle{}s staying.
+
+\begin{DoxyAuthor}{Author}
+Sam Parker
+\end{DoxyAuthor}
+Copyright (c) Sam Parker 2020 ~\newline
+ All rights reserved. 
 
 \doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
@@ -38,13 +57,21 @@ enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{P
 \doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~a,}
 
-\mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
+
+
+Creates the Pin Array and fills it with the default values from the Pin Table. 
+
+Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_ENTRY@{PIN\_ENTRY}}
 \index{PIN\_ENTRY@{PIN\_ENTRY}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~\{ a, b, c, d, e, false \},}
 
-\mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}\label{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}} 
+
+
+Creates the Pin Array and fills it with the default values from the Pin Table. 
+
+Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}\label{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_TABLE@{PIN\_TABLE}}
 \index{PIN\_TABLE@{PIN\_TABLE}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_TABLE}{PIN\_TABLE}}
@@ -62,6 +89,13 @@ enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{P
 \end{DoxyCode}
 
 
+The Pin\+\_\+\+Table holds information about the often used pins, which is used to generate the Pin\+\_\+\+Array. 
+
+\DoxyHorRuler{0}
+
+
+Column A\+: Pin\+\_\+\+ID\+: The unique identifier for each pin Column B\+: Pin\+: The physical pin number of the pin Column C\+: Mode\+: The IO Mode of the pin Column D\+: Name\+: A readable name for the pin Column F\+: State\+: The default states of the pins. Not used for input pins. 
+
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{_d_a_q___pin___map_8h_a43828adff5594815f6ce0cdfd851fd50}\label{_d_a_q___pin___map_8h_a43828adff5594815f6ce0cdfd851fd50}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!Pin\_ID\_t@{Pin\_ID\_t}}
@@ -71,6 +105,11 @@ enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{P
 
 
 
+This enum assigns a unique identifier for each Pin\+\_\+\+ID in the Pin Table. 
+
+\DoxyHorRuler{0}
+ 
+
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}\label{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!Pin\_ID\_t@{Pin\_ID\_t}}
@@ -78,7 +117,12 @@ enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{P
 \doxysubsubsection{\texorpdfstring{Pin\_ID\_t}{Pin\_ID\_t}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+
+
+This enum assigns a unique identifier for each Pin\+\_\+\+ID in the Pin Table. 
+
+\DoxyHorRuler{0}
+ \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_PINS@{NUM\_PINS}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!NUM\_PINS@{NUM\_PINS}}}\mbox{\Hypertarget{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}\label{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}} 
 N\+U\+M\+\_\+\+P\+I\+NS&\\
 \hline

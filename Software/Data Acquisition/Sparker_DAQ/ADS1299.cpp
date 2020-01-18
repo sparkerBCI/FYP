@@ -19,11 +19,6 @@
 #include "ADS1299.h"
 
 /*! ******************************************************************************************
- * @todo Replace this with a private variable that is set by the get_num_channels function.
- *
- *********************************************************************************************/
-
-/*! ******************************************************************************************
  *  @brief Creates an ADS1299_Module and opens the SPI interface over which to communicate.
  *
  *  @param[in] Hardware_Info            - A Hardware Map so the module knows which pin to pull
@@ -1895,7 +1890,7 @@ Conv_Mode_t ADS1299_Module::get_conversion_mode(void)
  * @brief Sets the current device conversion mode.
  *
  * Conversion modes are single shot or continuous. When switching modes, the current conversion
- * must be stopped. @todo make it stop
+ * must be stopped.
  *
  * @param[in] new_state             - The requested conversion mode of the device.
  *
@@ -1910,6 +1905,7 @@ ADS1299_Status_t ADS1299_Module::set_conversion_mode(Conv_Mode_t new_state)
   }
   if ((new_state >= CONTINUOUS_CONVERSION) && (new_state < CONV_MODE_ERROR))
   {
+    send_command(STOP);
     uint8_t value = Reg_Array[CONFIG4].Current_Value & 0xF7;
     return write_register(CONFIG4, value | (static_cast<uint8_t>(new_state) << 3));
   }

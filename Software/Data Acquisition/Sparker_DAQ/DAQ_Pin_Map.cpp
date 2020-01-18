@@ -1,5 +1,32 @@
+/*! ******************************************************************************************
+ *  @file DAQ_Pin_Map.cpp
+ *
+ *  @brief This file holds implentations for functions to interact with the hardware on a pin
+ *  level.
+ *
+ *  It also assigns names and IDs to often-used pins. Rather than conducting a
+ *  digital read every time we need to query a pin status, and to allow for batch pin changes,
+ *  a local copy of the pin states are kept in the Pin_Array. If a pin state changes in the
+ *  array, it will be marked as dirty, then when an update is called, all the dirty pins will
+ *  be actually digitally written. This introduces some complexity, as if we query the state of
+ *  a pin before issuing an update, the array will hold different data to what is actually on the
+ *  pin, so we need to flip it. I might remove this, and have the set_state function perform the
+ *  digital write itself, but for now it's staying.
+ *
+ *  @author Sam Parker
+ *
+ *  Copyright (c) Sam Parker 2020 <br/> All rights reserved.
+ *
+ *********************************************************************************************/
+
 #include "DAQ_Pin_Map.h"
 
+
+/*! ******************************************************************************************
+ *  @brief Constructs a new DAQ_Pin_Map and sets pins to their correct pin mode, then writes
+ *  the default states to each pin.
+ *
+ *********************************************************************************************/
 DAQ_Pin_Map::DAQ_Pin_Map()
 {
   /* Set up pinModes */
@@ -14,11 +41,22 @@ DAQ_Pin_Map::DAQ_Pin_Map()
 }
 
 
+/*! ******************************************************************************************
+ *  @brief Changes the state of the pin in the pin array, and marks it for updating.
+ *
+ *  Note, this does not actually update the state of the physical pin, and an update must be
+ *  called to actually push this change onto the pin.
+ *
+ *  @param[in] pin                  - The Pin_ID_t of the pin to change
+ *  @param[in] state                - The new state of the pin
+ *
+ *********************************************************************************************/
 void DAQ_Pin_Map::set_state(Pin_ID_t pin, uint8_t state)
 {
   if ((pin >= NOT_CHIP_SELECT) &&
       (pin < NUM_PINS) &&
-      ((state == HIGH) || (state == LOW)))
+      ((state == HIGH) || (state == LOW)) &&
+      (state != get_state(pin)))
   {
     Pin_Array[pin].State   = state;
     Pin_Array[pin].Changed = true;
@@ -26,6 +64,18 @@ void DAQ_Pin_Map::set_state(Pin_ID_t pin, uint8_t state)
 }
 
 
+/*! ******************************************************************************************
+ *  @brief Gets the state of the pin, as stored in the pin array.
+ *
+ *  Doesn't work well for input pins, as these pins are changed by external factors. Also is
+ *  more complex than it should be, as pins that changed before calling an update will need
+ *  to be flipped to get the actual pin state.
+ *
+ *  @param[in] pin                  - The Pin_ID_t of the pin to check
+ *
+ *  @return uint8_t                 - The state of the pin, as stored in the Pin_Array
+ *
+ *********************************************************************************************/
 uint8_t DAQ_Pin_Map::get_state(Pin_ID_t pin)
 {
   if ((pin >= NOT_CHIP_SELECT) &&
@@ -46,6 +96,10 @@ uint8_t DAQ_Pin_Map::get_state(Pin_ID_t pin)
 }
 
 
+/*! ******************************************************************************************
+ *  @brief Updates the physical pins marked for update to the states stored in the Pin_Array
+ *
+ *********************************************************************************************/
 void DAQ_Pin_Map::update_pins(void)
 {
   for (int current_pin = NOT_CHIP_SELECT; current_pin < NUM_PINS; current_pin++)
@@ -59,6 +113,10 @@ void DAQ_Pin_Map::update_pins(void)
 }
 
 
+/*! ******************************************************************************************
+ *  @brief Toggles the state of a pin in the Pin Array and marks the pin for an update.
+ *
+ *********************************************************************************************/
 void DAQ_Pin_Map::toggle_pin(Pin_ID_t pin)
 {
   if ((pin >= NOT_CHIP_SELECT) &&
@@ -67,8 +125,11 @@ void DAQ_Pin_Map::toggle_pin(Pin_ID_t pin)
     if (Pin_Array[pin].State == LOW)
     {
       set_state(pin, HIGH);
-      return;
     }
-    set_state(pin, LOW);
+    else
+    {
+      set_state(pin, LOW);
+    }
+    Pin_Array[pin].Changed = false;
   }
 }

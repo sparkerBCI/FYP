@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="NASA-inv.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NASA-UON.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">- Data Acquisition System
    </div>
@@ -67,7 +67,17 @@ $(function() {
 <div class="title">DAQ_Pin_Map.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file holds implentations for functions to interact with the hardware on a pin level.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_d_a_q___pin___map_8h_source.html">DAQ_Pin_Map.h</a>&quot;</code><br />
+</div><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file holds implentations for functions to interact with the hardware on a pin level. </p>
+<hr  />
+<p>It also assigns names and IDs to often-used pins. Rather than conducting a digital read every time we need to query a pin status, and to allow for batch pin changes, a local copy of the pin states are kept in the Pin_Array. If a pin state changes in the array, it will be marked as dirty, then when an update is called, all the dirty pins will be actually digitally written. This introduces some complexity, as if we query the state of a pin before issuing an update, the array will hold different data to what is actually on the pin, so we need to flip it. I might remove this, and have the set_state function perform the digital write itself, but for now it's staying.</p>
+<dl class="section author"><dt>Author</dt><dd>Sam Parker</dd></dl>
+<p>Copyright (c) Sam Parker 2020 <br  />
+ All rights reserved. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

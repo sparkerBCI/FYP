@@ -1,3 +1,23 @@
 \hypertarget{_d_a_q___pin___map_8cpp}{}\doxysection{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+cpp File Reference}
 \label{_d_a_q___pin___map_8cpp}\index{DAQ\_Pin\_Map.cpp@{DAQ\_Pin\_Map.cpp}}
+
+
+This file holds implentations for functions to interact with the hardware on a pin level.  
+
+
 {\ttfamily \#include \char`\"{}D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+This file holds implentations for functions to interact with the hardware on a pin level. 
+
+\DoxyHorRuler{0}
+
+
+It also assigns names and I\+Ds to often-\/used pins. Rather than conducting a digital read every time we need to query a pin status, and to allow for batch pin changes, a local copy of the pin states are kept in the Pin\+\_\+\+Array. If a pin state changes in the array, it will be marked as dirty, then when an update is called, all the dirty pins will be actually digitally written. This introduces some complexity, as if we query the state of a pin before issuing an update, the array will hold different data to what is actually on the pin, so we need to flip it. I might remove this, and have the set\+\_\+state function perform the digital write itself, but for now it\textquotesingle{}s staying.
+
+\begin{DoxyAuthor}{Author}
+Sam Parker
+\end{DoxyAuthor}
+Copyright (c) Sam Parker 2020 ~\newline
+ All rights reserved. 

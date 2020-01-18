@@ -809,7 +809,7 @@ public:
  * @brief Sets the current device conversion mode.
  *
  * Conversion modes are single shot or continuous. When switching modes, the current conversion
- * must be stopped. @todo make it stop
+ * must be stopped.
  *
  * @param[in] new_state             - The requested conversion mode of the device.
  *

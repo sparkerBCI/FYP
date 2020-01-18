@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="NASA-inv.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NASA-UON.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">- Data Acquisition System
    </div>
@@ -74,29 +74,39 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="class_d_a_q___pin___map.html" title="The DAQ_Pin_Map class contains methods for interacting with the pins of the MCU.">DAQ_Pin_Map</a> class contains methods for interacting with the pins of the MCU.  
+ <a href="class_d_a_q___pin___map.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_d_a_q___pin___map_8h_source.html">DAQ_Pin_Map.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_q___pin___map_1_1_pin___array__t.html">Pin_Array_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct contains information for each entry in the Pin Array.  <a href="struct_d_a_q___pin___map_1_1_pin___array__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a240d02aeb784e113d8cca6bf9ca83baa"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_d_a_q___pin___map_1_1_pin___array__t.html">DAQ_Pin_Map::Pin_Array_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#a240d02aeb784e113d8cca6bf9ca83baa">Pin_Array_t</a></td></tr>
+<tr class="memdesc:a240d02aeb784e113d8cca6bf9ca83baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct contains information for each entry in the Pin Array.  <a href="class_d_a_q___pin___map.html#a240d02aeb784e113d8cca6bf9ca83baa">More...</a><br /></td></tr>
 <tr class="separator:a240d02aeb784e113d8cca6bf9ca83baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad2e79dc7da6d097ccd2c720fdbd8b7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#aad2e79dc7da6d097ccd2c720fdbd8b7e">DAQ_Pin_Map</a> ()</td></tr>
+<tr class="memdesc:aad2e79dc7da6d097ccd2c720fdbd8b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_d_a_q___pin___map.html" title="The DAQ_Pin_Map class contains methods for interacting with the pins of the MCU.">DAQ_Pin_Map</a> and sets pins to their correct pin mode, then writes the default states to each pin.  <a href="class_d_a_q___pin___map.html#aad2e79dc7da6d097ccd2c720fdbd8b7e">More...</a><br /></td></tr>
 <tr class="separator:aad2e79dc7da6d097ccd2c720fdbd8b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9ef68aa1c02c5c97408a7749fe6a2f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#ab9ef68aa1c02c5c97408a7749fe6a2f4">set_state</a> (<a class="el" href="_d_a_q___pin___map_8h.html#ad5e2221c90467c1cd1e92af8dc519dcb">Pin_ID_t</a> pin, uint8_t state)</td></tr>
+<tr class="memdesc:ab9ef68aa1c02c5c97408a7749fe6a2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the state of the pin in the pin array, and marks it for updating.  <a href="class_d_a_q___pin___map.html#ab9ef68aa1c02c5c97408a7749fe6a2f4">More...</a><br /></td></tr>
 <tr class="separator:ab9ef68aa1c02c5c97408a7749fe6a2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7bc822ebaf80f4d80239422e9759bb0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#ad7bc822ebaf80f4d80239422e9759bb0">get_state</a> (<a class="el" href="_d_a_q___pin___map_8h.html#ad5e2221c90467c1cd1e92af8dc519dcb">Pin_ID_t</a> pin)</td></tr>
+<tr class="memdesc:ad7bc822ebaf80f4d80239422e9759bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state of the pin, as stored in the pin array.  <a href="class_d_a_q___pin___map.html#ad7bc822ebaf80f4d80239422e9759bb0">More...</a><br /></td></tr>
 <tr class="separator:ad7bc822ebaf80f4d80239422e9759bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a710b18dce12c8a67f1741de30621eb4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#a710b18dce12c8a67f1741de30621eb4f">update_pins</a> (void)</td></tr>
+<tr class="memdesc:a710b18dce12c8a67f1741de30621eb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the physical pins marked for update to the states stored in the Pin_Array.  <a href="class_d_a_q___pin___map.html#a710b18dce12c8a67f1741de30621eb4f">More...</a><br /></td></tr>
 <tr class="separator:a710b18dce12c8a67f1741de30621eb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa54d5503420654f5dc1bb4491e2fc4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#aaa54d5503420654f5dc1bb4491e2fc4a">toggle_pin</a> (<a class="el" href="_d_a_q___pin___map_8h.html#ad5e2221c90467c1cd1e92af8dc519dcb">Pin_ID_t</a> pin)</td></tr>
+<tr class="memdesc:aaa54d5503420654f5dc1bb4491e2fc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the state of a pin in the Pin Array and marks the pin for an update.  <a href="class_d_a_q___pin___map.html#aaa54d5503420654f5dc1bb4491e2fc4a">More...</a><br /></td></tr>
 <tr class="separator:aaa54d5503420654f5dc1bb4491e2fc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -104,13 +114,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a1d775ad6c9a1458021b571b5ac5ac818"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_a_q___pin___map_1_1_pin___array__t.html">Pin_Array_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#a1d775ad6c9a1458021b571b5ac5ac818">Pin_Array</a> [<a class="el" href="_d_a_q___pin___map_8h.html#ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923">NUM_PINS</a>] = { <a class="el" href="_d_a_q___pin___map_8h.html#a76e1e40487c710b2ff1fc4b79c16d2d9">PIN_TABLE</a> }</td></tr>
 <tr class="separator:a1d775ad6c9a1458021b571b5ac5ac818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31247bf87dc608526c52a0d296895180"><td class="memItemLeft" align="right" valign="top">const long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#a31247bf87dc608526c52a0d296895180">SPI_SPEED_HZ</a> = 4000000</td></tr>
+<tr class="memdesc:a31247bf87dc608526c52a0d296895180"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum SPI speed in Hz.  <a href="class_d_a_q___pin___map.html#a31247bf87dc608526c52a0d296895180">More...</a><br /></td></tr>
 <tr class="separator:a31247bf87dc608526c52a0d296895180"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d69f9462fa6b59d0fae109d329e8a79"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#a5d69f9462fa6b59d0fae109d329e8a79">SPI_ENDIAN</a> = MSBFIRST</td></tr>
+<tr class="memdesc:a5d69f9462fa6b59d0fae109d329e8a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">The SPI bit order.  <a href="class_d_a_q___pin___map.html#a5d69f9462fa6b59d0fae109d329e8a79">More...</a><br /></td></tr>
 <tr class="separator:a5d69f9462fa6b59d0fae109d329e8a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e1f66a257b2055dedc2ff8716d961c0"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_a_q___pin___map.html#a4e1f66a257b2055dedc2ff8716d961c0">SPI_MODE</a> = SPI_MODE1</td></tr>
+<tr class="memdesc:a4e1f66a257b2055dedc2ff8716d961c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The SPI mode.  <a href="class_d_a_q___pin___map.html#a4e1f66a257b2055dedc2ff8716d961c0">More...</a><br /></td></tr>
 <tr class="separator:a4e1f66a257b2055dedc2ff8716d961c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_d_a_q___pin___map.html" title="The DAQ_Pin_Map class contains methods for interacting with the pins of the MCU.">DAQ_Pin_Map</a> class contains methods for interacting with the pins of the MCU. </p>
+<hr  />
+ </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a240d02aeb784e113d8cca6bf9ca83baa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a240d02aeb784e113d8cca6bf9ca83baa">&#9670;&nbsp;</a></span>Pin_Array_t</h2>
 
@@ -123,6 +139,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>This struct contains information for each entry in the Pin Array. </p>
+<hr  />
+ 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -149,6 +168,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs a new <a class="el" href="class_d_a_q___pin___map.html" title="The DAQ_Pin_Map class contains methods for interacting with the pins of the MCU.">DAQ_Pin_Map</a> and sets pins to their correct pin mode, then writes the default states to each pin. </p>
+<hr  />
+ 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -167,6 +189,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gets the state of the pin, as stored in the pin array. </p>
+<hr  />
+<p>Doesn't work well for input pins, as these pins are changed by external factors. Also is more complex than it should be, as pins that changed before calling an update will need to be flipped to get the actual pin state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pin</td><td>- The Pin_ID_t of the pin to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t - The state of the pin, as stored in the Pin_Array </dd></dl>
 
 </div>
 </div>
@@ -196,6 +229,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Changes the state of the pin in the pin array, and marks it for updating. </p>
+<hr  />
+<p>Note, this does not actually update the state of the physical pin, and an update must be called to actually push this change onto the pin.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pin</td><td>- The Pin_ID_t of the pin to change </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>- The new state of the pin </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aaa54d5503420654f5dc1bb4491e2fc4a"></a>
@@ -214,6 +258,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Toggles the state of a pin in the Pin Array and marks the pin for an update. </p>
+<hr  />
+ 
 </div>
 </div>
 <a id="a710b18dce12c8a67f1741de30621eb4f"></a>
@@ -232,6 +279,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Updates the physical pins marked for update to the states stored in the Pin_Array. </p>
+<hr  />
+ 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -261,6 +311,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The SPI bit order. </p>
+
 </div>
 </div>
 <a id="a4e1f66a257b2055dedc2ff8716d961c0"></a>
@@ -275,6 +327,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The SPI mode. </p>
+
 </div>
 </div>
 <a id="a31247bf87dc608526c52a0d296895180"></a>
@@ -288,6 +342,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The maximum SPI speed in Hz. </p>
 
 </div>
 </div>

@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="NASA-inv.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="NASA-UON.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">- Data Acquisition System
    </div>
@@ -354,15 +354,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates an <a class="el" href="class_a_d_s1299___module.html" title="The ADS1299_Module facilitates communication to and control of the ADC device.">ADS1299_Module</a> and opens the SPI interface over which to communicate. </p>
-<hr  />
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">Hardware_Info</td><td>- A Hardware Map so the module knows which pin to pull LOW to initiate a SPI transfer, which pin is START, etc.</td></tr>
-  </table>
-  </dd>
-</dl>
-<hr  />
- <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Replace this with a private variable that is set by the get_num_channels function.</dd></dl>
 <hr  />
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1961,16 +1952,7 @@ Public Attributes</h2></td></tr>
 
 <p>Sets the current device conversion mode. </p>
 <hr  />
-<p>Conversion modes are single shot or continuous. When switching modes, the current conversion must be stopped. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>make it stop</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">new_state</td><td>- The requested conversion mode of the device.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>- ADS1299_Status_t indicating success / failure.</dd></dl>
-<hr  />
-<p>Conversion modes are single shot or continuous. When switching modes, the current conversion must be stopped. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>make it stop</dd></dl>
+<p>Conversion modes are single shot or continuous. When switching modes, the current conversion must be stopped.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">new_state</td><td>- The requested conversion mode of the device.</td></tr>

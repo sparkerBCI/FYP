@@ -23,11 +23,11 @@
  *  @brief The Reg_Table holds information about the registers, which is used to generate
  *  the Reg_Array.
  *  
- *  Column A: Reg_ID: The unique identifier for each register
- *  Column B: Address: The address of the register in the ADS1299's memory
- *  Column C: Is Read Only: True if the register is read only.
- *  Column D: Default Value:The value of the register on reset
- *  Column E: Is Bit Per Channel: True if the register corresponds 1 bit to 1 channel
+ *  Column A: Reg_ID: The unique identifier for each register <br/>
+ *  Column B: Address: The address of the register in the ADS1299's memory <br/>
+ *  Column C: Is Read Only: True if the register is read only <br/>
+ *  Column D: Default Value:The value of the register on reset <br/>
+ *  Column E: Is Bit Per Channel: True if the register corresponds 1 bit to 1 channel <br/>
  *
  *********************************************************************************************/
 #define REG_TABLE                                                                                                         \
