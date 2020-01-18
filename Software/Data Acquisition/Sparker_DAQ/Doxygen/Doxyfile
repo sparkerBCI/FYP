@@ -51,7 +51,7 @@ PROJECT_BRIEF          = "Software for the Sparker Wireless EEG DAQ"
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = "C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/Data Acquisition/Sparker_DAQ/Doxygen/NASA-inv.png"
+PROJECT_LOGO           = "C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/Data Acquisition/Sparker_DAQ/Doxygen/NASA-UON.png"
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
