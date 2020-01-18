@@ -61,9 +61,9 @@
 
 
 
-DAQ_Pin_Map    *Hardware_Map;                                                            /**< This class stores information about how the MCU is connected to the ADC */
-ADS1299_Module *ADS1299;                                                                 /**< This class enables communication with the ADC */
-Serial_Module  *Comms;                                                                   /**< This class enables communication with the host device */
+DAQ_Pin_Map    *Hardware_Map;                                                  /**< This class stores information about how the MCU is connected to the ADC */
+ADS1299_Module *ADS1299;                                                       /**< This class enables communication with the ADC */
+Serial_Module  *Comms;                                                         /**< This class enables communication with the host device */
 
 
 /*! ******************************************************************************************
@@ -72,72 +72,72 @@ Serial_Module  *Comms;                                                          
  *********************************************************************************************/
 void setup()
 {
-  Hardware_Map = new DAQ_Pin_Map();                                                      /* Create the Hardware Map, which holds details about how the MCU is connected */
+  Hardware_Map = new DAQ_Pin_Map();                                            /* Create the Hardware Map, which holds details about how the MCU is connected */
 
-  ADS1299 = new ADS1299_Module(Hardware_Map);                                            /* Creates the ADS1299 Module, for communication and control of the ADC */
+  ADS1299 = new ADS1299_Module(Hardware_Map);                                  /* Creates the ADS1299 Module, for communication and control of the ADC */
 
-  Comms = new Serial_Module();                                                           /* Creates the Serial Module, for communication with the host device over bluetooth or USB */
+  Comms = new Serial_Module();                                                 /* Creates the Serial Module, for communication with the host device over bluetooth or USB */
 
-  Comms->msg_enabled   = true;                                                           /* Enables additional messages on the serial bus */
-  Comms->debug_enabled = true;                                                           /* Additional enabler for debug messages */
+  Comms->msg_enabled   = true;                                                 /* Enables additional messages on the serial bus */
+  Comms->debug_enabled = true;                                                 /* Additional enabler for debug messages */
 
-#ifndef NO_SPI                                                                           /* If we are connecting to the ADC */
-  if (ADS1299->get_device_id() != VALID_DEVICE_ID)                                       /* If the device gives us an invalid device ID */
+#ifndef NO_SPI                                                                 /* If we are connecting to the ADC */
+  if (ADS1299->get_device_id() != VALID_DEVICE_ID)                             /* If the device gives us an invalid device ID */
   {
-    Comms->errorMsg("Device ID Invalid!");                                               /* Send an error */
-    while (1)                                                                            /* Wait here forever, there's nothing else we can do, since this program is written for the ADS1299 family */
+    Comms->errorMsg("Device ID Invalid!");                                     /* Send an error */
+    while (1)                                                                  /* Wait here forever, there's nothing else we can do, since this program is written for the ADS1299 family */
     {
     }
   }
-  if (ADS1299->get_num_channels() == 0)                                                  /* If the number of channels reported by the device is invalid */
+  if (ADS1299->get_num_channels() == 0)                                        /* If the number of channels reported by the device is invalid */
   {
-    Comms->errorMsg("Invalid Number of Channels!");                                      /* Send an error */
-    while (1)                                                                            /* Wait here forever, there's nothing else we can do, since this program was written for the ADS1299-4, ADS1299-6, or ADS1299 */
+    Comms->errorMsg("Invalid Number of Channels!");                            /* Send an error */
+    while (1)                                                                  /* Wait here forever, there's nothing else we can do, since this program was written for the ADS1299-4, ADS1299-6, or ADS1299 */
     {
     }
   }
 
 
   /* Set up ADS1299 */
-  ADS1299->set_reference_buffer_state(true);                                             /* Enable internal reference */
-  ADS1299->set_data_rate(SPS250);                                                        /* Set device to 250 SPS */
+  ADS1299->set_reference_buffer_state(true);                                   /* Enable internal reference */
+  ADS1299->set_data_rate(SPS250);                                              /* Set device to 250 SPS */
 
   /* Set Up Channel 1 */
-  ADS1299->set_channel_gain(CH1, PGA24);                                                 /* Set channel 1 gain as 24 */
-  ADS1299->set_channel_connection_type(CH1, CH_ELECTRODE_INPUT);                         /* Set channel 1 as an electrode input */
+  ADS1299->set_channel_gain(CH1, PGA24);                                       /* Set channel 1 gain as 24 */
+  ADS1299->set_channel_connection_type(CH1, CH_ELECTRODE_INPUT);               /* Set channel 1 as an electrode input */
 
   /* Set Up Channel 2 */
-  ADS1299->set_channel_power_state(CH2, CH_POWER_OFF);                                   /* Turn off Channel 2 */
-  ADS1299->set_channel_connection_type(CH2, CH_SHORTED);                                 /* Short Channel 2 to power */
+  ADS1299->set_channel_power_state(CH2, CH_POWER_OFF);                         /* Turn off Channel 2 */
+  ADS1299->set_channel_connection_type(CH2, CH_SHORTED);                       /* Short Channel 2 to power */
 
   /* Set Up Channel 3 */
-  ADS1299->set_channel_power_state(CH3, CH_POWER_OFF);                                   /* Turn off Channel 3 */
-  ADS1299->set_channel_connection_type(CH3, CH_SHORTED);                                 /* Short Channel 3 to power */
+  ADS1299->set_channel_power_state(CH3, CH_POWER_OFF);                         /* Turn off Channel 3 */
+  ADS1299->set_channel_connection_type(CH3, CH_SHORTED);                       /* Short Channel 3 to power */
 
   /* Set Up Channel 4 */
-  ADS1299->set_channel_power_state(CH4, CH_POWER_OFF);                                   /* Turn off Channel 4 */
-  ADS1299->set_channel_connection_type(CH4, CH_SHORTED);                                 /* Short Channel 4 to power */
+  ADS1299->set_channel_power_state(CH4, CH_POWER_OFF);                         /* Turn off Channel 4 */
+  ADS1299->set_channel_connection_type(CH4, CH_SHORTED);                       /* Short Channel 4 to power */
 
   /* Set Up Channel 5 */
-  ADS1299->set_channel_power_state(CH5, CH_POWER_OFF);                                   /* Turn off Channel 5 */
-  ADS1299->set_channel_connection_type(CH5, CH_SHORTED);                                 /* Short Channel 5 to power */
+  ADS1299->set_channel_power_state(CH5, CH_POWER_OFF);                         /* Turn off Channel 5 */
+  ADS1299->set_channel_connection_type(CH5, CH_SHORTED);                       /* Short Channel 5 to power */
 
   /* Set Up Channel 6 */
-  ADS1299->set_channel_power_state(CH6, CH_POWER_OFF);                                   /* Turn off Channel 6 */
-  ADS1299->set_channel_connection_type(CH6, CH_SHORTED);                                 /* Short Channel 6 to power */
+  ADS1299->set_channel_power_state(CH6, CH_POWER_OFF);                         /* Turn off Channel 6 */
+  ADS1299->set_channel_connection_type(CH6, CH_SHORTED);                       /* Short Channel 6 to power */
 
   /* Set Up Channel 7 */
-  ADS1299->set_channel_power_state(CH7, CH_POWER_OFF);                                   /* Turn off Channel 7 */
-  ADS1299->set_channel_connection_type(CH7, CH_SHORTED);                                 /* Short Channel 7 to power */
+  ADS1299->set_channel_power_state(CH7, CH_POWER_OFF);                         /* Turn off Channel 7 */
+  ADS1299->set_channel_connection_type(CH7, CH_SHORTED);                       /* Short Channel 7 to power */
 
   /* Set Up Channel 8 */
-  ADS1299->set_channel_power_state(CH8, CH_POWER_OFF);                                   /* Turn off Channel 8 */
-  ADS1299->set_channel_connection_type(CH8, CH_SHORTED);                                 /* Short Channel 8 to power */
+  ADS1299->set_channel_power_state(CH8, CH_POWER_OFF);                         /* Turn off Channel 8 */
+  ADS1299->set_channel_connection_type(CH8, CH_SHORTED);                       /* Short Channel 8 to power */
 
   /* Set Up Reference Channel */
-  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);             /* Reference all channels to the reference electrode */
+  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);   /* Reference all channels to the reference electrode */
 #endif
-  ADS1299->send_command(START);                                                          /* Start the device */
+  ADS1299->send_command(START);                                                /* Start the device */
 }
 
 
@@ -147,25 +147,25 @@ void setup()
  *********************************************************************************************/
 void loop()
 {
-  static uint8_t input_buffer[27] = { 0 };                                               /**< A buffer to save data from the ADC to */
+  static uint8_t input_buffer[27] = { 0 };                                     /**< A buffer to save data from the ADC to */
 
-  if (ADS1299->is_running)                                                               /* If the ADC is converting */
+  if (ADS1299->is_running)                                                     /* If the ADC is converting */
   {
-    toggleLED(500, 50);                                                                  /* Flash the LED with a 500ms half period and 50ms debounce period */
+    toggleLED(500, 50);                                                        /* Flash the LED with a 500ms half period and 50ms debounce period */
 
 
-    if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)                 /* If the device has data to read */
+    if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)       /* If the device has data to read */
     {
-      ADS1299->read_sample(input_buffer);                                                /* Read data into the input buffer */
-      Sample_Data_t this_sample = process_sample(input_buffer);                          /* Build a sample structure by processing the input data buffer */
-      if (this_sample.id != 0)                                                           /* If the sample was valid (corresponding to a sample ID of something other than 0) */
+      ADS1299->read_sample(input_buffer);                                      /* Read data into the input buffer */
+      Sample_Data_t this_sample = process_sample(input_buffer);                /* Build a sample structure by processing the input data buffer */
+      if (this_sample.id != 0)                                                 /* If the sample was valid (corresponding to a sample ID of something other than 0) */
       {
-        if (!(Comms->send_sample(this_sample)))                                          /* If we don't successfully send the command */
+        if (!(Comms->send_sample(this_sample)))                                /* If we don't successfully send the command */
         {
-          Comms->warningMsg("Could not send processed sample!");                         /* Send a warning */
+          Comms->warningMsg("Could not send processed sample!");               /* Send a warning */
         }
       }
-      else                                                                               /* Otherwise, we must have gotten an invalid sample ID */
+      else                                                                     /* Otherwise, we must have gotten an invalid sample ID */
       {
         Comms->warningMsg("Invalid Sample ID. This happens if there is a problem, or if the device has been recording for 192 days."); /* Send a warning */
       }
@@ -189,18 +189,18 @@ void loop()
  *********************************************************************************************/
 void toggleLED(uint16_t half_period, uint8_t debounce_ms)
 {
-  static unsigned long last_toggle_millis = 0;                                           /**< The millisecond runtime that the LED was last toggled at */
+  static unsigned long last_toggle_millis = 0;                                 /**< The millisecond runtime that the LED was last toggled at */
 
 
-  if (!(millis() % half_period) && (millis() > (last_toggle_millis + debounce_ms)))      /* If the half period has expired and we're out of the debounce period */
+  if (!(millis() % half_period) && (millis() > (last_toggle_millis + debounce_ms))) /* If the half period has expired and we're out of the debounce period */
   {
-    last_toggle_millis = millis();                                                       /* Save the last toggle time */
-    Comms->debugMsg("Toggling");                                                         /* Send a debug message */
-    Hardware_Map->toggle_pin(STATUS_LED);                                                /* Toggle the status LED */
-    Hardware_Map->update_pins();                                                         /* Update the pin values in the pin array */
-    if (last_toggle_millis > (0xFFFFFFFF - (half_period)))                               /* If next time we need to toggle millis() will have overflowed */
+    last_toggle_millis = millis();                                             /* Save the last toggle time */
+    Comms->debugMsg("Toggling");                                               /* Send a debug message */
+    Hardware_Map->toggle_pin(STATUS_LED);                                      /* Toggle the status LED */
+    Hardware_Map->update_pins();                                               /* Update the pin values in the pin array */
+    if (last_toggle_millis > (0xFFFFFFFF - (half_period)))                     /* If next time we need to toggle millis() will have overflowed */
     {
-      last_toggle_millis = 0;                                                            /* Reset the last toggle time to 0 */
+      last_toggle_millis = 0;                                                  /* Reset the last toggle time to 0 */
     }
   }
 }
@@ -220,45 +220,45 @@ void toggleLED(uint16_t half_period, uint8_t debounce_ms)
  *********************************************************************************************/
 Sample_Data_t process_sample(uint8_t *input_buffer)
 {
-  static uint32_t sample_ID        = 1;                                                  /**< A running tally of samples */
-  Sample_Data_t   processed_sample = { 0, 0, 0, 0, { 0 } };                              /* Initialise the structure to 0. This is the invalid state */
+  static uint32_t sample_ID        = 1;                                        /**< A running tally of samples */
+  Sample_Data_t   processed_sample = { 0, 0, 0, 0, { 0 } };                    /* Initialise the structure to 0. This is the invalid state */
 
-  if (input_buffer == nullptr)                                                           /* If the input buffer is a nullptr */
+  if (input_buffer == nullptr)                                                 /* If the input buffer is a nullptr */
   {
-    Comms->errorMsg("Can't process nullptr sample buffer!");                             /* Send an error */
-    return processed_sample;                                                             /* Return the invalid structure */
+    Comms->errorMsg("Can't process nullptr sample buffer!");                   /* Send an error */
+    return processed_sample;                                                   /* Return the invalid structure */
   }
 
-  if ((input_buffer[0] >> 4) != 0x0C)                                                    /* If the data buffer does not start with the correct bit sequence */
+  if ((input_buffer[0] >> 4) != 0x0C)                                          /* If the data buffer does not start with the correct bit sequence */
   {
-    Comms->warningMsg("Corrupt Sample! Skipping.");                                      /* Send a warning and skip this sample */
-    sample_ID++;                                                                         /* We still increase the sample ID though, since we read data from the device (taking up 1 sample per second spot), it was just bad data */
-    return processed_sample;                                                             /* Return the invalid structure */
+    Comms->warningMsg("Corrupt Sample! Skipping.");                            /* Send a warning and skip this sample */
+    sample_ID++;                                                               /* We still increase the sample ID though, since we read data from the device (taking up 1 sample per second spot), it was just bad data */
+    return processed_sample;                                                   /* Return the invalid structure */
   }
 
-  processed_sample.id = sample_ID;                                                       /* Save the sample ID into the structure */
-  sample_ID++;                                                                           /* Increment the sample ID so the next sample gets a new ID */
+  processed_sample.id = sample_ID;                                             /* Save the sample ID into the structure */
+  sample_ID++;                                                                 /* Increment the sample ID so the next sample gets a new ID */
 
-  uint8_t temp_loff_p = input_buffer[0] << 4;                                            /* Move the lower nibble of the first byte into the upper nibble */
-  uint8_t temp_loff_n = input_buffer[1] >> 4;                                            /* Move the upper nibble of the second byte into the lower nibble */
-  processed_sample.Positive_Lead_Off_Status = temp_loff_p | temp_loff_n;                 /* OR these values to combine the nibbles into a whole byte */
+  uint8_t temp_loff_p = input_buffer[0] << 4;                                  /* Move the lower nibble of the first byte into the upper nibble */
+  uint8_t temp_loff_n = input_buffer[1] >> 4;                                  /* Move the upper nibble of the second byte into the lower nibble */
+  processed_sample.Positive_Lead_Off_Status = temp_loff_p | temp_loff_n;       /* OR these values to combine the nibbles into a whole byte */
 
-  temp_loff_n = input_buffer[1] << 4;                                                    /* Move the lower nibble of the second byte into the upper nibble */
-  uint8_t temp_gpio = input_buffer[2] >> 4;                                              /* Move the upper nibble of the third byte into the lower nibble */
-  processed_sample.Negative_Lead_Off_Status = temp_loff_n | temp_gpio;                   /* OR these values to combine the nibbles into a whole byte */
+  temp_loff_n = input_buffer[1] << 4;                                          /* Move the lower nibble of the second byte into the upper nibble */
+  uint8_t temp_gpio = input_buffer[2] >> 4;                                    /* Move the upper nibble of the third byte into the lower nibble */
+  processed_sample.Negative_Lead_Off_Status = temp_loff_n | temp_gpio;         /* OR these values to combine the nibbles into a whole byte */
 
-  processed_sample.GPIO_Data = input_buffer[2] & 0x0F;                                   /* Get the lower nibble of the third byte, this is the GPIO states */
+  processed_sample.GPIO_Data = input_buffer[2] & 0x0F;                         /* Get the lower nibble of the third byte, this is the GPIO states */
 
   /* Now process channel data */
-  for (uint8_t current_channel = 0; current_channel < CH_ERROR; current_channel++)       /* Until we have looked at all channels */
+  for (uint8_t current_channel = 0; current_channel < CH_ERROR; current_channel++) /* Until we have looked at all channels */
   {
-    uint32_t data[3] = { 0 };                                                            /* Each channel reports 24 bits of data (3 bytes), and we need to bitshift, so make a buffer to store these values */
-    for (uint8_t current_byte = 0; current_byte < 3; current_byte++)                     /* Until we have looked at all 3 bytes for each channel */
+    uint32_t data[3] = { 0 };                                                  /* Each channel reports 24 bits of data (3 bytes), and we need to bitshift, so make a buffer to store these values */
+    for (uint8_t current_byte = 0; current_byte < 3; current_byte++)           /* Until we have looked at all 3 bytes for each channel */
     {
-      data[current_byte] = input_buffer[(3 + current_byte) + 3 * current_channel];       /* Read the bytes for each channel in order */
+      data[current_byte] = input_buffer[(3 + current_byte) + 3 * current_channel]; /* Read the bytes for each channel in order */
     }
     processed_sample.Channel_Data[current_channel] = (data[0] << 16) | (data[1] << 8) | data[2]; /* The first byte holds bits 16 to 23, so bitshift 16. The second byte holds bits 8 to 15, so bitshift 8, and the last byte holds bits 0 through 7, so don't bitshift. OR them all together, and you have a 24 bit sample */
   }
 
-  return processed_sample;                                                               /* Return the valid sample */
+  return processed_sample;                                                     /* Return the valid sample */
 }

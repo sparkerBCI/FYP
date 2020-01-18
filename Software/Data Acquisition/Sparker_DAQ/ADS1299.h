@@ -23,7 +23,7 @@
 #include <Arduino.h>
 
 #ifndef NO_SPI
-#define NO_SPI                                                                           /**< This is defined if we don't want to communicate to the ADS1299 over SPI. Remove this to communicate */
+#define NO_SPI                                                                 /**< This is defined if we don't want to communicate to the ADS1299 over SPI. Remove this to communicate */
 #endif
 
 /*! ******************************************************************************************
@@ -852,21 +852,21 @@ public:
  *********************************************************************************************/
   typedef struct Reg_Array_t
   {
-    Reg_ID_t Reg_ID;                                                                     /**< The unique Register ID associated with the register */
-    uint8_t  Address;                                                                    /**< The address of the register in the ADS1299's memory */
-    bool     Read_Only;                                                                  /**< True if the register is read only. False otherwise */
-    uint8_t  Value_on_Reset;                                                             /**< The value of the register on reset */
-    uint8_t  Current_Value;                                                              /**< The current value of the register */
-    bool     Bit_Per_Channel;                                                            /**< True if the regsiter holds info about all the channels, 1 bit per channel */
+    Reg_ID_t Reg_ID;                                                           /**< The unique Register ID associated with the register */
+    uint8_t  Address;                                                          /**< The address of the register in the ADS1299's memory */
+    bool     Read_Only;                                                        /**< True if the register is read only. False otherwise */
+    uint8_t  Value_on_Reset;                                                   /**< The value of the register on reset */
+    uint8_t  Current_Value;                                                    /**< The current value of the register */
+    bool     Bit_Per_Channel;                                                  /**< True if the regsiter holds info about all the channels, 1 bit per channel */
   } Reg_Areay_t;
 
 /* Create the register array and populate the value with default value */
-#define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },                                /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
+#define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },                      /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
   Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
 #undef REG_ENTRY
 
 
-  bool is_running = false;                                                               /**< This bool indicates true if the ADS1299 is converting. False otherwise */
+  bool is_running = false;                                                     /**< This bool indicates true if the ADS1299 is converting. False otherwise */
 
 
 private:
@@ -982,10 +982,10 @@ private:
  *********************************************************************************************/
   ADS1299_Status_t set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
 
-  DAQ_Pin_Map *Hardware_Info;                                                            /**< This holds information about how the ADS1299 is connected to the MCU */
+  DAQ_Pin_Map *Hardware_Info;                                                  /**< This holds information about how the ADS1299 is connected to the MCU */
 
 
-  uint8_t number_of_channels = 0;                                                        /**< This holds the number of channels that the ADS1299 has. Initialised to 0, an invalid number */
+  uint8_t number_of_channels = 0;                                              /**< This holds the number of channels that the ADS1299 has. Initialised to 0, an invalid number */
 };
 
 #endif
