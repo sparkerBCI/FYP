@@ -110,7 +110,7 @@ public:
  * @return                          - The number of channels (4, 6, or 8). 0 if error.
  *
  *********************************************************************************************/
-  uint8_t get_num_channels_from_device(void);
+  Num_Channels_t get_num_channels_from_device(void);
 
 /*! ******************************************************************************************
  * @brief Gets the number of channels as stored locally.
@@ -118,7 +118,7 @@ public:
  * @return                          - The number of channels (4, 6, or 8). 0 if error.
  *
  *********************************************************************************************/
-  uint8_t get_num_channels(void)
+  Num_Channels_t get_num_channels(void)
   {
     return number_of_channels;
   }
@@ -860,10 +860,26 @@ public:
     bool     Bit_Per_Channel;                                                  /**< True if the regsiter holds info about all the channels, 1 bit per channel */
   } Reg_Areay_t;
 
+/*! ******************************************************************************************
+ * @brief This struct contains information about a parameter
+ *
+ *********************************************************************************************/
+  typedef struct Param_Array_t
+  {
+    Param_ID_t Param_ID;                                                       /**< The unique Parameter ID associated with the register */
+    uint8_t    Bitmask;                                                        /**< The bitmask used to isolate or set the parameter */
+    uint8_t    Shifts;                                                         /**< The number of left shifts needed to move the parameter into the bit 0 position */
+  } Param_Array_t;
+
 /* Create the register array and populate the value with default value */
 #define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },                      /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
   Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
 #undef REG_ENTRY
+
+/* Create the parameter array and populate the value with default value */
+#define PARAM_ENTRY(a, b, c)    { a, b, c },                                   /**< This macro generates an array of Param_Array_t entries */
+  Param_Array_t Param_Array[NUM_PARAMS] = { PARAM_TABLE };
+#undef PARAM_ENTRY
 
 
   bool is_running = false;                                                     /**< This bool indicates true if the ADS1299 is converting. False otherwise */
@@ -985,7 +1001,7 @@ private:
   DAQ_Pin_Map *Hardware_Info;                                                  /**< This holds information about how the ADS1299 is connected to the MCU */
 
 
-  uint8_t number_of_channels = 0;                                              /**< This holds the number of channels that the ADS1299 has. Initialised to 0, an invalid number */
+  Num_Channels_t number_of_channels = NUM_CHANNELS_ERROR;                      /**< This holds the number of channels that the ADS1299 has. Initialised to 0, an invalid number */
 };
 
 #endif

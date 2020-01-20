@@ -247,8 +247,8 @@ uint8_t ADS1299_Module::get_device_version(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  id_reg  &= 0xE0;                                                             /* Isolate the version section */
-  id_reg >>= 5;                                                                /* Move the version info to bit 0 */
+  id_reg  &= Param_Array[BITMSK_REV_ID].Bitmask;                               /* Isolate the version section */
+  id_reg >>= Param_Array[BITMSK_REV_ID].Shifts;                                /* Move the version info to bit 0 */
   return(id_reg);
 }
 
@@ -266,8 +266,8 @@ uint8_t ADS1299_Module::get_device_id(void)
 {
   uint8_t id_reg = read_register(ID);
 
-  id_reg  &= 0x0C;                                                             /* Isolate the device ID section */
-  id_reg >>= 2;                                                                /* Move the device ID to bit 0 */
+  id_reg  &= Param_Array[BITMSK_DEV_ID].Bitmask;                               /* Isolate the device ID section */
+  id_reg >>= Param_Array[BITMSK_DEV_ID].Shifts;                                /* Move the device ID to bit 0 */
   return(id_reg);
 }
 
@@ -275,36 +275,33 @@ uint8_t ADS1299_Module::get_device_id(void)
 /*! ******************************************************************************************
  * @brief Gets the number of channels from the ADS1299.
  *
- * @return                          - The number of channels (4, 6, or 8). 0 if error.
+ * @return                          - The number of channels. NUM_CHANNELS_ERROR if error.
  *
  *********************************************************************************************/
-uint8_t ADS1299_Module::get_num_channels_from_device(void)
+Num_Channels_t ADS1299_Module::get_num_channels_from_device(void)
 {
   uint8_t id_reg = read_register(ID);
 
   if (!id_reg)                                                                 /* if read_register failed */
   {
-    return(0);
+    return(NUM_CHANNELS_ERROR);
   }
-  id_reg &= 0x03;                                                              /* Isolate the num channels section */
+  id_reg  &= Param_Array[BITMSK_NUM_CH].Bitmask;                               /* Isolate the num channels section */
+  id_reg >>= Param_Array[BITMSK_NUM_CH].Shifts;
   switch (id_reg)
   {
-  case 0x00:
-    number_of_channels = 4;
-    break;
+  case NUM_CHANNELS_4:
+    return NUM_CHANNELS_4;
 
-  case 0x01:
-    number_of_channels = 6;
-    break;
+  case NUM_CHANNELS_6:
+    return NUM_CHANNELS_6;
 
-  case 0x10:
-    number_of_channels = 8;
-    break;
+  case NUM_CHANNELS_8:
+    return NUM_CHANNELS_8;
 
   default:
-    number_of_channels = 0;
+    return NUM_CHANNELS_ERROR;
   }
-  return number_of_channels;
 }
 
 
@@ -323,7 +320,7 @@ Daisy_Chain_Mode_t ADS1299_Module::get_daisy_mode(void)
   {
     return(DAISY_MODE_ERROR);
   }
-  reg_data &= 0x40;                                                            /* Isolate the daisy chain section */
+  reg_data &= Param_Array[BITMSK_DAISY_EN].Bitmask;                            /* Isolate the daisy chain section */
   if (!reg_data)
   {
     return DAISY_CHAIN_MODE;
@@ -350,9 +347,9 @@ ADS1299_Status_t ADS1299_Module::set_daisy_mode(Daisy_Chain_Mode_t new_mode)
     }
     if (new_mode == MULTIPLE_READBACK_MODE)
     {
-      return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x40)); /* Set the 6th bit of the register */
+      return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | Param_Array[BITMSK_DAISY_EN].Bitmask)); /* Set the 6th bit of the register */
     }
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xBF));  /* Clear the 6th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & (~Param_Array[BITMSK_DAISY_EN].Bitmask))); /* Clear the 6th bit of the register */
   }
 
   return ADS1299_INVALID;
@@ -376,7 +373,7 @@ bool ADS1299_Module::get_clock_mode(void)
   {
     return(false);
   }
-  reg_data &= 0x20;                                                            /* Isolate the clock mode section */
+  reg_data &= Param_Array[BITMSK_CLK_EN].Bitmask;                              /* Isolate the clock mode section */
   return(reg_data);                                                            /* Reg data will contain a non-zero (0x20) if oscillator output connected to CLK pins, else 0 */
 }
 
@@ -399,11 +396,11 @@ ADS1299_Status_t ADS1299_Module::set_clock_mode(bool enable)
   }
   if (enable)
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | 0x20));  /* Set the 5th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value | Param_Array[BITMSK_CLK_EN].Bitmask)); /* Set the 5th bit of the register */
   }
   else
   {
-    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & 0xDF));  /* Clear the 5th bit of the register */
+    return(write_register(CONFIG1, Reg_Array[CONFIG1].Current_Value & (~Param_Array[BITMSK_CLK_EN].Bitmask))); /* Clear the 5th bit of the register */
   }
 }
 
@@ -424,7 +421,8 @@ Data_Rate_Setting_t ADS1299_Module::get_data_rate(void)
   {
     return(SPS_ERROR);
   }
-  reg_data &= 0x07;                                                            /* Isolate the clock mode section */
+  reg_data  &= Param_Array[BITMSK_DATA_RATE].Bitmask;                          /* Isolate the clock mode section */
+  reg_data >>= Param_Array[BITMSK_DATA_RATE].Shifts;
 
   switch (reg_data)                                                            /* Decode the value */
   {
@@ -473,7 +471,7 @@ ADS1299_Status_t ADS1299_Module::set_data_rate(Data_Rate_Setting_t new_rate)
   }
   if ((new_rate >= SPS16k) && (new_rate < SPS_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG1].Current_Value & 0xF8;                   /* Clear the old data */
+    uint8_t value = Reg_Array[CONFIG1].Current_Value & (~Param_Array[BITMSK_DATA_RATE].Bitmask); /* Clear the old data */
     return(write_register(CONFIG1, value | new_rate));                         /* Write the new data rate */
   }
   else
@@ -494,7 +492,7 @@ bool ADS1299_Module::get_int_cal(void)
 {
   uint8_t reg_data = read_register(CONFIG2);
 
-  reg_data &= 0x10;
+  reg_data &= Param_Array[BITMSK_INT_CAL].Bitmask;
   return(reg_data);
 }
 
@@ -516,11 +514,11 @@ ADS1299_Status_t ADS1299_Module::set_int_cal(bool state)
   }
   if (state)
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x10));  /* Set the 4th bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | Param_Array[BITMSK_INT_CAL].Bitmask)); /* Set the 4th bit of the CONFIG2 register */
   }
   else
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xEF));  /* Clear the 4th bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & ~Param_Array[BITMSK_INT_CAL].Bitmask)); /* Clear the 4th bit of the CONFIG2 register */
   }
 }
 
@@ -540,7 +538,7 @@ bool ADS1299_Module::get_cal_amp(void)
 {
   uint8_t reg_data = read_register(CONFIG2);
 
-  reg_data &= 0x04;
+  reg_data &= Param_Array[BITMSK_CAL_AMP].Bitmask;
   return(reg_data);
 }
 
@@ -567,11 +565,11 @@ ADS1299_Status_t ADS1299_Module::set_cal_amp(bool state)
   }
   if (state)
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | 0x04));  /* Set the 2nd bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value | Param_Array[BITMSK_CAL_AMP].Bitmask)); /* Set the 2nd bit of the CONFIG2 register */
   }
   else
   {
-    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & 0xFB));  /* Clear the 2nd bit of the CONFIG2 register */
+    return(write_register(CONFIG2, Reg_Array[CONFIG2].Current_Value & ~Param_Array[BITMSK_CAL_AMP].Bitmask)); /* Clear the 2nd bit of the CONFIG2 register */
   }
 }
 
@@ -587,7 +585,8 @@ Test_Frequency_t ADS1299_Module::get_cal_freq(void)
 {
   uint8_t reg_data = read_register(CONFIG2);
 
-  reg_data &= 0x03;
+  reg_data  &= Param_Array[BITMSK_CAL_FREQ].Bitmask;
+  reg_data >>= Param_Array[BITMSK_CAL_FREQ].Shifts;
   switch (reg_data)
   {
   case TEST_FREQ_FCLK_DIV_2_21:
@@ -624,7 +623,7 @@ ADS1299_Status_t ADS1299_Module::set_cal_freq(Test_Frequency_t new_freq)
   }
   if ((new_freq >= TEST_FREQ_FCLK_DIV_2_21) && (new_freq < TEST_FREQ_ERROR) && (new_freq != TEST_FREQ_INVALID))
   {
-    uint8_t value = Reg_Array[CONFIG2].Current_Value & 0xFC;                   /* Clear the old data */
+    uint8_t value = Reg_Array[CONFIG2].Current_Value & ~Param_Array[BITMSK_CAL_FREQ].Bitmask; /* Clear the old data */
     return(write_register(CONFIG2, value | static_cast<uint8_t>(new_freq)));   /* Set the bits of the CONFIG2 register */
   }
   else
@@ -647,7 +646,7 @@ bool ADS1299_Module::get_reference_buffer_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x80;
+  reg_data &= Param_Array[BITMSK_PD_REFBUF].Bitmask;
   return(reg_data);
 }
 
@@ -671,11 +670,11 @@ ADS1299_Status_t ADS1299_Module::set_reference_buffer_state(bool new_state)
   }
   if (new_state)
   {
-    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | 0x80));
+    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | Param_Array[BITMSK_PD_REFBUF].Bitmask));
   }
   else
   {
-    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value & 0x7F));
+    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value & ~Param_Array[BITMSK_PD_REFBUF].Bitmask));
   }
 }
 
@@ -694,7 +693,7 @@ bool ADS1299_Module::get_bias_measurement_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x10;
+  reg_data &= Param_Array[BITMSK_BIAS_MEAS].Bitmask;
   return(reg_data);
 }
 
@@ -719,11 +718,11 @@ ADS1299_Status_t ADS1299_Module::set_bias_measurement_state(bool new_state)
   }
   if (new_state)
   {
-    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | 0x10));
+    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value | Param_Array[BITMSK_BIAS_MEAS].Bitmask));
   }
   else
   {
-    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value & 0xEF));
+    return(write_register(CONFIG3, Reg_Array[CONFIG3].Current_Value & ~Param_Array[BITMSK_BIAS_MEAS].Bitmask));
   }
 }
 
@@ -741,8 +740,8 @@ Bias_Source_t ADS1299_Module::get_bias_source(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data  &= 0x08;
-  reg_data >>= 3;
+  reg_data  &= Param_Array[BITMSK_BIASREF_INT].Bitmask;
+  reg_data >>= Param_Array[BITMSK_BIASREF_INT].Shifts;
   switch (reg_data)
   {
   case BIAS_INTERNAL:
@@ -776,8 +775,8 @@ ADS1299_Status_t ADS1299_Module::set_bias_source(Bias_Source_t new_source)
   }
   if ((new_source >= BIAS_INTERNAL) && (new_source < BIAS_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG3].Current_Value & 0xF7;
-    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_source)) << 3));
+    uint8_t value = Reg_Array[CONFIG3].Current_Value & ~Param_Array[BITMSK_BIASREF_INT].Bitmask;
+    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_source)) << Param_Array[BITMSK_BIASREF_INT].Shifts));
   }
 
   return ADS1299_INVALID;
@@ -794,8 +793,8 @@ Bias_Power_State_t ADS1299_Module::get_bias_buffer_power_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data  &= 0x04;
-  reg_data >>= 2;
+  reg_data  &= Param_Array[BITMSK_PD_BIAS].Bitmask;
+  reg_data >>= Param_Array[BITMSK_PD_BIAS].Shifts;
   switch (reg_data)
   {
   case BIAS_POWER_OFF:
@@ -828,8 +827,8 @@ ADS1299_Status_t ADS1299_Module::set_bias_buffer_power_state(Bias_Power_State_t 
   }
   if ((new_state >= BIAS_POWER_OFF) && (new_state < BIAS_POWER_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG3].Current_Value & 0xFB;
-    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_state)) << 2));
+    uint8_t value = Reg_Array[CONFIG3].Current_Value & !Param_Array[BITMSK_PD_BIAS].Bitmask;
+    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_state)) << Param_Array[BITMSK_PD_BIAS].Shifts));
   }
   return ADS1299_INVALID;
 }
@@ -846,8 +845,8 @@ Bias_Sense_Enable_t ADS1299_Module::get_bias_sense_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data  &= 0x02;
-  reg_data >>= 1;
+  reg_data  &= Param_Array[BITMSK_BIAS_LOFF_SENS].Bitmask;
+  reg_data >>= Param_Array[BITMSK_BIAS_LOFF_SENS].Shifts;
   switch (reg_data)
   {
   case BIAS_SENSE_DISABLED:
@@ -879,8 +878,8 @@ ADS1299_Status_t ADS1299_Module::set_bias_sense_state(Bias_Sense_Enable_t new_st
   }
   if ((new_state >= BIAS_SENSE_DISABLED) && (new_state < BIAS_SENSE_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG3].Current_Value & 0xFD;
-    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_state)) << 1));
+    uint8_t value = Reg_Array[CONFIG3].Current_Value & ~Param_Array[BITMSK_BIAS_LOFF_SENS].Bitmask;
+    return write_register(CONFIG3, value | ((static_cast<uint8_t>(new_state)) << Param_Array[BITMSK_BIAS_LOFF_SENS].Shifts));
   }
   return ADS1299_INVALID;
 }
@@ -896,7 +895,7 @@ Bias_LOff_Status_t ADS1299_Module::get_bias_lead_off_state(void)
 {
   uint8_t reg_data = read_register(CONFIG3);
 
-  reg_data &= 0x01;
+  reg_data &= Param_Array[BITMSK_BIAS_STAT].Bitmask;
   switch (reg_data)
   {
   case BIAS_CONNECTED:
@@ -925,8 +924,8 @@ LOff_Comp_Threshold_Var_t ADS1299_Module::get_lead_off_comp_thresh(void)
 {
   uint8_t reg_data = read_register(LOFF);
 
-  reg_data  &= 0xE0;
-  reg_data >>= 5;
+  reg_data  &= Param_Array[BITMSK_COMP_THRESH].Bitmask;
+  reg_data >>= Param_Array[BITMSK_COMP_THRESH].Shifts;
   switch (reg_data)
   {
   case LOFF_5Per:
@@ -978,8 +977,8 @@ ADS1299_Status_t ADS1299_Module::set_lead_off_comp_thresh(LOff_Comp_Threshold_Va
   }
   if ((new_thresh >= LOFF_5Per) && (new_thresh < LOFF_THRESH_ERROR))
   {
-    uint8_t value = Reg_Array[LOFF].Current_Value & 0x1F;
-    return write_register(LOFF, value | ((static_cast<uint8_t>(new_thresh)) << 5));
+    uint8_t value = Reg_Array[LOFF].Current_Value & ~Param_Array[BITMSK_COMP_THRESH].Bitmask;
+    return write_register(LOFF, value | ((static_cast<uint8_t>(new_thresh)) << Param_Array[BITMSK_COMP_THRESH].Shifts));
   }
   return ADS1299_INVALID;
 }
@@ -995,8 +994,8 @@ LOff_Current_t ADS1299_Module::get_lead_off_current_mag(void)
 {
   uint8_t reg_data = read_register(LOFF);
 
-  reg_data  &= 0x0C;
-  reg_data >>= 2;
+  reg_data  &= Param_Array[BITMSK_ILEAD_OFF].Bitmask;
+  reg_data >>= Param_Array[BITMSK_ILEAD_OFF].Shifts;
   switch (reg_data)
   {
   case LOFF_CURRENT_6nA:
@@ -1033,8 +1032,8 @@ ADS1299_Status_t ADS1299_Module::set_lead_off_current_mag(LOff_Current_t new_cur
   }
   if ((new_current >= LOFF_CURRENT_6nA) && (new_current < LOFF_CURRENT_ERROR))
   {
-    uint8_t value = Reg_Array[LOFF].Current_Value & 0xF3;
-    return write_register(LOFF, value | ((static_cast<uint8_t>(new_current)) << 2));
+    uint8_t value = Reg_Array[LOFF].Current_Value & ~Param_Array[BITMSK_ILEAD_OFF].Bitmask;
+    return write_register(LOFF, value | ((static_cast<uint8_t>(new_current)) << Param_Array[BITMSK_ILEAD_OFF].Shifts));
   }
   return ADS1299_INVALID;
 }
@@ -1054,7 +1053,7 @@ LOff_Freq_t ADS1299_Module::get_lead_off_frequency(void)
 {
   uint8_t reg_data = read_register(LOFF);
 
-  reg_data &= 0x03;
+  reg_data &= Param_Array[BITMSK_FLEAD_OFF].Bitmask;
   switch (reg_data)
   {
   case LOFF_FREQ_DC:
@@ -1094,7 +1093,7 @@ ADS1299_Status_t ADS1299_Module::set_lead_off_frequency(LOff_Freq_t new_freq)
   }
   if ((new_freq >= LOFF_FREQ_DC) && (new_freq < LOFF_FREQ_ERROR))
   {
-    uint8_t value = Reg_Array[LOFF].Current_Value & 0xFC;
+    uint8_t value = Reg_Array[LOFF].Current_Value & ~Param_Array[BITMSK_FLEAD_OFF].Bitmask;
     return write_register(LOFF, value | (static_cast<uint8_t>(new_freq)));
   }
   return ADS1299_INVALID;
@@ -1117,11 +1116,11 @@ ADS1299_Status_t ADS1299_Module::set_lead_off_frequency(LOff_Freq_t new_freq)
  *********************************************************************************************/
 Channel_Power_State_t ADS1299_Module::get_channel_power_state(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < number_of_channels))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
-    reg_data  &= 0x80;
-    reg_data >>= 7;
+    reg_data  &= Param_Array[BITMSK_PDx].Bitmask;
+    reg_data >>= Param_Array[BITMSK_PDx].Shifts;
     switch (reg_data)
     {
     case CH_POWER_ON:
@@ -1160,10 +1159,10 @@ ADS1299_Status_t ADS1299_Module::set_channel_power_state(Channel_t channel, Chan
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= CH_POWER_ON) && (new_state < CH_POWER_ERROR))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels) && (new_state >= CH_POWER_ON) && (new_state < CH_POWER_ERROR))
   {
-    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0x7F;
-    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 7));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & ~Param_Array[BITMSK_PDx].Bitmask;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << Param_Array[BITMSK_PDx].Shifts));
   }
   else
   {
@@ -1185,11 +1184,11 @@ ADS1299_Status_t ADS1299_Module::set_channel_power_state(Channel_t channel, Chan
  *********************************************************************************************/
 Gain_Setting_t ADS1299_Module::get_channel_gain(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < number_of_channels))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
-    reg_data  &= 0x70;
-    reg_data >>= 4;
+    reg_data  &= Param_Array[BITMSK_GAINx].Bitmask;
+    reg_data >>= Param_Array[BITMSK_GAINx].Shifts;
     switch (reg_data)
     {
     case PGA1:
@@ -1241,10 +1240,10 @@ ADS1299_Status_t ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Settin
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= PGA1) && (new_state < PGA_ERROR))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels) && (new_state >= PGA1) && (new_state < PGA_ERROR))
   {
-    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0x8F;
-    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 4));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & ~Param_Array[BITMSK_GAINx].Bitmask;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << Param_Array[BITMSK_GAINx].Shifts));
   }
   return ADS1299_INVALID;
 }
@@ -1266,11 +1265,11 @@ ADS1299_Status_t ADS1299_Module::set_channel_gain(Channel_t channel, Gain_Settin
  *********************************************************************************************/
 SRB2_Connection_Status_t ADS1299_Module::get_channel_SRB2_connection_status(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < number_of_channels))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
-    reg_data  &= 0x04;
-    reg_data >>= 3;
+    reg_data  &= Param_Array[BITMSK_SRB2].Bitmask;
+    reg_data >>= Param_Array[BITMSK_SRB2].Shifts;
     switch (reg_data)
     {
     case SRB2_OPEN:
@@ -1308,10 +1307,10 @@ ADS1299_Status_t ADS1299_Module::set_channel_SRB2_connection_status(Channel_t ch
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= SRB2_OPEN) && (new_state < SRB2_ERROR))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels) && (new_state >= SRB2_OPEN) && (new_state < SRB2_ERROR))
   {
-    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0xF7;
-    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << 3));
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & ~Param_Array[BITMSK_SRB2].Bitmask;
+    return write_register(Reg_Array[CH1SET].Address + channel, value | ((static_cast<uint8_t>(new_state)) << Param_Array[BITMSK_SRB2].Shifts));
   }
 
   return ADS1299_INVALID;
@@ -1334,10 +1333,10 @@ ADS1299_Status_t ADS1299_Module::set_channel_SRB2_connection_status(Channel_t ch
  *********************************************************************************************/
 Channel_Connection_Type_t ADS1299_Module::get_channel_connection_type(Channel_t channel)
 {
-  if ((channel >= CH1) && (channel < number_of_channels))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels))
   {
     uint8_t reg_data = read_register(Reg_Array[CH1SET].Address + channel);
-    reg_data &= 0x03;
+    reg_data &= Param_Array[BITMSK_MUXx].Bitmask;
     switch (reg_data)
     {
     case CH_ELECTRODE_INPUT:
@@ -1392,9 +1391,9 @@ ADS1299_Status_t ADS1299_Module::set_channel_connection_type(Channel_t channel, 
   {
     return ADS1299_SUCCESS;
   }
-  if ((channel >= CH1) && (channel < number_of_channels) && (new_state >= CH_ELECTRODE_INPUT) && (new_state < CH_CONNECTION_ERROR))
+  if ((channel >= CH1) && ((uint8_t)channel < (uint8_t)number_of_channels) && (new_state >= CH_ELECTRODE_INPUT) && (new_state < CH_CONNECTION_ERROR))
   {
-    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & 0xF8;
+    uint8_t value = Reg_Array[CH1SET + channel].Current_Value & ~Param_Array[BITMSK_MUXx].Bitmask;
     return write_register(Reg_Array[CH1SET].Address + channel, value | (static_cast<uint8_t>(new_state)));
   }
   return ADS1299_INVALID;
@@ -1424,7 +1423,7 @@ ADS1299_Status_t ADS1299_Module::set_channel_connection_type(Channel_t channel, 
 bool ADS1299_Module::get_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel)
 {
   if ((channel >= CH1) &&
-      (channel < number_of_channels) &&
+      ((uint8_t)channel < (uint8_t)number_of_channels) &&
       (Register >= ID) &&
       (Register < NUM_REGS) &&
       (Reg_Array[Register].Bit_Per_Channel) &&
@@ -1466,7 +1465,7 @@ ADS1299_Status_t ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Regis
     return ADS1299_SUCCESS;
   }
   if ((channel >= CH1) &&
-      (channel < number_of_channels) &&
+      ((uint8_t)channel < (uint8_t)number_of_channels) &&
       (Register >= ID) &&
       (Register < NUM_REGS) &&
       (Reg_Array[Register].Bit_Per_Channel) &&
@@ -1477,7 +1476,7 @@ ADS1299_Status_t ADS1299_Module::set_bit_addressable_channel_info(Reg_ID_t Regis
     {
       return write_register(Register, Reg_Array[Register].Current_Value | bitmask);
     }
-    bitmask = !bitmask;                                                        /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
+    bitmask = ~bitmask;                                                        /* Turns the shifted 1 we created earlier into a shifted 0 surrounded by 1s */
     return write_register(Register, Reg_Array[Register].Current_Value & bitmask);
   }
   return ADS1299_INVALID;
@@ -1815,7 +1814,7 @@ SRB1_Connection_Status_t ADS1299_Module::get_all_channel_SRB1_connection_status(
 {
   uint8_t reg_data = read_register(MISC1);
 
-  reg_data &= 0x20;
+  reg_data &= Param_Array[BITMSK_SRB1].Bitmask;
   switch (reg_data)
   {
   case SRB1_OPEN_ALL_CHANNELS:
@@ -1850,9 +1849,9 @@ ADS1299_Status_t ADS1299_Module::set_all_channel_SRB1_connection_status(SRB1_Con
   {
     if (new_state)
     {
-      return write_register(MISC1, Reg_Array[MISC1].Current_Value | 0x20);
+      return write_register(MISC1, Reg_Array[MISC1].Current_Value | Param_Array[BITMSK_SRB1].Bitmask);
     }
-    return write_register(MISC1, Reg_Array[MISC1].Current_Value & 0xDF);
+    return write_register(MISC1, Reg_Array[MISC1].Current_Value & ~Param_Array[BITMSK_SRB1].Bitmask);
   }
   return ADS1299_INVALID;
 }
@@ -1870,8 +1869,8 @@ Conv_Mode_t ADS1299_Module::get_conversion_mode(void)
 {
   uint8_t reg_data = read_register(CONFIG4);
 
-  reg_data  &= 0x04;
-  reg_data >>= 3;
+  reg_data  &= Param_Array[BITMSK_SINGLE_SHOT].Bitmask;
+  reg_data >>= Param_Array[BITMSK_SINGLE_SHOT].Shifts;
   switch (reg_data)
   {
   case CONTINUOUS_CONVERSION:
@@ -1906,8 +1905,8 @@ ADS1299_Status_t ADS1299_Module::set_conversion_mode(Conv_Mode_t new_state)
   if ((new_state >= CONTINUOUS_CONVERSION) && (new_state < CONV_MODE_ERROR))
   {
     send_command(STOP);
-    uint8_t value = Reg_Array[CONFIG4].Current_Value & 0xF7;
-    return write_register(CONFIG4, value | (static_cast<uint8_t>(new_state) << 3));
+    uint8_t value = Reg_Array[CONFIG4].Current_Value & ~Param_Array[BITMSK_SINGLE_SHOT].Bitmask;
+    return write_register(CONFIG4, value | (static_cast<uint8_t>(new_state) << Param_Array[BITMSK_SINGLE_SHOT].Shifts));
   }
   return ADS1299_INVALID;
 }
@@ -1923,8 +1922,8 @@ LOff_Power_Status_t ADS1299_Module::get_LOff_power_status(void)
 {
   uint8_t reg_data = read_register(CONFIG4);
 
-  reg_data  &= 0x02;
-  reg_data >>= 1;
+  reg_data  &= Param_Array[BITMSK_PD_LOFF_COMP].Bitmask;
+  reg_data >>= Param_Array[BITMSK_PD_LOFF_COMP].Shifts;
   switch (reg_data)
   {
   case LOFF_POWER_DISABLED:
@@ -1955,8 +1954,8 @@ ADS1299_Status_t ADS1299_Module::set_LOff_power_status(LOff_Power_Status_t new_s
   }
   if ((new_state >= LOFF_POWER_DISABLED) && (new_state < LOFF_POWER_ERROR))
   {
-    uint8_t value = Reg_Array[CONFIG4].Current_Value & 0xFD;
-    return write_register(CONFIG4, value | ((static_cast<uint8_t>(new_state)) << 1));
+    uint8_t value = Reg_Array[CONFIG4].Current_Value & ~Param_Array[BITMSK_PD_LOFF_COMP].Bitmask;
+    return write_register(CONFIG4, value | ((static_cast<uint8_t>(new_state)) << Param_Array[BITMSK_PD_LOFF_COMP].Shifts));
   }
   return ADS1299_INVALID;
 }

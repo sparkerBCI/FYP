@@ -89,7 +89,7 @@ void setup()
     {
     }
   }
-  if (ADS1299->get_num_channels() == 0)                                        /* If the number of channels reported by the device is invalid */
+  if (ADS1299->get_num_channels() == NUM_CHANNELS_ERROR)                       /* If the number of channels reported by the device is invalid */
   {
     Comms->errorMsg("Invalid Number of Channels!");                            /* Send an error */
     while (1)                                                                  /* Wait here forever, there's nothing else we can do, since this program was written for the ADS1299-4, ADS1299-6, or ADS1299 */

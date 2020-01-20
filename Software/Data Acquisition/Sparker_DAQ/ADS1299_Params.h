@@ -17,7 +17,90 @@
 
 #define VALID_DEVICE_ID    0x03                                                /**< This is the valid Device ID, as defined in the datasheet. All other device IDs are considered invalid */
 
+
 /* *INDENT-OFF* */
+/*! ******************************************************************************************
+ *
+ *  @brief The Param_Table holds information about the parameters, stored in the addresses. 
+ *  This is used to generate the Reg_Array. <br/>
+ *  
+ *  Column A: Param_ID: The unique identifier for each parameter <br/>
+ *  Column B: Bitmask: The bitmask used to isolate / set the parameter. Take the NOT of the 
+ *  bitmask and AND it with the current register value to clear the parameter<br/>
+ *  Column C: Shifts: How many right shifts are needed to bring the parameter into the bit 0
+ *  position.<br/>
+ *
+ *********************************************************************************************/
+#define PARAM_TABLE                                                            \
+   /*         Param_ID                        Bitmask              Shifts   */ \
+PARAM_ENTRY(BITMSK_REV_ID,                     0xE0,                  5)       \
+PARAM_ENTRY(BITMSK_DEV_ID,                     0x0C,                  2)       \
+PARAM_ENTRY(BITMSK_NUM_CH,                     0x03,                  0)       \
+PARAM_ENTRY(BITMSK_DAISY_EN,                   0x40,                  6)       \
+PARAM_ENTRY(BITMSK_CLK_EN,                     0x20,                  5)       \
+PARAM_ENTRY(BITMSK_DATA_RATE,                  0x07,                  0)       \
+PARAM_ENTRY(BITMSK_INT_CAL,                    0x10,                  4)       \
+PARAM_ENTRY(BITMSK_CAL_AMP,                    0x04,                  2)       \
+PARAM_ENTRY(BITMSK_CAL_FREQ,                   0x03,                  0)       \
+PARAM_ENTRY(BITMSK_PD_REFBUF,                  0x80,                  7)       \
+PARAM_ENTRY(BITMSK_BIAS_MEAS,                  0x10,                  4)       \
+PARAM_ENTRY(BITMSK_BIASREF_INT,                0x08,                  3)       \
+PARAM_ENTRY(BITMSK_PD_BIAS,                    0x04,                  2)       \
+PARAM_ENTRY(BITMSK_BIAS_LOFF_SENS,             0x02,                  1)       \
+PARAM_ENTRY(BITMSK_BIAS_STAT,                  0x01,                  0)       \
+PARAM_ENTRY(BITMSK_SINGLE_SHOT,                0x08,                  3)       \
+PARAM_ENTRY(BITMSK_PD_LOFF_COMP,               0x02,                  1)       \
+PARAM_ENTRY(BITMSK_COMP_THRESH,                0xE0,                  5)       \
+PARAM_ENTRY(BITMSK_ILEAD_OFF,                  0x0C,                  2)       \
+PARAM_ENTRY(BITMSK_FLEAD_OFF,                  0x03,                  0)       \
+PARAM_ENTRY(BITMSK_PDx,                        0x80,                  7)       \
+PARAM_ENTRY(BITMSK_GAINx,                      0x70,                  4)       \
+PARAM_ENTRY(BITMSK_SRB2,                       0x08,                  3)       \
+PARAM_ENTRY(BITMSK_MUXx,                       0x07,                  0)       \
+PARAM_ENTRY(BITMSK_BIASx8,                     0x80,                  7)       \
+PARAM_ENTRY(BITMSK_BIASx7,                     0x40,                  6)       \
+PARAM_ENTRY(BITMSK_BIASx6,                     0x20,                  5)       \
+PARAM_ENTRY(BITMSK_BIASx5,                     0x10,                  4)       \
+PARAM_ENTRY(BITMSK_BIASx4,                     0x08,                  3)       \
+PARAM_ENTRY(BITMSK_BIASx3,                     0x04,                  2)       \
+PARAM_ENTRY(BITMSK_BIASx2,                     0x02,                  1)       \
+PARAM_ENTRY(BITMSK_BIASx1,                     0x01,                  0)       \
+PARAM_ENTRY(BITMSK_LOFFx8,                     0x80,                  7)       \
+PARAM_ENTRY(BITMSK_LOFFx7,                     0x40,                  6)       \
+PARAM_ENTRY(BITMSK_LOFFx6,                     0x20,                  5)       \
+PARAM_ENTRY(BITMSK_LOFFx5,                     0x10,                  4)       \
+PARAM_ENTRY(BITMSK_LOFFx4,                     0x08,                  3)       \
+PARAM_ENTRY(BITMSK_LOFFx3,                     0x04,                  2)       \
+PARAM_ENTRY(BITMSK_LOFFx2,                     0x02,                  1)       \
+PARAM_ENTRY(BITMSK_LOFFx1,                     0x01,                  0)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP8,                 0x80,                  7)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP7,                 0x40,                  6)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP6,                 0x20,                  5)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP5,                 0x10,                  4)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP4,                 0x08,                  3)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP3,                 0x04,                  2)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP2,                 0x02,                  1)       \
+PARAM_ENTRY(BITMSK_LOFF_FLIP1,                 0x01,                  0)       \
+PARAM_ENTRY(BITMSK_IN8x_OFF,                   0x80,                  7)       \
+PARAM_ENTRY(BITMSK_IN7x_OFF,                   0x40,                  6)       \
+PARAM_ENTRY(BITMSK_IN6x_OFF,                   0x20,                  5)       \
+PARAM_ENTRY(BITMSK_IN5x_OFF,                   0x10,                  4)       \
+PARAM_ENTRY(BITMSK_IN4x_OFF,                   0x08,                  3)       \
+PARAM_ENTRY(BITMSK_IN3x_OFF,                   0x04,                  2)       \
+PARAM_ENTRY(BITMSK_IN2x_OFF,                   0x02,                  1)       \
+PARAM_ENTRY(BITMSK_IN1x_OFF,                   0x01,                  0)       \
+PARAM_ENTRY(BITMSK_GPIO4_DATA,                 0x80,                  7)       \
+PARAM_ENTRY(BITMSK_GPIO3_DATA,                 0x40,                  6)       \
+PARAM_ENTRY(BITMSK_GPIO2_DATA,                 0x20,                  5)       \
+PARAM_ENTRY(BITMSK_GPIO1_DATA,                 0x10,                  4)       \
+PARAM_ENTRY(BITMSK_GPIO4_MODE,                 0x08,                  3)       \
+PARAM_ENTRY(BITMSK_GPIO3_MODE,                 0x04,                  2)       \
+PARAM_ENTRY(BITMSK_GPIO2_MODE,                 0x02,                  1)       \
+PARAM_ENTRY(BITMSK_GPIO1_MODE,                 0x01,                  0)       \
+PARAM_ENTRY(BITMSK_SRB1,                       0x20,                  5)       
+
+
+
 /*! ******************************************************************************************
  *
  *  @brief The Reg_Table holds information about the registers, which is used to generate
@@ -58,6 +141,17 @@
    REG_ENTRY(CONFIG4,          0x17,          false,            0x00,               false)
 /* *INDENT-ON* */
 
+
+/*! @brief This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. It also creates a PARAM_ERROR, which can be returned if no PARAM_ID is found, for example */
+typedef enum Param_ID_t
+{
+#define PARAM_ENTRY(a, b, c)    a,                                             /**< This macro lists the IDs of the registers in the Param_Table as a comma separated list */
+  PARAM_TABLE
+#undef PARAM_ENTRY
+  NUM_PARAMS,                                                                  /**< The number of registers in the Param_Array */
+  PARAM_ERROR                                                                  /**< A value to return if there was an error finding a Param_ID */
+} Param_ID_t;
+
 /*! @brief This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a REG_ERROR, which can be returned if no REG_ID is found, for example */
 typedef enum Reg_ID_t
 {
@@ -69,7 +163,7 @@ typedef enum Reg_ID_t
 } Reg_ID_t;
 
 /*! @brief This enum assigns a value to the different daisy chain modes */
-typedef enum Daisy_Chain_Mode_t
+typedef enum Daisy_Chain_Mode_t : uint8_t
 {
   DAISY_CHAIN_MODE,                                                            /**< The device is in daisy chain mode, and can be synchronised with other devices (default) */
   MULTIPLE_READBACK_MODE,                                                      /**< The device is in multiple readback mode */
@@ -77,7 +171,7 @@ typedef enum Daisy_Chain_Mode_t
 } Daisy_Chain_Mode_t;
 
 /*! @brief This enum assigns a value to different data rates */
-typedef enum Data_Rate_Setting_t
+typedef enum Data_Rate_Setting_t : uint8_t
 {
   SPS16k,                                                                      /**< 16k Samples per Second */
   SPS8k,                                                                       /**< 8k Samples per Second */
@@ -90,7 +184,7 @@ typedef enum Data_Rate_Setting_t
 } Data_Rate_Setting_t;
 
 /*! @brief This enum associates a value with each ADS1299 command */
-typedef enum Command_t
+typedef enum Command_t : uint8_t
 {
   WAKEUP  = 0x02,                                                              /**< Wakes the device out of low-power standby mode */
   STANDBY = 0x04,                                                              /**< Enters the device into low-power standby mode */
@@ -105,7 +199,7 @@ typedef enum Command_t
 } Command_t;
 
 /*! @brief This enum assigns values to different test signal frequencies */
-typedef enum Test_Frequency_t
+typedef enum Test_Frequency_t : uint8_t
 {
   TEST_FREQ_FCLK_DIV_2_21,                                                     /**< The test signal is pulsed at the clock frequency / (2 ^ 21) Hz (default) */
   TEST_FREQ_FCLK_DIV_2_20,                                                     /**< The test signal is pulsed at the clock frequency / (2 ^ 20) Hz */
@@ -114,8 +208,17 @@ typedef enum Test_Frequency_t
   TEST_FREQ_ERROR                                                              /**< This is a return value for if there is an error associated with the test frequency */
 } Test_Frequency_t;
 
+/*! @brief This enum assigns values to different numbers of channels */
+typedef enum Num_Channels_t : uint8_t
+{
+  NUM_CHANNELS_4 = 0x00,                                                       /**< The device has 4 channels */
+  NUM_CHANNELS_6 = 0x01,                                                       /**< The device has 6 channels */
+  NUM_CHANNELS_8 = 0x02,                                                       /**< The device has 8 channels */
+  NUM_CHANNELS_ERROR                                                           /**< This is a return value for if there is an error associated with the test frequency */
+} Num_Channels_t;
+
 /*! @brief This enum assigns values to different test bias signal sources */
-typedef enum Bias_Source_t
+typedef enum Bias_Source_t : uint8_t
 {
   BIAS_INTERNAL,                                                               /**< The bias signal (AVDD + AVSS) / 2 is generated internally */
   BIAS_EXTERNAL,                                                               /**< The bias signal is fed externally (default) */
@@ -123,7 +226,7 @@ typedef enum Bias_Source_t
 } Bias_Source_t;
 
 /*! @brief This enum assigns values to different bias buffer power states */
-typedef enum Bias_Power_State_t
+typedef enum Bias_Power_State_t : uint8_t
 {
   BIAS_POWER_OFF,                                                              /**< This settings powers down the bias buffer (default) */
   BIAS_POWER_ON,                                                               /**< This setting powers on the bias buffer */
@@ -131,7 +234,7 @@ typedef enum Bias_Power_State_t
 } Bias_Power_State_t;
 
 /*! @brief This enum assigns values to different bias sense enable states */
-typedef enum Bias_Sense_Enable_t
+typedef enum Bias_Sense_Enable_t : uint8_t
 {
   BIAS_SENSE_DISABLED,                                                         /**< This setting disables bias signal sensing (default) */
   BIAS_SENSE_ENABLED,                                                          /**< This setting enables bias signal sensing */
@@ -139,7 +242,7 @@ typedef enum Bias_Sense_Enable_t
 } Bias_Sense_Enable_t;
 
 /*! @brief This enum assigns values to whether the bias lead is connected or not */
-typedef enum Bias_LOff_Status_t
+typedef enum Bias_LOff_Status_t : uint8_t
 {
   BIAS_CONNECTED,                                                              /**< This state means the bias lead is connected (default) */
   BIAS_DISCONNECTED,                                                           /**< This state means the bias lead is disconnected */
@@ -147,7 +250,7 @@ typedef enum Bias_LOff_Status_t
 } Bias_LOff_Status_t;
 
 /*! @brief This enum assigns values to different lead-off comparator thresholds */
-typedef enum LOff_Comp_Threshold_Var_t
+typedef enum LOff_Comp_Threshold_Var_t : uint8_t
 {
   LOFF_5Per,                                                                   /**< This setting sets the lead-off comparator threshold at 95% for positive, 5% for negative (default) */
   LOFF_7Per5,                                                                  /**< This setting sets the lead-off comparator threshold at 92.5% for positive, 7.5% for negative */
@@ -161,7 +264,7 @@ typedef enum LOff_Comp_Threshold_Var_t
 } LOff_Comp_Threshold_Var_t;
 
 /*! @brief This enum assigns values to different lead-off current settings*/
-typedef enum LOff_Current_t
+typedef enum LOff_Current_t : uint8_t
 {
   LOFF_CURRENT_6nA,                                                            /**< The lead-off current will be 6nA (default) */
   LOFF_CURRENT_24nA,                                                           /**< The lead-off current will be 24nA */
@@ -171,7 +274,7 @@ typedef enum LOff_Current_t
 } LOff_Current_t;
 
 /*! @brief This enum assigns values to different lead-off detection frequency */
-typedef enum LOff_Freq_t
+typedef enum LOff_Freq_t : uint8_t
 {
   LOFF_FREQ_DC,                                                                /**< DC lead-off detection (default) */
   LOFF_FREQ_7Hz8,                                                              /**< AC lead-off detection at 7.8Hz */
@@ -181,7 +284,7 @@ typedef enum LOff_Freq_t
 } LOff_Freq_t;
 
 /*! @brief This enum assigns values to the channels of the ADC */
-typedef enum Channel_t
+typedef enum Channel_t : uint8_t
 {
   CH1,                                                                         /**< Channel 1 */
   CH2,                                                                         /**< Channel 2 */
@@ -195,7 +298,7 @@ typedef enum Channel_t
 } Channel_t;
 
 /*! @brief This enum assigns values to the different channel poower states */
-typedef enum Channel_Power_State_t
+typedef enum Channel_Power_State_t : uint8_t
 {
   CH_POWER_ON,                                                                 /**< The channel is powered on (default) */
   CH_POWER_OFF,                                                                /**< The channel is powered off. Channels in this state should also be shorted to ground by setting its connection type to SHORT */
@@ -203,7 +306,7 @@ typedef enum Channel_Power_State_t
 } Channel_Power_State_t;
 
 /*! @brief This enum assigns values to the different channel gain settings */
-typedef enum Gain_Setting_t
+typedef enum Gain_Setting_t : uint8_t
 {
   PGA1,                                                                        /**< The gain of the channel is 1 */
   PGA2,                                                                        /**< The gain of the channel is 2 */
@@ -216,7 +319,7 @@ typedef enum Gain_Setting_t
 } Gain_Setting_t;
 
 /*! @brief This enum assigns values to the SRB2 connection state of each channel */
-typedef enum SRB2_Connection_Status_t
+typedef enum SRB2_Connection_Status_t : uint8_t
 {
   SRB2_OPEN,                                                                   /**< The channel's negative signal is not connected to SRB2 (default) */
   SRB2_CLOSED,                                                                 /**< The channel's positive signal is connected to SRB2 */
@@ -224,7 +327,7 @@ typedef enum SRB2_Connection_Status_t
 } SRB2_Connection_Status_t;
 
 /*! @brief This enum assigns values to the SRB1 connection status of all the channels */
-typedef enum SRB1_Connection_Status_t
+typedef enum SRB1_Connection_Status_t : uint8_t
 {
   SRB1_OPEN_ALL_CHANNELS,                                                      /**< All the channels are not referenced to SRB1. This is generally used in differentiual montage (default)*/
   SRB1_CLOSED_ALL_CHANNELS,                                                    /**< All the channels are referenced to SRB1, This is generally used in referred montage */
@@ -232,7 +335,7 @@ typedef enum SRB1_Connection_Status_t
 } SRB1_Connection_Status_t;
 
 /*! @brief This enum assigns values to the different channel connection types  */
-typedef enum Channel_Connection_Type_t
+typedef enum Channel_Connection_Type_t : uint8_t
 {
   CH_ELECTRODE_INPUT,                                                          /**< The channel is a regular electrode connection */
   CH_SHORTED,                                                                  /**< The channel is unused, and is therefore shorted to AVSS (default) */
@@ -246,7 +349,7 @@ typedef enum Channel_Connection_Type_t
 } Channel_Connection_Type_t;
 
 /*! @brief This enum assigns values to the GPIO pins of the device */
-typedef enum GPIO_Pin_t
+typedef enum GPIO_Pin_t : uint8_t
 {
   GPIO1,                                                                       /**< GPIO Pin 1 */
   GPIO2,                                                                       /**< GPIO Pin 2 */
@@ -256,7 +359,7 @@ typedef enum GPIO_Pin_t
 } GPIO_Pin_t;
 
 /*! @brief This enum assigns values to the different GPIO modes of each pin */
-typedef enum GPIO_Mode_t
+typedef enum GPIO_Mode_t : uint8_t
 {
   GPIO_OUTPUT,                                                                 /**< This GPIO pin is an output */
   GPIO_INPUT,                                                                  /**< This GPIO pin is an input (default) */
@@ -264,7 +367,7 @@ typedef enum GPIO_Mode_t
 } GPIO_Mode_t;
 
 /*! @brief This enum assigns values to the different conversion modes of the device  */
-typedef enum Conv_Mode_t
+typedef enum Conv_Mode_t : uint8_t
 {
   CONTINUOUS_CONVERSION,                                                       /**< The device will continue to convert until the STOP command is sent (default) */
   SINGLE_SHOT,                                                                 /**< The device will convert 1 sample per START command sent */
@@ -272,7 +375,7 @@ typedef enum Conv_Mode_t
 } Conv_Mode_t;
 
 /*! @brief This enum assigns values to the lead-off comparator power states */
-typedef enum LOff_Power_Status_t
+typedef enum LOff_Power_Status_t : uint8_t
 {
   LOFF_POWER_DISABLED,                                                         /**< This removes power from the lead-off comparator (default) */
   LOFF_POWER_ENABLED,                                                          /**< This provides power to the lead-off comparator */
@@ -280,7 +383,7 @@ typedef enum LOff_Power_Status_t
 } LOff_Power_Status_t;
 
 /*! @brief This enum creates several return value to indicate the success or failure of various operations */
-typedef enum ADS1299_Status_t
+typedef enum ADS1299_Status_t : uint8_t
 {
   ADS1299_SUCCESS,                                                             /**< The operation executed successfully */
   ADS1299_INVALID,                                                             /**< The operation requested was invalid, e.g. invalid parameters */
