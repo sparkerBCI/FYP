@@ -1108,7 +1108,7 @@ Text Notes 4750 4350 0    50   ~ 0
 User LED2\n(Orange)
 Text Notes 4600 7450 0    50   ~ 0
 3.3V LED, no R required
-Text Notes 5250 4700 0    50   ~ 0
+Text Notes 5250 4950 0    50   ~ 0
 2V 20mA LED.\n3.3V - 2V = 1.3V\n1.3V / 20mA = 65 Ohms\nRound up to nearest \nstandard value, 68 Ohms
 $Comp
 L My_Switch:SW_Push SW1
