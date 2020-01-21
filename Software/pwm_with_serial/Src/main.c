@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "UartRingbuffer.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,14 +44,13 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart2_rx;
-
-void user_pwm_setvalue(long);
 
 /* USER CODE BEGIN PV */
 
@@ -66,6 +66,7 @@ PUTCHAR_PROTOTYPE
 	return ch;
 }
 
+void user_pwm_setvalue(long value);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -82,6 +83,13 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint32_t adc_values[7] = {0}; //to store the adc values
+
+
+float get_voltage(uint32_t adc_reading) {
+	return ((float)adc_reading * 3.3 / (float)32768);  // since 3.3V system and 15 bit adc resolution
+}
+
 
 /* USER CODE END 0 */
 
@@ -120,7 +128,10 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+  HAL_ADC_Start_DMA(&hadc1, adc_values, 7); //start the adc in dma mode
 
+
+  Ringbuf_init();
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
   long pwm_value = 0;
   int step = 0;
@@ -133,7 +144,58 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  printf("Hello World!\r\n");
+
+	  if (IsDataAvailable()) {
+		  int data = Uart_read();
+		  Uart_write(data);
+	  }
+
+
+	  Uart_sendstring("CH0- ");
+	  Uart_write((adc_values[0]/1000)+48);
+	  Uart_write(((adc_values[0]%1000)/100)+48);
+	  Uart_write(((adc_values[0]%100)/10)+48);
+	  Uart_write(((adc_values[0]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("CH1- ");
+	  Uart_write((adc_values[1]/1000)+48);
+	  Uart_write(((adc_values[1]%1000)/100)+48);
+	  Uart_write(((adc_values[1]%100)/10)+48);
+	  Uart_write(((adc_values[1]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("CH2- ");
+	  Uart_write((adc_values[2]/1000)+48);
+	  Uart_write(((adc_values[2]%1000)/100)+48);
+	  Uart_write(((adc_values[2]%100)/10)+48);
+	  Uart_write(((adc_values[2]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("CH3- ");
+	  Uart_write((adc_values[3]/1000)+48);
+	  Uart_write(((adc_values[3]%1000)/100)+48);
+	  Uart_write(((adc_values[3]%100)/10)+48);
+	  Uart_write(((adc_values[3]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("CH4- ");
+	  Uart_write((adc_values[4]/1000)+48);
+	  Uart_write(((adc_values[4]%1000)/100)+48);
+	  Uart_write(((adc_values[4]%100)/10)+48);
+	  Uart_write(((adc_values[4]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("CH5- ");
+	  Uart_write((adc_values[5]/1000)+48);
+	  Uart_write(((adc_values[5]%1000)/100)+48);
+	  Uart_write(((adc_values[5]%100)/10)+48);
+	  Uart_write(((adc_values[5]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("CH6- ");
+	  Uart_write((adc_values[6]/1000)+48);
+	  Uart_write(((adc_values[6]%1000)/100)+48);
+	  Uart_write(((adc_values[6]%100)/10)+48);
+	  Uart_write(((adc_values[6]%10))+48);
+	  Uart_sendstring("\r\n");
+	  Uart_sendstring("\r\n");
+
+
 	  HAL_Delay(1000);
 	  if(pwm_value == 0) step = 100;
 	  if(pwm_value == 2000) step = -100;
@@ -203,13 +265,13 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ScanConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 7;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -220,7 +282,55 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_11;
+  sConfig.Rank = 3;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_12;
+  sConfig.Rank = 4;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_13;
+  sConfig.Rank = 5;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_14;
+  sConfig.Rank = 6;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_15;
+  sConfig.Rank = 7;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -407,11 +517,15 @@ static void MX_DMA_Init(void)
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
+  __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
   /* DMA1_Stream5_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
 
 }
 
