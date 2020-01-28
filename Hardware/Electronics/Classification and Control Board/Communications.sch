@@ -14,10 +14,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 7400 2150 2    79   Input ~ 0
+Text HLabel 7400 2150 2    50   Input ~ 0
 TX
-Text HLabel 7400 2250 2    79   Output ~ 0
-RX
 Wire Wire Line
 	7400 2250 7100 2250
 Wire Wire Line
@@ -60,72 +58,8 @@ Wire Wire Line
 Wire Wire Line
 	5000 3850 5500 3850
 Connection ~ 5500 3850
-$Comp
-L Device:R R26
-U 1 1 5EB78162
-P 7750 2900
-F 0 "R26" H 7820 2946 50  0000 L CNN
-F 1 "150" H 7820 2855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7680 2900 50  0001 C CNN
-F 3 "~" H 7750 2900 50  0001 C CNN
-	1    7750 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R27
-U 1 1 5EB781D1
-P 8150 2900
-F 0 "R27" H 8220 2946 50  0000 L CNN
-F 1 "150" H 8220 2855 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 8080 2900 50  0001 C CNN
-F 3 "~" H 8150 2900 50  0001 C CNN
-	1    8150 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED D4
-U 1 1 5EB782E5
-P 7750 2400
-F 0 "D4" V 7788 2283 50  0000 R CNN
-F 1 "LED" V 7697 2283 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric" H 7750 2400 50  0001 C CNN
-F 3 "~" H 7750 2400 50  0001 C CNN
-	1    7750 2400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED D5
-U 1 1 5EB78376
-P 8150 2400
-F 0 "D5" V 8188 2283 50  0000 R CNN
-F 1 "LED" V 8097 2283 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric" H 8150 2400 50  0001 C CNN
-F 3 "~" H 8150 2400 50  0001 C CNN
-	1    8150 2400
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	7750 2550 7750 2750
-Wire Wire Line
-	8150 2550 8150 2750
-Wire Wire Line
-	7750 2250 7750 2100
-Wire Wire Line
-	7750 2100 8150 2100
-Wire Wire Line
-	8150 2100 8150 2250
-Text Label 7850 2100 0    50   ~ 0
-+5V
 Text Label 5000 3850 0    50   ~ 0
 GND
-Wire Wire Line
-	7750 3150 7750 3050
-Wire Wire Line
-	8150 3250 8150 3050
-Wire Wire Line
-	7750 3150 7100 3150
-Wire Wire Line
-	7100 3250 8150 3250
 Wire Wire Line
 	6200 1850 6200 1550
 $Comp
@@ -344,17 +278,17 @@ GND
 $Comp
 L My_Switch:SW_DIP_x02 SW3
 U 1 1 5EB95A02
-P 1800 7000
-F 0 "SW3" H 1800 7367 50  0000 C CNN
-F 1 "BT Enable" H 1800 7276 50  0000 C CNN
-F 2 "Switches:DIP-Switch_01x02" H 1800 7000 50  0001 C CNN
-F 3 "" H 1800 7000 50  0001 C CNN
-	1    1800 7000
+P 1700 6850
+F 0 "SW3" H 1700 7217 50  0000 C CNN
+F 1 "BT Enable" H 1700 7126 50  0000 C CNN
+F 2 "Switches:DIP-Switch_01x02" H 1700 6850 50  0001 C CNN
+F 3 "" H 1700 6850 50  0001 C CNN
+	1    1700 6850
 	1    0    0    -1  
 $EndComp
-Text HLabel 1500 7000 0    50   Input ~ 0
+Text HLabel 1400 6850 0    50   Input ~ 0
 TX
-Text HLabel 1500 6900 0    50   Input ~ 0
+Text HLabel 1400 6750 0    50   Input ~ 0
 RX
 $Comp
 L Device:C C63
@@ -420,27 +354,22 @@ Want to drive UART\nat 3.3V  so connect \n3.3V to this pin
 $Comp
 L Connector:Conn_01x06_Female J9
 U 1 1 5EBA19F1
-P 2800 6800
-F 0 "J9" H 2827 6776 50  0000 L CNN
-F 1 "HC05" H 2827 6685 50  0000 L CNN
-F 2 "Resonators:HC-05" H 2800 6800 50  0001 C CNN
-F 3 "~" H 2800 6800 50  0001 C CNN
-	1    2800 6800
+P 2650 6850
+F 0 "J9" H 2677 6826 50  0000 L CNN
+F 1 "HC05" H 2677 6735 50  0000 L CNN
+F 2 "Resonators:HC-05" H 2650 6850 50  0001 C CNN
+F 3 "~" H 2650 6850 50  0001 C CNN
+	1    2650 6850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2100 6900 2600 6900
-Wire Wire Line
-	2600 7000 2100 7000
-NoConn ~ 2600 7100
-NoConn ~ 2600 6600
-Text Notes 2450 6900 0    50   ~ 0
+NoConn ~ 2450 6650
+Text Notes 2300 6850 0    50   ~ 0
 TX
-Text Notes 2450 7000 0    50   ~ 0
+Text Notes 2300 6750 0    50   ~ 0
 RX
-Text Notes 2350 7100 0    50   ~ 0
+Text Notes 2200 6650 0    50   ~ 0
 STATE
-Text Notes 2450 6600 0    50   ~ 0
+Text Notes 2300 7150 0    50   ~ 0
 EN
 Text Notes 1850 7450 0    50   ~ 0
 STM32 works at 3.3V\nlevels, so don't need\na voltage divider here
@@ -480,10 +409,6 @@ Wire Notes Line
 	5050 6200 5050 7550
 Wire Notes Line
 	6350 6200 6350 7550
-Text Notes 7350 2600 0    50   ~ 0
-USB_RX\n(Red)
-Text Notes 8350 2650 0    50   ~ 0
-USB_TX\n(Green)
 Text Notes 7700 3700 0    50   ~ 0
 2V LED Voltage\n20mA\n5V - 2V = 3V\n3V / 20mA = 150 Ohms
 Wire Notes Line
@@ -491,12 +416,12 @@ Wire Notes Line
 Wire Notes Line
 	3550 1150 8750 1150
 Wire Wire Line
-	2600 6800 2250 6800
+	2450 6950 2100 6950
 Wire Wire Line
-	2600 6700 2250 6700
-Text Label 2400 6700 0    50   ~ 0
+	2450 7050 2100 7050
+Text Label 2250 7050 0    50   ~ 0
 +5V
-Text Label 2400 6800 0    50   ~ 0
+Text Label 2250 6950 0    50   ~ 0
 GND
 Text Notes 5450 800  0    98   ~ 20
 Communications
@@ -514,4 +439,25 @@ Wire Wire Line
 	5950 5500 7000 5500
 Wire Wire Line
 	6400 5150 7000 5150
+NoConn ~ 7100 3150
+NoConn ~ 7100 3250
+Text HLabel 7400 2250 2    50   Input ~ 0
+RX
+NoConn ~ 2450 7150
+Wire Wire Line
+	2000 6750 2200 6750
+Wire Wire Line
+	2200 6750 2200 6850
+Wire Wire Line
+	2200 6850 2450 6850
+Wire Wire Line
+	2450 6750 2250 6750
+Wire Wire Line
+	2250 6750 2250 6700
+Wire Wire Line
+	2250 6700 2150 6700
+Wire Wire Line
+	2150 6700 2150 6850
+Wire Wire Line
+	2150 6850 2000 6850
 $EndSCHEMATC

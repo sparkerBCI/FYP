@@ -111,22 +111,14 @@ TIM4_CH2
 $Comp
 L Device:LED D1
 U 1 1 5E071C85
-P 5500 3650
-F 0 "D1" H 5491 3866 50  0000 C CNN
-F 1 "LTST-C171TBKT" H 5491 3775 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric" H 5500 3650 50  0001 C CNN
-F 3 "~" H 5500 3650 50  0001 C CNN
-	1    5500 3650
-	1    0    0    -1  
+P 5250 7200
+F 0 "D1" V 5550 7200 50  0000 C CNN
+F 1 "LTST-C171TBKT" V 5450 7200 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric" H 5250 7200 50  0001 C CNN
+F 3 "~" H 5250 7200 50  0001 C CNN
+	1    5250 7200
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	5350 3650 5200 3650
-Wire Wire Line
-	5200 3650 5200 4000
-Wire Wire Line
-	5200 4000 4950 4000
-Text Label 4950 4000 0    50   ~ 0
-GND
 Wire Wire Line
 	6350 4150 5950 4150
 $Comp
@@ -204,28 +196,6 @@ F 3 "~" H 4800 7200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C48
-U 1 1 5E073C88
-P 5250 7200
-F 0 "C48" H 5365 7246 50  0000 L CNN
-F 1 "10u" H 5365 7155 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 5288 7050 50  0001 C CNN
-F 3 "~" H 5250 7200 50  0001 C CNN
-	1    5250 7200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C7
-U 1 1 5E074A04
-P 1350 7200
-F 0 "C7" H 1465 7246 50  0000 L CNN
-F 1 "10u" H 1465 7155 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 1388 7050 50  0001 C CNN
-F 3 "~" H 1350 7200 50  0001 C CNN
-	1    1350 7200
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C15
 U 1 1 5E074A0B
 P 1800 7200
@@ -258,8 +228,6 @@ F 3 "~" H 2700 7200 50  0001 C CNN
 	1    2700 7200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1350 7350 1800 7350
 Connection ~ 1800 7350
 Wire Wire Line
 	1800 7350 2250 7350
@@ -295,8 +263,6 @@ Wire Wire Line
 Wire Wire Line
 	3000 7050 2700 7050
 Connection ~ 1800 7050
-Wire Wire Line
-	1800 7050 1350 7050
 Connection ~ 2250 7050
 Wire Wire Line
 	2250 7050 1800 7050
@@ -414,23 +380,6 @@ F 3 "~" H 1000 3300 50  0001 C CNN
 	1    1000 3300
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:CP C1
-U 1 1 5E0B7431
-P 950 7200
-F 0 "C1" H 1068 7246 50  0000 L CNN
-F 1 "100u" H 1068 7155 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 988 7050 50  0001 C CNN
-F 3 "~" H 950 7200 50  0001 C CNN
-	1    950  7200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1350 7050 950  7050
-Connection ~ 1350 7050
-Wire Wire Line
-	1350 7350 950  7350
-Connection ~ 1350 7350
 $Comp
 L Device:C C34
 U 1 1 5E0D63C3
@@ -552,83 +501,6 @@ F 3 "~" H 3750 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C3
-U 1 1 5E14353A
-P 1000 3800
-F 0 "C3" H 1115 3846 50  0000 L CNN
-F 1 "100n" H 1115 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1038 3650 50  0001 C CNN
-F 3 "~" H 1000 3800 50  0001 C CNN
-	1    1000 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C10
-U 1 1 5E143541
-P 1450 3800
-F 0 "C10" H 1565 3846 50  0000 L CNN
-F 1 "100n" H 1565 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1488 3650 50  0001 C CNN
-F 3 "~" H 1450 3800 50  0001 C CNN
-	1    1450 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C17
-U 1 1 5E143548
-P 1900 3800
-F 0 "C17" H 2015 3846 50  0000 L CNN
-F 1 "100n" H 2015 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1938 3650 50  0001 C CNN
-F 3 "~" H 1900 3800 50  0001 C CNN
-	1    1900 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C22
-U 1 1 5E14354F
-P 2400 3800
-F 0 "C22" H 2515 3846 50  0000 L CNN
-F 1 "100n" H 2515 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2438 3650 50  0001 C CNN
-F 3 "~" H 2400 3800 50  0001 C CNN
-	1    2400 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C27
-U 1 1 5E143556
-P 2850 3800
-F 0 "C27" H 2965 3846 50  0000 L CNN
-F 1 "100n" H 2965 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2888 3650 50  0001 C CNN
-F 3 "~" H 2850 3800 50  0001 C CNN
-	1    2850 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C31
-U 1 1 5E14355D
-P 3300 3800
-F 0 "C31" H 3415 3846 50  0000 L CNN
-F 1 "100n" H 3415 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3338 3650 50  0001 C CNN
-F 3 "~" H 3300 3800 50  0001 C CNN
-	1    3300 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C36
-U 1 1 5E143564
-P 3750 3800
-F 0 "C36" H 3865 3846 50  0000 L CNN
-F 1 "100n" H 3865 3755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3788 3650 50  0001 C CNN
-F 3 "~" H 3750 3800 50  0001 C CNN
-	1    3750 3800
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C11
 U 1 1 5E145A0D
 P 1450 4500
@@ -694,83 +566,6 @@ F 3 "~" H 3750 4500 50  0001 C CNN
 	1    3750 4500
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C5
-U 1 1 5E155D77
-P 1000 5000
-F 0 "C5" H 1115 5046 50  0000 L CNN
-F 1 "10n" H 1115 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1038 4850 50  0001 C CNN
-F 3 "~" H 1000 5000 50  0001 C CNN
-	1    1000 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C12
-U 1 1 5E155D7E
-P 1450 5000
-F 0 "C12" H 1565 5046 50  0000 L CNN
-F 1 "10n" H 1565 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1488 4850 50  0001 C CNN
-F 3 "~" H 1450 5000 50  0001 C CNN
-	1    1450 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C19
-U 1 1 5E155D85
-P 1900 5000
-F 0 "C19" H 2015 5046 50  0000 L CNN
-F 1 "10n" H 2015 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1938 4850 50  0001 C CNN
-F 3 "~" H 1900 5000 50  0001 C CNN
-	1    1900 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C24
-U 1 1 5E155D8C
-P 2400 5000
-F 0 "C24" H 2515 5046 50  0000 L CNN
-F 1 "10n" H 2515 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2438 4850 50  0001 C CNN
-F 3 "~" H 2400 5000 50  0001 C CNN
-	1    2400 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C29
-U 1 1 5E155D93
-P 2850 5000
-F 0 "C29" H 2965 5046 50  0000 L CNN
-F 1 "10n" H 2965 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2888 4850 50  0001 C CNN
-F 3 "~" H 2850 5000 50  0001 C CNN
-	1    2850 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C33
-U 1 1 5E155D9A
-P 3300 5000
-F 0 "C33" H 3415 5046 50  0000 L CNN
-F 1 "10n" H 3415 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3338 4850 50  0001 C CNN
-F 3 "~" H 3300 5000 50  0001 C CNN
-	1    3300 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C38
-U 1 1 5E155DA1
-P 3750 5000
-F 0 "C38" H 3865 5046 50  0000 L CNN
-F 1 "10n" H 3865 4955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3788 4850 50  0001 C CNN
-F 3 "~" H 3750 5000 50  0001 C CNN
-	1    3750 5000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1000 3150 1450 3150
 Connection ~ 1450 3150
@@ -806,40 +601,6 @@ Wire Wire Line
 Wire Wire Line
 	3750 3450 3300 3450
 Wire Wire Line
-	1000 3650 1450 3650
-Connection ~ 1450 3650
-Wire Wire Line
-	1450 3650 1900 3650
-Connection ~ 1900 3650
-Wire Wire Line
-	1900 3650 2400 3650
-Connection ~ 2400 3650
-Wire Wire Line
-	2400 3650 2850 3650
-Connection ~ 2850 3650
-Wire Wire Line
-	2850 3650 3300 3650
-Connection ~ 3300 3650
-Wire Wire Line
-	3300 3650 3750 3650
-Connection ~ 1450 3950
-Wire Wire Line
-	1450 3950 1000 3950
-Connection ~ 1900 3950
-Wire Wire Line
-	1900 3950 1450 3950
-Connection ~ 2400 3950
-Wire Wire Line
-	2400 3950 1900 3950
-Connection ~ 2850 3950
-Wire Wire Line
-	2850 3950 2400 3950
-Connection ~ 3300 3950
-Wire Wire Line
-	3300 3950 2850 3950
-Wire Wire Line
-	3750 3950 3300 3950
-Wire Wire Line
 	1000 4350 1450 4350
 Connection ~ 1450 4350
 Wire Wire Line
@@ -873,40 +634,6 @@ Wire Wire Line
 	3300 4650 2850 4650
 Wire Wire Line
 	3750 4650 3300 4650
-Wire Wire Line
-	1000 4850 1450 4850
-Connection ~ 1450 4850
-Wire Wire Line
-	1450 4850 1900 4850
-Connection ~ 1900 4850
-Wire Wire Line
-	1900 4850 2400 4850
-Connection ~ 2400 4850
-Wire Wire Line
-	2400 4850 2850 4850
-Connection ~ 2850 4850
-Wire Wire Line
-	2850 4850 3300 4850
-Connection ~ 3300 4850
-Wire Wire Line
-	3300 4850 3750 4850
-Connection ~ 1450 5150
-Wire Wire Line
-	1450 5150 1000 5150
-Connection ~ 1900 5150
-Wire Wire Line
-	1900 5150 1450 5150
-Connection ~ 2400 5150
-Wire Wire Line
-	2400 5150 1900 5150
-Connection ~ 2850 5150
-Wire Wire Line
-	2850 5150 2400 5150
-Connection ~ 3300 5150
-Wire Wire Line
-	3300 5150 2850 5150
-Wire Wire Line
-	3750 5150 3300 5150
 Text Notes 1000 3100 0    50   ~ 0
 2 per VDD pin
 Text Notes 1000 4300 0    50   ~ 0
@@ -977,17 +704,9 @@ Text Label 2500 3150 0    50   ~ 0
 3V3
 Text Label 2500 3450 0    50   ~ 0
 GND
-Text Label 2500 3650 0    50   ~ 0
-3V3
-Text Label 2500 3950 0    50   ~ 0
-GND
 Text Label 2500 4350 0    50   ~ 0
 3V3
 Text Label 2500 4650 0    50   ~ 0
-GND
-Text Label 2500 4850 0    50   ~ 0
-3V3
-Text Label 2500 5150 0    50   ~ 0
 GND
 Text Label 4150 7050 0    50   ~ 0
 3V3
@@ -1064,13 +783,13 @@ Wire Wire Line
 	8150 4750 8750 4750
 Text Label 8250 4750 0    50   ~ 0
 ADC123_IN13
-Text HLabel 10600 4600 2    50   Input ~ 0
-FB1
-Text HLabel 10600 4750 2    50   Input ~ 0
-FB2
-Text HLabel 10600 4900 2    50   Input ~ 0
-FB3
 Text HLabel 10600 5050 2    50   Input ~ 0
+FB1
+Text HLabel 10600 4900 2    50   Input ~ 0
+FB2
+Text HLabel 10600 4750 2    50   Input ~ 0
+FB3
+Text HLabel 10600 4600 2    50   Input ~ 0
 FB4
 Text HLabel 10600 5200 2    50   Input ~ 0
 FB5
@@ -1383,15 +1102,13 @@ Wire Notes Line
 	10000 3400 10000 5600
 Wire Notes Line
 	10950 3400 10950 5600
-Wire Wire Line
-	5650 3650 6350 3650
-Text Notes 4800 3800 0    50   ~ 0
-User LED1\n(Blue)
+Text Notes 4750 6950 0    50   ~ 0
+3V3 Status\n(Blue)
 Text Notes 4750 4350 0    50   ~ 0
 User LED2\n(Orange)
-Text Notes 5250 3850 0    50   ~ 0
+Text Notes 4600 7450 0    50   ~ 0
 3.3V LED, no R required
-Text Notes 5250 4700 0    50   ~ 0
+Text Notes 5250 4950 0    50   ~ 0
 2V 20mA LED.\n3.3V - 2V = 1.3V\n1.3V / 20mA = 65 Ohms\nRound up to nearest \nstandard value, 68 Ohms
 $Comp
 L My_Switch:SW_Push SW1
@@ -1404,4 +1121,9 @@ F 3 "" H 1400 2000 50  0001 C CNN
 	1    1400 1800
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	950  7050 1800 7050
+Wire Wire Line
+	950  7350 1800 7350
+NoConn ~ 6350 3650
 $EndSCHEMATC
