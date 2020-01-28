@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/pwm_with_serial/Inc
+HeaderPath=C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 FYP/trunk/Software/pwm_with_serial/Inc
 HeaderFiles=stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;
-SourcePath=C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/pwm_with_serial/Src
+SourcePath=C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 FYP/trunk/Software/pwm_with_serial/Src
 SourceFiles=stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]
