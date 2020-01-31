@@ -126,5 +126,5 @@ String Serial_Module::get_runtime(unsigned long time_ms)
   unsigned int time_m = time_s / 60;
   unsigned int time_h = time_m / 60;
 
-  return(String(time_h) + String(":") + String(time_m) + String(":") + String(time_s) + String(".") + String(time_ms % 1000) + String(":\t"));
+  return(String(time_h) + String(":") + String(time_m) + String(":") + String((double)time_ms / 1000, 3) + String(":\t"));
 }
