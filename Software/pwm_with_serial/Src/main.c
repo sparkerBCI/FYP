@@ -148,59 +148,68 @@ int main(void)
 	  if (IsDataAvailable()) {
 		  int data = Uart_read();
 		  Uart_write(data);
+		  if (data == '\r') {
+			  double* DCT_Coeffs;
+			  double signal[10] = {1.23, 1.45, 5.656, 23.65, 2.56, 34.54, 6.43, 1.34, 8.98, 10.00};
+			  DCT_Coeffs = cosine_transform_data(10, signal);
+			  for (int i = 0; i < 10; i++) {
+				  printf("This is the coefficient:");
+				  printf("%lf\n", DCT_Coeffs[i]);
+			  }
+		  }
 	  }
 
 
-	  Uart_sendstring("CH0- ");
-	  Uart_write((adc_values[0]/1000)+48);
-	  Uart_write(((adc_values[0]%1000)/100)+48);
-	  Uart_write(((adc_values[0]%100)/10)+48);
-	  Uart_write(((adc_values[0]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("CH1- ");
-	  Uart_write((adc_values[1]/1000)+48);
-	  Uart_write(((adc_values[1]%1000)/100)+48);
-	  Uart_write(((adc_values[1]%100)/10)+48);
-	  Uart_write(((adc_values[1]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("CH2- ");
-	  Uart_write((adc_values[2]/1000)+48);
-	  Uart_write(((adc_values[2]%1000)/100)+48);
-	  Uart_write(((adc_values[2]%100)/10)+48);
-	  Uart_write(((adc_values[2]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("CH3- ");
-	  Uart_write((adc_values[3]/1000)+48);
-	  Uart_write(((adc_values[3]%1000)/100)+48);
-	  Uart_write(((adc_values[3]%100)/10)+48);
-	  Uart_write(((adc_values[3]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("CH4- ");
-	  Uart_write((adc_values[4]/1000)+48);
-	  Uart_write(((adc_values[4]%1000)/100)+48);
-	  Uart_write(((adc_values[4]%100)/10)+48);
-	  Uart_write(((adc_values[4]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("CH5- ");
-	  Uart_write((adc_values[5]/1000)+48);
-	  Uart_write(((adc_values[5]%1000)/100)+48);
-	  Uart_write(((adc_values[5]%100)/10)+48);
-	  Uart_write(((adc_values[5]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("CH6- ");
-	  Uart_write((adc_values[6]/1000)+48);
-	  Uart_write(((adc_values[6]%1000)/100)+48);
-	  Uart_write(((adc_values[6]%100)/10)+48);
-	  Uart_write(((adc_values[6]%10))+48);
-	  Uart_sendstring("\r\n");
-	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH0- ");
+//	  Uart_write((adc_values[0]/1000)+48);
+//	  Uart_write(((adc_values[0]%1000)/100)+48);
+//	  Uart_write(((adc_values[0]%100)/10)+48);
+//	  Uart_write(((adc_values[0]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH1- ");
+//	  Uart_write((adc_values[1]/1000)+48);
+//	  Uart_write(((adc_values[1]%1000)/100)+48);
+//	  Uart_write(((adc_values[1]%100)/10)+48);
+//	  Uart_write(((adc_values[1]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH2- ");
+//	  Uart_write((adc_values[2]/1000)+48);
+//	  Uart_write(((adc_values[2]%1000)/100)+48);
+//	  Uart_write(((adc_values[2]%100)/10)+48);
+//	  Uart_write(((adc_values[2]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH3- ");
+//	  Uart_write((adc_values[3]/1000)+48);
+//	  Uart_write(((adc_values[3]%1000)/100)+48);
+//	  Uart_write(((adc_values[3]%100)/10)+48);
+//	  Uart_write(((adc_values[3]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH4- ");
+//	  Uart_write((adc_values[4]/1000)+48);
+//	  Uart_write(((adc_values[4]%1000)/100)+48);
+//	  Uart_write(((adc_values[4]%100)/10)+48);
+//	  Uart_write(((adc_values[4]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH5- ");
+//	  Uart_write((adc_values[5]/1000)+48);
+//	  Uart_write(((adc_values[5]%1000)/100)+48);
+//	  Uart_write(((adc_values[5]%100)/10)+48);
+//	  Uart_write(((adc_values[5]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("CH6- ");
+//	  Uart_write((adc_values[6]/1000)+48);
+//	  Uart_write(((adc_values[6]%1000)/100)+48);
+//	  Uart_write(((adc_values[6]%100)/10)+48);
+//	  Uart_write(((adc_values[6]%10))+48);
+//	  Uart_sendstring("\r\n");
+//	  Uart_sendstring("\r\n");
 
 
-	  HAL_Delay(1000);
-	  if(pwm_value == 0) step = 100;
-	  if(pwm_value == 2000) step = -100;
-	  pwm_value += step;
-	  user_pwm_setvalue(pwm_value);
+//	  HAL_Delay(1000);
+//	  if(pwm_value == 0) step = 100;
+//	  if(pwm_value == 2000) step = -100;
+//	  pwm_value += step;
+//	  user_pwm_setvalue(pwm_value);
   }
   /* USER CODE END 3 */
 }
