@@ -79,6 +79,9 @@ static void MX_ADC1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
+void allocate_sample(unsigned long [], unsigned long [][524]);
+int parse_sample(unsigned char [], unsigned long []);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -133,8 +136,12 @@ int main(void)
 
   Ringbuf_init();
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
-  long pwm_value = 0;
-  int step = 0;
+//  long pwm_value = 0;
+//  int step = 0;
+
+  unsigned char buffer_data[40] = {0};
+  int byte_num = 0;
+  unsigned long all_samples[9][524];
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -146,17 +153,38 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  if (IsDataAvailable()) {
-		  int data = Uart_read();
-		  Uart_write(data);
-		  if (data == '\r') {
-			  double* DCT_Coeffs;
-			  double signal[10] = {1.23, 1.45, 5.656, 23.65, 2.56, 34.54, 6.43, 1.34, 8.98, 10.00};
-			  DCT_Coeffs = cosine_transform_data(10, signal);
-			  for (int i = 0; i < 10; i++) {
-				  printf("This is the coefficient:");
-				  printf("%lf\n", DCT_Coeffs[i]);
-			  }
+		  if (byte_num >= 40) {
+			  byte_num = 0;
 		  }
+		  buffer_data[byte_num] = Uart_read();
+
+          if (buffer_data[byte_num] == 'h') {
+        	  unsigned long this_sample[9] = {0};
+        	  printf("Parsing sample...\r\n");
+        	  int parse_success = parse_sample(buffer_data, this_sample);
+        	  if (parse_success) {
+        		  printf("Parsed the sample\r\n");
+        		  allocate_sample(this_sample, all_samples);
+              }
+          byte_num = 0;
+          }
+          else {
+        	  byte_num++;
+        	  printf("Byte Num: %d\r\n", byte_num);
+
+          }
+//		  Uart_write(data);
+//		  if (data == '\r') {
+//			  double* DCT_Coeffs;
+//			  double signal[10] = {1.23, 1.45, 5.656, 23.65, 2.56, 34.54, 6.43, 1.34, 8.98, 10.00};
+//			  DCT_Coeffs = cosine_transform_data(10, signal);
+//			  for (int i = 0; i < 10; i++) {
+//				  printf("This is the coefficient:");
+//				  printf("%lf\r\n", DCT_Coeffs[i]);
+//			  }
+//		  }
+
+
 	  }
 
 
@@ -578,6 +606,55 @@ void user_pwm_setvalue(long value)
     HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1);
     HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
 }
+
+int parse_sample(unsigned char current_sample[], unsigned long channel_data[]) {
+	static unsigned long expected_sample_id = 1;
+	unsigned int channel_data_length = 0;
+
+    printf("Function called\r\n");
+
+	for (int i = 0; i < 40; i++) {
+		if (current_sample[i] == 'h') {
+			channel_data_length = i;
+			printf("CDL: %u\r\n", channel_data_length);
+			break;
+		}
+	}
+	if ((channel_data_length == 0) || (channel_data_length % 4)) { /* If there is not a multiple of 4 bytes before hitting 0xFF */
+		printf("Outta here\r\n");
+		return 0;
+	}
+
+	unsigned long actual_sample_id = (current_sample[0] << 24) + (current_sample[1] << 16) + (current_sample[2] << 8) + current_sample[3];
+
+	if (actual_sample_id != expected_sample_id)
+    {
+		/* Missing data, handle appropriately */
+    }
+
+	channel_data[0] = actual_sample_id;
+
+
+	unsigned int number_of_channels = (channel_data_length / 4);
+	printf("Num channels: %u\r\n", number_of_channels);
+
+	for (int channel = 1; channel < number_of_channels; channel++) {
+		channel_data[channel] = (current_sample[4 * channel] << 24)
+				              + (current_sample[4 * channel + 1] << 16)
+							  + (current_sample[4 * channel + 2] << 8)
+							  + (current_sample[4 * channel + 3]);
+	}
+
+
+	return 1;
+}
+
+void allocate_sample(unsigned long this_sample_channel_data[], unsigned long all_samples_channel_data[][524]) {
+
+}
+
+
+
 
 /* USER CODE END 4 */
 

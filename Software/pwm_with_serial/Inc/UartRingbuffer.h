@@ -22,7 +22,7 @@ typedef struct
 } ring_buffer;
 
 /* reads the data in the rx_buffer and increment the tail count in rx_buffer */
-int Uart_read(void);
+unsigned char Uart_read(void);
 
 /* writes the data to the tx_buffer and increment the head count in tx_buffer */
 void Uart_write(int c);

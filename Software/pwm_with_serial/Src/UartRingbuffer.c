@@ -58,7 +58,7 @@ void store_char(unsigned char c, ring_buffer *buffer)
   }
 }
 
-int Uart_read(void)
+unsigned char Uart_read(void)
 {
   // if the head isn't ahead of the tail, we don't have any characters
   if(_rx_buffer->head == _rx_buffer->tail)
