@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "UartRingbuffer.h"
+#include "cosine_transform.h"
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -34,7 +35,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define EPOCH_TIME_SECONDS 1
+#define REFERENCE_VOLTAGE_VOLTS 4.5
+#define GAIN_SETTING 24.0
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -79,8 +82,12 @@ static void MX_ADC1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
-void allocate_sample(unsigned long [], unsigned long [][524]);
+unsigned long allocate_sample(unsigned long [], unsigned long [][524]);
 int parse_sample(unsigned char [], unsigned long []);
+int get_time_section(unsigned int, unsigned long [], double, unsigned long, unsigned long [][524]);
+unsigned long convert_twos_compliment_to_decimal(unsigned long);
+double convert_sample_to_voltage(unsigned long);
+void convert_epoch_to_volts(unsigned long[], double[]);
 
 /* USER CODE END PFP */
 
@@ -142,6 +149,8 @@ int main(void)
   unsigned char buffer_data[40] = {0};
   int byte_num = 0;
   unsigned long all_samples[9][524];
+  unsigned long current_sample = 0;
+  int buffer_filled = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -158,13 +167,42 @@ int main(void)
 		  }
 		  buffer_data[byte_num] = Uart_read();
 
-          if (buffer_data[byte_num] == 'h') {
+          if (buffer_data[byte_num] == '\n' || buffer_data[byte_num] == '\r') {
         	  unsigned long this_sample[9] = {0};
         	  printf("Parsing sample...\r\n");
         	  int parse_success = parse_sample(buffer_data, this_sample);
         	  if (parse_success) {
         		  printf("Parsed the sample\r\n");
-        		  allocate_sample(this_sample, all_samples);
+        		  current_sample = allocate_sample(this_sample, all_samples);
+        		  printf("\r\nSo far we have:\n\r");
+        		  for (unsigned long i = 0; i <= current_sample; i++) {
+        			  printf("Sample %lu:\r\n", i);
+        			  printf("\tCH1: %lu\r\n", all_samples[1][current_sample]);
+        			  printf("\tCH2: %lu\r\n", all_samples[2][current_sample]);
+        			  printf("\tCH3: %lu\r\n", all_samples[3][current_sample]);
+        			  printf("\tCH4: %lu\r\n", all_samples[4][current_sample]);
+        			  printf("\tCH5: %lu\r\n", all_samples[5][current_sample]);
+        			  printf("\tCH6: %lu\r\n", all_samples[6][current_sample]);
+        			  printf("\tCH7: %lu\r\n", all_samples[7][current_sample]);
+        			  printf("\tCH8: %lu\r\n\n", all_samples[8][current_sample]);
+        		  }
+        		  if (current_sample >= 250 * EPOCH_TIME_SECONDS) {
+        			  buffer_filled = 1;
+        		  }
+        		  if (buffer_filled) {
+        			  unsigned long last_epoch[250 * EPOCH_TIME_SECONDS] = {0};
+        			  double last_epoch_volts[250 * EPOCH_TIME_SECONDS] = {0};
+        			  double *DCT_Coeffs;
+        			  get_time_section(1, last_epoch, EPOCH_TIME_SECONDS, current_sample, all_samples);
+        			  convert_epoch_to_volts(last_epoch, last_epoch_volts);
+        			  DCT_Coeffs = cosine_transform_data(250 * EPOCH_TIME_SECONDS, last_epoch_volts);
+        			  printf("These are the DCT Coeffs:\n\r");
+        			  for (int i = 0; i < (250 * EPOCH_TIME_SECONDS); i++) {
+        				  printf("\t%f\n\r", DCT_Coeffs[i]);
+        			  }
+        			  printf("\n\r");
+        		  }
+
               }
           byte_num = 0;
           }
@@ -608,52 +646,95 @@ void user_pwm_setvalue(long value)
 }
 
 int parse_sample(unsigned char current_sample[], unsigned long channel_data[]) {
-	static unsigned long expected_sample_id = 1;
 	unsigned int channel_data_length = 0;
 
     printf("Function called\r\n");
 
 	for (int i = 0; i < 40; i++) {
-		if (current_sample[i] == 'h') {
+		if (current_sample[i] == '\n' || current_sample[i] == '\r') {
 			channel_data_length = i;
 			printf("CDL: %u\r\n", channel_data_length);
 			break;
 		}
 	}
-	if ((channel_data_length == 0) || (channel_data_length % 4)) { /* If there is not a multiple of 4 bytes before hitting 0xFF */
+	if ((channel_data_length == 0) || (channel_data_length % 4)) { /* If there is not a multiple of 4 bytes before hitting \n */
 		printf("Outta here\r\n");
 		return 0;
 	}
 
-	unsigned long actual_sample_id = (current_sample[0] << 24) + (current_sample[1] << 16) + (current_sample[2] << 8) + current_sample[3];
+	/* Save the Sample ID */
+	channel_data[0] = (current_sample[0] << 24) + (current_sample[1] << 16) + (current_sample[2] << 8) + current_sample[3];
 
-	if (actual_sample_id != expected_sample_id)
-    {
-		/* Missing data, handle appropriately */
-    }
-
-	channel_data[0] = actual_sample_id;
-
-
-	unsigned int number_of_channels = (channel_data_length / 4);
+    /* From the length of the serial buffer, calculate the number of channels */
+	unsigned int number_of_channels = (channel_data_length / 4) - 1;    /* We know there is a multiple of 4, so integer divide is ok. Subtract 1 for sample ID header word */
 	printf("Num channels: %u\r\n", number_of_channels);
 
-	for (int channel = 1; channel < number_of_channels; channel++) {
+	for (int channel = 1; channel <= number_of_channels; channel++) {
 		channel_data[channel] = (current_sample[4 * channel] << 24)
 				              + (current_sample[4 * channel + 1] << 16)
 							  + (current_sample[4 * channel + 2] << 8)
 							  + (current_sample[4 * channel + 3]);
+		printf("Just got: %lu\r\n", channel_data[channel]);
 	}
 
 
 	return 1;
 }
 
-void allocate_sample(unsigned long this_sample_channel_data[], unsigned long all_samples_channel_data[][524]) {
+unsigned long allocate_sample(unsigned long this_sample_channel_data[], unsigned long all_samples_channel_data[][524]) {
+	static unsigned long expected_sample_id = 1;
+	if (this_sample_channel_data[0] != expected_sample_id)
+    {
+		printf("Mismatched Sample IDs!\r\n");
+		/* Missing data, handle appropriately */
+    }
+
+	unsigned long index = (expected_sample_id - 1) % 524;
+
+	for (int i = 0; i < 9; i++) {
+	  all_samples_channel_data[i][index] = this_sample_channel_data[i];
+	}
+
+	expected_sample_id++;
+	return index;
 
 }
 
+int get_time_section(unsigned int channel, unsigned long channel_data[], double seconds, unsigned long initial_index, unsigned long all_channel_data[][524]) {
+	unsigned long samples_to_read = (unsigned long)(seconds * 250);
 
+	unsigned long current_index = initial_index;
+	for (unsigned long samples_left = samples_to_read; samples_left > 0; samples_left--) {
+		channel_data[samples_left - 1] = all_channel_data[channel][current_index];
+		if (current_index == 0) {
+			current_index = 524;
+		}
+		current_index--;
+	}
+	return 1;
+}
+
+unsigned long convert_twos_compliment_to_decimal(unsigned long twos_compliment) {
+	static const int MODULO = 1 << 24;
+	static const int MAX_VALUE = (1 << 23) - 1;
+
+	if (twos_compliment > MAX_VALUE) {
+		twos_compliment -= MODULO;
+	}
+	return twos_compliment;
+}
+
+double convert_sample_to_voltage(unsigned long sample) {
+	unsigned long decimal = convert_twos_compliment_to_decimal(sample);
+	return (decimal * (2 * REFERENCE_VOLTAGE_VOLTS / GAIN_SETTING) / (1<<24));
+
+}
+
+void convert_epoch_to_volts(unsigned long epoch[], double result[]) {
+	for (int i = 0; i < (250 * EPOCH_TIME_SECONDS); i++) {
+		result[i] = convert_sample_to_voltage(epoch[i]);
+	}
+}
 
 
 /* USER CODE END 4 */
