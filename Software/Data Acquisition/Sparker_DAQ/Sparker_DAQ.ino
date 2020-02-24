@@ -51,8 +51,9 @@
  *  overflow for 192 days of continuous recording, and if you're running this thing for 192
  *  days you should use a better DAQ system. Valid samples are then sent over the serial
  *  interface (38400 baud) in the format <sample ID><Channel 1><Channel 2><Channel 3>
- *  ...<Channel 8><0xFF>. Everything except the 0xFF are uint32_ts in 8 data bits, no parity,
- *  1 stop bit. It then polls the Data Ready pin and starts again.
+ *  ...<Channel 8><\n>. Everything except the \n are uint32_ts in 8 data bits, no parity,
+ *  1 stop bit. Data is sent MSB first, most significant byte first. It then polls the Data 
+ *  Ready pin and starts again.
  *********************************************************************************************/
 
 #include "ADS1299.h"

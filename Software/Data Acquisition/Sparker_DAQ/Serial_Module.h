@@ -87,7 +87,7 @@ public:
  *  @brief Sends a sample over the serial interface.
  *
  *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
- *  <Channel 1><Channel 2><Channel 3>...<Channel 8><0xFF>. Everything except the 0xFF are
+ *  <Channel 1><Channel 2><Channel 3>...<Channel 8><\n>. Everything except the \n are
  *  uint32_ts in 8 data bits, no parity, 1 stop bit. It then polls the Data Ready pin and
  *  starts again.
  *

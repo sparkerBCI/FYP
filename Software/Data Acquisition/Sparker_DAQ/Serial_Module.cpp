@@ -109,7 +109,7 @@ bool Serial_Module::send_sample(Sample_Data_t input_sample)
   {
     Serial.print(input_sample.Channel_Data[i]);
   }
-  Serial.print(0xFF);
+  Serial.print('\n');
   return true;
 }
 
