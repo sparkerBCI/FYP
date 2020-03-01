@@ -151,6 +151,8 @@ int main(void)
   unsigned long all_samples[9][524];
   unsigned long current_sample = 0;
   int buffer_filled = 0;
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -186,7 +188,7 @@ int main(void)
         			  printf("\tCH7: %lu\r\n", all_samples[7][current_sample]);
         			  printf("\tCH8: %lu\r\n\n", all_samples[8][current_sample]);
         		  }
-        		  if (current_sample >= 250 * EPOCH_TIME_SECONDS) {
+        		  if (current_sample >= (250 * EPOCH_TIME_SECONDS) - 1) {
         			  buffer_filled = 1;
         		  }
         		  if (buffer_filled) {
@@ -196,6 +198,7 @@ int main(void)
         			  get_time_section(1, last_epoch, EPOCH_TIME_SECONDS, current_sample, all_samples);
         			  convert_epoch_to_volts(last_epoch, last_epoch_volts);
         			  DCT_Coeffs = cosine_transform_data(250 * EPOCH_TIME_SECONDS, last_epoch_volts);
+
         			  printf("These are the DCT Coeffs:\n\r");
         			  for (int i = 0; i < (250 * EPOCH_TIME_SECONDS); i++) {
         				  printf("\t%f\n\r", DCT_Coeffs[i]);
