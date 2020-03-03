@@ -23,7 +23,7 @@
 #include <Arduino.h>
 
 #ifndef NO_SPI
-#define NO_SPI                                                                 /**< This is defined if we don't want to communicate to the ADS1299 over SPI. Remove this to communicate */
+//#define NO_SPI                                                                 /**< This is defined if we don't want to communicate to the ADS1299 over SPI. Remove this to communicate */
 #endif
 
 /*! ******************************************************************************************
