@@ -223,53 +223,6 @@ Wire Wire Line
 	3100 5450 3100 5600
 Connection ~ 3100 5600
 NoConn ~ 6500 5200
-$Comp
-L Device:R R?
-U 1 1 5E8AA917
-P 1450 6850
-AR Path="/5D7F9BD3/5E8AA917" Ref="R?"  Part="1" 
-AR Path="/5E8AA917" Ref="R1"  Part="1" 
-F 0 "R1" H 1520 6896 50  0000 L CNN
-F 1 "10k" H 1520 6805 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1380 6850 50  0001 C CNN
-F 3 "~" H 1450 6850 50  0001 C CNN
-	1    1450 6850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 5E8AA91E
-P 1450 7250
-AR Path="/5D7F9BD3/5E8AA91E" Ref="R?"  Part="1" 
-AR Path="/5E8AA91E" Ref="R2"  Part="1" 
-F 0 "R2" H 1520 7296 50  0000 L CNN
-F 1 "10k" H 1520 7205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1380 7250 50  0001 C CNN
-F 3 "~" H 1450 7250 50  0001 C CNN
-	1    1450 7250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1450 6500 1200 6500
-Wire Wire Line
-	1450 6500 1450 6700
-Wire Wire Line
-	1450 7000 1450 7050
-Wire Wire Line
-	1450 7050 1950 7050
-Connection ~ 1450 7050
-Wire Wire Line
-	1450 7050 1450 7100
-Wire Wire Line
-	1450 7400 1450 7550
-Wire Wire Line
-	1450 7550 1200 7550
-Text Label 1200 6500 0    50   ~ 0
-AVDD
-Text Label 1200 7550 0    50   ~ 0
-AVSS
-Text Label 1500 7050 0    50   ~ 0
-MID_SUPPLY
 Wire Wire Line
 	6100 3200 6000 3200
 Wire Wire Line
@@ -311,8 +264,6 @@ Wire Wire Line
 Wire Wire Line
 	6000 2950 5250 2950
 Connection ~ 6000 3200
-Text Label 5350 2950 0    50   ~ 0
-MID_SUPPLY
 $Comp
 L Device:C C?
 U 1 1 5E8AA949
@@ -721,12 +672,6 @@ Text Notes 6500 2300 0    50   ~ 0
 Right Leg Drive \nBias not used \nunder instruction \nfrom Psychology \nDepartment
 Text Notes 8050 4950 0    50   ~ 0
 All GPIO Pins pulled to GND, unused
-Text Notes 650  6400 0    79   ~ 0
-Mid-Supply Voltage Divider
-Wire Notes Line
-	650  6300 2350 6300
-Wire Notes Line
-	2350 7700 650  7700
 Text Label 7800 5450 0    50   ~ 0
 ~RESET
 Text Label 7250 6900 0    50   ~ 0
@@ -1362,10 +1307,6 @@ Wire Notes Line
 	700  1650 700  2650
 Wire Wire Line
 	3400 2450 3400 2600
-Wire Notes Line
-	2350 6300 2350 7700
-Wire Notes Line
-	650  6300 650  7700
 Wire Wire Line
 	1950 3100 2700 3100
 $Comp
@@ -1624,8 +1565,6 @@ Text Label 750  4650 0    50   ~ 0
 VCAP4
 Text Label 7400 2250 0    50   ~ 0
 VCAP3
-Text Label 750  4950 0    50   ~ 0
-MID_SUPPLY
 Text Label 750  4750 0    50   ~ 0
 VREFP
 Text Label 6800 5600 0    50   ~ 0
@@ -1678,4 +1617,6 @@ Text Label 9750 1500 0    50   ~ 0
 GND
 Text Label 750  4200 0    50   ~ 0
 DVDD
+Text Label 5250 2950 0    50   ~ 0
+AVDD
 $EndSCHEMATC

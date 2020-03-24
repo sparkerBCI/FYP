@@ -1677,7 +1677,5 @@ DGND
 Text Label 9750 1500 0    50   ~ 0
 GND
 Text Label 750  4200 0    50   ~ 0
-CLKSEL
-Text Label 8200 3450 0    50   ~ 0
-CLKSEL
+DVDD
 $EndSCHEMATC
