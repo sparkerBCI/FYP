@@ -366,7 +366,6 @@ Wire Wire Line
 	8100 4550 8350 4550
 Text Label 8150 4550 0    50   ~ 0
 START
-NoConn ~ 8100 4450
 Text Label 8150 4350 0    50   ~ 0
 ~CS
 Wire Wire Line
@@ -1356,34 +1355,6 @@ Typical DVDD rail \nsupply current 0.5mA.\nVReg Imax = 100mA
 Text Notes 3800 1550 0    50   ~ 0
 Typical AVDD Rail\nsupply current 7.14mA.\nImax = 300mA
 $Comp
-L Device:R R?
-U 1 1 5E8AAB9B
-P 8850 4450
-AR Path="/5D7F9BD3/5E8AAB9B" Ref="R?"  Part="1" 
-AR Path="/5E8AAB9B" Ref="R16"  Part="1" 
-F 0 "R16" H 9000 4400 50  0000 C CNN
-F 1 "100k" H 9000 4500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 8780 4450 50  0001 C CNN
-F 3 "~" H 8850 4450 50  0001 C CNN
-	1    8850 4450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8650 4350 8650 4600
-Wire Wire Line
-	8650 4600 8850 4600
-Wire Wire Line
-	8100 4350 8650 4350
-Connection ~ 8850 4600
-Wire Wire Line
-	8850 4600 9150 4600
-Wire Wire Line
-	8850 4300 9100 4300
-Text Label 8900 4300 0    50   ~ 0
-DVDD
-Text Notes 9150 4550 0    50   ~ 0
-Pull-up CS\nto VDD for\nICP
-$Comp
 L Connector_Generic:Conn_01x16 J?
 U 1 1 5E8AABAA
 P 1550 3700
@@ -1412,11 +1383,11 @@ $EndComp
 Wire Wire Line
 	1350 3200 750  3200
 Wire Wire Line
+	1350 3300 750  3300
+Wire Wire Line
 	1350 3400 750  3400
 Wire Wire Line
 	1350 3500 750  3500
-Wire Wire Line
-	1350 3600 750  3600
 Wire Wire Line
 	1350 3700 750  3700
 Wire Wire Line
@@ -1428,7 +1399,7 @@ Wire Wire Line
 Wire Wire Line
 	1350 4100 750  4100
 Wire Wire Line
-	1350 3300 750  3300
+	1350 3600 750  3600
 Wire Wire Line
 	1350 4200 750  4200
 Wire Wire Line
@@ -1473,11 +1444,11 @@ Wire Wire Line
 	1350 4750 750  4750
 Wire Wire Line
 	1350 4950 750  4950
-Text Label 750  3400 0    50   ~ 0
+Text Label 750  3300 0    50   ~ 0
 MOSI
-Text Label 750  3500 0    50   ~ 0
+Text Label 750  3400 0    50   ~ 0
 ~PWDN
-Text Label 750  3600 0    50   ~ 0
+Text Label 750  3500 0    50   ~ 0
 ~RESET
 Text Label 750  3700 0    50   ~ 0
 START
@@ -1619,4 +1590,12 @@ Text Label 750  4200 0    50   ~ 0
 DVDD
 Text Label 5250 2950 0    50   ~ 0
 AVDD
+Text Label 750  3600 0    50   ~ 0
+CLK
+Wire Wire Line
+	8100 4450 8350 4450
+Text Label 8200 4450 0    50   ~ 0
+CLK
+Wire Wire Line
+	8100 4350 8350 4350
 $EndSCHEMATC
