@@ -409,8 +409,6 @@ Wire Notes Line
 	5050 6200 5050 7550
 Wire Notes Line
 	6350 6200 6350 7550
-Text Notes 7700 3700 0    50   ~ 0
-2V LED Voltage\n20mA\n5V - 2V = 3V\n3V / 20mA = 150 Ohms
 Wire Notes Line
 	3550 4000 8750 4000
 Wire Notes Line
