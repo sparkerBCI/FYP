@@ -111,12 +111,12 @@ TIM4_CH2
 $Comp
 L Device:LED D1
 U 1 1 5E071C85
-P 5250 7200
-F 0 "D1" V 5550 7200 50  0000 C CNN
-F 1 "LTST-C171TBKT" V 5450 7200 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric" H 5250 7200 50  0001 C CNN
-F 3 "~" H 5250 7200 50  0001 C CNN
-	1    5250 7200
+P 5800 7200
+F 0 "D1" V 5850 6950 50  0000 C CNN
+F 1 "LTST-C171TGKT" V 5750 6800 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric" H 5800 7200 50  0001 C CNN
+F 3 "~" H 5800 7200 50  0001 C CNN
+	1    5800 7200
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
@@ -247,10 +247,6 @@ Connection ~ 4350 7350
 Wire Wire Line
 	4350 7350 4800 7350
 Connection ~ 4800 7350
-Wire Wire Line
-	4800 7350 5250 7350
-Wire Wire Line
-	5250 7050 4800 7050
 Connection ~ 3900 7050
 Wire Wire Line
 	3900 7050 3600 7050
@@ -974,7 +970,7 @@ Wire Notes Line
 Wire Notes Line
 	800  6700 5600 6700
 Wire Notes Line
-	5600 6700 5600 7500
+	6700 6700 6700 7500
 Wire Notes Line
 	5600 7500 800  7500
 Wire Notes Line
@@ -1098,8 +1094,8 @@ Text Notes 4750 6950 0    50   ~ 0
 3V3 Status\n(Blue)
 Text Notes 4750 4350 0    50   ~ 0
 User LED2\n(Orange)
-Text Notes 4600 7450 0    50   ~ 0
-3.3V LED, no R required
+Text Notes 4100 7450 0    50   ~ 0
+3.2V LED, 20mA. R = 0.1V / 0.02A = 5Ohms, round to 6
 Text Notes 5250 4950 0    50   ~ 0
 2V 20mA LED.\n3.3V - 2V = 1.3V\n1.3V / 20mA = 65 Ohms\nRound up to nearest \nstandard value, 68 Ohms
 $Comp
@@ -1144,4 +1140,21 @@ Wire Notes Line
 	10950 2550 10950 3350
 Wire Notes Line
 	10000 2550 10000 3350
+Wire Wire Line
+	4800 7350 5800 7350
+$Comp
+L Device:R R3
+U 1 1 5E8D5535
+P 5550 7050
+F 0 "R3" V 5343 7050 50  0000 C CNN
+F 1 "6R" V 5434 7050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5480 7050 50  0001 C CNN
+F 3 "~" H 5550 7050 50  0001 C CNN
+	1    5550 7050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5800 7050 5700 7050
+Wire Wire Line
+	4800 7050 5400 7050
 $EndSCHEMATC
