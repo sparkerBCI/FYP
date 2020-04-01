@@ -241,7 +241,7 @@ Wire Wire Line
 Text Notes 5600 750  0    98   ~ 20
 Control
 Text Notes 1550 7350 0    79   ~ 0
-50mOhm current sense resistors.\nVoltage before and after resistor passed through 1/5th voltage divider.\nVoltage measured at FBx points by 16-bit ADC.\nVoltage drop across resistor given by FB_Ref - Value.\nVoltage drop across resistor * 5 / (50 x10^-3) gives current \nconsumed by each servo.\nVoltage supply drop to servo should be minimal (and\nwe are supplying near maximum end of rated voltage)
+50mOhm current sense resistors.\nVoltage before and after resistor passed through 1/6th voltage divider.\nVoltage measured at FBx points by 16-bit ADC.\nVoltage drop across resistor given by FB_Ref - Value.\nVoltage drop across resistor * 6 / (50 x10^-3) gives current \nconsumed by each servo.\nVoltage supply drop to servo should be minimal (and\nwe are supplying near maximum end of rated voltage)
 Text HLabel 6600 4000 0    50   Output ~ 0
 FB_REF
 $Comp
