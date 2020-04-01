@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 4
+Sheet 3 4
 Title ""
 Date ""
 Rev ""
@@ -275,21 +275,10 @@ Text Label 5950 7050 0    50   ~ 0
 D-
 Text Label 5900 7350 0    50   ~ 0
 GND
-$Comp
-L My_Switch:SW_DIP_x02 SW3
-U 1 1 5EB95A02
-P 1700 6850
-F 0 "SW3" H 1700 7217 50  0000 C CNN
-F 1 "BT Enable" H 1700 7126 50  0000 C CNN
-F 2 "Switches:DIP-Switch_01x02" H 1700 6850 50  0001 C CNN
-F 3 "" H 1700 6850 50  0001 C CNN
-	1    1700 6850
-	1    0    0    -1  
-$EndComp
-Text HLabel 1400 6850 0    50   Input ~ 0
-TX
-Text HLabel 1400 6750 0    50   Input ~ 0
-RX
+Text HLabel 2050 6750 0    50   Input ~ 0
+BT_TX
+Text HLabel 2050 6850 0    50   Input ~ 0
+BT_RX
 $Comp
 L Device:C C63
 U 1 1 5EB9949F
@@ -390,13 +379,7 @@ Wire Notes Line
 Wire Notes Line
 	3400 5700 3400 4600
 Wire Notes Line
-	1200 6200 3150 6200
-Wire Notes Line
 	3150 6200 3150 7550
-Wire Notes Line
-	3150 7550 1200 7550
-Wire Notes Line
-	1200 7550 1200 6200
 Wire Notes Line
 	5050 6200 6350 6200
 Wire Notes Line
@@ -442,20 +425,14 @@ NoConn ~ 7100 3250
 Text HLabel 7400 2250 2    50   Input ~ 0
 RX
 NoConn ~ 2450 7150
+Wire Notes Line
+	1350 6200 1350 7550
 Wire Wire Line
-	2000 6750 2200 6750
+	2050 6850 2450 6850
 Wire Wire Line
-	2200 6750 2200 6850
-Wire Wire Line
-	2200 6850 2450 6850
-Wire Wire Line
-	2450 6750 2250 6750
-Wire Wire Line
-	2250 6750 2250 6700
-Wire Wire Line
-	2250 6700 2150 6700
-Wire Wire Line
-	2150 6700 2150 6850
-Wire Wire Line
-	2150 6850 2000 6850
+	2050 6750 2450 6750
+Wire Notes Line
+	3150 6200 1350 6200
+Wire Notes Line
+	1350 7550 3150 7550
 $EndSCHEMATC

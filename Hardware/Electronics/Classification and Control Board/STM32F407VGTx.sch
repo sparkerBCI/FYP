@@ -743,9 +743,9 @@ Wire Wire Line
 	5050 3100 5350 3100
 Text Label 5200 3100 0    50   ~ 0
 GND
-Text HLabel 10600 3050 2    50   Output ~ 0
+Text HLabel 10600 2850 2    50   Output ~ 0
 TX
-Text HLabel 10600 3200 2    50   Input ~ 0
+Text HLabel 10600 3000 2    50   Input ~ 0
 RX
 Text HLabel 10600 3700 2    50   Output ~ 0
 PWM1
@@ -870,9 +870,9 @@ Connection ~ 3100 1600
 Text Label 2800 1600 0    50   ~ 0
 3V3
 Wire Wire Line
-	10600 3050 10050 3050
+	10600 2850 10050 2850
 Wire Wire Line
-	10600 3200 10050 3200
+	10600 3000 10050 3000
 Wire Wire Line
 	10600 3700 10050 3700
 Wire Wire Line
@@ -897,9 +897,9 @@ Wire Wire Line
 	10600 5200 10050 5200
 Wire Wire Line
 	10600 5350 10050 5350
-Text Label 10050 3050 0    50   ~ 0
+Text Label 10050 2850 0    50   ~ 0
 UART4_TX
-Text Label 10050 3200 0    50   ~ 0
+Text Label 10050 3000 0    50   ~ 0
 UART4_RX
 Text Label 10050 3700 0    50   ~ 0
 TIM3_CH1
@@ -987,7 +987,7 @@ Wire Notes Line
 	10950 2500 9450 2500
 Wire Notes Line
 	9450 2500 9450 1400
-Text Notes 10300 2900 0    79   ~ 0
+Text Notes 10300 2700 0    79   ~ 0
 UART
 Text Notes 10250 3550 0    79   ~ 0
 Control
@@ -1010,10 +1010,6 @@ Wire Notes Line
 Text Notes 10300 5900 0    79   ~ 0
 Power
 Wire Notes Line
-	10950 2750 10950 3300
-Wire Notes Line
-	10000 3300 10000 2750
-Wire Notes Line
 	10000 3400 10950 3400
 Wire Notes Line
 	10950 5600 10000 5600
@@ -1026,9 +1022,7 @@ Wire Notes Line
 Wire Notes Line
 	10000 6300 10000 5750
 Wire Notes Line
-	10000 3300 10950 3300
-Wire Notes Line
-	10000 2750 10950 2750
+	10000 2550 10950 2550
 NoConn ~ 6350 2750
 NoConn ~ 6350 2850
 NoConn ~ 6350 2950
@@ -1061,8 +1055,6 @@ NoConn ~ 8150 5950
 NoConn ~ 8150 5850
 NoConn ~ 8150 5750
 NoConn ~ 8150 5650
-NoConn ~ 8150 5550
-NoConn ~ 8150 5450
 NoConn ~ 8150 5350
 NoConn ~ 8150 5250
 NoConn ~ 8150 5150
@@ -1126,4 +1118,30 @@ Wire Wire Line
 Wire Wire Line
 	950  7350 1800 7350
 NoConn ~ 6350 3650
+Wire Wire Line
+	8150 5450 8750 5450
+Wire Wire Line
+	8150 5550 8750 5550
+Text Label 8550 5450 0    50   ~ 0
+BT_TX
+Text Label 8550 5550 0    50   ~ 0
+BT_RX
+Text HLabel 10600 3150 2    50   Output ~ 0
+BT_TX
+Text HLabel 10600 3300 2    50   Input ~ 0
+BT_RX
+Wire Wire Line
+	10600 3150 10050 3150
+Wire Wire Line
+	10600 3300 10050 3300
+Text Label 10050 3150 0    50   ~ 0
+BT_TX
+Text Label 10050 3300 0    50   ~ 0
+BT_RX
+Wire Notes Line
+	10950 3350 10000 3350
+Wire Notes Line
+	10950 2550 10950 3350
+Wire Notes Line
+	10000 2550 10000 3350
 $EndSCHEMATC
