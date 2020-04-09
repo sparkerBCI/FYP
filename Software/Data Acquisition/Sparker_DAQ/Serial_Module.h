@@ -88,13 +88,24 @@ public:
  *
  *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
  *  <Channel 1><Channel 2><Channel 3>...<Channel 8><\n>. Everything except the \n are
- *  uint32_ts in 8 data bits, no parity, 1 stop bit. It then polls the Data Ready pin and
- *  starts again.
+ *  uint32_ts in 8 data bits, no parity, 1 stop bit.
  *
  *  @param[in] input_sample            - The sample to send over the serial interface
  *
  *********************************************************************************************/
   bool send_sample(Sample_Data_t input_sample);
+
+/*! ******************************************************************************************
+ *  @brief Sends a sample from Channel 1 over the serial interface.
+ *
+ *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
+ *  <Channel 1><\n>. Everything except the \n are uint32_ts in 8 data bits, no parity,
+ *  1 stop bit.
+ *
+ *  @param[in] input_sample            - The sample to send over the serial interface
+ *
+ *********************************************************************************************/
+  bool send_single_channel_sample(Sample_Data_t input_sample);
 
 /*! ******************************************************************************************
  *  @brief Builds the runtime into a timestamp string

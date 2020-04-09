@@ -52,7 +52,7 @@
  *  days you should use a better DAQ system. Valid samples are then sent over the serial
  *  interface (38400 baud) in the format <sample ID><Channel 1><Channel 2><Channel 3>
  *  ...<Channel 8><\n>. Everything except the \n are uint32_ts in 8 data bits, no parity,
- *  1 stop bit. Data is sent MSB first, most significant byte first. It then polls the Data 
+ *  1 stop bit. Data is sent MSB first, most significant byte first. It then polls the Data
  *  Ready pin and starts again.
  *********************************************************************************************/
 
@@ -82,7 +82,6 @@ void setup()
   Comms->msg_enabled   = true;                                                 /* Enables additional messages on the serial bus */
   Comms->debug_enabled = true;                                                 /* Additional enabler for debug messages */
 
-#ifndef NO_SPI                                                                 /* If we are connecting to the ADC */
   if (ADS1299->get_device_id() != VALID_DEVICE_ID)                             /* If the device gives us an invalid device ID */
   {
     Comms->errorMsg("Device ID Invalid!");                                     /* Send an error */
@@ -137,7 +136,7 @@ void setup()
 
   /* Set Up Reference Channel */
   ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);   /* Reference all channels to the reference electrode */
-#endif
+
   ADS1299->send_command(START);                                                /* Start the device */
 }
 
@@ -161,7 +160,7 @@ void loop()
       Sample_Data_t this_sample = process_sample(input_buffer);                /* Build a sample structure by processing the input data buffer */
       if (this_sample.id != 0)                                                 /* If the sample was valid (corresponding to a sample ID of something other than 0) */
       {
-        if (!(Comms->send_sample(this_sample)))                                /* If we don't successfully send the command */
+        if (!(Comms->send_single_channel_sample(this_sample)))                 /* If we don't successfully send the command */
         {
           Comms->warningMsg("Could not send processed sample!");               /* Send a warning */
         }

@@ -32,7 +32,7 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
 
   /* Set up SPI interface */
   SPI.beginTransaction(SPISettings(Hardware_Info->SPI_SPEED_HZ, Hardware_Info->SPI_ENDIAN, Hardware_Info->SPI_MODE));
-  
+
 
 #ifndef NO_SPI
   /* Configure the ADC for the recording montage */
