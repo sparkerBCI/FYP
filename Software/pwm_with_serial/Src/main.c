@@ -179,17 +179,18 @@ int main(void)
           if (buffer_data[byte_num] == '\n' || buffer_data[byte_num] == '\r') {
         	  unsigned long this_sample;
         	  unsigned long this_sample_id;
-        	  printf("Parsing sample...\r\n");
+        	  //printf("Parsing sample...\r\n");
         	  int parse_success = parse_sample(buffer_data, &this_sample_id, &this_sample);
         	  if (parse_success) {
-        		  printf("Parsed the sample\r\n");
+        		  //printf("Parsed the sample\r\n");
         		  current_sample = allocate_sample(&this_sample_id, &this_sample, all_samples);
-        		  printf("\r\nSo far we have:\n\r");
-        		  for (unsigned long i = 0; i <= current_sample; i++) {
-        			  printf("Sample %lu:\r\n", i);
-        			  printf("\tSample ID:\t %lu\r\n", all_samples[0][i]);
-        			  printf("\tCH1:\t %lu\r\n", all_samples[1][i]);
-        		  }
+        		  printf("Sample: %lu\n\r", all_samples[0][current_sample]);
+//        		  printf("\r\nSo far we have:\n\r");
+//        		  for (unsigned long i = 0; i <= current_sample; i++) {
+//        			  printf("Sample %lu:\r\n", i);
+//        			  printf("\tSample ID:\t %lu\r\n", all_samples[0][i]);
+//        			  printf("\tCH1:\t %lu\r\n", all_samples[1][i]);
+//        		  }
         		  if (current_sample >= (250 * EPOCH_TIME_SECONDS) - 1) {
         			  buffer_filled = 1;
         		  }
@@ -213,7 +214,7 @@ int main(void)
           }
           else {
         	  byte_num++;
-        	  printf("Byte Num: %d\r\n", byte_num);
+        	  //printf("Byte Num: %d\r\n", byte_num);
 
           }
 //		  Uart_write(data);
@@ -670,14 +671,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_9|GPIO_PIN_14, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PE9 PE14 */
-  GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_14;
+  /*Configure GPIO pin : LED_Pin */
+  GPIO_InitStruct.Pin = LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
 }
 
@@ -697,17 +698,17 @@ void user_pwm_setvalue(long value)
 int parse_sample(unsigned char current_sample[], unsigned long *this_sample_id, unsigned long *channel_data) {
 	unsigned int channel_data_length = 0;
 
-    printf("Function called\r\n");
+    //printf("Function called\r\n");
 
 	for (int i = 0; i < 40; i++) {
 		if (current_sample[i] == '\n' || current_sample[i] == '\r') {
 			channel_data_length = i;
-			printf("CDL: %u\r\n", channel_data_length);
+			//printf("CDL: %u\r\n", channel_data_length);
 			break;
 		}
 	}
 	if ((channel_data_length == 0) || (channel_data_length % 4)) { /* If there is not a multiple of 4 bytes before hitting \n */
-		printf("Outta here\r\n");
+		//printf("Outta here\r\n");
 		return 0;
 	}
 
@@ -716,14 +717,14 @@ int parse_sample(unsigned char current_sample[], unsigned long *this_sample_id, 
 
     /* From the length of the serial buffer, calculate the number of channels */
 	unsigned int number_of_channels = 1;//(channel_data_length / 4) - 1;    /* We know there is a multiple of 4, so integer divide is ok. Subtract 1 for sample ID header word */
-	printf("Num channels: %u\r\n", number_of_channels);
+	//printf("Num channels: %u\r\n", number_of_channels);
 
 	for (int channel = 1; channel <= number_of_channels; channel++) {
 		*channel_data = (current_sample[4 * channel] << 24)
 				              + (current_sample[4 * channel + 1] << 16)
 							  + (current_sample[4 * channel + 2] << 8)
 							  + (current_sample[4 * channel + 3]);
-		printf("Just got: %lu\r\n", *channel_data);
+		//printf("Just got: %lu\r\n", *channel_data);
 	}
 
 
@@ -734,7 +735,7 @@ unsigned long allocate_sample(unsigned long *this_sample_id, unsigned long *this
 	static unsigned long expected_sample_id = 1;
 	if (*this_sample_channel_data != expected_sample_id)
     {
-		printf("Mismatched Sample IDs!\r\n");
+		//printf("Mismatched Sample IDs!\r\n");
 		/* Missing data, handle appropriately */
     }
 

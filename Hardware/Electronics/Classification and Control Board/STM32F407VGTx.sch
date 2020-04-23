@@ -15,13 +15,13 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Wire Wire Line
-	8150 1050 8750 1050
+	8150 1250 8750 1250
 Wire Wire Line
-	8150 1150 8750 1150
-Text Label 8400 1050 0    50   ~ 0
-UART4_TX
-Text Label 8400 1150 0    50   ~ 0
-UART4_RX
+	8150 1350 8750 1350
+Text Label 8400 1250 0    50   ~ 0
+UART2_TX
+Text Label 8400 1350 0    50   ~ 0
+UART2_RX
 $Comp
 L MCU_ST_STM32F4:STM32F407VGTx U2
 U 1 1 5E06F553
@@ -126,7 +126,7 @@ L Device:R R4
 U 1 1 5E07218C
 P 5800 4150
 F 0 "R4" V 5900 4250 50  0000 C CNN
-F 1 "65R" V 6000 4250 50  0000 C CNN
+F 1 "68R" V 6000 4250 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 5730 4150 50  0001 C CNN
 F 3 "~" H 5800 4150 50  0001 C CNN
 	1    5800 4150
@@ -713,7 +713,7 @@ L Device:Resonator Y1
 U 1 1 5E1CC3C6
 P 5450 2800
 F 0 "Y1" V 5404 2911 50  0000 L CNN
-F 1 "12MHz" V 5495 2911 50  0000 L CNN
+F 1 "8MHz" V 5495 2911 50  0000 L CNN
 F 2 "Resonators:CSTNE12M0GH5L000R0" H 5425 2800 50  0001 C CNN
 F 3 "~" H 5425 2800 50  0001 C CNN
 	1    5450 2800
@@ -894,9 +894,9 @@ Wire Wire Line
 Wire Wire Line
 	10600 5350 10050 5350
 Text Label 10050 2850 0    50   ~ 0
-UART4_TX
+UART2_TX
 Text Label 10050 3000 0    50   ~ 0
-UART4_RX
+UART2_RX
 Text Label 10050 3700 0    50   ~ 0
 TIM3_CH1
 Text Label 10050 3850 0    50   ~ 0
@@ -968,11 +968,7 @@ Wire Notes Line
 Wire Notes Line
 	3050 6350 3050 5700
 Wire Notes Line
-	800  6700 5600 6700
-Wire Notes Line
 	6700 6700 6700 7500
-Wire Notes Line
-	5600 7500 800  7500
 Wire Notes Line
 	800  7500 800  6700
 Wire Notes Line
@@ -1075,23 +1071,20 @@ NoConn ~ 8150 1950
 NoConn ~ 8150 1850
 NoConn ~ 8150 1550
 NoConn ~ 8150 1450
-NoConn ~ 8150 1350
 Wire Wire Line
-	8150 1250 8750 1250
-Text Label 8300 1250 0    50   ~ 0
-ADC123_IN2
+	8150 1050 8750 1050
+Text Label 8400 1050 0    50   ~ 0
+ADC1_IN0
 Text HLabel 10600 5500 2    50   Input ~ 0
 FB_REF
 Wire Wire Line
 	10600 5500 10050 5500
-Text Label 10050 5500 0    50   ~ 0
-ADC123_IN2
 Wire Notes Line
 	10000 3400 10000 5600
 Wire Notes Line
 	10950 3400 10950 5600
 Text Notes 4750 6950 0    50   ~ 0
-3V3 Status\n(Blue)
+3V3 Status\n(Green)
 Text Notes 4750 4350 0    50   ~ 0
 User LED2\n(Orange)
 Text Notes 4100 7450 0    50   ~ 0
@@ -1157,4 +1150,11 @@ Wire Wire Line
 	5800 7050 5700 7050
 Wire Wire Line
 	4800 7050 5400 7050
+Wire Notes Line
+	800  6700 6700 6700
+Wire Notes Line
+	800  7500 6700 7500
+Text Label 10050 5500 0    50   ~ 0
+ADC1_IN0
+NoConn ~ 8150 1150
 $EndSCHEMATC
