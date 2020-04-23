@@ -296,7 +296,7 @@ Wire Wire Line
 Text Label 5500 1850 0    50   ~ 0
 GND
 Text Notes 5350 1950 0    50   ~ 0
-ESR < 2Ohms
+ESR < 2R
 $Comp
 L Device:C C13
 U 1 1 5E08383F
