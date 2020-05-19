@@ -201,49 +201,6 @@ Wire Wire Line
 	3000 5450 3000 5600
 Connection ~ 3000 5600
 NoConn ~ 6400 5200
-$Comp
-L Device:R R1
-U 1 1 5D815A64
-P 1350 6850
-F 0 "R1" H 1420 6896 50  0000 L CNN
-F 1 "10k" H 1420 6805 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1280 6850 50  0001 C CNN
-F 3 "~" H 1350 6850 50  0001 C CNN
-	1    1350 6850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R2
-U 1 1 5D815AD7
-P 1350 7250
-F 0 "R2" H 1420 7296 50  0000 L CNN
-F 1 "10k" H 1420 7205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1280 7250 50  0001 C CNN
-F 3 "~" H 1350 7250 50  0001 C CNN
-	1    1350 7250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1350 6500 1100 6500
-Wire Wire Line
-	1350 6500 1350 6700
-Wire Wire Line
-	1350 7000 1350 7050
-Wire Wire Line
-	1350 7050 1850 7050
-Connection ~ 1350 7050
-Wire Wire Line
-	1350 7050 1350 7100
-Wire Wire Line
-	1350 7400 1350 7550
-Wire Wire Line
-	1350 7550 1100 7550
-Text Label 1100 6500 0    50   ~ 0
-AVDD
-Text Label 1100 7550 0    50   ~ 0
-AVSS
-Text Label 1400 7050 0    50   ~ 0
-MID_SUPPLY
 Wire Wire Line
 	6000 3200 5900 3200
 Wire Wire Line
@@ -285,8 +242,6 @@ Wire Wire Line
 Wire Wire Line
 	5900 2950 5150 2950
 Connection ~ 5900 3200
-Text Label 5250 2950 0    50   ~ 0
-MID_SUPPLY
 $Comp
 L Device:C C9
 U 1 1 5D81EEFA
@@ -311,8 +266,6 @@ F 3 "~" H 7200 6100 50  0001 C CNN
 $EndComp
 NoConn ~ 7000 5200
 NoConn ~ 6800 5200
-Wire Wire Line
-	6600 6350 6900 6350
 Wire Wire Line
 	7200 6350 7200 6250
 Connection ~ 6900 6350
@@ -544,7 +497,7 @@ F 3 "~" H 6500 2550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6500 2850 6500 2700
+	6500 2850 6500 2800
 Wire Wire Line
 	6600 2850 6600 2400
 Wire Wire Line
@@ -595,46 +548,22 @@ Connection ~ 8750 3850
 Wire Wire Line
 	8750 3850 9150 3850
 $Comp
-L Device:C C11
-U 1 1 5D8EF63E
-P 6500 5850
-F 0 "C11" H 6300 5850 50  0000 L CNN
-F 1 "0.1uF" H 6250 5750 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6538 5700 50  0001 C CNN
-F 3 "~" H 6500 5850 50  0001 C CNN
-	1    6500 5850
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C13
 U 1 1 5D88301A
-P 6700 5850
-F 0 "C13" H 6815 5896 50  0000 L CNN
-F 1 "1uF" H 6815 5805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6738 5700 50  0001 C CNN
-F 3 "~" H 6700 5850 50  0001 C CNN
-	1    6700 5850
-	1    0    0    -1  
+P 6750 5850
+F 0 "C13" H 6865 5896 50  0000 L CNN
+F 1 "10uF" H 6865 5805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6788 5700 50  0001 C CNN
+F 3 "~" H 6750 5850 50  0001 C CNN
+	1    6750 5850
+	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6900 5200 6900 6350
-Wire Wire Line
-	6500 5700 6700 5700
+	6900 5200 6900 5850
 Wire Wire Line
 	6700 5200 6700 5700
-Connection ~ 6700 5700
-Wire Wire Line
-	6500 6000 6600 6000
-Wire Wire Line
-	6600 6000 6600 6350
-Connection ~ 6600 6000
-Wire Wire Line
-	6600 6000 6700 6000
-Wire Wire Line
-	6600 6350 5950 6350
 Wire Wire Line
 	5950 6350 5950 6250
-Connection ~ 6600 6350
 Wire Wire Line
 	5950 5950 5950 5650
 Wire Wire Line
@@ -709,12 +638,6 @@ Text Notes 6400 2300 0    50   ~ 0
 Right Leg Drive \nBias not used \nunder instruction \nfrom Psychology \nDepartment
 Text Notes 7950 4950 0    50   ~ 0
 All GPIO Pins pulled to GND, unused
-Text Notes 550  6400 0    79   ~ 0
-Mid-Supply Voltage Divider
-Wire Notes Line
-	550  6300 2250 6300
-Wire Notes Line
-	2250 7700 550  7700
 Text Label 7700 5450 0    50   ~ 0
 ~RESET_3V3
 Text Label 7150 6900 0    50   ~ 0
@@ -1410,10 +1333,6 @@ F 3 "" H 1650 5650 50  0001 C CNN
 	1    1650 5650
 	-1   0    0    1   
 $EndComp
-Wire Notes Line
-	2250 6300 2250 7700
-Wire Notes Line
-	550  6300 550  7700
 $Comp
 L Switch:SW_SPDT SW11
 U 1 1 5DDDA3D0
@@ -1611,27 +1530,6 @@ Wire Wire Line
 	2250 1050 2150 1050
 $Comp
 L Connector:Conn_01x02_Male J?
-U 1 1 5DBD0F05
-P 10100 1450
-AR Path="/5DBD0F05" Ref="J?"  Part="1" 
-AR Path="/5D7F9BD3/5DBD0F05" Ref="J14"  Part="1" 
-F 0 "J14" H 10072 1330 50  0000 R CNN
-F 1 "MID_SUPPLY_TP" H 10072 1421 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 1450 50  0001 C CNN
-F 3 "~" H 10100 1450 50  0001 C CNN
-	1    10100 1450
-	-1   0    0    1   
-$EndComp
-Text Label 9450 1350 0    50   ~ 0
-MID_SUPPLY
-Text Label 9450 1450 0    50   ~ 0
-DGND
-Wire Wire Line
-	9450 1350 9900 1350
-Wire Wire Line
-	9450 1450 9900 1450
-$Comp
-L Connector:Conn_01x02_Male J?
 U 1 1 5DBEC62D
 P 10100 1800
 AR Path="/5DBEC62D" Ref="J?"  Part="1" 
@@ -1807,27 +1705,26 @@ Wire Wire Line
 	10550 4700 9900 4700
 Text Label 9950 4700 0    50   ~ 0
 DVDD
-$Comp
-L Device:R R29
-U 1 1 5EECECE0
-P 8200 5250
-F 0 "R29" H 8270 5296 50  0000 L CNN
-F 1 "100k" H 8270 5205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 8130 5250 50  0001 C CNN
-F 3 "~" H 8200 5250 50  0001 C CNN
-	1    8200 5250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8200 5450 8200 5400
 Wire Wire Line
 	7600 5450 8200 5450
-Wire Wire Line
-	8200 5100 8200 5050
-Wire Wire Line
-	8200 5050 8550 5050
-Text Label 8200 5050 0    50   ~ 0
-DVDD
 Text Notes 8300 5450 0    50   ~ 0
-Weak Pull-Up While Level Shifter Stabilises
+Pulled Up By Level Shifter
+Wire Wire Line
+	6500 2800 6100 2800
+Connection ~ 6500 2800
+Wire Wire Line
+	6500 2800 6500 2700
+Text Label 6100 2800 0    50   ~ 0
+AVSS
+Connection ~ 6900 5850
+Wire Wire Line
+	6900 5850 6900 6350
+Wire Wire Line
+	6600 5700 6700 5700
+Wire Wire Line
+	6600 5850 6600 5700
+Wire Wire Line
+	5950 6350 6900 6350
+Text Label 5300 2950 0    50   ~ 0
+AVDD
 $EndSCHEMATC

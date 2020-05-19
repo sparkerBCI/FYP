@@ -592,9 +592,9 @@ Wire Wire Line
 	4600 5900 4900 5900
 Text Label 4750 5900 0    50   ~ 0
 GND
-Text Label 4200 4600 0    50   ~ 0
-MOSI_3V3
 Text Label 4200 4700 0    50   ~ 0
+MOSI_3V3
+Text Label 4200 4600 0    50   ~ 0
 MISO_3V3
 Text Label 4200 4800 0    50   ~ 0
 SCLK_3V3
@@ -620,9 +620,9 @@ Text Label 4200 4500 0    50   ~ 0
 ~CS_3V3
 Text Label 5850 4500 0    50   ~ 0
 ~CS_5V
-Text Label 5850 4600 0    50   ~ 0
-MOSI_5V
 Text Label 5850 4700 0    50   ~ 0
+MOSI_5V
+Text Label 5850 4600 0    50   ~ 0
 MISO_5V
 Text Label 5850 4800 0    50   ~ 0
 SCLK_5V
