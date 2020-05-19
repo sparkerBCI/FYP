@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['daisy_5fchain_5fmode_5ft_431',['Daisy_Chain_Mode_t',['../_a_d_s1299___params_8h.html#a46f2693e65fd5368a69e0102016447db',1,'ADS1299_Params.h']]],
-  ['data_5frate_5fsetting_5ft_432',['Data_Rate_Setting_t',['../_a_d_s1299___params_8h.html#ad424eb8e25c9261b9fa4af8e9b53e2c6',1,'ADS1299_Params.h']]]
+  ['daisy_5fchain_5fmode_5ft_456',['Daisy_Chain_Mode_t',['../_a_d_s1299___params_8h.html#a5a00b583d848f17ff44e01887967df14',1,'ADS1299_Params.h']]],
+  ['data_5frate_5fsetting_5ft_457',['Data_Rate_Setting_t',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1',1,'ADS1299_Params.h']]]
 ];

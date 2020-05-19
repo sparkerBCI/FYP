@@ -14,14 +14,16 @@ This file holds the \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+
 class \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}}
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} facilitates communication to and control of the A\+DC device. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_a_d_s1299___module_1_1_reg___array__t}{A\+D\+S1299\+\_\+\+Module\+::\+Reg\+\_\+\+Array\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em This struct contains information about a register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct contains information about a register. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_a_d_s1299___module_1_1_param___array__t}{A\+D\+S1299\+\_\+\+Module\+::\+Param\+\_\+\+Array\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em This struct contains information about a parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{_a_d_s1299_8h_a89b71fa3cd544d8233116464ea913ebb}{N\+O\+\_\+\+S\+PI}}
-\begin{DoxyCompactList}\small\item\em This is defined if we don\textquotesingle{}t want to communicate to the A\+D\+S1299 over S\+PI. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}{R\+E\+G\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~\{ a, b, c, d, d, e \},
-\begin{DoxyCompactList}\small\item\em This macro generates an array of Reg\+\_\+\+Array\+\_\+t entries, and sets the current value of the registers to their default value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This macro generates an array of Reg\+\_\+\+Array\+\_\+t entries, and sets the current value of the registers to their default value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_d_s1299_8h_a41828fbdf78bdcdae8c77bcabd489ee7}{P\+A\+R\+A\+M\+\_\+\+E\+N\+T\+RY}}(a,  b,  c)~\{ a, b, c \},
+\begin{DoxyCompactList}\small\item\em This macro generates an array of Param\+\_\+\+Array\+\_\+t entries. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -39,17 +41,17 @@ Copyright (c) Sam Parker 2020 ~\newline
  All rights reserved. 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{_a_d_s1299_8h_a89b71fa3cd544d8233116464ea913ebb}\label{_a_d_s1299_8h_a89b71fa3cd544d8233116464ea913ebb}} 
-\index{ADS1299.h@{ADS1299.h}!NO\_SPI@{NO\_SPI}}
-\index{NO\_SPI@{NO\_SPI}!ADS1299.h@{ADS1299.h}}
-\doxysubsubsection{\texorpdfstring{NO\_SPI}{NO\_SPI}}
-{\footnotesize\ttfamily \#define N\+O\+\_\+\+S\+PI}
+\mbox{\Hypertarget{_a_d_s1299_8h_a41828fbdf78bdcdae8c77bcabd489ee7}\label{_a_d_s1299_8h_a41828fbdf78bdcdae8c77bcabd489ee7}} 
+\index{ADS1299.h@{ADS1299.h}!PARAM\_ENTRY@{PARAM\_ENTRY}}
+\index{PARAM\_ENTRY@{PARAM\_ENTRY}!ADS1299.h@{ADS1299.h}}
+\doxysubsubsection{\texorpdfstring{PARAM\_ENTRY}{PARAM\_ENTRY}}
+{\footnotesize\ttfamily \#define P\+A\+R\+A\+M\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~\{ a, b, c \},}
 
 
 
-This is defined if we don\textquotesingle{}t want to communicate to the A\+D\+S1299 over S\+PI. 
+This macro generates an array of Param\+\_\+\+Array\+\_\+t entries. 
 
-Remove this to communicate \mbox{\Hypertarget{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}\label{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}} 
+\mbox{\Hypertarget{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}\label{_a_d_s1299_8h_a8223fb9a78f63793ee7b20b64d964e70}} 
 \index{ADS1299.h@{ADS1299.h}!REG\_ENTRY@{REG\_ENTRY}}
 \index{REG\_ENTRY@{REG\_ENTRY}!ADS1299.h@{ADS1299.h}}
 \doxysubsubsection{\texorpdfstring{REG\_ENTRY}{REG\_ENTRY}}

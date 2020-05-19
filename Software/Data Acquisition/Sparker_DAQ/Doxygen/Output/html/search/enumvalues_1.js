@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['bias_5fconnected_449',['BIAS_CONNECTED',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00a01ae67b9bde845425531cb387aa476da',1,'ADS1299_Params.h']]],
-  ['bias_5fdisconnected_450',['BIAS_DISCONNECTED',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00a501dbfff1f688f49158651942771d2a3',1,'ADS1299_Params.h']]],
-  ['bias_5ferror_451',['BIAS_ERROR',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96a3cc2205c6203e2b2db295b6392de00b6',1,'ADS1299_Params.h']]],
-  ['bias_5fexternal_452',['BIAS_EXTERNAL',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96a84acdfe95fbe89e3c1d55bbdd871982c',1,'ADS1299_Params.h']]],
-  ['bias_5finternal_453',['BIAS_INTERNAL',['../_a_d_s1299___params_8h.html#aa1200e72ca5cc974be2312a066ac1d96a407f0dcecdca56940a72e303d8809187',1,'ADS1299_Params.h']]],
-  ['bias_5floff_5ferror_454',['BIAS_LOFF_ERROR',['../_a_d_s1299___params_8h.html#ab081f368191da968404402a779b45d00ad23a8fdbc1ffb88c46dfdf1992baa143',1,'ADS1299_Params.h']]],
-  ['bias_5fpower_5ferror_455',['BIAS_POWER_ERROR',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8adfdcfeb1909ccad72428845fa8ce8bfe',1,'ADS1299_Params.h']]],
-  ['bias_5fpower_5foff_456',['BIAS_POWER_OFF',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8a38cd127f918d9046fda391fe590e5e88',1,'ADS1299_Params.h']]],
-  ['bias_5fpower_5fon_457',['BIAS_POWER_ON',['../_a_d_s1299___params_8h.html#a62cb448baaeead1b9013065e5b74dca8a8ea4c493ec83075e02ac7ef0b9385abd',1,'ADS1299_Params.h']]],
-  ['bias_5fsense_5fdisabled_458',['BIAS_SENSE_DISABLED',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654faddd34d95d56886fbd12e64c8ef069b99',1,'ADS1299_Params.h']]],
-  ['bias_5fsense_5fenabled_459',['BIAS_SENSE_ENABLED',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654faa25fff30b67a847b0e5a7c41c910de21',1,'ADS1299_Params.h']]],
-  ['bias_5fsense_5ferror_460',['BIAS_SENSE_ERROR',['../_a_d_s1299___params_8h.html#ad684f558ec7e8820ac02e8065e9e654fa9f8143a8066ee77c928181c3c85a1da4',1,'ADS1299_Params.h']]]
+  ['bias_5fconnected_476',['BIAS_CONNECTED',['../_a_d_s1299___params_8h.html#abfff3c813c9e685582de4b6aa3b747aca01ae67b9bde845425531cb387aa476da',1,'ADS1299_Params.h']]],
+  ['bias_5fdisconnected_477',['BIAS_DISCONNECTED',['../_a_d_s1299___params_8h.html#abfff3c813c9e685582de4b6aa3b747aca501dbfff1f688f49158651942771d2a3',1,'ADS1299_Params.h']]],
+  ['bias_5ferror_478',['BIAS_ERROR',['../_a_d_s1299___params_8h.html#a47ecaaabed43435f5c17ade1be51bbc0a3cc2205c6203e2b2db295b6392de00b6',1,'ADS1299_Params.h']]],
+  ['bias_5fexternal_479',['BIAS_EXTERNAL',['../_a_d_s1299___params_8h.html#a47ecaaabed43435f5c17ade1be51bbc0a84acdfe95fbe89e3c1d55bbdd871982c',1,'ADS1299_Params.h']]],
+  ['bias_5finternal_480',['BIAS_INTERNAL',['../_a_d_s1299___params_8h.html#a47ecaaabed43435f5c17ade1be51bbc0a407f0dcecdca56940a72e303d8809187',1,'ADS1299_Params.h']]],
+  ['bias_5floff_5ferror_481',['BIAS_LOFF_ERROR',['../_a_d_s1299___params_8h.html#abfff3c813c9e685582de4b6aa3b747acad23a8fdbc1ffb88c46dfdf1992baa143',1,'ADS1299_Params.h']]],
+  ['bias_5fpower_5ferror_482',['BIAS_POWER_ERROR',['../_a_d_s1299___params_8h.html#a6f15d9be6e0e8c8db26cfa3e2ff41c10adfdcfeb1909ccad72428845fa8ce8bfe',1,'ADS1299_Params.h']]],
+  ['bias_5fpower_5foff_483',['BIAS_POWER_OFF',['../_a_d_s1299___params_8h.html#a6f15d9be6e0e8c8db26cfa3e2ff41c10a38cd127f918d9046fda391fe590e5e88',1,'ADS1299_Params.h']]],
+  ['bias_5fpower_5fon_484',['BIAS_POWER_ON',['../_a_d_s1299___params_8h.html#a6f15d9be6e0e8c8db26cfa3e2ff41c10a8ea4c493ec83075e02ac7ef0b9385abd',1,'ADS1299_Params.h']]],
+  ['bias_5fsense_5fdisabled_485',['BIAS_SENSE_DISABLED',['../_a_d_s1299___params_8h.html#a08b98cfdd58aa41c3e6ae12028069094addd34d95d56886fbd12e64c8ef069b99',1,'ADS1299_Params.h']]],
+  ['bias_5fsense_5fenabled_486',['BIAS_SENSE_ENABLED',['../_a_d_s1299___params_8h.html#a08b98cfdd58aa41c3e6ae12028069094aa25fff30b67a847b0e5a7c41c910de21',1,'ADS1299_Params.h']]],
+  ['bias_5fsense_5ferror_487',['BIAS_SENSE_ERROR',['../_a_d_s1299___params_8h.html#a08b98cfdd58aa41c3e6ae12028069094a9f8143a8066ee77c928181c3c85a1da4',1,'ADS1299_Params.h']]]
 ];

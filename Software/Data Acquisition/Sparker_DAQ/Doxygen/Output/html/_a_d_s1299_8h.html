@@ -61,6 +61,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_404545fd387010b9dce490a4bde6a0d4.html">Willie</a></li><li class="navelem"><a class="el" href="dir_e40e70a93f45da157a14ead37e3189b0.html">Documents</a></li><li class="navelem"><a class="el" href="dir_c615b3451cdc2742b3c315f685fcd596.html">Uni</a></li><li class="navelem"><a class="el" href="dir_9ca4c0c568138391c5228db867786fc5.html">Newcastle</a></li><li class="navelem"><a class="el" href="dir_cf1f2230d279f6f979b3f488e9f54fd1.html">4 Fourth Year</a></li><li class="navelem"><a class="el" href="dir_f3398bc4ed7fb9a7220b97914252664f.html">1 Final Year Project</a></li><li class="navelem"><a class="el" href="dir_ec461fa3e97160dd23567a05de86faaa.html">trunk</a></li><li class="navelem"><a class="el" href="dir_15ebdf74d0dab7796b662255101ffbbb.html">Software</a></li><li class="navelem"><a class="el" href="dir_be754c30f7b76bfb77bdb398e0a3c2fe.html">Data Acquisition</a></li><li class="navelem"><a class="el" href="dir_570151b2e4701aee2761e21dbed4d074.html">Sparker_DAQ</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -87,15 +91,18 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_d_s1299___module_1_1_reg___array__t.html">ADS1299_Module::Reg_Array_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct contains information about a register.  <a href="struct_a_d_s1299___module_1_1_reg___array__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_d_s1299___module_1_1_param___array__t.html">ADS1299_Module::Param_Array_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct contains information about a parameter.  <a href="struct_a_d_s1299___module_1_1_param___array__t.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a89b71fa3cd544d8233116464ea913ebb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299_8h.html#a89b71fa3cd544d8233116464ea913ebb">NO_SPI</a></td></tr>
-<tr class="memdesc:a89b71fa3cd544d8233116464ea913ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is defined if we don't want to communicate to the ADS1299 over SPI.  <a href="_a_d_s1299_8h.html#a89b71fa3cd544d8233116464ea913ebb">More...</a><br /></td></tr>
-<tr class="separator:a89b71fa3cd544d8233116464ea913ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8223fb9a78f63793ee7b20b64d964e70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299_8h.html#a8223fb9a78f63793ee7b20b64d964e70">REG_ENTRY</a>(a,  b,  c,  d,  e)&#160;&#160;&#160;{ a, b, c, d, d, e },</td></tr>
 <tr class="memdesc:a8223fb9a78f63793ee7b20b64d964e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value.  <a href="_a_d_s1299_8h.html#a8223fb9a78f63793ee7b20b64d964e70">More...</a><br /></td></tr>
 <tr class="separator:a8223fb9a78f63793ee7b20b64d964e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41828fbdf78bdcdae8c77bcabd489ee7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_s1299_8h.html#a41828fbdf78bdcdae8c77bcabd489ee7">PARAM_ENTRY</a>(a,  b,  c)&#160;&#160;&#160;{ a, b, c },</td></tr>
+<tr class="memdesc:a41828fbdf78bdcdae8c77bcabd489ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro generates an array of Param_Array_t entries.  <a href="_a_d_s1299_8h.html#a41828fbdf78bdcdae8c77bcabd489ee7">More...</a><br /></td></tr>
+<tr class="separator:a41828fbdf78bdcdae8c77bcabd489ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file holds the <a class="el" href="class_a_d_s1299___module.html" title="The ADS1299_Module facilitates communication to and control of the ADC device.">ADS1299_Module</a> class function declarations. </p>
@@ -105,20 +112,39 @@ Macros</h2></td></tr>
 <p>Copyright (c) Sam Parker 2020 <br  />
  All rights reserved. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a89b71fa3cd544d8233116464ea913ebb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89b71fa3cd544d8233116464ea913ebb">&#9670;&nbsp;</a></span>NO_SPI</h2>
+<a id="a41828fbdf78bdcdae8c77bcabd489ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41828fbdf78bdcdae8c77bcabd489ee7">&#9670;&nbsp;</a></span>PARAM_ENTRY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NO_SPI</td>
+          <td class="memname">#define PARAM_ENTRY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">c&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;{ a, b, c },</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This is defined if we don't want to communicate to the ADS1299 over SPI. </p>
-<p>Remove this to communicate </p>
+<p>This macro generates an array of Param_Array_t entries. </p>
 
 </div>
 </div>

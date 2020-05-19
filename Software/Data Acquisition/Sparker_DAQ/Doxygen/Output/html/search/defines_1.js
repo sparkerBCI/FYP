@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['no_5fspi_559',['NO_SPI',['../_a_d_s1299_8h.html#a89b71fa3cd544d8233116464ea913ebb',1,'ADS1299.h']]]
+  ['max_5fadc_5fchannels_592',['MAX_ADC_CHANNELS',['../_serial___module_8h.html#a08daee1483e4da843c7116aaf2542529',1,'Serial_Module.h']]]
 ];

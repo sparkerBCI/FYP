@@ -5,10 +5,10 @@ var indexSectionsWithContent =
   2: "ads",
   3: "adeglprstuw",
   4: "abcdghimnprsv",
-  5: "abcdglprst",
-  6: "abcdglprst",
+  5: "abcdglnprst",
+  6: "abcdglnprst",
   7: "abcdglmnprstw",
-  8: "mnprv",
+  8: "dmprv",
   9: "t"
 };
 

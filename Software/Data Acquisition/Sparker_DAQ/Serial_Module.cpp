@@ -103,12 +103,20 @@ bool Serial_Module::send_sample(Sample_Data_t input_sample)
     warningMsg("Serial not available!");
     return false;
   }
+
+  if (sample_num != (DECEMATION_ORDER - 1))
+  {
+    sample_num++;
+    return true;
+  }
+
   Serial.print(input_sample.id);
   for (uint8_t i = 0; i < MAX_ADC_CHANNELS; i++)
   {
     Serial.print(input_sample.Channel_Data[i]);
   }
   Serial.print('\n');
+  sample_num = 0;
   return true;
 }
 
@@ -130,9 +138,16 @@ bool Serial_Module::send_single_channel_sample(Sample_Data_t input_sample)
     warningMsg("Serial not available!");
     return false;
   }
+  if (sample_num != (DECEMATION_ORDER - 1))
+  {
+    sample_num++;
+    return true;
+  }
+
   Serial.print(input_sample.id);
   Serial.print(input_sample.Channel_Data[0]);
   Serial.print('\n');
+  sample_num = 0;
   return true;
 }
 

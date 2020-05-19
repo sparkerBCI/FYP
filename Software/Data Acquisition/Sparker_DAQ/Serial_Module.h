@@ -21,6 +21,7 @@
 #include <Arduino.h>
 
 #define MAX_ADC_CHANNELS    8                                                  /**< The maximum number of channels to send over the serial interface */
+#define DECEMATION_ORDER    1                                                  /**< Decemate the signal to send every DECEMATION_ORDERth sample. 1 to send every sample, 2 to send every 2nd sample */
 
 /*! ******************************************************************************************
  *  @brief This structure holds all the info to transmit for a single sample.
@@ -117,6 +118,9 @@ public:
 
   bool debug_enabled = false;                                                  /**< A flag to enable debug messages if messages are enabled */
   bool msg_enabled   = false;                                                  /**< A flag to enable messages on the serial bus */
+
+private:
+  uint32_t sample_num = 0;                                                     /**< The number sample processed and ready to send since the last sample was sent. Resets to 0 after a sample is sent. To facilitate decimation */
 };
 
 #endif
