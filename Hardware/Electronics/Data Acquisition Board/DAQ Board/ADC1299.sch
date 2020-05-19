@@ -325,8 +325,6 @@ Using internal 4.5V Reference, \nso short VREFN to AVSS
 Text Notes 3050 5900 0    50   ~ 0
 Referred Montage: All electrodes will be referenced to reference electrode. \nNegative electrode inputs are unused, set to mid-supply. \nMAKE SURE CORRECT REGISTERS ARE SET IN SOFTWARE!
 Wire Wire Line
-	7950 5450 7600 5450
-Wire Wire Line
 	7600 5450 7600 5200
 $Comp
 L Device:R R12
@@ -381,18 +379,18 @@ Wire Wire Line
 Wire Wire Line
 	8000 4650 8250 4650
 Text Label 8050 4650 0    50   ~ 0
-MOSI
+MOSI_3V3
 Wire Wire Line
 	8000 4550 8250 4550
 Text Label 8050 4550 0    50   ~ 0
-START
+START_3V3
 NoConn ~ 8000 4450
 Text Label 8050 4350 0    50   ~ 0
-~CS
+~CS_3V3
 Wire Wire Line
 	8000 4250 8250 4250
 Text Label 8050 4250 0    50   ~ 0
-SCLK
+SCLK_3V3
 $Comp
 L Device:R R14
 U 1 1 5D84E32C
@@ -408,7 +406,7 @@ $Comp
 L Device:R R15
 U 1 1 5D85014F
 P 8850 4050
-F 0 "R15" V 8750 3900 50  0000 C CNN
+F 0 "R15" V 8950 4050 50  0000 C CNN
 F 1 "33k" V 8750 4150 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 8780 4050 50  0001 C CNN
 F 3 "~" H 8850 4050 50  0001 C CNN
@@ -433,12 +431,12 @@ DGND
 Wire Wire Line
 	8000 3950 8250 3950
 Text Label 8050 3950 0    50   ~ 0
-MISO
+MISO_3V3
 $Comp
 L Device:R R13
 U 1 1 5D85C47A
 P 8450 3850
-F 0 "R13" V 8350 3700 50  0000 C CNN
+F 0 "R13" V 8550 3850 50  0000 C CNN
 F 1 "33k" V 8350 3950 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 8380 3850 50  0001 C CNN
 F 3 "~" H 8450 3850 50  0001 C CNN
@@ -455,7 +453,7 @@ Connection ~ 9150 4050
 Wire Wire Line
 	8000 3750 8250 3750
 Text Label 8050 3750 0    50   ~ 0
-~DRDY
+~DRDY_3V3
 Text Label 8550 3450 0    50   ~ 0
 DVDD
 Wire Wire Line
@@ -718,9 +716,9 @@ Wire Notes Line
 Wire Notes Line
 	2250 7700 550  7700
 Text Label 7700 5450 0    50   ~ 0
-~RESET
+~RESET_3V3
 Text Label 7150 6900 0    50   ~ 0
-~PWDN
+~PWDN_3V3
 Text Notes 9600 2700 0    79   ~ 0
 Control and Data Lines
 Text Notes 8250 700  0    98   ~ 20
@@ -750,17 +748,17 @@ Wire Wire Line
 Wire Wire Line
 	10500 3450 9850 3450
 Text Label 9900 2850 0    50   ~ 0
-MOSI
+MOSI_3V3
 Text Label 9900 2950 0    50   ~ 0
-MISO
+MISO_3V3
 Text Label 9900 3050 0    50   ~ 0
-SCLK
+SCLK_3V3
 Text Label 9900 3150 0    50   ~ 0
-~CS
+~CS_3V3
 Text Label 9900 3350 0    50   ~ 0
-START
+START_3V3
 Text Label 9900 3450 0    50   ~ 0
-~DRDY
+~DRDY_3V3
 Wire Notes Line
 	9550 2550 11050 2550
 Wire Notes Line
@@ -786,9 +784,9 @@ Wire Wire Line
 Wire Wire Line
 	10500 3650 9850 3650
 Text Label 9900 3550 0    50   ~ 0
-~PWDN
+~PWDN_3V3
 Text Label 9900 3650 0    50   ~ 0
-~RESET
+~RESET_3V3
 Wire Notes Line
 	9550 2550 9550 3750
 Wire Notes Line
@@ -1803,4 +1801,33 @@ F 3 "~" H 700 3800 50  0001 C CNN
 	1    700  3800
 	1    0    0    -1  
 $EndComp
+Text HLabel 10550 4700 2    50   Input ~ 0
+3V3
+Wire Wire Line
+	10550 4700 9900 4700
+Text Label 9950 4700 0    50   ~ 0
+DVDD
+$Comp
+L Device:R R29
+U 1 1 5EECECE0
+P 8200 5250
+F 0 "R29" H 8270 5296 50  0000 L CNN
+F 1 "100k" H 8270 5205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 8130 5250 50  0001 C CNN
+F 3 "~" H 8200 5250 50  0001 C CNN
+	1    8200 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8200 5450 8200 5400
+Wire Wire Line
+	7600 5450 8200 5450
+Wire Wire Line
+	8200 5100 8200 5050
+Wire Wire Line
+	8200 5050 8550 5050
+Text Label 8200 5050 0    50   ~ 0
+DVDD
+Text Notes 8300 5450 0    50   ~ 0
+Weak Pull-Up While Level Shifter Stabilises
 $EndSCHEMATC

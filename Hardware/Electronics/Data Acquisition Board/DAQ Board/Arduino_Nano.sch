@@ -210,30 +210,29 @@ Wire Wire Line
 Wire Wire Line
 	4150 2400 4600 2400
 Wire Wire Line
-	4150 2600 4600 2600
+	4150 4250 4600 4250
 Wire Wire Line
 	4150 3950 4600 3950
 Wire Wire Line
 	4150 4050 4600 4050
-Text Label 4400 2600 0    50   ~ 0
-~CS
+Text Label 4400 4250 0    50   ~ 0
+~CS_5V
 Text Label 4400 2400 0    50   ~ 0
-MOSI
+MOSI_5V
 Text Label 4400 2300 0    50   ~ 0
-MISO
+MISO_5V
 Text Label 4400 2200 0    50   ~ 0
-SCLK
+SCLK_5V
 Text Label 4400 3950 0    50   ~ 0
-START
+START_5V
 Text Label 4400 4050 0    50   ~ 0
-~DRDY
+~DRDY_5V
 Wire Wire Line
 	4150 4150 4600 4150
 Text Label 4400 4150 0    50   ~ 0
-~PWDN
+~PWDN_5V
 NoConn ~ 2950 4450
 NoConn ~ 2950 4550
-NoConn ~ 4150 4350
 NoConn ~ 4150 3600
 NoConn ~ 4150 3500
 NoConn ~ 4150 3400
@@ -664,38 +663,31 @@ Text Notes 7700 4200 0    79   ~ 0
 Wire Notes Line
 	7600 4050 9050 4050
 Wire Notes Line
-	9050 4050 9050 4900
-Wire Notes Line
-	7600 4900 7600 4050
-Wire Notes Line
 	7600 4900 9050 4900
-NoConn ~ 4150 4250
 $Comp
 L Device:R R23
 U 1 1 5D8CFFD5
-P 4450 2700
-F 0 "R23" V 4650 2600 50  0000 L CNN
-F 1 "100" V 4550 2600 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4380 2700 50  0001 C CNN
-F 3 "~" H 4450 2700 50  0001 C CNN
-	1    4450 2700
+P 4450 4350
+F 0 "R23" V 4500 4100 50  0000 L CNN
+F 1 "100" V 4550 4250 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4380 4350 50  0001 C CNN
+F 3 "~" H 4450 4350 50  0001 C CNN
+	1    4450 4350
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:LED D5
 U 1 1 5D8CFFDE
-P 4850 2950
-F 0 "D5" V 4850 2850 50  0000 R CNN
-F 1 "LTST-C191KGKT" V 4950 2900 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric" H 4850 2950 50  0001 C CNN
-F 3 "~" H 4850 2950 50  0001 C CNN
-	1    4850 2950
-	0    -1   -1   0   
+P 5100 4350
+F 0 "D5" H 5300 4250 50  0000 R CNN
+F 1 "LTST-C191KGKT" H 5450 4450 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 5100 4350 50  0001 C CNN
+F 3 "~" H 5100 4350 50  0001 C CNN
+	1    5100 4350
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	4300 2700 4150 2700
-Wire Wire Line
-	4600 2700 4850 2700
+	4300 4350 4150 4350
 $Comp
 L Device:C C48
 U 1 1 5D92B221
@@ -970,10 +962,10 @@ Text Label 8400 5900 0    50   ~ 0
 ~PWDN
 Text Label 8400 6000 0    50   ~ 0
 RESET
-Text Label 8400 6150 0    50   ~ 0
-TX
-Text Label 8400 6250 0    50   ~ 0
-RX
+Text Label 8300 6150 0    50   ~ 0
+SS_TX
+Text Label 8300 6250 0    50   ~ 0
+SS_RX
 Text Notes 6000 5150 0    79   ~ 0
 Power Connections
 Text Notes 7700 5150 0    79   ~ 0
@@ -1008,10 +1000,6 @@ Wire Notes Line
 	7250 5000 7250 5750
 Wire Notes Line
 	5800 5000 5800 5750
-Wire Notes Line
-	9050 5000 9050 6450
-Wire Notes Line
-	7600 5000 7600 6450
 Wire Wire Line
 	10100 5450 10100 5550
 Wire Wire Line
@@ -1020,7 +1008,7 @@ Wire Wire Line
 	10100 5050 10450 5050
 Text Notes 4450 2050 0    39   ~ 0
 5V Supply driving 2V LED, so \n3V drop across resistor. \nI = 20mA. R = V/I = 2 / 20m \n= 100 Ohms
-Text Notes 5000 2650 0    50   ~ 0
+Text Notes 5350 4200 2    50   ~ 0
 STATUS\n(Green)
 $Comp
 L Device:LED D6
@@ -1068,12 +1056,8 @@ F 3 "" H 10100 5450 50  0001 C CNN
 $EndComp
 Connection ~ 10100 5050
 Wire Wire Line
-	4850 2700 4850 2800
-Wire Wire Line
-	4850 3100 4850 3300
-Wire Wire Line
-	4850 3300 5000 3300
-Text Label 4850 3300 0    50   ~ 0
+	5250 4350 5400 4350
+Text Label 5250 4350 0    50   ~ 0
 GND
 NoConn ~ 4150 4450
 $Comp
@@ -1143,4 +1127,24 @@ Wire Notes Line
 	9400 5900 11100 5900
 Wire Notes Line
 	9400 4050 9400 5900
+Wire Wire Line
+	4600 4350 4950 4350
+Wire Wire Line
+	4150 2600 4600 2600
+Wire Wire Line
+	4150 2700 4600 2700
+Text Label 4400 2600 0    50   ~ 0
+SS_TX
+Text Label 4400 2700 0    50   ~ 0
+SS_RX
+Text Notes 4650 2700 0    39   ~ 0
+Software Serial
+Wire Notes Line
+	9050 5000 9050 6450
+Wire Notes Line
+	7600 5000 7600 6450
+Wire Notes Line
+	9050 4050 9050 4900
+Wire Notes Line
+	7600 4900 7600 4050
 $EndSCHEMATC
