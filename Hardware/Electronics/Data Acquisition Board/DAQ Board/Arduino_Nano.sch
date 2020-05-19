@@ -200,9 +200,9 @@ GND
 Wire Wire Line
 	2950 2250 2500 2250
 Text Label 10250 5050 0    50   ~ 0
-RESET
+RESET_5V
 Text Label 2550 2250 0    50   ~ 0
-RESET
+RESET_5V
 Wire Wire Line
 	4150 2200 4600 2200
 Wire Wire Line
@@ -605,28 +605,16 @@ F 3 "~" H 6450 4650 50  0001 C CNN
 	1    6450 4650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6750 4550 6950 4550
-Wire Wire Line
-	6750 4650 6950 4650
-Wire Wire Line
-	6750 4750 6950 4750
-Wire Wire Line
-	6250 4550 6050 4550
-Wire Wire Line
-	6250 4650 6050 4650
-Wire Wire Line
-	6250 4750 6050 4750
-Text Label 6050 4550 0    50   ~ 0
-MISO
-Text Label 6050 4650 0    50   ~ 0
-SCLK
-Text Label 6050 4750 0    50   ~ 0
-RESET
+Text Label 5900 4550 0    50   ~ 0
+MISO_5V
+Text Label 5900 4650 0    50   ~ 0
+SCLK_5V
+Text Label 5900 4750 0    50   ~ 0
+RESET_5V
 Text Label 6800 4550 0    50   ~ 0
 +5V
 Text Label 6750 4650 0    50   ~ 0
-MOSI
+MOSI_5V
 Text Label 6800 4750 0    50   ~ 0
 GND
 Text Notes 5900 4200 0    79   ~ 0
@@ -913,31 +901,15 @@ Text HLabel 8600 5800 2    50   Input ~ 0
 Text HLabel 8600 5900 2    50   Input ~ 0
 ~PWDN
 Text HLabel 8600 6150 2    50   Input ~ 0
-TX
+SS_TX
 Text HLabel 8600 6250 2    50   Input ~ 0
-RX
+SS_RX
 Text HLabel 8600 6000 2    50   Input ~ 0
 ~RESET
 Text HLabel 6950 5350 2    50   Input ~ 0
 VIN
 Text HLabel 6950 5500 2    50   Input ~ 0
 GND
-Wire Wire Line
-	8600 5250 8350 5250
-Wire Wire Line
-	8600 5350 8350 5350
-Wire Wire Line
-	8600 5450 8350 5450
-Wire Wire Line
-	8600 5550 8350 5550
-Wire Wire Line
-	8600 5700 8350 5700
-Wire Wire Line
-	8600 5800 8350 5800
-Wire Wire Line
-	8600 5900 8350 5900
-Wire Wire Line
-	8600 6000 8350 6000
 Wire Wire Line
 	6950 5350 6700 5350
 Wire Wire Line
@@ -946,25 +918,25 @@ Text Label 6750 5350 0    50   ~ 0
 VIN
 Text Label 6750 5500 0    50   ~ 0
 GND
-Text Label 8400 5250 0    50   ~ 0
-MOSI
-Text Label 8400 5350 0    50   ~ 0
-MISO
-Text Label 8400 5450 0    50   ~ 0
-~CS
-Text Label 8400 5550 0    50   ~ 0
-SCLK
-Text Label 8400 5700 0    50   ~ 0
-START
-Text Label 8400 5800 0    50   ~ 0
-~DRDY
-Text Label 8400 5900 0    50   ~ 0
-~PWDN
-Text Label 8400 6000 0    50   ~ 0
-RESET
-Text Label 8300 6150 0    50   ~ 0
+Text Label 8200 5250 0    50   ~ 0
+MOSI_5V
+Text Label 8200 5350 0    50   ~ 0
+MISO_5V
+Text Label 8200 5450 0    50   ~ 0
+~CS_5V
+Text Label 8200 5550 0    50   ~ 0
+SCLK_5V
+Text Label 8200 5700 0    50   ~ 0
+START_5V
+Text Label 8200 5800 0    50   ~ 0
+~DRDY_5V
+Text Label 8200 5900 0    50   ~ 0
+~PWDN_5V
+Text Label 8200 6000 0    50   ~ 0
+RESET_5V
+Text Label 8200 6150 0    50   ~ 0
 SS_TX
-Text Label 8300 6250 0    50   ~ 0
+Text Label 8200 6250 0    50   ~ 0
 SS_RX
 Text Notes 6000 5150 0    79   ~ 0
 Power Connections
@@ -978,11 +950,11 @@ Wire Notes Line
 	7600 5000 9050 5000
 Wire Notes Line
 	9050 6450 7600 6450
-Text Notes 7950 5450 0    50   ~ 0
+Text Notes 7800 5450 0    50   ~ 0
 SPI
-Text Notes 7800 5850 0    50   ~ 0
+Text Notes 7650 5850 0    50   ~ 0
 ADC Control
-Text Notes 7950 6250 0    50   ~ 0
+Text Notes 7750 6250 0    50   ~ 0
 UART
 Text Notes 5950 5350 0    50   ~ 0
 +6.3V - +15V
@@ -1004,8 +976,6 @@ Wire Wire Line
 	10100 5450 10100 5550
 Wire Wire Line
 	10100 5050 10100 4950
-Wire Wire Line
-	10100 5050 10450 5050
 Text Notes 4450 2050 0    39   ~ 0
 5V Supply driving 2V LED, so \n3V drop across resistor. \nI = 20mA. R = V/I = 2 / 20m \n= 100 Ohms
 Text Notes 5350 4200 2    50   ~ 0
@@ -1039,10 +1009,6 @@ Wire Wire Line
 	10800 1900 10800 2550
 Text Notes 6900 2250 0    50   ~ 0
 500mA
-Wire Wire Line
-	8250 6250 8600 6250
-Wire Wire Line
-	8250 6150 8600 6150
 $Comp
 L My_Switch:TE-1825910-6 PB1
 U 1 1 5E30B56D
@@ -1098,7 +1064,7 @@ Connection ~ 2850 7050
 Wire Wire Line
 	2850 7050 2900 7050
 Text Label 10200 2400 0    50   ~ 0
-RESET
+RESET_5V
 $Comp
 L Device:C C62
 U 1 1 5E0B8F4F
@@ -1147,4 +1113,38 @@ Wire Notes Line
 	9050 4050 9050 4900
 Wire Notes Line
 	7600 4900 7600 4050
+Wire Wire Line
+	5900 4750 6250 4750
+Wire Wire Line
+	5900 4650 6250 4650
+Wire Wire Line
+	5900 4550 6250 4550
+Wire Wire Line
+	6750 4650 7100 4650
+Wire Wire Line
+	6750 4550 7100 4550
+Wire Wire Line
+	6750 4750 7100 4750
+Wire Wire Line
+	8150 6150 8600 6150
+Wire Wire Line
+	8150 6250 8600 6250
+Wire Wire Line
+	8150 6000 8600 6000
+Wire Wire Line
+	8150 5900 8600 5900
+Wire Wire Line
+	8150 5800 8600 5800
+Wire Wire Line
+	8150 5700 8600 5700
+Wire Wire Line
+	8150 5550 8600 5550
+Wire Wire Line
+	8150 5450 8600 5450
+Wire Wire Line
+	8150 5350 8600 5350
+Wire Wire Line
+	8150 5250 8600 5250
+Wire Wire Line
+	10100 5050 10650 5050
 $EndSCHEMATC
