@@ -691,4 +691,6 @@ Wire Wire Line
 	5450 4250 5850 4250
 Wire Wire Line
 	5450 3950 5850 3950
+Text Notes 5450 5800 0    50   ~ 0
+Ensure VCCA <= VCCB
 $EndSCHEMATC

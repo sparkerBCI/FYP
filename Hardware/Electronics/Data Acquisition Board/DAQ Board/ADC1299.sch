@@ -1535,16 +1535,16 @@ P 10100 1800
 AR Path="/5DBEC62D" Ref="J?"  Part="1" 
 AR Path="/5D7F9BD3/5DBEC62D" Ref="J15"  Part="1" 
 F 0 "J15" H 10073 1680 50  0000 R CNN
-F 1 "AVDD_TP" H 10073 1771 50  0000 R CNN
+F 1 "VCAP1_TP" H 10073 1771 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 1800 50  0001 C CNN
 F 3 "~" H 10100 1800 50  0001 C CNN
 	1    10100 1800
 	-1   0    0    1   
 $EndComp
 Text Label 9450 1700 0    50   ~ 0
-AVDD
-Text Label 9450 1800 0    50   ~ 0
 AVSS
+Text Label 9450 1800 0    50   ~ 0
+VCAP1
 Wire Wire Line
 	9450 1700 9900 1700
 Wire Wire Line
@@ -1556,16 +1556,16 @@ P 10100 2150
 AR Path="/5DC0928B" Ref="J?"  Part="1" 
 AR Path="/5D7F9BD3/5DC0928B" Ref="J16"  Part="1" 
 F 0 "J16" H 10072 2030 50  0000 R CNN
-F 1 "DVDD_TP" H 10072 2121 50  0000 R CNN
+F 1 "DRDY_TP" H 10072 2121 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 2150 50  0001 C CNN
 F 3 "~" H 10100 2150 50  0001 C CNN
 	1    10100 2150
 	-1   0    0    1   
 $EndComp
-Text Label 9450 2050 0    50   ~ 0
-DVDD
 Text Label 9450 2150 0    50   ~ 0
 DGND
+Text Label 9450 2050 0    50   ~ 0
+~DRDY_3V3
 Wire Wire Line
 	9450 2050 9900 2050
 Wire Wire Line
@@ -1727,4 +1727,6 @@ Wire Wire Line
 	5950 6350 6900 6350
 Text Label 5300 2950 0    50   ~ 0
 AVDD
+Text Label 7200 5850 0    50   ~ 0
+VCAP1
 $EndSCHEMATC

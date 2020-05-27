@@ -976,7 +976,7 @@ Wire Wire Line
 	10100 5450 10100 5550
 Wire Wire Line
 	10100 5050 10100 4950
-Text Notes 4450 2050 0    39   ~ 0
+Text Notes 4700 3800 0    39   ~ 0
 5V Supply driving 2V LED, so \n3V drop across resistor. \nI = 20mA. R = V/I = 2 / 20m \n= 100 Ohms
 Text Notes 5350 4200 2    50   ~ 0
 STATUS\n(Green)
