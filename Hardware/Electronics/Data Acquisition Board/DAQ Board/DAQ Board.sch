@@ -693,4 +693,15 @@ Wire Wire Line
 	5450 3950 5850 3950
 Text Notes 5450 5800 0    50   ~ 0
 Ensure VCCA <= VCCB
+$Comp
+L My_Graphics:SparkerLogo LOGO3
+U 1 1 5ED3B07B
+P 2000 5350
+F 0 "LOGO3" H 2025 5396 50  0000 L CNN
+F 1 "VersionLogo" H 2025 5305 50  0000 L CNN
+F 2 "Sparker:Block2" H 1900 5400 50  0001 C CNN
+F 3 "" H 1900 5400 50  0001 C CNN
+	1    2000 5350
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

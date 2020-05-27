@@ -1552,24 +1552,24 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Male J?
 U 1 1 5DC0928B
-P 10100 2150
+P 10100 2100
 AR Path="/5DC0928B" Ref="J?"  Part="1" 
 AR Path="/5D7F9BD3/5DC0928B" Ref="J16"  Part="1" 
-F 0 "J16" H 10072 2030 50  0000 R CNN
-F 1 "DRDY_TP" H 10072 2121 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 2150 50  0001 C CNN
-F 3 "~" H 10100 2150 50  0001 C CNN
-	1    10100 2150
+F 0 "J16" H 10072 1980 50  0000 R CNN
+F 1 "DRDY_TP" H 10072 2071 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 2100 50  0001 C CNN
+F 3 "~" H 10100 2100 50  0001 C CNN
+	1    10100 2100
 	-1   0    0    1   
 $EndComp
-Text Label 9450 2150 0    50   ~ 0
+Text Label 9450 2100 0    50   ~ 0
 DGND
-Text Label 9450 2050 0    50   ~ 0
+Text Label 9450 2000 0    50   ~ 0
 ~DRDY_3V3
 Wire Wire Line
-	9450 2050 9900 2050
+	9450 2000 9900 2000
 Wire Wire Line
-	9450 2150 9900 2150
+	9450 2100 9900 2100
 Text Notes 4600 2000 0    50   ~ 0
 Typical DVDD rail \nsupply current 0.5mA.\nVReg Imax = 100mA
 Text Notes 3700 1550 0    50   ~ 0
@@ -1729,4 +1729,27 @@ Text Label 5300 2950 0    50   ~ 0
 AVDD
 Text Label 7200 5850 0    50   ~ 0
 VCAP1
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5ED3DD21
+P 10100 2400
+AR Path="/5ED3DD21" Ref="J?"  Part="1" 
+AR Path="/5D7F9BD3/5ED3DD21" Ref="J14"  Part="1" 
+F 0 "J14" H 10072 2280 50  0000 R CNN
+F 1 "VREFP_TP" H 10072 2371 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10100 2400 50  0001 C CNN
+F 3 "~" H 10100 2400 50  0001 C CNN
+	1    10100 2400
+	-1   0    0    1   
+$EndComp
+Text Label 9450 2400 0    50   ~ 0
+AVSS
+Text Label 9450 2300 0    50   ~ 0
+VREFP
+Wire Wire Line
+	9450 2300 9900 2300
+Wire Wire Line
+	9450 2400 9900 2400
+Text Label 6600 5700 0    50   ~ 0
+VREFP
 $EndSCHEMATC
