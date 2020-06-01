@@ -1,0 +1,178 @@
+\hypertarget{_sparker___d_a_q_8ino}{}\doxysection{Sparker\+\_\+\+D\+A\+Q.\+ino File Reference}
+\label{_sparker___d_a_q_8ino}\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+
+
+The main file for the Sparker D\+AQ.  
+
+
+{\ttfamily \#include \char`\"{}A\+D\+S1299.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Serial\+\_\+\+Module.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Software\+Serial \mbox{\hyperlink{_sparker___d_a_q_8ino_a2610bbc06d9c0f6076c8069a9096ffe2}{my\+SS}} (8, 9)
+\begin{DoxyCompactList}\small\item\em Creates a U\+A\+RT interface for the Bluetooth Module, RX on 8, TX on 9. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_sparker___d_a_q_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Sets up the A\+D\+S1299 and required interfaces. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_sparker___d_a_q_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em The main program loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_sparker___d_a_q_8ino_aa965a8d884bdd29ff1f230f828d6ca6a}{toggle\+L\+ED}} (uint16\+\_\+t half\+\_\+period, uint8\+\_\+t debounce\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Flashes the Status L\+ED pin at a given frequency. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} \mbox{\hyperlink{_sparker___d_a_q_8ino_ae1ffba7b30c314b6c6e4685b3575107e}{process\+\_\+sample}} (uint8\+\_\+t $\ast$input\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Processes the input data buffer and parses it into a structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_sparker___d_a_q_8ino_afe6da3a4d117b35233ba7953c06718dd}{check\+\_\+register}} (\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} reg, uint8\+\_\+t expected\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Compares the value reported by the A\+D\+S1299 to the expected value and prints the status on the Serial interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} $\ast$ \mbox{\hyperlink{_sparker___d_a_q_8ino_ad47faa3d261bb9d0a26749919cabb527}{Hardware\+\_\+\+Map}}
+\begin{DoxyCompactList}\small\item\em This class stores information about how the M\+CU is connected to the A\+DC. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} $\ast$ \mbox{\hyperlink{_sparker___d_a_q_8ino_a201039bbe1eebd00d512a7b680af1f69}{A\+D\+S1299}}
+\begin{DoxyCompactList}\small\item\em This class enables communication with the A\+DC. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_serial___module}{Serial\+\_\+\+Module}} $\ast$ \mbox{\hyperlink{_sparker___d_a_q_8ino_a10a9644158d26a3d8444fe12083cd3c3}{Comms}}
+\begin{DoxyCompactList}\small\item\em This class enables communication with the host device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main file for the Sparker D\+AQ. 
+
+\DoxyHorRuler{0}
+
+
+Everything starts here. Gets the hardware info from the \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} class, and creates a \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} for working with the A\+DC. Also opens the U\+A\+RT connection for talking over U\+SB or Bluetooth.
+
+\begin{DoxyAuthor}{Author}
+Sam Parker
+\end{DoxyAuthor}
+Copyright (c) Sam Parker. 2020. All rights reserved. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_sparker___d_a_q_8ino_afe6da3a4d117b35233ba7953c06718dd}\label{_sparker___d_a_q_8ino_afe6da3a4d117b35233ba7953c06718dd}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!check\_register@{check\_register}}
+\index{check\_register@{check\_register}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{check\_register()}{check\_register()}}
+{\footnotesize\ttfamily void check\+\_\+register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}}}]{reg,  }\item[{uint8\+\_\+t}]{expected\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Compares the value reported by the A\+D\+S1299 to the expected value and prints the status on the Serial interface. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em reg} & -\/ The register to compare \\
+\hline
+\mbox{\texttt{ in}}  & {\em expected\+\_\+value} & -\/ The value the user is expecting the register to return. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_sparker___d_a_q_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_sparker___d_a_q_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!loop@{loop}}
+\index{loop@{loop}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main program loop. 
+
+\DoxyHorRuler{0}
+ Plays all the jazz. $<$ A buffer to save data from the A\+DC to\mbox{\Hypertarget{_sparker___d_a_q_8ino_a2610bbc06d9c0f6076c8069a9096ffe2}\label{_sparker___d_a_q_8ino_a2610bbc06d9c0f6076c8069a9096ffe2}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!mySS@{mySS}}
+\index{mySS@{mySS}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{mySS()}{mySS()}}
+{\footnotesize\ttfamily Software\+Serial my\+SS (\begin{DoxyParamCaption}\item[{8}]{,  }\item[{9}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a U\+A\+RT interface for the Bluetooth Module, RX on 8, TX on 9. 
+
+\mbox{\Hypertarget{_sparker___d_a_q_8ino_ae1ffba7b30c314b6c6e4685b3575107e}\label{_sparker___d_a_q_8ino_ae1ffba7b30c314b6c6e4685b3575107e}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!process\_sample@{process\_sample}}
+\index{process\_sample@{process\_sample}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{process\_sample()}{process\_sample()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} process\+\_\+sample (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{input\+\_\+buffer }\end{DoxyParamCaption})}
+
+
+
+Processes the input data buffer and parses it into a structure. 
+
+\DoxyHorRuler{0}
+
+
+Sample I\+Ds start at 1. 0 is an invalid sample ID. This will overflow after 192 days of continuous recording.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\+\_\+buffer} & -\/ The input data buffer from the A\+DC\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} -\/ A structure containing the parsed data. All fields are 0 if error. 
+\end{DoxyReturn}
+$<$ A running tally of samples\mbox{\Hypertarget{_sparker___d_a_q_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_sparker___d_a_q_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!setup@{setup}}
+\index{setup@{setup}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets up the A\+D\+S1299 and required interfaces. 
+
+\DoxyHorRuler{0}
+ \mbox{\Hypertarget{_sparker___d_a_q_8ino_aa965a8d884bdd29ff1f230f828d6ca6a}\label{_sparker___d_a_q_8ino_aa965a8d884bdd29ff1f230f828d6ca6a}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!toggleLED@{toggleLED}}
+\index{toggleLED@{toggleLED}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{toggleLED()}{toggleLED()}}
+{\footnotesize\ttfamily void toggle\+L\+ED (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{half\+\_\+period,  }\item[{uint8\+\_\+t}]{debounce\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Flashes the Status L\+ED pin at a given frequency. 
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em half\+\_\+period} & -\/ Half of the period (so the time the L\+ED will be on / off for) in milliseconds. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debounce\+\_\+ms} & -\/ The time to wait between successive function calls. This is becuase the function may be called more than once a millisecond. Really, this value could be 1ms and everything will still be peachy. This way you can say 0ms and figure out how many times per ms the main loop runs by probing the status L\+ED pin. \\
+\hline
+\end{DoxyParams}
+$<$ The millisecond runtime that the L\+ED was last toggled at
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_sparker___d_a_q_8ino_a201039bbe1eebd00d512a7b680af1f69}\label{_sparker___d_a_q_8ino_a201039bbe1eebd00d512a7b680af1f69}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!ADS1299@{ADS1299}}
+\index{ADS1299@{ADS1299}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{ADS1299}{ADS1299}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}}$\ast$ A\+D\+S1299}
+
+
+
+This class enables communication with the A\+DC. 
+
+\mbox{\Hypertarget{_sparker___d_a_q_8ino_a10a9644158d26a3d8444fe12083cd3c3}\label{_sparker___d_a_q_8ino_a10a9644158d26a3d8444fe12083cd3c3}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!Comms@{Comms}}
+\index{Comms@{Comms}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{Comms}{Comms}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_serial___module}{Serial\+\_\+\+Module}}$\ast$ Comms}
+
+
+
+This class enables communication with the host device. 
+
+\mbox{\Hypertarget{_sparker___d_a_q_8ino_ad47faa3d261bb9d0a26749919cabb527}\label{_sparker___d_a_q_8ino_ad47faa3d261bb9d0a26749919cabb527}} 
+\index{Sparker\_DAQ.ino@{Sparker\_DAQ.ino}!Hardware\_Map@{Hardware\_Map}}
+\index{Hardware\_Map@{Hardware\_Map}!Sparker\_DAQ.ino@{Sparker\_DAQ.ino}}
+\doxysubsubsection{\texorpdfstring{Hardware\_Map}{Hardware\_Map}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}}$\ast$ Hardware\+\_\+\+Map}
+
+
+
+This class stores information about how the M\+CU is connected to the A\+DC. 
+

@@ -1,0 +1,80 @@
+\hypertarget{_serial___module_8h}{}\doxysection{Serial\+\_\+\+Module.\+h File Reference}
+\label{_serial___module_8h}\index{Serial\_Module.h@{Serial\_Module.h}}
+
+
+This file holds declarations for functions to communicate over the serial interface.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Software\+Serial.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em This structure holds all the info to transmit for a single sample. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_serial___module}{Serial\+\_\+\+Module}}
+\begin{DoxyCompactList}\small\item\em This class facilitates communication over the serial interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_serial___module_8h_a08daee1483e4da843c7116aaf2542529}{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+LS}}~8
+\begin{DoxyCompactList}\small\item\em The maximum number of channels to send over the serial interface. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_serial___module_8h_a0698c3ba37182bd9c53f3443f0353a0f}{D\+E\+C\+E\+M\+A\+T\+I\+O\+N\+\_\+\+O\+R\+D\+ER}}~1
+\begin{DoxyCompactList}\small\item\em Decemate the signal to send every D\+E\+C\+E\+M\+A\+T\+I\+O\+N\+\_\+\+O\+R\+D\+E\+Rth sample. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} \mbox{\hyperlink{_serial___module_8h_a68a5f0dca381e40697b15b9be06fd4f0}{Sample\+\_\+\+Data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em This structure holds all the info to transmit for a single sample. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file holds declarations for functions to communicate over the serial interface. 
+
+\DoxyHorRuler{0}
+
+
+This includes Error, Warning, and Debug messages, which are formatted to include the runtime (H\+H\+:\+MM\+:S\+S.\+MS format). These messages can be globally enabled by setting msg\+\_\+enabled to true. Debug messages require an additional setting of debug\+\_\+enabled to true.
+
+\begin{DoxyAuthor}{Author}
+Sam Parker
+\end{DoxyAuthor}
+Copyright (c) Sam Parker 2020 ~\newline
+ All rights reserved. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_serial___module_8h_a0698c3ba37182bd9c53f3443f0353a0f}\label{_serial___module_8h_a0698c3ba37182bd9c53f3443f0353a0f}} 
+\index{Serial\_Module.h@{Serial\_Module.h}!DECEMATION\_ORDER@{DECEMATION\_ORDER}}
+\index{DECEMATION\_ORDER@{DECEMATION\_ORDER}!Serial\_Module.h@{Serial\_Module.h}}
+\doxysubsubsection{\texorpdfstring{DECEMATION\_ORDER}{DECEMATION\_ORDER}}
+{\footnotesize\ttfamily \#define D\+E\+C\+E\+M\+A\+T\+I\+O\+N\+\_\+\+O\+R\+D\+ER~1}
+
+
+
+Decemate the signal to send every D\+E\+C\+E\+M\+A\+T\+I\+O\+N\+\_\+\+O\+R\+D\+E\+Rth sample. 
+
+1 to send every sample, 2 to send every 2nd sample \mbox{\Hypertarget{_serial___module_8h_a08daee1483e4da843c7116aaf2542529}\label{_serial___module_8h_a08daee1483e4da843c7116aaf2542529}} 
+\index{Serial\_Module.h@{Serial\_Module.h}!MAX\_ADC\_CHANNELS@{MAX\_ADC\_CHANNELS}}
+\index{MAX\_ADC\_CHANNELS@{MAX\_ADC\_CHANNELS}!Serial\_Module.h@{Serial\_Module.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ADC\_CHANNELS}{MAX\_ADC\_CHANNELS}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+LS~8}
+
+
+
+The maximum number of channels to send over the serial interface. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_serial___module_8h_a68a5f0dca381e40697b15b9be06fd4f0}\label{_serial___module_8h_a68a5f0dca381e40697b15b9be06fd4f0}} 
+\index{Serial\_Module.h@{Serial\_Module.h}!Sample\_Data\_t@{Sample\_Data\_t}}
+\index{Sample\_Data\_t@{Sample\_Data\_t}!Serial\_Module.h@{Serial\_Module.h}}
+\doxysubsubsection{\texorpdfstring{Sample\_Data\_t}{Sample\_Data\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} \mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}}
+
+
+
+This structure holds all the info to transmit for a single sample. 
+
+\DoxyHorRuler{0}
+ 

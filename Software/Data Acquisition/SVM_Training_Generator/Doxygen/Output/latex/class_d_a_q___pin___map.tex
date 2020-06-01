@@ -1,0 +1,194 @@
+\hypertarget{class_d_a_q___pin___map}{}\doxysection{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map Class Reference}
+\label{class_d_a_q___pin___map}\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+
+
+The \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} class contains methods for interacting with the pins of the M\+CU.  
+
+
+
+
+{\ttfamily \#include $<$D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{Pin\+\_\+\+Array\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Toggles the state of a pin given the name of a pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t}} \mbox{\hyperlink{class_d_a_q___pin___map_a240d02aeb784e113d8cca6bf9ca83baa}{Pin\+\_\+\+Array\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Toggles the state of a pin given the name of a pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_a_q___pin___map_aad2e79dc7da6d097ccd2c720fdbd8b7e}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} and sets pins to their correct pin mode, then writes the default states to each pin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_a_q___pin___map_ab9ef68aa1c02c5c97408a7749fe6a2f4}{set\+\_\+state}} (\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} pin, uint8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Changes the state of the pin in the pin array, and marks it for updating. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_d_a_q___pin___map_ad7bc822ebaf80f4d80239422e9759bb0}{get\+\_\+state}} (\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Gets the state of the pin, as stored in the pin array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_a_q___pin___map_aaa54d5503420654f5dc1bb4491e2fc4a}{toggle\+\_\+pin}} (\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Toggles the state of a pin in the Pin Array and marks the pin for an update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{Pin\+\_\+\+Array\+\_\+t}} \mbox{\hyperlink{class_d_a_q___pin___map_a1d775ad6c9a1458021b571b5ac5ac818}{Pin\+\_\+\+Array}} \mbox{[}\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}{N\+U\+M\+\_\+\+P\+I\+NS}}\mbox{]} = \{ \mbox{\hyperlink{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}{P\+I\+N\+\_\+\+T\+A\+B\+LE}} \}
+\item 
+const long long \mbox{\hyperlink{class_d_a_q___pin___map_a31247bf87dc608526c52a0d296895180}{S\+P\+I\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HZ}} = 4000000
+\begin{DoxyCompactList}\small\item\em The maximum S\+PI speed in Hz. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_d_a_q___pin___map_a5d69f9462fa6b59d0fae109d329e8a79}{S\+P\+I\+\_\+\+E\+N\+D\+I\+AN}} = M\+S\+B\+F\+I\+R\+ST
+\begin{DoxyCompactList}\small\item\em The S\+PI bit order. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_d_a_q___pin___map_a4e1f66a257b2055dedc2ff8716d961c0}{S\+P\+I\+\_\+\+M\+O\+DE}} = S\+P\+I\+\_\+\+M\+O\+D\+E1
+\begin{DoxyCompactList}\small\item\em The S\+PI mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} class contains methods for interacting with the pins of the M\+CU. 
+
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_d_a_q___pin___map_a240d02aeb784e113d8cca6bf9ca83baa}\label{class_d_a_q___pin___map_a240d02aeb784e113d8cca6bf9ca83baa}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!Pin\_Array\_t@{Pin\_Array\_t}}
+\index{Pin\_Array\_t@{Pin\_Array\_t}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{Pin\_Array\_t}{Pin\_Array\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t}} \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t}}}
+
+
+
+Toggles the state of a pin given the name of a pin. 
+
+\DoxyHorRuler{0}
+ This is slow, and should only be used for non-\/time critical applications (e.\+g. indicator L\+E\+Ds, not trigger signals).
+
+\DoxyHorRuler{0}
+
+
+This struct contains information for each entry in the Pin Array. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_a_q___pin___map_aad2e79dc7da6d097ccd2c720fdbd8b7e}\label{class_d_a_q___pin___map_aad2e79dc7da6d097ccd2c720fdbd8b7e}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{DAQ\_Pin\_Map()}{DAQ\_Pin\_Map()}}
+{\footnotesize\ttfamily D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+D\+A\+Q\+\_\+\+Pin\+\_\+\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a new \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} and sets pins to their correct pin mode, then writes the default states to each pin. 
+
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_d_a_q___pin___map_ad7bc822ebaf80f4d80239422e9759bb0}\label{class_d_a_q___pin___map_ad7bc822ebaf80f4d80239422e9759bb0}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!get\_state@{get\_state}}
+\index{get\_state@{get\_state}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{get\_state()}{get\_state()}}
+{\footnotesize\ttfamily uint8\+\_\+t D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::get\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Gets the state of the pin, as stored in the pin array. 
+
+\DoxyHorRuler{0}
+
+
+Doesn\textquotesingle{}t work well for input pins, as these pins are changed by external factors. Also is more complex than it should be, as pins that changed before calling an update will need to be flipped to get the actual pin state.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pin} & -\/ The Pin\+\_\+\+I\+D\+\_\+t of the pin to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t -\/ The state of the pin, as stored in the Pin\+\_\+\+Array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_a_q___pin___map_ab9ef68aa1c02c5c97408a7749fe6a2f4}\label{class_d_a_q___pin___map_ab9ef68aa1c02c5c97408a7749fe6a2f4}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!set\_state@{set\_state}}
+\index{set\_state@{set\_state}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{set\_state()}{set\_state()}}
+{\footnotesize\ttfamily void D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::set\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}}}]{pin,  }\item[{uint8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+
+
+Changes the state of the pin in the pin array, and marks it for updating. 
+
+\DoxyHorRuler{0}
+
+
+Note, this does not actually update the state of the physical pin, and an update must be called to actually push this change onto the pin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pin} & -\/ The Pin\+\_\+\+I\+D\+\_\+t of the pin to change \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & -\/ The new state of the pin \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_a_q___pin___map_aaa54d5503420654f5dc1bb4491e2fc4a}\label{class_d_a_q___pin___map_aaa54d5503420654f5dc1bb4491e2fc4a}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!toggle\_pin@{toggle\_pin}}
+\index{toggle\_pin@{toggle\_pin}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{toggle\_pin()}{toggle\_pin()}}
+{\footnotesize\ttfamily void D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::toggle\+\_\+pin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Toggles the state of a pin in the Pin Array and marks the pin for an update. 
+
+\DoxyHorRuler{0}
+ \textbackslash{}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pin} & -\/ The Pin\+\_\+\+I\+D\+\_\+t of the pin to toggle\\
+\hline
+\end{DoxyParams}
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_d_a_q___pin___map_a1d775ad6c9a1458021b571b5ac5ac818}\label{class_d_a_q___pin___map_a1d775ad6c9a1458021b571b5ac5ac818}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!Pin\_Array@{Pin\_Array}}
+\index{Pin\_Array@{Pin\_Array}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{Pin\_Array}{Pin\_Array}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{Pin\+\_\+\+Array\+\_\+t}} D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\mbox{[}\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcbad2edc10813b00a3ef0cd3cd878268923}{N\+U\+M\+\_\+\+P\+I\+NS}}\mbox{]} = \{ \mbox{\hyperlink{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}{P\+I\+N\+\_\+\+T\+A\+B\+LE}} \}}
+
+\mbox{\Hypertarget{class_d_a_q___pin___map_a5d69f9462fa6b59d0fae109d329e8a79}\label{class_d_a_q___pin___map_a5d69f9462fa6b59d0fae109d329e8a79}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!SPI\_ENDIAN@{SPI\_ENDIAN}}
+\index{SPI\_ENDIAN@{SPI\_ENDIAN}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{SPI\_ENDIAN}{SPI\_ENDIAN}}
+{\footnotesize\ttfamily const int D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+S\+P\+I\+\_\+\+E\+N\+D\+I\+AN = M\+S\+B\+F\+I\+R\+ST}
+
+
+
+The S\+PI bit order. 
+
+\mbox{\Hypertarget{class_d_a_q___pin___map_a4e1f66a257b2055dedc2ff8716d961c0}\label{class_d_a_q___pin___map_a4e1f66a257b2055dedc2ff8716d961c0}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!SPI\_MODE@{SPI\_MODE}}
+\index{SPI\_MODE@{SPI\_MODE}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{SPI\_MODE}{SPI\_MODE}}
+{\footnotesize\ttfamily const int D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+S\+P\+I\+\_\+\+M\+O\+DE = S\+P\+I\+\_\+\+M\+O\+D\+E1}
+
+
+
+The S\+PI mode. 
+
+\mbox{\Hypertarget{class_d_a_q___pin___map_a31247bf87dc608526c52a0d296895180}\label{class_d_a_q___pin___map_a31247bf87dc608526c52a0d296895180}} 
+\index{DAQ\_Pin\_Map@{DAQ\_Pin\_Map}!SPI\_SPEED\_HZ@{SPI\_SPEED\_HZ}}
+\index{SPI\_SPEED\_HZ@{SPI\_SPEED\_HZ}!DAQ\_Pin\_Map@{DAQ\_Pin\_Map}}
+\doxysubsubsection{\texorpdfstring{SPI\_SPEED\_HZ}{SPI\_SPEED\_HZ}}
+{\footnotesize\ttfamily const long long D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+S\+P\+I\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HZ = 4000000}
+
+
+
+The maximum S\+PI speed in Hz. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_d_a_q___pin___map_8h}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h}}\item 
+\mbox{\hyperlink{_d_a_q___pin___map_8cpp}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+cpp}}\end{DoxyCompactItemize}

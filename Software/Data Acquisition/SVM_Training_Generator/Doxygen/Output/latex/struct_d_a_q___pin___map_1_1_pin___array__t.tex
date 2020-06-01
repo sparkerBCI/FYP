@@ -1,0 +1,93 @@
+\hypertarget{struct_d_a_q___pin___map_1_1_pin___array__t}{}\doxysection{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::Pin\+\_\+\+Array\+\_\+t Struct Reference}
+\label{struct_d_a_q___pin___map_1_1_pin___array__t}\index{DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}}
+
+
+Toggles the state of a pin given the name of a pin.  
+
+
+
+
+{\ttfamily \#include $<$D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t_aa6a48f3ec2e7397882eb10200f210940}{Pin\+\_\+\+ID}}
+\begin{DoxyCompactList}\small\item\em The unique ID for each pin. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t_a35599fc9db1d7dcb166e2c6096e11b69}{Pin}}
+\begin{DoxyCompactList}\small\item\em The physical pin number of the pin. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t_aa6be2e4489eeb1a729067db3df3775d8}{Mode}}
+\begin{DoxyCompactList}\small\item\em The IO mode of the pin. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t_ab2f3cd55a1ee97cee11f60e37d35eae3}{Name}}
+\begin{DoxyCompactList}\small\item\em A human readable name for the pin. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t_a6cf9cde2d3cc3b3191abe31ca76a25e5}{State}}
+\begin{DoxyCompactList}\small\item\em The current state of the pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Toggles the state of a pin given the name of a pin. 
+
+\DoxyHorRuler{0}
+ This is slow, and should only be used for non-\/time critical applications (e.\+g. indicator L\+E\+Ds, not trigger signals).
+
+\DoxyHorRuler{0}
+
+
+This struct contains information for each entry in the Pin Array. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_d_a_q___pin___map_1_1_pin___array__t_aa6be2e4489eeb1a729067db3df3775d8}\label{struct_d_a_q___pin___map_1_1_pin___array__t_aa6be2e4489eeb1a729067db3df3775d8}} 
+\index{DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}!Mode@{Mode}}
+\index{Mode@{Mode}!DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}}
+\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily uint8\+\_\+t D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t\+::\+Mode}
+
+
+
+The IO mode of the pin. 
+
+\mbox{\Hypertarget{struct_d_a_q___pin___map_1_1_pin___array__t_ab2f3cd55a1ee97cee11f60e37d35eae3}\label{struct_d_a_q___pin___map_1_1_pin___array__t_ab2f3cd55a1ee97cee11f60e37d35eae3}} 
+\index{DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}!Name@{Name}}
+\index{Name@{Name}!DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily const char$\ast$ D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t\+::\+Name}
+
+
+
+A human readable name for the pin. 
+
+\mbox{\Hypertarget{struct_d_a_q___pin___map_1_1_pin___array__t_a35599fc9db1d7dcb166e2c6096e11b69}\label{struct_d_a_q___pin___map_1_1_pin___array__t_a35599fc9db1d7dcb166e2c6096e11b69}} 
+\index{DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}!Pin@{Pin}}
+\index{Pin@{Pin}!DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}}
+\doxysubsubsection{\texorpdfstring{Pin}{Pin}}
+{\footnotesize\ttfamily uint8\+\_\+t D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t\+::\+Pin}
+
+
+
+The physical pin number of the pin. 
+
+\mbox{\Hypertarget{struct_d_a_q___pin___map_1_1_pin___array__t_aa6a48f3ec2e7397882eb10200f210940}\label{struct_d_a_q___pin___map_1_1_pin___array__t_aa6a48f3ec2e7397882eb10200f210940}} 
+\index{DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}!Pin\_ID@{Pin\_ID}}
+\index{Pin\_ID@{Pin\_ID}!DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}}
+\doxysubsubsection{\texorpdfstring{Pin\_ID}{Pin\_ID}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_a_q___pin___map_8h_ad5e2221c90467c1cd1e92af8dc519dcb}{Pin\+\_\+\+I\+D\+\_\+t}} D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t\+::\+Pin\+\_\+\+ID}
+
+
+
+The unique ID for each pin. 
+
+\mbox{\Hypertarget{struct_d_a_q___pin___map_1_1_pin___array__t_a6cf9cde2d3cc3b3191abe31ca76a25e5}\label{struct_d_a_q___pin___map_1_1_pin___array__t_a6cf9cde2d3cc3b3191abe31ca76a25e5}} 
+\index{DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}!State@{State}}
+\index{State@{State}!DAQ\_Pin\_Map::Pin\_Array\_t@{DAQ\_Pin\_Map::Pin\_Array\_t}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily uint8\+\_\+t D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t\+::\+State}
+
+
+
+The current state of the pin. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_d_a_q___pin___map_8h}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h}}\end{DoxyCompactItemize}

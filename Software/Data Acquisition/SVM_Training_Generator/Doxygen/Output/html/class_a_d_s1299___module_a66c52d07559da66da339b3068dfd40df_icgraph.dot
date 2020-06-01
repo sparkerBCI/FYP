@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::get_lead_off_frequency"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::get\l_lead_off_frequency",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the lead-off detection frequency."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ADS1299_Module::set\l_lead_off_frequency",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a434fd65a773efd44e05fba4caf7f0926",tooltip="Sets the lead-off detection frequency."];
+}

@@ -1,0 +1,16 @@
+digraph "Serial_Module::warningMsg"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Serial_Module::warningMsg",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="loop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_sparker___d_a_q_8ino.html#afe461d27b9c48d5921c00d521181f12f",tooltip="The main program loop."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="process_sample",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_sparker___d_a_q_8ino.html#ae1ffba7b30c314b6c6e4685b3575107e",tooltip="Processes the input data buffer and parses it into a structure."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Serial_Module::send\l_sample",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_serial___module.html#ade520eae9bfbf6fd179ce0b4ebcafd83",tooltip=" "];
+  Node4 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

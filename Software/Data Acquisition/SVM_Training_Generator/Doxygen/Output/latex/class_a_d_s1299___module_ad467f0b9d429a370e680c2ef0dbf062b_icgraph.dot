@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::get_clock_mode"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::get\l_clock_mode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the current clock mode."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ADS1299_Module::set\l_clock_mode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a6d506e84360858b4ce24f3d8d9f8d3a3",tooltip="Sets the clock mode."];
+}

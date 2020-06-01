@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::set_channel_SRB2_connection_status"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ADS1299_Module::set\l_channel_SRB2_connection\l_status",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Sets the SRB2 connection status of the channel."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ADS1299_Module::get\l_channel_SRB2_connection\l_status",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a863d35eba229da6387d55f7c600d9312",tooltip="Gets the SRB2 connection status of the channel."];
+}

@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::get_num_channels_from_device"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::get\l_num_channels_from_device",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the number of channels from the ADS1299."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ADS1299_Module::ADS1299\l_Module",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#aac31dc4f070157739a2c76269cff5fc9",tooltip="Creates an ADS1299_Module and opens the SPI interface over which to communicate."];
+}

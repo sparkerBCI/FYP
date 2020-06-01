@@ -1,0 +1,12 @@
+digraph "ADS1299_Module::reset"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ADS1299_Module::reset",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Resets the device and waits the required time."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ADS1299_Module::send\l_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a267c398d14f97b75dfc9f03fa42e3c3d",tooltip="Sends a single byte command to the ADS1299."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="DAQ_Pin_Map::set_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_d_a_q___pin___map.html#ab9ef68aa1c02c5c97408a7749fe6a2f4",tooltip=" "];
+}

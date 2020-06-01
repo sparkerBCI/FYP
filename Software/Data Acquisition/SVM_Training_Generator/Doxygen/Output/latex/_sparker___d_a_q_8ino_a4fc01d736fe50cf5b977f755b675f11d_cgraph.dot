@@ -1,0 +1,44 @@
+digraph "setup"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="setup",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Sets up the ADS1299 and required interfaces."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Serial_Module::errorMsg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_serial___module.html#a83e8d51c8ddbcae7f341bd4bf22f23d7",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Serial_Module::get\l_runtime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_serial___module.html#a3d2d69a39248f732e5a6166b09575084",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ADS1299_Module::get\l_device_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#ac4531df96d0a3293459063979b0e759b",tooltip="Gets the device ID from the ADS1299."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ADS1299_Module::get\l_num_channels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#aabd1ded03d376c5c7629ae150d667141",tooltip="Gets the number of channels as stored locally."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="ADS1299_Module::send\l_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a267c398d14f97b75dfc9f03fa42e3c3d",tooltip="Sends a single byte command to the ADS1299."];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="DAQ_Pin_Map::set_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_d_a_q___pin___map.html#ab9ef68aa1c02c5c97408a7749fe6a2f4",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ADS1299_Module::set\l_all_channel_SRB1_connection\l_status",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a6d4af7240f570b95243a6ea8d3829574",tooltip="Sets whether all electrods are referenced to SRB1."];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="ADS1299_Module::get\l_all_channel_SRB1_connection\l_status",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a1323edec30512c3059116178c9a9206c",tooltip="Gets whether all electrods are referenced to SRB1."];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="ADS1299_Module::set\l_channel_connection_type",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a554c85d66cb92598c80282ff8f1d9ac5",tooltip="Sets info about the channel connection type."];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="ADS1299_Module::get\l_channel_connection_type",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a704c18ff2fab021c09cd55778a2d813b",tooltip="Gets info about the channel connection type."];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="ADS1299_Module::set\l_channel_gain",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a1ef314df38784de2151dcbf3388ec9eb",tooltip="Sets the Programmable Gain Array gain setting of the requested channel."];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="ADS1299_Module::get\l_channel_gain",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#af0e282321956e0f1b9e9e7f23a17cfa1",tooltip="Gets the Programmable Gain Array gain setting of the requested channel."];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="ADS1299_Module::set\l_channel_power_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a9b77a547a581b2489076fab99fa9a0cf",tooltip="Sets the power state of the requested channel."];
+  Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="ADS1299_Module::get\l_channel_power_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#afb4f1b0c82be9e5bfbd750449a393194",tooltip="Gets the power state of the requested channel."];
+  Node1 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="ADS1299_Module::set\l_data_rate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#ac595c955103875d92079d35e80c629fa",tooltip="Sets the current data rate."];
+  Node16 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="ADS1299_Module::get\l_data_rate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a36c1904cc5408c5174b71587580a1cb9",tooltip="Gets the current data rate."];
+  Node1 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="ADS1299_Module::set\l_reference_buffer_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#ad9efde212eb1a8a5a1e1fa9783196229",tooltip="Sets the power state of the internal reference buffer."];
+  Node18 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="ADS1299_Module::get\l_reference_buffer_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#ae8c625255085e5fc9ddb770e70884345",tooltip="Gets the power state of the internal reference buffer."];
+}

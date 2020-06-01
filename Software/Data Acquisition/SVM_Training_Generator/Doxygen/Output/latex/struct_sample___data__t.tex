@@ -1,0 +1,88 @@
+\hypertarget{struct_sample___data__t}{}\doxysection{Sample\+\_\+\+Data\+\_\+t Struct Reference}
+\label{struct_sample___data__t}\index{Sample\_Data\_t@{Sample\_Data\_t}}
+
+
+This structure holds all the info to transmit for a single sample.  
+
+
+
+
+{\ttfamily \#include $<$Serial\+\_\+\+Module.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_sample___data__t_a61be84b21ab477f909e1193320adcecc}{id}}
+\begin{DoxyCompactList}\small\item\em The unique sample ID of this sample. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_sample___data__t_ad879d062ee77bacf6b111666f9b53de7}{Positive\+\_\+\+Lead\+\_\+\+Off\+\_\+\+Status}}
+\begin{DoxyCompactList}\small\item\em The positive lead off status for each channel. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_sample___data__t_aa6243bc4b89413887f990ec61e9f4735}{Negative\+\_\+\+Lead\+\_\+\+Off\+\_\+\+Status}}
+\begin{DoxyCompactList}\small\item\em The negative lead off status for each channel. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_sample___data__t_a4cc69aa90a343da55c843d05724ea6d2}{G\+P\+I\+O\+\_\+\+Data}}
+\begin{DoxyCompactList}\small\item\em The state of the G\+P\+IO pins. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_sample___data__t_a7f6452f861ee6cf4029008b0094f323d}{Channel\+\_\+\+Data}} \mbox{[}\mbox{\hyperlink{_serial___module_8h_a08daee1483e4da843c7116aaf2542529}{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+LS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em An array of data for each channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure holds all the info to transmit for a single sample. 
+
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_sample___data__t_a7f6452f861ee6cf4029008b0094f323d}\label{struct_sample___data__t_a7f6452f861ee6cf4029008b0094f323d}} 
+\index{Sample\_Data\_t@{Sample\_Data\_t}!Channel\_Data@{Channel\_Data}}
+\index{Channel\_Data@{Channel\_Data}!Sample\_Data\_t@{Sample\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{Channel\_Data}{Channel\_Data}}
+{\footnotesize\ttfamily uint32\+\_\+t Sample\+\_\+\+Data\+\_\+t\+::\+Channel\+\_\+\+Data\mbox{[}\mbox{\hyperlink{_serial___module_8h_a08daee1483e4da843c7116aaf2542529}{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+LS}}\mbox{]}}
+
+
+
+An array of data for each channel. 
+
+Entry 0 is Channel 1 \mbox{\Hypertarget{struct_sample___data__t_a4cc69aa90a343da55c843d05724ea6d2}\label{struct_sample___data__t_a4cc69aa90a343da55c843d05724ea6d2}} 
+\index{Sample\_Data\_t@{Sample\_Data\_t}!GPIO\_Data@{GPIO\_Data}}
+\index{GPIO\_Data@{GPIO\_Data}!Sample\_Data\_t@{Sample\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{GPIO\_Data}{GPIO\_Data}}
+{\footnotesize\ttfamily uint8\+\_\+t Sample\+\_\+\+Data\+\_\+t\+::\+G\+P\+I\+O\+\_\+\+Data}
+
+
+
+The state of the G\+P\+IO pins. 
+
+\mbox{\Hypertarget{struct_sample___data__t_a61be84b21ab477f909e1193320adcecc}\label{struct_sample___data__t_a61be84b21ab477f909e1193320adcecc}} 
+\index{Sample\_Data\_t@{Sample\_Data\_t}!id@{id}}
+\index{id@{id}!Sample\_Data\_t@{Sample\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily uint32\+\_\+t Sample\+\_\+\+Data\+\_\+t\+::id}
+
+
+
+The unique sample ID of this sample. 
+
+\mbox{\Hypertarget{struct_sample___data__t_aa6243bc4b89413887f990ec61e9f4735}\label{struct_sample___data__t_aa6243bc4b89413887f990ec61e9f4735}} 
+\index{Sample\_Data\_t@{Sample\_Data\_t}!Negative\_Lead\_Off\_Status@{Negative\_Lead\_Off\_Status}}
+\index{Negative\_Lead\_Off\_Status@{Negative\_Lead\_Off\_Status}!Sample\_Data\_t@{Sample\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{Negative\_Lead\_Off\_Status}{Negative\_Lead\_Off\_Status}}
+{\footnotesize\ttfamily uint8\+\_\+t Sample\+\_\+\+Data\+\_\+t\+::\+Negative\+\_\+\+Lead\+\_\+\+Off\+\_\+\+Status}
+
+
+
+The negative lead off status for each channel. 
+
+\mbox{\Hypertarget{struct_sample___data__t_ad879d062ee77bacf6b111666f9b53de7}\label{struct_sample___data__t_ad879d062ee77bacf6b111666f9b53de7}} 
+\index{Sample\_Data\_t@{Sample\_Data\_t}!Positive\_Lead\_Off\_Status@{Positive\_Lead\_Off\_Status}}
+\index{Positive\_Lead\_Off\_Status@{Positive\_Lead\_Off\_Status}!Sample\_Data\_t@{Sample\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{Positive\_Lead\_Off\_Status}{Positive\_Lead\_Off\_Status}}
+{\footnotesize\ttfamily uint8\+\_\+t Sample\+\_\+\+Data\+\_\+t\+::\+Positive\+\_\+\+Lead\+\_\+\+Off\+\_\+\+Status}
+
+
+
+The positive lead off status for each channel. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_serial___module_8h}{Serial\+\_\+\+Module.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::get_lead_off_comp_thresh"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::get\l_lead_off_comp_thresh",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the leadoff comparator threshold level."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ADS1299_Module::set\l_lead_off_comp_thresh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a06df74da96bb3b327718dc95f55f8add",tooltip="Sets the leadoff comparator threshold level."];
+}

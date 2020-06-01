@@ -1,0 +1,305 @@
+\hypertarget{class_serial___module}{}\doxysection{Serial\+\_\+\+Module Class Reference}
+\label{class_serial___module}\index{Serial\_Module@{Serial\_Module}}
+
+
+This class facilitates communication over the serial interface.  
+
+
+
+
+{\ttfamily \#include $<$Serial\+\_\+\+Module.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_serial___module_ae68708acfc33c45c7de32fa9edbf52f2}{Serial\+\_\+\+Module}} (Software\+Serial $\ast$my\+\_\+\+SS)
+\begin{DoxyCompactList}\small\item\em Constructs a new Serial Module with a baud rate of 38400 for the BT, and 115200 for the U\+SB connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_serial___module_a295df7874b2feda7b6b67d3681a62a5b}{send\+\_\+line}} (String input)
+\begin{DoxyCompactList}\small\item\em Sends a given string over the U\+A\+RT interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_serial___module_a83e8d51c8ddbcae7f341bd4bf22f23d7}{error\+Msg}} (String input)
+\begin{DoxyCompactList}\small\item\em Sends an error message, by prepending the error prefix and timestamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_serial___module_ad58e8d3d080c63bde51bfc39e0ce059d}{warning\+Msg}} (String input)
+\begin{DoxyCompactList}\small\item\em Sends a warning message, by prepending the warning prefix and timestamp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_serial___module_ac73b88c4a80b37ea73b4034da4d17f37}{debug\+Msg}} (String input)
+\begin{DoxyCompactList}\small\item\em Sends a debug message, by prepending the debug prefix and timestamp. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_serial___module_ab75e4e481102c036efcc96c6388ec028}{send\+\_\+sample\+\_\+\+U\+SB}} (\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} input\+\_\+sample)
+\begin{DoxyCompactList}\small\item\em Sends a sample over the serial interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_serial___module_a0374f7456bf8d0b3779d24d5c0ac200d}{send\+\_\+sample\+\_\+\+Bluetooth}} (\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} input\+\_\+sample)
+\begin{DoxyCompactList}\small\item\em Sends a sample over the serial interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_serial___module_ac593360a7e078179d4285cd46872501d}{send\+\_\+sample\+\_\+\+Both}} (\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} input\+\_\+sample)
+\begin{DoxyCompactList}\small\item\em Sends a sample over the serial interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_serial___module_a1e71de69cc8c85fdc0afda3e7d924402}{send\+\_\+single\+\_\+channel\+\_\+sample\+\_\+\+U\+SB}} (\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} input\+\_\+sample)
+\begin{DoxyCompactList}\small\item\em Sends a sample from Channel 1 over the serial interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_serial___module_a18ff703ee51dc5a30e47d950cb32cbdc}{send\+\_\+single\+\_\+channel\+\_\+sample\+\_\+\+Bluetooth}} (\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}} input\+\_\+sample)
+\begin{DoxyCompactList}\small\item\em Sends a sample from Channel 1 over the serial interface. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{class_serial___module_a3d2d69a39248f732e5a6166b09575084}{get\+\_\+runtime}} (unsigned long time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Builds the runtime into a timestamp string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_serial___module_a941ab15b49274eba8fd667bea5583ef4}{debug\+\_\+enabled}} = false
+\begin{DoxyCompactList}\small\item\em A flag to enable debug messages if messages are enabled. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_serial___module_aeb9e1f1b77ce092a4c0094d9256c6769}{msg\+\_\+enabled}} = false
+\begin{DoxyCompactList}\small\item\em A flag to enable messages on the serial bus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class facilitates communication over the serial interface. 
+
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_serial___module_ae68708acfc33c45c7de32fa9edbf52f2}\label{class_serial___module_ae68708acfc33c45c7de32fa9edbf52f2}} 
+\index{Serial\_Module@{Serial\_Module}!Serial\_Module@{Serial\_Module}}
+\index{Serial\_Module@{Serial\_Module}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{Serial\_Module()}{Serial\_Module()}}
+{\footnotesize\ttfamily Serial\+\_\+\+Module\+::\+Serial\+\_\+\+Module (\begin{DoxyParamCaption}\item[{Software\+Serial $\ast$}]{my\+\_\+ss }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a new Serial Module with a baud rate of 38400 for the BT, and 115200 for the U\+SB connection. 
+
+Constructs a new Serial Module with a baud rate of 38400.
+
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_serial___module_ac73b88c4a80b37ea73b4034da4d17f37}\label{class_serial___module_ac73b88c4a80b37ea73b4034da4d17f37}} 
+\index{Serial\_Module@{Serial\_Module}!debugMsg@{debugMsg}}
+\index{debugMsg@{debugMsg}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{debugMsg()}{debugMsg()}}
+{\footnotesize\ttfamily void Serial\+\_\+\+Module\+::debug\+Msg (\begin{DoxyParamCaption}\item[{String}]{input }\end{DoxyParamCaption})}
+
+
+
+Sends a debug message, by prepending the debug prefix and timestamp. 
+
+\DoxyHorRuler{0}
+ Terminated by \char`\"{}\textbackslash{}n\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & -\/ The string to send after the debug prefix \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_a83e8d51c8ddbcae7f341bd4bf22f23d7}\label{class_serial___module_a83e8d51c8ddbcae7f341bd4bf22f23d7}} 
+\index{Serial\_Module@{Serial\_Module}!errorMsg@{errorMsg}}
+\index{errorMsg@{errorMsg}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{errorMsg()}{errorMsg()}}
+{\footnotesize\ttfamily void Serial\+\_\+\+Module\+::error\+Msg (\begin{DoxyParamCaption}\item[{String}]{input }\end{DoxyParamCaption})}
+
+
+
+Sends an error message, by prepending the error prefix and timestamp. 
+
+\DoxyHorRuler{0}
+ Terminated by \char`\"{}\textbackslash{}n\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & -\/ The string to send after the error prefix \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_a3d2d69a39248f732e5a6166b09575084}\label{class_serial___module_a3d2d69a39248f732e5a6166b09575084}} 
+\index{Serial\_Module@{Serial\_Module}!get\_runtime@{get\_runtime}}
+\index{get\_runtime@{get\_runtime}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{get\_runtime()}{get\_runtime()}}
+{\footnotesize\ttfamily String Serial\+\_\+\+Module\+::get\+\_\+runtime (\begin{DoxyParamCaption}\item[{unsigned long}]{time\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Builds the runtime into a timestamp string. 
+
+\DoxyHorRuler{0}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time\+\_\+ms} & -\/ The runtime in milliseconds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_a295df7874b2feda7b6b67d3681a62a5b}\label{class_serial___module_a295df7874b2feda7b6b67d3681a62a5b}} 
+\index{Serial\_Module@{Serial\_Module}!send\_line@{send\_line}}
+\index{send\_line@{send\_line}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_line()}{send\_line()}}
+{\footnotesize\ttfamily void Serial\+\_\+\+Module\+::send\+\_\+line (\begin{DoxyParamCaption}\item[{String}]{input }\end{DoxyParamCaption})}
+
+
+
+Sends a given string over the U\+A\+RT interface. 
+
+\DoxyHorRuler{0}
+ Terminated by \char`\"{}\textbackslash{}n\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & -\/ The string to send \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_a0374f7456bf8d0b3779d24d5c0ac200d}\label{class_serial___module_a0374f7456bf8d0b3779d24d5c0ac200d}} 
+\index{Serial\_Module@{Serial\_Module}!send\_sample\_Bluetooth@{send\_sample\_Bluetooth}}
+\index{send\_sample\_Bluetooth@{send\_sample\_Bluetooth}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_sample\_Bluetooth()}{send\_sample\_Bluetooth()}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::send\+\_\+sample\+\_\+\+Bluetooth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}}]{input\+\_\+sample }\end{DoxyParamCaption})}
+
+
+
+Sends a sample over the serial interface. 
+
+Sends a sample over the Bluetooth interface.
+
+\DoxyHorRuler{0}
+
+
+Samples are sent over the serial interface (38400 baud) in the format $<$sample I\+D$>$ $<$Channel 1$>$$<$Channel 2$>$$<$Channel 3$>$...$<$Channel 8$>$$<$~\newline
+$>$. Everything except the ~\newline
+ are uint32\+\_\+ts in 8 data bits, no parity, 1 stop bit.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\+\_\+sample} & -\/ The sample to send over the serial interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_ac593360a7e078179d4285cd46872501d}\label{class_serial___module_ac593360a7e078179d4285cd46872501d}} 
+\index{Serial\_Module@{Serial\_Module}!send\_sample\_Both@{send\_sample\_Both}}
+\index{send\_sample\_Both@{send\_sample\_Both}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_sample\_Both()}{send\_sample\_Both()}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::send\+\_\+sample\+\_\+\+Both (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}}]{input\+\_\+sample }\end{DoxyParamCaption})}
+
+
+
+Sends a sample over the serial interface. 
+
+Sends a sample over the Bluetooth interface and the U\+SB interface.
+
+\DoxyHorRuler{0}
+
+
+Samples are sent over the serial interface (38400 baud) in the format $<$sample I\+D$>$ $<$Channel 1$>$$<$Channel 2$>$$<$Channel 3$>$...$<$Channel 8$>$$<$~\newline
+$>$. Everything except the ~\newline
+ are uint32\+\_\+ts in 8 data bits, no parity, 1 stop bit.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\+\_\+sample} & -\/ The sample to send over the serial interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_ab75e4e481102c036efcc96c6388ec028}\label{class_serial___module_ab75e4e481102c036efcc96c6388ec028}} 
+\index{Serial\_Module@{Serial\_Module}!send\_sample\_USB@{send\_sample\_USB}}
+\index{send\_sample\_USB@{send\_sample\_USB}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_sample\_USB()}{send\_sample\_USB()}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::send\+\_\+sample\+\_\+\+U\+SB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}}]{input\+\_\+sample }\end{DoxyParamCaption})}
+
+
+
+Sends a sample over the serial interface. 
+
+Sends a sample over the U\+SB interface.
+
+\DoxyHorRuler{0}
+
+
+Samples are sent over the serial interface (38400 baud) in the format $<$sample I\+D$>$ $<$Channel 1$>$$<$Channel 2$>$$<$Channel 3$>$...$<$Channel 8$>$$<$~\newline
+$>$. Everything except the ~\newline
+ are uint32\+\_\+ts in 8 data bits, no parity, 1 stop bit.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\+\_\+sample} & -\/ The sample to send over the serial interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_a18ff703ee51dc5a30e47d950cb32cbdc}\label{class_serial___module_a18ff703ee51dc5a30e47d950cb32cbdc}} 
+\index{Serial\_Module@{Serial\_Module}!send\_single\_channel\_sample\_Bluetooth@{send\_single\_channel\_sample\_Bluetooth}}
+\index{send\_single\_channel\_sample\_Bluetooth@{send\_single\_channel\_sample\_Bluetooth}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_single\_channel\_sample\_Bluetooth()}{send\_single\_channel\_sample\_Bluetooth()}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::send\+\_\+single\+\_\+channel\+\_\+sample\+\_\+\+Bluetooth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}}]{input\+\_\+sample }\end{DoxyParamCaption})}
+
+
+
+Sends a sample from Channel 1 over the serial interface. 
+
+Sends a sample from Channel 1 over the U\+SB interface.
+
+\DoxyHorRuler{0}
+
+
+Samples are sent over the serial interface (38400 baud) in the format $<$sample I\+D$>$ $<$Channel 1$>$$<$~\newline
+$>$. Everything except the ~\newline
+ are uint32\+\_\+ts in 8 data bits, no parity, 1 stop bit.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\+\_\+sample} & -\/ The sample to send over the serial interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_a1e71de69cc8c85fdc0afda3e7d924402}\label{class_serial___module_a1e71de69cc8c85fdc0afda3e7d924402}} 
+\index{Serial\_Module@{Serial\_Module}!send\_single\_channel\_sample\_USB@{send\_single\_channel\_sample\_USB}}
+\index{send\_single\_channel\_sample\_USB@{send\_single\_channel\_sample\_USB}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_single\_channel\_sample\_USB()}{send\_single\_channel\_sample\_USB()}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::send\+\_\+single\+\_\+channel\+\_\+sample\+\_\+\+U\+SB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sample___data__t}{Sample\+\_\+\+Data\+\_\+t}}}]{input\+\_\+sample }\end{DoxyParamCaption})}
+
+
+
+Sends a sample from Channel 1 over the serial interface. 
+
+Sends a sample from Channel 1 over the U\+SB interface.
+
+\DoxyHorRuler{0}
+
+
+Samples are sent over the serial interface (38400 baud) in the format $<$sample I\+D$>$ $<$Channel 1$>$$<$~\newline
+$>$. Everything except the ~\newline
+ are uint32\+\_\+ts in 8 data bits, no parity, 1 stop bit.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\+\_\+sample} & -\/ The sample to send over the serial interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_serial___module_ad58e8d3d080c63bde51bfc39e0ce059d}\label{class_serial___module_ad58e8d3d080c63bde51bfc39e0ce059d}} 
+\index{Serial\_Module@{Serial\_Module}!warningMsg@{warningMsg}}
+\index{warningMsg@{warningMsg}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{warningMsg()}{warningMsg()}}
+{\footnotesize\ttfamily void Serial\+\_\+\+Module\+::warning\+Msg (\begin{DoxyParamCaption}\item[{String}]{input }\end{DoxyParamCaption})}
+
+
+
+Sends a warning message, by prepending the warning prefix and timestamp. 
+
+\DoxyHorRuler{0}
+ Terminated by \char`\"{}\textbackslash{}n\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & -\/ The string to send after the warning prefix \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_serial___module_a941ab15b49274eba8fd667bea5583ef4}\label{class_serial___module_a941ab15b49274eba8fd667bea5583ef4}} 
+\index{Serial\_Module@{Serial\_Module}!debug\_enabled@{debug\_enabled}}
+\index{debug\_enabled@{debug\_enabled}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{debug\_enabled}{debug\_enabled}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::debug\+\_\+enabled = false}
+
+
+
+A flag to enable debug messages if messages are enabled. 
+
+\mbox{\Hypertarget{class_serial___module_aeb9e1f1b77ce092a4c0094d9256c6769}\label{class_serial___module_aeb9e1f1b77ce092a4c0094d9256c6769}} 
+\index{Serial\_Module@{Serial\_Module}!msg\_enabled@{msg\_enabled}}
+\index{msg\_enabled@{msg\_enabled}!Serial\_Module@{Serial\_Module}}
+\doxysubsubsection{\texorpdfstring{msg\_enabled}{msg\_enabled}}
+{\footnotesize\ttfamily bool Serial\+\_\+\+Module\+::msg\+\_\+enabled = false}
+
+
+
+A flag to enable messages on the serial bus. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_serial___module_8h}{Serial\+\_\+\+Module.\+h}}\item 
+\mbox{\hyperlink{_serial___module_8cpp}{Serial\+\_\+\+Module.\+cpp}}\end{DoxyCompactItemize}

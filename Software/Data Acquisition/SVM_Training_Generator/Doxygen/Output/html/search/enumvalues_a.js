@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['sdatac_583',['SDATAC',['../_a_d_s1299___params_8h.html#a30a49ce74b3e4d010c0879ef70090cafa619f2e3a5da29a7b81532e104c1e5025',1,'ADS1299_Params.h']]],
+  ['single_5fshot_584',['SINGLE_SHOT',['../_a_d_s1299___params_8h.html#a63ebc84f8d6dcc901662aefa1e999d6da34076d762aeabc2d33fb0a38676c3baf',1,'ADS1299_Params.h']]],
+  ['sps16k_585',['SPS16k',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1af2cd99cb43bea19e06f04891113c300d',1,'ADS1299_Params.h']]],
+  ['sps1k_586',['SPS1k',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1aa9c88ee43f5c18e906b7eb52b9b5941f',1,'ADS1299_Params.h']]],
+  ['sps250_587',['SPS250',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1a8845c5f2435dae8c002d1c3d09068a68',1,'ADS1299_Params.h']]],
+  ['sps2k_588',['SPS2k',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1a9d556eb417febc1980d971dae96c1ff0',1,'ADS1299_Params.h']]],
+  ['sps4k_589',['SPS4k',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1ac5476471ef19f99e43aac0c5d9607f48',1,'ADS1299_Params.h']]],
+  ['sps500_590',['SPS500',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1adbad066b8482ae8cca744b7d2fd73351',1,'ADS1299_Params.h']]],
+  ['sps8k_591',['SPS8k',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1ab389883498023bc008a9ac4e7a687b1e',1,'ADS1299_Params.h']]],
+  ['sps_5ferror_592',['SPS_ERROR',['../_a_d_s1299___params_8h.html#a3e97c0a8d6216adc12d7a094446bffb1ab2926fdf2c11c9e202df9437f7a65e11',1,'ADS1299_Params.h']]],
+  ['srb1_5fclosed_5fall_5fchannels_593',['SRB1_CLOSED_ALL_CHANNELS',['../_a_d_s1299___params_8h.html#a3a0d55789cf27305cf2777d57aaf263caf75119feae927cce2b09cbb098328923',1,'ADS1299_Params.h']]],
+  ['srb1_5ferror_594',['SRB1_ERROR',['../_a_d_s1299___params_8h.html#a3a0d55789cf27305cf2777d57aaf263ca0bc0e787634b709c27e94faad3b9cd95',1,'ADS1299_Params.h']]],
+  ['srb1_5fopen_5fall_5fchannels_595',['SRB1_OPEN_ALL_CHANNELS',['../_a_d_s1299___params_8h.html#a3a0d55789cf27305cf2777d57aaf263ca675c2005cc3aa2e13afc76ef2eef811f',1,'ADS1299_Params.h']]],
+  ['srb2_5fclosed_596',['SRB2_CLOSED',['../_a_d_s1299___params_8h.html#a538c23ca9af4445544ce959ed6430799afc207fbaba85dc2166d78c9c894ca451',1,'ADS1299_Params.h']]],
+  ['srb2_5ferror_597',['SRB2_ERROR',['../_a_d_s1299___params_8h.html#a538c23ca9af4445544ce959ed6430799aff4d851c4f095f0e53deb514fc6846cc',1,'ADS1299_Params.h']]],
+  ['srb2_5fopen_598',['SRB2_OPEN',['../_a_d_s1299___params_8h.html#a538c23ca9af4445544ce959ed6430799a2ab1d76810fc02ed9d46e85ed60a3c1e',1,'ADS1299_Params.h']]],
+  ['standby_599',['STANDBY',['../_a_d_s1299___params_8h.html#a30a49ce74b3e4d010c0879ef70090cafae4634ae4352b512b38c5da9dc1610ca6',1,'ADS1299_Params.h']]],
+  ['start_600',['START',['../_a_d_s1299___params_8h.html#a30a49ce74b3e4d010c0879ef70090cafa13d000b4d7dc70d90239b7430d1eb6b2',1,'ADS1299_Params.h']]],
+  ['stop_601',['STOP',['../_a_d_s1299___params_8h.html#a30a49ce74b3e4d010c0879ef70090cafa679ee5320d66c8322e310daeb2ee99b8',1,'ADS1299_Params.h']]]
+];

@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::get_num_channels"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::get\l_num_channels",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the number of channels as stored locally."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_sparker___d_a_q_8ino.html#a4fc01d736fe50cf5b977f755b675f11d",tooltip="Sets up the ADS1299 and required interfaces."];
+}

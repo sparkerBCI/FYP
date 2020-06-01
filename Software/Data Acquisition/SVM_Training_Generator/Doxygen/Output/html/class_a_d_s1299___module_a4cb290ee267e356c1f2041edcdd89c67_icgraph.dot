@@ -1,0 +1,10 @@
+digraph "ADS1299_Module::get_bias_measurement_state"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::get\l_bias_measurement_state",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets whether the BIAS_IN signal can be measured by appropriately configued channels."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ADS1299_Module::set\l_bias_measurement_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a200f64110bda07b7c8c79ad3cc2af7bc",tooltip="Sets whether the BIAS_IN signal can be measured by appropriately configued channels."];
+}

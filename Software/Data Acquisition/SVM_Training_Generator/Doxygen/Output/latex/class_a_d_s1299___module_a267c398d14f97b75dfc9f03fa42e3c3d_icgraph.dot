@@ -1,0 +1,15 @@
+digraph "ADS1299_Module::send_command"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ADS1299_Module::send\l_command",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Sends a single byte command to the ADS1299."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ADS1299_Module::ADS1299\l_Module",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#aac31dc4f070157739a2c76269cff5fc9",tooltip="Creates an ADS1299_Module and opens the SPI interface over which to communicate."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ADS1299_Module::reset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_d_s1299___module.html#a92e7bac8a242735fc97fbab6e1563409",tooltip="Resets the device and waits the required time."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_sparker___d_a_q_8ino.html#a4fc01d736fe50cf5b977f755b675f11d",tooltip="Sets up the ADS1299 and required interfaces."];
+}
