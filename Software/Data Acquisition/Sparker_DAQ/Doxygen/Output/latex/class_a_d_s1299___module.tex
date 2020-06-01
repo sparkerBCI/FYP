@@ -75,9 +75,9 @@ bool \mbox{\hyperlink{class_a_d_s1299___module_a4cb290ee267e356c1f2041edcdd89c67
 \mbox{\hyperlink{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569}{A\+D\+S1299\+\_\+\+Status\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a200f64110bda07b7c8c79ad3cc2af7bc}{set\+\_\+bias\+\_\+measurement\+\_\+state}} (bool new\+\_\+state)
 \begin{DoxyCompactList}\small\item\em Sets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0}{Bias\+\_\+\+Source\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a91046e15b8afe607f85bd2875c59bc2e}{get\+\_\+bias\+\_\+source}} (void)
-\begin{DoxyCompactList}\small\item\em Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. (A\+V\+DD + A\+V\+SS) / 2). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569}{A\+D\+S1299\+\_\+\+Status\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a3f7c3f606203dd46537db0ed95771b3c}{set\+\_\+bias\+\_\+source}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0}{Bias\+\_\+\+Source\+\_\+t}} new\+\_\+source)
-\begin{DoxyCompactList}\small\item\em Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. (A\+V\+DD + A\+V\+SS) / 2). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a6f15d9be6e0e8c8db26cfa3e2ff41c10}{Bias\+\_\+\+Power\+\_\+\+State\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_af1f65431a8c8f462e482c6856bb013e5}{get\+\_\+bias\+\_\+buffer\+\_\+power\+\_\+state}} (void)
 \begin{DoxyCompactList}\small\item\em Gets the current B\+I\+AS buffer state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569}{A\+D\+S1299\+\_\+\+Status\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_af13310094a600415a7f51041c8c7a6bd}{set\+\_\+bias\+\_\+buffer\+\_\+power\+\_\+state}} (\mbox{\hyperlink{_a_d_s1299___params_8h_a6f15d9be6e0e8c8db26cfa3e2ff41c10}{Bias\+\_\+\+Power\+\_\+\+State\+\_\+t}} new\+\_\+state)
@@ -174,14 +174,16 @@ uint8\+\_\+t \mbox{\hyperlink{class_a_d_s1299___module_a76cd1c060713d6cefe155ed4
 \mbox{\hyperlink{struct_a_d_s1299___module_1_1_param___array__t}{Param\+\_\+\+Array\+\_\+t}} \mbox{\hyperlink{class_a_d_s1299___module_a1aba94bbc9ea129be16b34bcc9f6105f}{Param\+\_\+\+Array}} \mbox{[}\mbox{\hyperlink{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a52c45b0b512fc178cc4625f4c1995fd5}{N\+U\+M\+\_\+\+P\+A\+R\+A\+MS}}\mbox{]} = \{ \mbox{\hyperlink{_a_d_s1299___params_8h_a5aab66f6549ef91553fcb68840eba529}{P\+A\+R\+A\+M\+\_\+\+T\+A\+B\+LE}} \}
 \item 
 bool \mbox{\hyperlink{class_a_d_s1299___module_aa8132c8ccfbcdb3fd8edf07884e10533}{is\+\_\+running}} = false
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This bool indicates true if the A\+D\+S1299 is converting. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 The \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} facilitates communication to and control of the A\+DC device. 
 
 \DoxyHorRuler{0}
- It contains a lot of getters and setter for every setting possible, and commands to read from and write to registers. You can also send the basic commands to the device using this module. 
+
+
+It contains a lot of getters and setter for every setting possible, and commands to read from and write to registers. You can also send the basic commands to the device using this module. 
 
 \doxysubsection{Member Typedef Documentation}
 \mbox{\Hypertarget{class_a_d_s1299___module_a9cc39ce59d6968db990e99639db23571}\label{class_a_d_s1299___module_a9cc39ce59d6968db990e99639db23571}} 
@@ -220,7 +222,9 @@ This struct contains information about a register.
 Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}} and opens the S\+PI interface over which to communicate. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em Hardware\+\_\+\+Info} & -\/ A Hardware Map so the module knows which pin to pull L\+OW to initiate a S\+PI transfer, which pin is S\+T\+A\+RT, etc. \\
 \hline
@@ -239,7 +243,9 @@ Creates an \mbox{\hyperlink{class_a_d_s1299___module}{A\+D\+S1299\+\_\+\+Module}
 Gets whether all electrods are referenced to S\+R\+B1. 
 
 \DoxyHorRuler{0}
- This is the preferred setup for referential montage.
+
+
+This is the preferred setup for referential montage.
 
 \begin{DoxyReturn}{Returns}
 -\/ The S\+R\+B1 connection status of the device. 
@@ -255,7 +261,9 @@ Gets whether all electrods are referenced to S\+R\+B1.
 Gets the current B\+I\+AS buffer state. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The current B\+I\+AS buffer state. B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR if error 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a22c85dca10b564ae9bf85c9a75f0d49c}\label{class_a_d_s1299___module_a22c85dca10b564ae9bf85c9a75f0d49c}} 
@@ -269,7 +277,9 @@ Gets the current B\+I\+AS buffer state.
 Gets whether the B\+I\+AS lead is attached. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The status of the B\+I\+AS lead. B\+I\+A\+S\+\_\+\+L\+O\+F\+F\+\_\+\+E\+R\+R\+OR if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a4cb290ee267e356c1f2041edcdd89c67}\label{class_a_d_s1299___module_a4cb290ee267e356c1f2041edcdd89c67}} 
@@ -283,7 +293,9 @@ Gets whether the B\+I\+AS lead is attached.
 Gets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. 
 
 \DoxyHorRuler{0}
- If the B\+I\+A\+S\+\_\+\+IN state is true, the B\+I\+AS signal can be measured by any channel configured as a C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS by the set\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+If the B\+I\+A\+S\+\_\+\+IN state is true, the B\+I\+AS signal can be measured by any channel configured as a C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS by the set\+\_\+channel\+\_\+connection\+\_\+type function.
 
 \begin{DoxyReturn}{Returns}
 -\/ True if the B\+I\+AS signal is routed to the channels. False if the B\+I\+AS signal is Open. 
@@ -299,7 +311,9 @@ Gets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately co
 Gets the status of the bias sense function. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The state of the bias sense function. B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+E\+R\+R\+OR if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a91046e15b8afe607f85bd2875c59bc2e}\label{class_a_d_s1299___module_a91046e15b8afe607f85bd2875c59bc2e}} 
@@ -310,10 +324,12 @@ Gets the status of the bias sense function.
 
 
 
-Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. (A\+V\+DD + A\+V\+SS) / 2). 
+Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. 
 
 \DoxyHorRuler{0}
- If a B\+I\+A\+S\+\_\+\+R\+EF electrode is being used, this should be set to B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL.
+ (A\+V\+DD + A\+V\+SS) / 2).
+
+If a B\+I\+A\+S\+\_\+\+R\+EF electrode is being used, this should be set to B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL.
 
 \begin{DoxyReturn}{Returns}
 -\/ The bias signal source. B\+I\+A\+S\+\_\+\+E\+R\+R\+OR if error. 
@@ -329,7 +345,9 @@ Gets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generate
 Gets the amplitude of the test functions. 
 
 \DoxyHorRuler{0}
- Amplitude will be 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to false\mbox{]} or 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to true\mbox{]}.
+
+
+Amplitude will be 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to false\mbox{]} or 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to true\mbox{]}.
 
 \begin{DoxyReturn}{Returns}
 -\/ True if the amplitude of the test signal is 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400. False if the amplitude of the test signal is 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400. 
@@ -345,7 +363,9 @@ Gets the amplitude of the test functions.
 Gets the frequency of the test functions. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The frequency of the test signal. T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ac4d6b39eca973fc65bc615f701095714}\label{class_a_d_s1299___module_ac4d6b39eca973fc65bc615f701095714}} 
@@ -359,7 +379,9 @@ Gets the frequency of the test functions.
 Gets if the provided channel\textquotesingle{}s negative signal is used for the bias negative voltage signal. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
 \hline
@@ -378,7 +400,9 @@ Gets if the provided channel\textquotesingle{}s negative signal is used for the 
 Gets if the provided channel\textquotesingle{}s positive signal is used for the bias positive voltage signal. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
 \hline
@@ -397,7 +421,9 @@ Gets if the provided channel\textquotesingle{}s positive signal is used for the 
 Gets info about the channel connection type. 
 
 \DoxyHorRuler{0}
- Channels can be electrodes, shorted to A\+V\+DD (off), bias measurements, mid-\/supply, temp sensors, test signals, positive side bias drivers, or negative side bias drivers.
+
+
+Channels can be electrodes, shorted to A\+V\+DD (off), bias measurements, mid-\/supply, temp sensors, test signals, positive side bias drivers, or negative side bias drivers.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -418,7 +444,9 @@ Gets info about the channel connection type.
 Gets the Programmable Gain Array gain setting of the requested channel. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct register.\\
 \hline
@@ -437,7 +465,9 @@ Gets the Programmable Gain Array gain setting of the requested channel.
 Gets whether a channel\textquotesingle{}s lead-\/off detection pull-\/X configuration is flipped. 
 
 \DoxyHorRuler{0}
- If no flip, a channel\textquotesingle{}s positive signal is pulled up to A\+V\+DD and negative is pulled down to A\+V\+SS. If there is a flip, the channel\textquotesingle{}s positive signal is pulled down to A\+V\+SS and its negative channel is pulled up to A\+V\+DD.
+
+
+If no flip, a channel\textquotesingle{}s positive signal is pulled up to A\+V\+DD and negative is pulled down to A\+V\+SS. If there is a flip, the channel\textquotesingle{}s positive signal is pulled down to A\+V\+SS and its negative channel is pulled up to A\+V\+DD.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -458,7 +488,9 @@ Gets whether a channel\textquotesingle{}s lead-\/off detection pull-\/X configur
 Gets the lead-\/off status of the negative lead of a channel. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
 \hline
@@ -477,7 +509,9 @@ Gets the lead-\/off status of the negative lead of a channel.
 Gets whether a channel\textquotesingle{}s negative lead has lead-\/off detection enabled. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
 \hline
@@ -496,7 +530,9 @@ Gets whether a channel\textquotesingle{}s negative lead has lead-\/off detection
 Gets the lead-\/off status of the positive lead of a channel. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
 \hline
@@ -515,7 +551,9 @@ Gets the lead-\/off status of the positive lead of a channel.
 Gets whether a channel\textquotesingle{}s positive lead has lead-\/off detection enabled. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to check. This is used to select the correct bit.\\
 \hline
@@ -534,7 +572,9 @@ Gets whether a channel\textquotesingle{}s positive lead has lead-\/off detection
 Gets the power state of the requested channel. 
 
 \DoxyHorRuler{0}
- If the channel is powered down, TI recommends the channel is shorted. This can be achieved using the get\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+If the channel is powered down, TI recommends the channel is shorted. This can be achieved using the get\+\_\+channel\+\_\+connection\+\_\+type function.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -555,7 +595,9 @@ Gets the power state of the requested channel.
 Gets the S\+R\+B2 connection status of the channel. 
 
 \DoxyHorRuler{0}
- S\+R\+B2 is the secondary reference channel. For a referential montage, application notes from TI use S\+R\+B1, which can be set en masse using set\+\_\+all\+\_\+channel\+\_\+\+S\+R\+B1\+\_\+connection\+\_\+status.
+
+
+S\+R\+B2 is the secondary reference channel. For a referential montage, application notes from TI use S\+R\+B1, which can be set en masse using set\+\_\+all\+\_\+channel\+\_\+\+S\+R\+B1\+\_\+connection\+\_\+status.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -576,7 +618,9 @@ Gets the S\+R\+B2 connection status of the channel.
 Gets the current clock mode. 
 
 \DoxyHorRuler{0}
- If clock mode is true, the oscillator will output to the C\+LK pins if the C\+L\+K\+S\+EL pin is H\+I\+GH.
+
+
+If clock mode is true, the oscillator will output to the C\+LK pins if the C\+L\+K\+S\+EL pin is H\+I\+GH.
 
 \begin{DoxyReturn}{Returns}
 -\/ True if the oscillator will output on C\+LK pins if C\+L\+K\+S\+EL is H\+I\+GH. False otherwise. False if read error. 
@@ -592,7 +636,9 @@ Gets the current clock mode.
 Gets the current device conversion mode. 
 
 \DoxyHorRuler{0}
- Conversion modes are single shot or continuous.
+
+
+Conversion modes are single shot or continuous.
 
 \begin{DoxyReturn}{Returns}
 -\/ The current conversion mode of the device. 
@@ -608,7 +654,9 @@ Gets the current device conversion mode.
 Gets whether the device is in daisy chain mode or not. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The current daisy chain mode, or D\+A\+I\+S\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a36c1904cc5408c5174b71587580a1cb9}\label{class_a_d_s1299___module_a36c1904cc5408c5174b71587580a1cb9}} 
@@ -622,7 +670,9 @@ Gets whether the device is in daisy chain mode or not.
 Gets the current data rate. 
 
 \DoxyHorRuler{0}
- The data rate determines how many samples per second the A\+D\+S1299 reads at.
+
+
+The data rate determines how many samples per second the A\+D\+S1299 reads at.
 
 \begin{DoxyReturn}{Returns}
 -\/ The current data rate. S\+P\+S\+\_\+\+E\+R\+R\+OR if error. 
@@ -638,7 +688,9 @@ Gets the current data rate.
 Gets the device ID from the A\+D\+S1299. 
 
 \DoxyHorRuler{0}
- If the value is not 0x03, something is wrong. Or check the datasheet, TI may have changed things.
+
+
+If the value is not 0x03, something is wrong. Or check the datasheet, TI may have changed things.
 
 \begin{DoxyReturn}{Returns}
 -\/ The device ID (expect 0x03). 
@@ -654,7 +706,9 @@ Gets the device ID from the A\+D\+S1299.
 Gets the device version from the A\+D\+S1299. 
 
 \DoxyHorRuler{0}
- This value is baked in to the A\+D\+S1299 by TI, and the datasheet doesn\textquotesingle{}t give much info about what the value represents, but we can read it!
+
+
+This value is baked in to the A\+D\+S1299 by TI, and the datasheet doesn\textquotesingle{}t give much info about what the value represents, but we can read it!
 
 \begin{DoxyReturn}{Returns}
 -\/ The device version. 
@@ -670,7 +724,9 @@ Gets the device version from the A\+D\+S1299.
 Gets the G\+P\+IO mode of a G\+P\+IO Pin. 
 
 \DoxyHorRuler{0}
- G\+P\+IO modes are Input or Output.
+
+
+G\+P\+IO modes are Input or Output.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -691,7 +747,9 @@ Gets the G\+P\+IO mode of a G\+P\+IO Pin.
 Gets the G\+P\+IO state of a G\+P\+IO Pin. 
 
 \DoxyHorRuler{0}
- G\+P\+IO states are H\+I\+GH or L\+OW.
+
+
+G\+P\+IO states are H\+I\+GH or L\+OW.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -712,7 +770,9 @@ Gets the G\+P\+IO state of a G\+P\+IO Pin.
 Gets whether the test signal is sourced internally or externally. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ True if the test signals are generated internally. False if the test signals are driven externally. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a79f5a467b2d9533bad69e5a3871a04ea}\label{class_a_d_s1299___module_a79f5a467b2d9533bad69e5a3871a04ea}} 
@@ -726,7 +786,9 @@ Gets whether the test signal is sourced internally or externally.
 Gets the leadoff comparator threshold level. 
 
 \DoxyHorRuler{0}
- On the positive side, threshold will be 100\% -\/ return value. On the negative side, threshold is return value.
+
+
+On the positive side, threshold will be 100\% -\/ return value. On the negative side, threshold is return value.
 
 \begin{DoxyReturn}{Returns}
 -\/ The leadoff comparator threshold level. L\+O\+F\+F\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+E\+R\+R\+OR if error. 
@@ -742,7 +804,9 @@ Gets the leadoff comparator threshold level.
 Gets the lead-\/off current (like Amps) magnitude. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The lead-\/off current level. L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+E\+R\+R\+OR if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a66c52d07559da66da339b3068dfd40df}\label{class_a_d_s1299___module_a66c52d07559da66da339b3068dfd40df}} 
@@ -756,7 +820,9 @@ Gets the lead-\/off current (like Amps) magnitude.
 Gets the lead-\/off detection frequency. 
 
 \DoxyHorRuler{0}
- This is the rate that the leads are polled to see if they have disconnected. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4 means the leads will be sampled at 1 quarter of the data rate.
+
+
+This is the rate that the leads are polled to see if they have disconnected. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4 means the leads will be sampled at 1 quarter of the data rate.
 
 \begin{DoxyReturn}{Returns}
 -\/ The lead-\/off detection frequency. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR if error. 
@@ -772,7 +838,9 @@ Gets the lead-\/off detection frequency.
 Gets the current lead-\/off comparator status. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The current lead-\/off comparator status. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_a19df404bf97d894161b80af925310508}\label{class_a_d_s1299___module_a19df404bf97d894161b80af925310508}} 
@@ -786,7 +854,9 @@ Gets the current lead-\/off comparator status.
 Gets the number of channels as stored locally. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The number of channels (4, 6, or 8). 0 if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_af152268fb23af1ecdbc2ac015d48f971}\label{class_a_d_s1299___module_af152268fb23af1ecdbc2ac015d48f971}} 
@@ -800,11 +870,15 @@ Gets the number of channels as stored locally.
 Gets the number of channels from the A\+D\+S1299. 
 
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The number of channels (4, 6, or 8). 0 if error.
 \end{DoxyReturn}
 \DoxyHorRuler{0}
- \begin{DoxyReturn}{Returns}
+
+
+\begin{DoxyReturn}{Returns}
 -\/ The number of channels. N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+E\+R\+R\+OR if error. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_a_d_s1299___module_ae8c625255085e5fc9ddb770e70884345}\label{class_a_d_s1299___module_ae8c625255085e5fc9ddb770e70884345}} 
@@ -818,7 +892,9 @@ Gets the number of channels from the A\+D\+S1299.
 Gets the power state of the internal reference buffer. 
 
 \DoxyHorRuler{0}
- Unless an external voltage reference is supplied, this should be powered on.
+
+
+Unless an external voltage reference is supplied, this should be powered on.
 
 \begin{DoxyReturn}{Returns}
 -\/ True if the internal reference buffer is powered on. False if the internal reference buffer is powered off. 
@@ -834,7 +910,9 @@ Gets the power state of the internal reference buffer.
 Converts a memory address to a Reg\+\_\+\+ID. 
 
 \DoxyHorRuler{0}
- This function searches through the Reg\+\_\+\+Array and returns the Reg\+\_\+\+ID of the first register with the provided address.
+
+
+This function searches through the Reg\+\_\+\+Array and returns the Reg\+\_\+\+ID of the first register with the provided address.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -855,7 +933,9 @@ Converts a memory address to a Reg\+\_\+\+ID.
 Gets the current value of a Register from the A\+D\+S1299 given a Reg\+\_\+\+ID. 
 
 \DoxyHorRuler{0}
- The Read Register command on the A\+D\+S1299 is a 16 bit command, asking for the register, and the number of sequential registers to read -\/ 1. Since we only want to read 1 register, the second byte is 0, so we A\+ND the command with 0x\+F\+F00 to ensure the lower byte is 0. Updates the value stored in local memory.
+
+
+The Read Register command on the A\+D\+S1299 is a 16 bit command, asking for the register, and the number of sequential registers to read -\/ 1. Since we only want to read 1 register, the second byte is 0, so we A\+ND the command with 0x\+F\+F00 to ensure the lower byte is 0. Updates the value stored in local memory.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -876,7 +956,9 @@ Gets the current value of a Register from the A\+D\+S1299 given a Reg\+\_\+\+ID.
 Gets the current value of a Register from the A\+D\+S1299 given a memory address. 
 
 \DoxyHorRuler{0}
- This overloads read\+\_\+register. First converts the address to a Reg\+\_\+\+ID, then calls read\+\_\+register with the found Reg\+\_\+\+ID, if there was a Reg\+\_\+\+ID matching the address.
+
+
+This overloads read\+\_\+register. First converts the address to a Reg\+\_\+\+ID, then calls read\+\_\+register with the found Reg\+\_\+\+ID, if there was a Reg\+\_\+\+ID matching the address.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -916,7 +998,9 @@ Reads back one sample from the A\+D\+S1299.
 Resets the device and waits the required time. 
 
 \DoxyHorRuler{0}
- The datasheet calls for a delay of 1.\+96us after issuing the R\+E\+S\+ET command, but we wait 1ms just to be safe. \mbox{\Hypertarget{class_a_d_s1299___module_a267c398d14f97b75dfc9f03fa42e3c3d}\label{class_a_d_s1299___module_a267c398d14f97b75dfc9f03fa42e3c3d}} 
+
+
+The datasheet calls for a delay of 1.\+96us after issuing the R\+E\+S\+ET command, but we wait 1ms just to be safe. \mbox{\Hypertarget{class_a_d_s1299___module_a267c398d14f97b75dfc9f03fa42e3c3d}\label{class_a_d_s1299___module_a267c398d14f97b75dfc9f03fa42e3c3d}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!send\_command@{send\_command}}
 \index{send\_command@{send\_command}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{send\_command()}{send\_command()}}
@@ -927,7 +1011,9 @@ Resets the device and waits the required time.
 Sends a single byte command to the A\+D\+S1299. 
 
 \DoxyHorRuler{0}
- Single byte commands are mostly used for setting device states.
+
+
+Single byte commands are mostly used for setting device states.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -948,7 +1034,9 @@ Sends a single byte command to the A\+D\+S1299.
 Sets whether all electrods are referenced to S\+R\+B1. 
 
 \DoxyHorRuler{0}
- This is the preferred setup for referential montage.
+
+
+This is the preferred setup for referential montage.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -969,7 +1057,9 @@ Sets whether all electrods are referenced to S\+R\+B1.
 Sets the current B\+I\+AS buffer state. 
 
 \DoxyHorRuler{0}
- If there is no subject biasing or right-\/leg-\/drive this can be powered off to save power.
+
+
+If there is no subject biasing or right-\/leg-\/drive this can be powered off to save power.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -990,7 +1080,9 @@ Sets the current B\+I\+AS buffer state.
 Sets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately configued channels. 
 
 \DoxyHorRuler{0}
- If the B\+I\+A\+S\+\_\+\+IN state is true, the B\+I\+AS signal can be measured by any channel configured as a C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS by the set\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+If the B\+I\+A\+S\+\_\+\+IN state is true, the B\+I\+AS signal can be measured by any channel configured as a C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS by the set\+\_\+channel\+\_\+connection\+\_\+type function.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1011,7 +1103,9 @@ Sets whether the B\+I\+A\+S\+\_\+\+IN signal can be measured by appropriately co
 Enables or disables the bias sense function. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The new state to set, enabling or disabling the bias sense function.\\
 \hline
@@ -1027,10 +1121,12 @@ Enables or disables the bias sense function.
 
 
 
-Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. (A\+V\+DD + A\+V\+SS) / 2). 
+Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generated internally at a mid-\/supply level (i.\+e. 
 
 \DoxyHorRuler{0}
- If a B\+I\+A\+S\+\_\+\+R\+EF electrode is being used, this should be set to B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL.
+ (A\+V\+DD + A\+V\+SS) / 2).
+
+If a B\+I\+A\+S\+\_\+\+R\+EF electrode is being used, this should be set to B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1051,7 +1147,9 @@ Sets whether the B\+I\+A\+S\+\_\+\+R\+EF signal is fed externally or is generate
 Sets the amplitude of the test functions. 
 
 \DoxyHorRuler{0}
- Amplitude will be 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to false\mbox{]} or 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to true\mbox{]}.
+
+
+Amplitude will be 1 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to false\mbox{]} or 2 x -\/(V\+R\+E\+FP -\/ V\+R\+E\+FN) / 2400 \mbox{[}corresponds to true\mbox{]}.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1072,7 +1170,9 @@ Sets the amplitude of the test functions.
 Sets the frequency of the test functions. 
 
 \DoxyHorRuler{0}
- Looks to local memory for the current value, and clears the current frequency setting. Then O\+Rs the register value with the new frequency setting. Writes that value to the device.
+
+
+Looks to local memory for the current value, and clears the current frequency setting. Then O\+Rs the register value with the new frequency setting. Writes that value to the device.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1093,7 +1193,9 @@ Sets the frequency of the test functions.
 Sets if the provided channel\textquotesingle{}s negative signal is used for the bias negative voltage signal. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to connect to the positive bias voltage signal. This is used to select the correct bit. \\
 \hline
@@ -1114,7 +1216,9 @@ Sets if the provided channel\textquotesingle{}s negative signal is used for the 
 Sets if the provided channel\textquotesingle{}s positive signal is used for the bias positive voltage signal. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to connect to the positive bias voltage signal. This is used to select the correct bit. \\
 \hline
@@ -1135,7 +1239,9 @@ Sets if the provided channel\textquotesingle{}s positive signal is used for the 
 Sets info about the channel connection type. 
 
 \DoxyHorRuler{0}
- Channels can be electrodes, shorted to A\+V\+DD (off), bias measurements, mid-\/supply, temp sensors, test signals, positive side bias drivers, or negative side bias drivers.
+
+
+Channels can be electrodes, shorted to A\+V\+DD (off), bias measurements, mid-\/supply, temp sensors, test signals, positive side bias drivers, or negative side bias drivers.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1158,7 +1264,9 @@ Sets info about the channel connection type.
 Sets the Programmable Gain Array gain setting of the requested channel. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct register. \\
 \hline
@@ -1179,7 +1287,9 @@ Sets the Programmable Gain Array gain setting of the requested channel.
 Sets whether a channel\textquotesingle{}s lead-\/off detection pull-\/X configuration is flipped. 
 
 \DoxyHorRuler{0}
- If no flip, a channel\textquotesingle{}s positive signal is pulled up to A\+V\+DD and negative is pulled down to A\+V\+SS. If there is a flip, the channel\textquotesingle{}s positive signal is pulled down to A\+V\+SS and its negative channel is pulled up to A\+V\+DD.
+
+
+If no flip, a channel\textquotesingle{}s positive signal is pulled up to A\+V\+DD and negative is pulled down to A\+V\+SS. If there is a flip, the channel\textquotesingle{}s positive signal is pulled down to A\+V\+SS and its negative channel is pulled up to A\+V\+DD.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1200,7 +1310,9 @@ Sets whether a channel\textquotesingle{}s lead-\/off detection pull-\/X configur
 Sets whether a channel\textquotesingle{}s negative lead has lead-\/off detection enabled. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct bit. \\
 \hline
@@ -1221,7 +1333,9 @@ Sets whether a channel\textquotesingle{}s negative lead has lead-\/off detection
 Sets whether a channel\textquotesingle{}s positive lead has lead-\/off detection enabled. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em channel} & -\/ The channel to set. This is used to select the correct bit. \\
 \hline
@@ -1242,7 +1356,9 @@ Sets whether a channel\textquotesingle{}s positive lead has lead-\/off detection
 Sets the power state of the requested channel. 
 
 \DoxyHorRuler{0}
- If the channel is powered down, TI recommends the channel is shorted. This can be achieved using the get\+\_\+channel\+\_\+connection\+\_\+type function.
+
+
+If the channel is powered down, TI recommends the channel is shorted. This can be achieved using the get\+\_\+channel\+\_\+connection\+\_\+type function.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1265,7 +1381,9 @@ Sets the power state of the requested channel.
 Sets the S\+R\+B2 connection status of the channel. 
 
 \DoxyHorRuler{0}
- S\+R\+B2 is the secondary reference channel. For a referential montage, application notes from TI use S\+R\+B1, which can be set en masse using set\+\_\+all\+\_\+channel\+\_\+\+S\+R\+B1\+\_\+connection\+\_\+status.
+
+
+S\+R\+B2 is the secondary reference channel. For a referential montage, application notes from TI use S\+R\+B1, which can be set en masse using set\+\_\+all\+\_\+channel\+\_\+\+S\+R\+B1\+\_\+connection\+\_\+status.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1288,7 +1406,9 @@ Sets the S\+R\+B2 connection status of the channel.
 Sets the clock mode. 
 
 \DoxyHorRuler{0}
- If clock mode is true, the oscillator will output to the C\+LK pins if the C\+L\+K\+S\+EL pin is H\+I\+GH.
+
+
+If clock mode is true, the oscillator will output to the C\+LK pins if the C\+L\+K\+S\+EL pin is H\+I\+GH.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1309,7 +1429,9 @@ Sets the clock mode.
 Sets the current device conversion mode. 
 
 \DoxyHorRuler{0}
- Conversion modes are single shot or continuous. When switching modes, the current conversion must be stopped.
+
+
+Conversion modes are single shot or continuous. When switching modes, the current conversion must be stopped.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1330,7 +1452,9 @@ Sets the current device conversion mode.
 Sets whether the device is in daisy chain mode or not. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em new\+\_\+mode} & -\/ The new daisy chain state.\\
 \hline
@@ -1349,7 +1473,9 @@ Sets whether the device is in daisy chain mode or not.
 Sets the current data rate. 
 
 \DoxyHorRuler{0}
- The data rate determines how many samples per second the A\+D\+S1299 reads at.
+
+
+The data rate determines how many samples per second the A\+D\+S1299 reads at.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1370,7 +1496,9 @@ Sets the current data rate.
 Sets the G\+P\+IO mode of a G\+P\+IO Pin. 
 
 \DoxyHorRuler{0}
- G\+P\+IO modes are Input or Output.
+
+
+G\+P\+IO modes are Input or Output.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1391,7 +1519,9 @@ Sets the G\+P\+IO mode of a G\+P\+IO Pin.
 Sets the G\+P\+IO state of a G\+P\+IO Pin. 
 
 \DoxyHorRuler{0}
- G\+P\+IO states are H\+I\+GH or L\+OW.
+
+
+G\+P\+IO states are H\+I\+GH or L\+OW.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1412,7 +1542,9 @@ Sets the G\+P\+IO state of a G\+P\+IO Pin.
 Sets whether the test signal is sourced internally or externally. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em state} & -\/ True if the test signals are to be generated internally. False if the test signals are to be driven externally.\\
 \hline
@@ -1431,7 +1563,9 @@ Sets whether the test signal is sourced internally or externally.
 Sets the leadoff comparator threshold level. 
 
 \DoxyHorRuler{0}
- On the positive side, threshold will be 100\% -\/ new\+\_\+thresh. On the negative side, threshold is new\+\_\+thresh.
+
+
+On the positive side, threshold will be 100\% -\/ new\+\_\+thresh. On the negative side, threshold is new\+\_\+thresh.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1452,7 +1586,9 @@ Sets the leadoff comparator threshold level.
 Sets the lead-\/off current (like Amps) magnitude. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em new\+\_\+current} & -\/ The new current level for the lead-\/off detection.\\
 \hline
@@ -1471,7 +1607,9 @@ Sets the lead-\/off current (like Amps) magnitude.
 Sets the lead-\/off detection frequency. 
 
 \DoxyHorRuler{0}
- This is the rate that the leads are polled to see if they have disconnected. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4 means the leads will be sampled at 1 quarter of the data rate.
+
+
+This is the rate that the leads are polled to see if they have disconnected. L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4 means the leads will be sampled at 1 quarter of the data rate.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1492,7 +1630,9 @@ Sets the lead-\/off detection frequency.
 Sets the current lead-\/off comparator status. 
 
 \DoxyHorRuler{0}
- 
+
+
+
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em new\+\_\+state} & -\/ The requested lead-\/off comparator power state.\\
 \hline
@@ -1511,7 +1651,9 @@ Sets the current lead-\/off comparator status.
 Sets the power state of the internal reference buffer. 
 
 \DoxyHorRuler{0}
- Unless an external voltage reference is supplied, this should be powered on.
+
+
+Unless an external voltage reference is supplied, this should be powered on.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1530,7 +1672,11 @@ Sets the power state of the internal reference buffer.
 \doxysubsubsection{\texorpdfstring{is\_running}{is\_running}}
 {\footnotesize\ttfamily bool A\+D\+S1299\+\_\+\+Module\+::is\+\_\+running = false}
 
-This bool indicates true if the A\+D\+S1299 is converting. False otherwise \mbox{\Hypertarget{class_a_d_s1299___module_a1aba94bbc9ea129be16b34bcc9f6105f}\label{class_a_d_s1299___module_a1aba94bbc9ea129be16b34bcc9f6105f}} 
+
+
+This bool indicates true if the A\+D\+S1299 is converting. 
+
+False otherwise \mbox{\Hypertarget{class_a_d_s1299___module_a1aba94bbc9ea129be16b34bcc9f6105f}\label{class_a_d_s1299___module_a1aba94bbc9ea129be16b34bcc9f6105f}} 
 \index{ADS1299\_Module@{ADS1299\_Module}!Param\_Array@{Param\_Array}}
 \index{Param\_Array@{Param\_Array}!ADS1299\_Module@{ADS1299\_Module}}
 \doxysubsubsection{\texorpdfstring{Param\_Array}{Param\_Array}}
@@ -1546,5 +1692,5 @@ This bool indicates true if the A\+D\+S1299 is converting. False otherwise \mbox
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Willie/\+Documents/\+Uni/\+Newcastle/4 Fourth Year/1 Final Year Project/trunk/\+Software/\+Data Acquisition/\+Sparker\+\_\+\+D\+A\+Q/\mbox{\hyperlink{_a_d_s1299_8h}{A\+D\+S1299.\+h}}\item 
-C\+:/\+Users/\+Willie/\+Documents/\+Uni/\+Newcastle/4 Fourth Year/1 Final Year Project/trunk/\+Software/\+Data Acquisition/\+Sparker\+\_\+\+D\+A\+Q/\mbox{\hyperlink{_a_d_s1299_8cpp}{A\+D\+S1299.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{_a_d_s1299_8h}{A\+D\+S1299.\+h}}\item 
+\mbox{\hyperlink{_a_d_s1299_8cpp}{A\+D\+S1299.\+cpp}}\end{DoxyCompactItemize}

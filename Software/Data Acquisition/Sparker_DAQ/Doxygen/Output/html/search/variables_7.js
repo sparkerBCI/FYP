@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['name_395',['Name',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#ab2f3cd55a1ee97cee11f60e37d35eae3',1,'DAQ_Pin_Map::Pin_Array_t']]],
-  ['negative_5flead_5foff_5fstatus_396',['Negative_Lead_Off_Status',['../struct_sample___data__t.html#aa6243bc4b89413887f990ec61e9f4735',1,'Sample_Data_t']]]
+  ['mode_414',['Mode',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#aa6be2e4489eeb1a729067db3df3775d8',1,'DAQ_Pin_Map::Pin_Array_t']]],
+  ['msg_5fenabled_415',['msg_enabled',['../class_serial___module.html#aeb9e1f1b77ce092a4c0094d9256c6769',1,'Serial_Module']]]
 ];
