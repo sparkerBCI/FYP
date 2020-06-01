@@ -106,14 +106,14 @@ public:
 
 /*! ******************************************************************************************
  *  @brief Toggles the state of a pin in the Pin Array and marks the pin for an update.\
- *  
+ *
  *  @param[in] pin                  - The Pin_ID_t of the pin to toggle
  *
  *********************************************************************************************/
   void toggle_pin(Pin_ID_t pin);
 
 /*! ******************************************************************************************
- *  @brief Toggles the state of a pin given the name of a pin. This is slow, and should only 
+ *  @brief Toggles the state of a pin given the name of a pin. This is slow, and should only
  *  be used for non-time critical applications (e.g. indicator LEDs, not trigger signals).
  *
  *********************************************************************************************/
@@ -133,7 +133,7 @@ public:
   } Pin_Array_t;
 
 /* Create the register array and populate the value with default value */
-#define PIN_ENTRY(a, b, c, d, e)    { a, b, c, d, e},                          /**< Creates the Pin Array and fills it with the default values from the Pin Table. Defaults Changed to false */
+#define PIN_ENTRY(a, b, c, d, e)    { a, b, c, d, e },                         /**< Creates the Pin Array and fills it with the default values from the Pin Table. Defaults Changed to false */
   Pin_Array_t Pin_Array[NUM_PINS] = { PIN_TABLE };
 #undef PIN_ENTRY
 

@@ -49,7 +49,7 @@ public:
  *  the USB connection.
  *
  *********************************************************************************************/
-  explicit Serial_Module(SoftwareSerial* my_SS);
+  explicit Serial_Module(SoftwareSerial *my_SS);
 
 /*! ******************************************************************************************
  *  @brief Sends a given string over the UART interface. Terminated by "\n".
@@ -161,7 +161,7 @@ public:
 
 private:
   uint32_t sample_num = 0;                                                     /**< The number sample processed and ready to send since the last sample was sent. Resets to 0 after a sample is sent. To facilitate decimation */
-  SoftwareSerial* myBluetooth;
+  SoftwareSerial *myBluetooth;
 };
 
 #endif

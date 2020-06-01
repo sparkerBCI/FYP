@@ -74,8 +74,9 @@ Serial_Module  *Comms;                                                         /
 void setup()
 {
   Hardware_Map = new DAQ_Pin_Map();                                            /* Create the Hardware Map, which holds details about how the MCU is connected */
-  
-  Comms = new Serial_Module(&mySS);                                            /* Creates the Serial Module, for communication with the host device over bluetooth and USB */
+
+  Comms = new Serial_Module(& mySS);                                           /* Creates the Serial Module, for communication with the host device over bluetooth and USB */
+
   Comms->msg_enabled   = true;                                                 /* Enables additional messages on the serial bus */
   Comms->debug_enabled = true;                                                 /* Additional enabler for debug messages */
 
@@ -159,7 +160,7 @@ void loop()
       Sample_Data_t this_sample = process_sample(input_buffer);                /* Build a sample structure by processing the input data buffer */
       if (this_sample.id != 0)                                                 /* If the sample was valid (corresponding to a sample ID of something other than 0) */
       {
-        if (!(Comms->send_single_channel_sample_Bluetooth(this_sample)))                 /* If we don't successfully send the command */
+        if (!(Comms->send_single_channel_sample_Bluetooth(this_sample)))       /* If we don't successfully send the command */
         {
           Comms->warningMsg("Could not send processed sample!");               /* Send a warning */
         }
@@ -196,7 +197,7 @@ void toggleLED(uint16_t half_period, uint8_t debounce_ms)
     last_toggle_millis = millis();                                             /* Save the last toggle time */
     Comms->debugMsg("Toggling");                                               /* Send a debug message */
     Hardware_Map->toggle_pin(STATUS_LED);                                      /* Toggle the status LED */
-   // Hardware_Map->update_pins();                                               /* Update the pin values in the pin array */
+    // Hardware_Map->update_pins();                                               /* Update the pin values in the pin array */
     if (last_toggle_millis > (0xFFFFFFFF - (half_period)))                     /* If next time we need to toggle millis() will have overflowed */
     {
       last_toggle_millis = 0;                                                  /* Reset the last toggle time to 0 */

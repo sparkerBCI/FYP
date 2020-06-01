@@ -20,14 +20,14 @@
  *  @brief Parameters for the SPI interface that the ADS1299 expects.
  *
  *********************************************************************************************/
-#define SPI_DATA_MODE      0x04                                                /**< Clock polarity = 0; clock phase = 1 (pg. 8) */
-#define SPI_MODE_MASK      0x0C                                                /**< CPOL = bit 3, CPHA = bit 2 on SPCR */
-#define SPI_CLOCK_MASK     0x03                                                /**< SPR1 = bit 1, SPR0 = bit 0 on SPCR */
-#define SPI_2XCLOCK_MASK   0x01                                                /**< SPI2X = bit 0 on SPSR */
-#define SPI_CLOCK_DIV16    0x01                                                /**< Divides AVR 16MHz clock rate by 16 to match 1 MHz clock of ADS1299 SPI */
-#define TCLK_PERIOD_MS     0.000666                                            /**< 666ns (pg. 8) */
+#define SPI_DATA_MODE       0x04                                               /**< Clock polarity = 0; clock phase = 1 (pg. 8) */
+#define SPI_MODE_MASK       0x0C                                               /**< CPOL = bit 3, CPHA = bit 2 on SPCR */
+#define SPI_CLOCK_MASK      0x03                                               /**< SPR1 = bit 1, SPR0 = bit 0 on SPCR */
+#define SPI_2XCLOCK_MASK    0x01                                               /**< SPI2X = bit 0 on SPSR */
+#define SPI_CLOCK_DIV16     0x01                                               /**< Divides AVR 16MHz clock rate by 16 to match 1 MHz clock of ADS1299 SPI */
+#define TCLK_PERIOD_MS      0.000666                                           /**< 666ns (pg. 8) */
 
-#define VALID_DEVICE_ID    0x03                                                /**< This is the valid Device ID, as defined in the datasheet. All other device IDs are considered invalid */
+#define VALID_DEVICE_ID     0x03                                               /**< This is the valid Device ID, as defined in the datasheet. All other device IDs are considered invalid */
 
 
 /* *INDENT-OFF* */
