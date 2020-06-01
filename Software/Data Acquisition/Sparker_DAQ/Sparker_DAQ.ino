@@ -197,7 +197,7 @@ void toggleLED(uint16_t half_period, uint8_t debounce_ms)
     last_toggle_millis = millis();                                             /* Save the last toggle time */
     Comms->debugMsg("Toggling");                                               /* Send a debug message */
     Hardware_Map->toggle_pin(STATUS_LED);                                      /* Toggle the status LED */
-    Hardware_Map->update_pins();                                               /* Update the pin values in the pin array */
+   // Hardware_Map->update_pins();                                               /* Update the pin values in the pin array */
     if (last_toggle_millis > (0xFFFFFFFF - (half_period)))                     /* If next time we need to toggle millis() will have overflowed */
     {
       last_toggle_millis = 0;                                                  /* Reset the last toggle time to 0 */

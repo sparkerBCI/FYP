@@ -42,11 +42,16 @@
  *********************************************************************************************/
 #define PIN_TABLE                                                                                          \
    /*               a                b             c                  d                e*/                 \
-   PIN_ENTRY(NOT_CHIP_SELECT,        9,         OUTPUT,         "Chip Select",       LOW)                 \
+   PIN_ENTRY(NOT_CHIP_SELECT,        4,         OUTPUT,         "Chip Select",       HIGH)                 \
+   PIN_ENTRY(DAQ_SCLK,              13,         OUTPUT,    "SPI Serial Clock",        LOW)                 \
+   PIN_ENTRY(DAQ_MISO,              12,         OUTPUT,            "SPI MISO",        LOW)                 \
+   PIN_ENTRY(DAQ_MOSI,              11,          INPUT,            "SPI MOSI",        LOW)                 \
+   PIN_ENTRY(BT_TX,                  9,         OUTPUT,        "Bluetooth TX",        LOW)                 \
+   PIN_ENTRY(BT_RX,                  8,          INPUT,        "Bluetooth RX",        LOW)                 \
    PIN_ENTRY(START_PIN,              7,         OUTPUT,               "Start",        LOW)                 \
    PIN_ENTRY(NOT_DATA_READY,         6,          INPUT,          "Data Ready",       HIGH)                 \
    PIN_ENTRY(NOT_POWER_DOWN,         5,         OUTPUT,          "Power Down",       HIGH)                 \
-   PIN_ENTRY(STATUS_LED,             8,         OUTPUT,          "Status LED",        LOW)
+   PIN_ENTRY(STATUS_LED,             3,         OUTPUT,          "Status LED",        LOW)
 /* *INDENT-ON* */
 
 /*! ******************************************************************************************
@@ -102,16 +107,19 @@ public:
   uint8_t get_state(Pin_ID_t pin);
 
 /*! ******************************************************************************************
- *  @brief Updates the physical pins marked for update to the states stored in the Pin_Array
- *
- *********************************************************************************************/
-  void update_pins(void);
-
-/*! ******************************************************************************************
- *  @brief Toggles the state of a pin in the Pin Array and marks the pin for an update.
+ *  @brief Toggles the state of a pin in the Pin Array and marks the pin for an update.\
+ *  
+ *  @param[in] pin                  - The Pin_ID_t of the pin to toggle
  *
  *********************************************************************************************/
   void toggle_pin(Pin_ID_t pin);
+
+/*! ******************************************************************************************
+ *  @brief Toggles the state of a pin given the name of a pin. This is slow, and should only 
+ *  be used for non-time critical applications (e.g. indicator LEDs, not trigger signals).
+ *
+ *********************************************************************************************/
+  //void toggle_pin_by_name(char const * pin_name) = 0;
 
 /*! ******************************************************************************************
  *  @brief This struct contains information for each entry in the Pin Array.
@@ -124,11 +132,10 @@ public:
     uint8_t    Mode;                                                           /**< The IO mode of the pin */
     char const *Name;                                                          /**< A human readable name for the pin */
     uint8_t    State;                                                          /**< The current state of the pin */
-    bool       Changed;                                                        /**< A marker indicating that the pin state has changed in the array, and the physical state needs to change next update */
   } Pin_Array_t;
 
 /* Create the register array and populate the value with default value */
-#define PIN_ENTRY(a, b, c, d, e)    { a, b, c, d, e, false },                  /**< Creates the Pin Array and fills it with the default values from the Pin Table. Defaults Changed to false */
+#define PIN_ENTRY(a, b, c, d, e)    { a, b, c, d, e},                          /**< Creates the Pin Array and fills it with the default values from the Pin Table. Defaults Changed to false */
   Pin_Array_t Pin_Array[NUM_PINS] = { PIN_TABLE };
 #undef PIN_ENTRY
 
