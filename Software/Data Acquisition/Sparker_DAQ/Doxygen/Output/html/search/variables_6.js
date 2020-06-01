@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['id_395',['id',['../struct_sample___data__t.html#a61be84b21ab477f909e1193320adcecc',1,'Sample_Data_t']]],
-  ['is_5frunning_396',['is_running',['../class_a_d_s1299___module.html#aa8132c8ccfbcdb3fd8edf07884e10533',1,'ADS1299_Module']]]
+  ['mode_393',['Mode',['../struct_d_a_q___pin___map_1_1_pin___array__t.html#aa6be2e4489eeb1a729067db3df3775d8',1,'DAQ_Pin_Map::Pin_Array_t']]],
+  ['msg_5fenabled_394',['msg_enabled',['../class_serial___module.html#aeb9e1f1b77ce092a4c0094d9256c6769',1,'Serial_Module']]]
 ];

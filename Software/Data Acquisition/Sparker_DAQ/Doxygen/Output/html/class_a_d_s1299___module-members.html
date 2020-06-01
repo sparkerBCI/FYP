@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>- Data Acquisition System: Member List</title>
+<title>SparkerBCI - DAQ: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,9 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="NASA-UON.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">- Data Acquisition System
+   <div id="projectname">SparkerBCI - DAQ
    </div>
-   <div id="projectbrief">Software for the Sparker Wireless EEG DAQ</div>
+   <div id="projectbrief">Data Acquisition System for Sam Parker&#39;s FYP</div>
   </td>
  </tr>
  </tbody>
@@ -47,6 +51,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_a_d_s1299___module.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,7 +82,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">ADS1299_Module Member List</div>  </div>
@@ -110,6 +130,8 @@ $(function() {
   <tr><td class="entry"><a class="el" href="class_a_d_s1299___module.html#aa8132c8ccfbcdb3fd8edf07884e10533">is_running</a></td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_a_d_s1299___module.html#a1aba94bbc9ea129be16b34bcc9f6105f">Param_Array</a></td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_a_d_s1299___module.html#a9cc39ce59d6968db990e99639db23571">Param_Array_t</a> typedef</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_d_s1299___module.html#af003dfbef33c750be7dd65c069e540b0">read_register</a>(Reg_ID_t Register)</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_d_s1299___module.html#a76cd1c060713d6cefe155ed4ff5c3696">read_register_from_address</a>(int Register_Address)</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_a_d_s1299___module.html#ab09e33856e0a267912334a767d37201a">read_sample</a>(uint8_t *output_buffer)</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_a_d_s1299___module.html#ad1f5829cfba08450fde03134790b8a93">Reg_Areay_t</a> typedef</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_a_d_s1299___module.html#ab9133760f4798dfd46d7d21995e25ce6">Reg_Array</a></td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
@@ -144,11 +166,14 @@ $(function() {
   <tr><td class="entry"><a class="el" href="class_a_d_s1299___module.html#a951b04edd526cdf671009b328927288d">set_LOff_power_status</a>(LOff_Power_Status_t new_state)</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_a_d_s1299___module.html#ad9efde212eb1a8a5a1e1fa9783196229">set_reference_buffer_state</a>(bool new_state)</td><td class="entry"><a class="el" href="class_a_d_s1299___module.html">ADS1299_Module</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

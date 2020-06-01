@@ -1,5 +1,5 @@
-\hypertarget{_d_a_q___pin___map_8h}{}\doxysection{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.\+h File Reference}
-\label{_d_a_q___pin___map_8h}\index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
+\hypertarget{_d_a_q___pin___map_8h}{}\doxysection{C\+:/\+Users/\+Willie/\+Documents/\+Uni/\+Newcastle/4 Fourth Year/1 Final Year Project/trunk/\+Software/\+Data Acquisition/\+Sparker\+\_\+\+D\+A\+Q/\+D\+A\+Q\+\_\+\+Pin\+\_\+\+Map.h File Reference}
+\label{_d_a_q___pin___map_8h}\index{C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/Data Acquisition/Sparker\_DAQ/DAQ\_Pin\_Map.h@{C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/Data Acquisition/Sparker\_DAQ/DAQ\_Pin\_Map.h}}
 
 
 This file holds declarations for functions to interact with the hardware on a pin level.  
@@ -13,16 +13,16 @@ This file holds declarations for functions to interact with the hardware on a pi
 class \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}}
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_d_a_q___pin___map}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map}} class contains methods for interacting with the pins of the M\+CU. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_d_a_q___pin___map_1_1_pin___array__t}{D\+A\+Q\+\_\+\+Pin\+\_\+\+Map\+::\+Pin\+\_\+\+Array\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em This struct contains information for each entry in the Pin Array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Toggles the state of a pin given the name of a pin. This is slow, and should only be used for non-\/time critical applications (e.\+g. indicator L\+E\+Ds, not trigger signals). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}{P\+I\+N\+\_\+\+T\+A\+B\+LE}}
 \begin{DoxyCompactList}\small\item\em The Pin\+\_\+\+Table holds information about the often used pins, which is used to generate the Pin\+\_\+\+Array. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~a,
-\begin{DoxyCompactList}\small\item\em Creates the Pin Array and fills it with the default values from the Pin Table. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~\{ a, b, c, d, e, false \},
-\begin{DoxyCompactList}\small\item\em Creates the Pin Array and fills it with the default values from the Pin Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}{P\+I\+N\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~\{ a, b, c, d, e \},
+\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,21 +57,13 @@ Copyright (c) Sam Parker 2020 ~\newline
 \doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~a,}
 
-
-
-Creates the Pin Array and fills it with the default values from the Pin Table. 
-
-Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
+Creates the Pin Array and fills it with the default values from the Pin Table. Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}\label{_d_a_q___pin___map_8h_ac793e62cb9bb08318171c7aa60b72bec}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_ENTRY@{PIN\_ENTRY}}
 \index{PIN\_ENTRY@{PIN\_ENTRY}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_ENTRY}{PIN\_ENTRY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~\{ a, b, c, d, e, false \},}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~\{ a, b, c, d, e \},}
 
-
-
-Creates the Pin Array and fills it with the default values from the Pin Table. 
-
-Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}\label{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}} 
+Creates the Pin Array and fills it with the default values from the Pin Table. Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}\label{_d_a_q___pin___map_8h_a76e1e40487c710b2ff1fc4b79c16d2d9}} 
 \index{DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}!PIN\_TABLE@{PIN\_TABLE}}
 \index{PIN\_TABLE@{PIN\_TABLE}!DAQ\_Pin\_Map.h@{DAQ\_Pin\_Map.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_TABLE}{PIN\_TABLE}}
@@ -80,11 +72,14 @@ Defaults Changed to false \mbox{\Hypertarget{_d_a_q___pin___map_8h_a76e1e40487c7
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{   \textcolor{comment}{/*               a                b             c                  d                e*/}                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(NOT\_CHIP\_SELECT,        9,         OUTPUT,         \textcolor{stringliteral}{"Chip Select"},       LOW)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(NOT\_CHIP\_SELECT,        4,         OUTPUT,         \textcolor{stringliteral}{"Chip Select"},       HIGH)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(DAQ\_SCLK,              13,         OUTPUT,    \textcolor{stringliteral}{"SPI Serial Clock"},        LOW)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(DAQ\_MISO,              12,          INPUT,            \textcolor{stringliteral}{"SPI MISO"},        LOW)                 \(\backslash\)}
+\DoxyCodeLine{   PIN\_ENTRY(DAQ\_MOSI,              11,         OUTPUT,            \textcolor{stringliteral}{"SPI MOSI"},        LOW)                 \(\backslash\)}
 \DoxyCodeLine{   PIN\_ENTRY(START\_PIN,              7,         OUTPUT,               \textcolor{stringliteral}{"Start"},        LOW)                 \(\backslash\)}
 \DoxyCodeLine{   PIN\_ENTRY(NOT\_DATA\_READY,         6,          INPUT,          \textcolor{stringliteral}{"Data Ready"},       HIGH)                 \(\backslash\)}
 \DoxyCodeLine{   PIN\_ENTRY(NOT\_POWER\_DOWN,         5,         OUTPUT,          \textcolor{stringliteral}{"Power Down"},       HIGH)                 \(\backslash\)}
-\DoxyCodeLine{   PIN\_ENTRY(STATUS\_LED,             8,         OUTPUT,          \textcolor{stringliteral}{"Status LED"},        LOW)}
+\DoxyCodeLine{   PIN\_ENTRY(STATUS\_LED,             3,         OUTPUT,          \textcolor{stringliteral}{"Status LED"},        LOW)}
 
 \end{DoxyCode}
 

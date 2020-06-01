@@ -1,5 +1,5 @@
-\hypertarget{_a_d_s1299___params_8h}{}\doxysection{A\+D\+S1299\+\_\+\+Params.\+h File Reference}
-\label{_a_d_s1299___params_8h}\index{ADS1299\_Params.h@{ADS1299\_Params.h}}
+\hypertarget{_a_d_s1299___params_8h}{}\doxysection{C\+:/\+Users/\+Willie/\+Documents/\+Uni/\+Newcastle/4 Fourth Year/1 Final Year Project/trunk/\+Software/\+Data Acquisition/\+Sparker\+\_\+\+D\+A\+Q/\+A\+D\+S1299\+\_\+\+Params.h File Reference}
+\label{_a_d_s1299___params_8h}\index{C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/Data Acquisition/Sparker\_DAQ/ADS1299\_Params.h@{C:/Users/Willie/Documents/Uni/Newcastle/4 Fourth Year/1 Final Year Project/trunk/Software/Data Acquisition/Sparker\_DAQ/ADS1299\_Params.h}}
 
 
 This file holds the X\+Macros Table of register info, and many enums that make getting and setting configuration values more readable.  
@@ -9,23 +9,36 @@ This file holds the X\+Macros Table of register info, and many enums that make g
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_a09c96766d48f8cf60c54923754451fa5}{S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+M\+O\+DE}}~0x04
+\begin{DoxyCompactList}\small\item\em Parameters for the S\+PI interface that the A\+D\+S1299 expects. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_aa64ece5364d0d7e1226d50e8773ab654}{S\+P\+I\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}~0x0C
+\item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_ac44360456dd55fc9c0e3bcda82ac7812}{S\+P\+I\+\_\+\+C\+L\+O\+C\+K\+\_\+\+M\+A\+SK}}~0x03
+\item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_a6a0a7018061769d9202d1e1753f9708e}{S\+P\+I\+\_\+2\+X\+C\+L\+O\+C\+K\+\_\+\+M\+A\+SK}}~0x01
+\item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_a84c3e36d173ca9b2bf4314da5fb688a9}{S\+P\+I\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+I\+V16}}~0x01
+\item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_a8d961ebd4bb54fa5624fc942a68ea52d}{T\+C\+L\+K\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+MS}}~0.\+000666
+\item 
 \#define \mbox{\hyperlink{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}{V\+A\+L\+I\+D\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+ID}}~0x03
-\begin{DoxyCompactList}\small\item\em This is the valid Device ID, as defined in the datasheet. \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{_a_d_s1299___params_8h_a5aab66f6549ef91553fcb68840eba529}{P\+A\+R\+A\+M\+\_\+\+T\+A\+B\+LE}}
-\begin{DoxyCompactList}\small\item\em The Param\+\_\+\+Table holds information about the parameters, stored in the addresses. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The Param\+\_\+\+Table holds information about the parameters, stored in the addresses. This is used to generate the Reg\+\_\+\+Array. ~\newline
+ \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}{R\+E\+G\+\_\+\+T\+A\+B\+LE}}
 \begin{DoxyCompactList}\small\item\em The Reg\+\_\+\+Table holds information about the registers, which is used to generate the Reg\+\_\+\+Array. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_a_d_s1299___params_8h_a41828fbdf78bdcdae8c77bcabd489ee7}{P\+A\+R\+A\+M\+\_\+\+E\+N\+T\+RY}}(a,  b,  c)~a,
-\begin{DoxyCompactList}\small\item\em This macro lists the I\+Ds of the registers in the Param\+\_\+\+Table as a comma separated list. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{_a_d_s1299___params_8h_a8223fb9a78f63793ee7b20b64d964e70}{R\+E\+G\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e)~a,
-\begin{DoxyCompactList}\small\item\em This macro lists the I\+Ds of the registers in the Reg\+\_\+\+Table as a comma separated list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_d_s1299___params_8h_ae23c52c64072cc66986efacaa959ab10}{R\+E\+G\+\_\+\+E\+N\+T\+RY}}(a,  b,  c,  d,  e,  f)~a,
+\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2}{Param\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a25d3b466e23e322cde8d51adf45ff845}{Param\+\_\+\+I\+D\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no P\+A\+R\+A\+M\+\_\+\+ID is found, for example. \end{DoxyCompactList}\item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a3b5e8f9b8cd095db1f1c6acd3a87505c}{Reg\+\_\+\+I\+D\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em This enum assigns a unique register ID to each register, and counts the number of registers. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example. \end{DoxyCompactList}\item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a3d0ad9d8f6bfe6fe7d2bd5e757e20460}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em This enum assigns a value to the different daisy chain modes. \end{DoxyCompactList}\item 
 typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_a3e97c0a8d6216adc12d7a094446bffb1}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}} \mbox{\hyperlink{_a_d_s1299___params_8h_a12ad6164b5a83fb2bcd691f1c6ae8441}{Data\+\_\+\+Rate\+\_\+\+Setting\+\_\+t}}
@@ -80,11 +93,11 @@ typedef enum \mbox{\hyperlink{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713
 enum \mbox{\hyperlink{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2}{Param\+\_\+\+I\+D\+\_\+t}} \{ \mbox{\hyperlink{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a52c45b0b512fc178cc4625f4c1995fd5}{N\+U\+M\+\_\+\+P\+A\+R\+A\+MS}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a29b637a2d1deeee76888713aaf142a6c}{P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR}}
  \}
-\begin{DoxyCompactList}\small\item\em This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no P\+A\+R\+A\+M\+\_\+\+ID is found, for example. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1f}{Reg\+\_\+\+I\+D\+\_\+t}} \{ \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774}{N\+U\+M\+\_\+\+R\+E\+GS}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337}{R\+E\+G\+\_\+\+E\+R\+R\+OR}}
  \}
-\begin{DoxyCompactList}\small\item\em This enum assigns a unique register ID to each register, and counts the number of registers. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14}{Daisy\+\_\+\+Chain\+\_\+\+Mode\+\_\+t}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14a5d11147bebff3a544474b4cd64afeca2}{D\+A\+I\+S\+Y\+\_\+\+C\+H\+A\+I\+N\+\_\+\+M\+O\+DE}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14af7ae09e4583a0c67f7856837395557af}{M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+R\+E\+A\+D\+B\+A\+C\+K\+\_\+\+M\+O\+DE}}, 
 \mbox{\hyperlink{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14ae51e3ad8fb9910fed3725825b111f96e}{D\+A\+I\+S\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR}}
@@ -292,11 +305,7 @@ Copyright (c) Sam Parker 2020 ~\newline
 \doxysubsubsection{\texorpdfstring{PARAM\_ENTRY}{PARAM\_ENTRY}}
 {\footnotesize\ttfamily \#define P\+A\+R\+A\+M\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~a,}
 
-
-
-This macro lists the I\+Ds of the registers in the Param\+\_\+\+Table as a comma separated list. 
-
-\mbox{\Hypertarget{_a_d_s1299___params_8h_a5aab66f6549ef91553fcb68840eba529}\label{_a_d_s1299___params_8h_a5aab66f6549ef91553fcb68840eba529}} 
+This macro lists the I\+Ds of the registers in the Param\+\_\+\+Table as a comma separated list \mbox{\Hypertarget{_a_d_s1299___params_8h_a5aab66f6549ef91553fcb68840eba529}\label{_a_d_s1299___params_8h_a5aab66f6549ef91553fcb68840eba529}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!PARAM\_TABLE@{PARAM\_TABLE}}
 \index{PARAM\_TABLE@{PARAM\_TABLE}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{PARAM\_TABLE}{PARAM\_TABLE}}
@@ -304,28 +313,22 @@ This macro lists the I\+Ds of the registers in the Param\+\_\+\+Table as a comma
 
 
 
-The Param\+\_\+\+Table holds information about the parameters, stored in the addresses. 
+The Param\+\_\+\+Table holds information about the parameters, stored in the addresses. This is used to generate the Reg\+\_\+\+Array. ~\newline
+ 
 
 \DoxyHorRuler{0}
-
-
-This is used to generate the Reg\+\_\+\+Array. ~\newline
 
 
 Column A\+: Param\+\_\+\+ID\+: The unique identifier for each parameter ~\newline
  Column B\+: Bitmask\+: The bitmask used to isolate / set the parameter. Take the N\+OT of the bitmask and A\+ND it with the current register value to clear the parameter~\newline
  Column C\+: Shifts\+: How many right shifts are needed to bring the parameter into the bit 0 position.~\newline
- \mbox{\Hypertarget{_a_d_s1299___params_8h_a8223fb9a78f63793ee7b20b64d964e70}\label{_a_d_s1299___params_8h_a8223fb9a78f63793ee7b20b64d964e70}} 
+ \mbox{\Hypertarget{_a_d_s1299___params_8h_ae23c52c64072cc66986efacaa959ab10}\label{_a_d_s1299___params_8h_ae23c52c64072cc66986efacaa959ab10}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!REG\_ENTRY@{REG\_ENTRY}}
 \index{REG\_ENTRY@{REG\_ENTRY}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{REG\_ENTRY}{REG\_ENTRY}}
-{\footnotesize\ttfamily \#define R\+E\+G\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e }\end{DoxyParamCaption})~a,}
+{\footnotesize\ttfamily \#define R\+E\+G\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d,  }\item[{}]{e,  }\item[{}]{f }\end{DoxyParamCaption})~a,}
 
-
-
-This macro lists the I\+Ds of the registers in the Reg\+\_\+\+Table as a comma separated list. 
-
-\mbox{\Hypertarget{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}\label{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}} 
+This macro lists the I\+Ds of the registers in the Reg\+\_\+\+Table as a comma separated list \mbox{\Hypertarget{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}\label{_a_d_s1299___params_8h_ad31b206e97e5e8cc5c70f8713669b27f}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!REG\_TABLE@{REG\_TABLE}}
 \index{REG\_TABLE@{REG\_TABLE}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{REG\_TABLE}{REG\_TABLE}}
@@ -333,31 +336,31 @@ This macro lists the I\+Ds of the registers in the Reg\+\_\+\+Table as a comma s
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{   \textcolor{comment}{/*           Reg\_ID        Address      Is Read Only     Default Value       Is Bit per Channel       */}               \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(ID,               0x00,           \textcolor{keyword}{true},            0xFF,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CONFIG1,          0x01,          \textcolor{keyword}{false},            0x96,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CONFIG2,          0x02,          \textcolor{keyword}{false},            0xC0,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CONFIG3,          0x03,          \textcolor{keyword}{false},            0x60,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(LOFF,             0x04,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH1SET,           0x05,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH2SET,           0x06,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH3SET,           0x07,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH4SET,           0x08,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH5SET,           0x09,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH6SET,           0x0A,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH7SET,           0x0B,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CH8SET,           0x0C,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(BIAS\_SENSP,       0x0D,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(BIAS\_SENSN,       0x0E,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(LOFF\_SENSP,       0x0F,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(LOFF\_SENSN,       0x10,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(LOFF\_FLIP,        0x11,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(LOFF\_STATP,       0x12,          \textcolor{keyword}{true},             0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(LOFF\_STATN,       0x13,          \textcolor{keyword}{true},             0x00,                \textcolor{keyword}{true})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(GPIO,             0x14,          \textcolor{keyword}{false},            0x0F,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(MISC1,            0x15,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(MISC2,            0x16,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false})                \(\backslash\)}
-\DoxyCodeLine{   REG\_ENTRY(CONFIG4,          0x17,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false})}
+\DoxyCodeLine{   \textcolor{comment}{/*           Reg\_ID        Address      Is Read Only     Default Value       Is Bit per Channel       Register Name    */}               \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(ID,               0x00,           \textcolor{keyword}{true},            0xFF,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"ID"}        )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CONFIG1,          0x01,          \textcolor{keyword}{false},            0x96,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CONFIG1"}   )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CONFIG2,          0x02,          \textcolor{keyword}{false},            0xC0,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CONFIG2"}   )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CONFIG3,          0x03,          \textcolor{keyword}{false},            0x60,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CONFIG3"}   )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(LOFF,             0x04,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"LOFF"}      )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH1SET,           0x05,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH1SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH2SET,           0x06,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH2SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH3SET,           0x07,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH3SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH4SET,           0x08,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH4SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH5SET,           0x09,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH5SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH6SET,           0x0A,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH6SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH7SET,           0x0B,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH7SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CH8SET,           0x0C,          \textcolor{keyword}{false},            0x61,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CH8SET"}    )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(BIAS\_SENSP,       0x0D,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"BIAS\_SENSP"})     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(BIAS\_SENSN,       0x0E,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"BIAS\_SENSN"})     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(LOFF\_SENSP,       0x0F,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"LOFF\_SENSP"})     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(LOFF\_SENSN,       0x10,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"LOFF\_SENSN"})     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(LOFF\_FLIP,        0x11,          \textcolor{keyword}{false},            0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"LOFF\_FLIP"} )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(LOFF\_STATP,       0x12,          \textcolor{keyword}{true},             0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"LOFF\_STATP"})     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(LOFF\_STATN,       0x13,          \textcolor{keyword}{true},             0x00,                \textcolor{keyword}{true},               \textcolor{stringliteral}{"LOFF\_STATN"})     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(GPIO,             0x14,          \textcolor{keyword}{false},            0x0F,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"GPIO"}      )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(MISC1,            0x15,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"MISC1"}     )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(MISC2,            0x16,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"MISC2"}     )     \(\backslash\)}
+\DoxyCodeLine{   REG\_ENTRY(CONFIG4,          0x17,          \textcolor{keyword}{false},            0x00,               \textcolor{keyword}{false},               \textcolor{stringliteral}{"CONFIG4"}   )}
 
 \end{DoxyCode}
 
@@ -372,17 +375,54 @@ Column A\+: Reg\+\_\+\+ID\+: The unique identifier for each register ~\newline
  Column C\+: Is Read Only\+: True if the register is read only ~\newline
  Column D\+: Default Value\+:The value of the register on reset ~\newline
  Column E\+: Is Bit Per Channel\+: True if the register corresponds 1 bit to 1 channel ~\newline
- \mbox{\Hypertarget{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}\label{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}} 
+ \mbox{\Hypertarget{_a_d_s1299___params_8h_a6a0a7018061769d9202d1e1753f9708e}\label{_a_d_s1299___params_8h_a6a0a7018061769d9202d1e1753f9708e}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SPI\_2XCLOCK\_MASK@{SPI\_2XCLOCK\_MASK}}
+\index{SPI\_2XCLOCK\_MASK@{SPI\_2XCLOCK\_MASK}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_2XCLOCK\_MASK}{SPI\_2XCLOCK\_MASK}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+2\+X\+C\+L\+O\+C\+K\+\_\+\+M\+A\+SK~0x01}
+
+S\+P\+I2X = bit 0 on S\+P\+SR \mbox{\Hypertarget{_a_d_s1299___params_8h_a84c3e36d173ca9b2bf4314da5fb688a9}\label{_a_d_s1299___params_8h_a84c3e36d173ca9b2bf4314da5fb688a9}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SPI\_CLOCK\_DIV16@{SPI\_CLOCK\_DIV16}}
+\index{SPI\_CLOCK\_DIV16@{SPI\_CLOCK\_DIV16}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CLOCK\_DIV16}{SPI\_CLOCK\_DIV16}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+I\+V16~0x01}
+
+Divides A\+VR 16M\+Hz clock rate by 16 to match 1 M\+Hz clock of A\+D\+S1299 S\+PI \mbox{\Hypertarget{_a_d_s1299___params_8h_ac44360456dd55fc9c0e3bcda82ac7812}\label{_a_d_s1299___params_8h_ac44360456dd55fc9c0e3bcda82ac7812}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SPI\_CLOCK\_MASK@{SPI\_CLOCK\_MASK}}
+\index{SPI\_CLOCK\_MASK@{SPI\_CLOCK\_MASK}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CLOCK\_MASK}{SPI\_CLOCK\_MASK}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+C\+L\+O\+C\+K\+\_\+\+M\+A\+SK~0x03}
+
+S\+P\+R1 = bit 1, S\+P\+R0 = bit 0 on S\+P\+CR \mbox{\Hypertarget{_a_d_s1299___params_8h_a09c96766d48f8cf60c54923754451fa5}\label{_a_d_s1299___params_8h_a09c96766d48f8cf60c54923754451fa5}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SPI\_DATA\_MODE@{SPI\_DATA\_MODE}}
+\index{SPI\_DATA\_MODE@{SPI\_DATA\_MODE}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_DATA\_MODE}{SPI\_DATA\_MODE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+M\+O\+DE~0x04}
+
+
+
+Parameters for the S\+PI interface that the A\+D\+S1299 expects. 
+
+\DoxyHorRuler{0}
+ Clock polarity = 0; clock phase = 1 (pg. 8) \mbox{\Hypertarget{_a_d_s1299___params_8h_aa64ece5364d0d7e1226d50e8773ab654}\label{_a_d_s1299___params_8h_aa64ece5364d0d7e1226d50e8773ab654}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SPI\_MODE\_MASK@{SPI\_MODE\_MASK}}
+\index{SPI\_MODE\_MASK@{SPI\_MODE\_MASK}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_MODE\_MASK}{SPI\_MODE\_MASK}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK~0x0C}
+
+C\+P\+OL = bit 3, C\+P\+HA = bit 2 on S\+P\+CR \mbox{\Hypertarget{_a_d_s1299___params_8h_a8d961ebd4bb54fa5624fc942a68ea52d}\label{_a_d_s1299___params_8h_a8d961ebd4bb54fa5624fc942a68ea52d}} 
+\index{ADS1299\_Params.h@{ADS1299\_Params.h}!TCLK\_PERIOD\_MS@{TCLK\_PERIOD\_MS}}
+\index{TCLK\_PERIOD\_MS@{TCLK\_PERIOD\_MS}!ADS1299\_Params.h@{ADS1299\_Params.h}}
+\doxysubsubsection{\texorpdfstring{TCLK\_PERIOD\_MS}{TCLK\_PERIOD\_MS}}
+{\footnotesize\ttfamily \#define T\+C\+L\+K\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+MS~0.\+000666}
+
+666ns (pg. 8) \mbox{\Hypertarget{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}\label{_a_d_s1299___params_8h_ab96768e739ca99a17de94f3048ff6405}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!VALID\_DEVICE\_ID@{VALID\_DEVICE\_ID}}
 \index{VALID\_DEVICE\_ID@{VALID\_DEVICE\_ID}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{VALID\_DEVICE\_ID}{VALID\_DEVICE\_ID}}
 {\footnotesize\ttfamily \#define V\+A\+L\+I\+D\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+ID~0x03}
 
-
-
-This is the valid Device ID, as defined in the datasheet. 
-
-All other device I\+Ds are considered invalid 
+This is the valid Device ID, as defined in the datasheet. All other device I\+Ds are considered invalid 
 
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{_a_d_s1299___params_8h_ab84805570617881848924c2148c462be}\label{_a_d_s1299___params_8h_ab84805570617881848924c2148c462be}} 
@@ -595,9 +635,9 @@ This enum assigns values to different numbers of channels.
 
 
 
-This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. 
+This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no P\+A\+R\+A\+M\+\_\+\+ID is found, for example. 
 
-It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no P\+A\+R\+A\+M\+\_\+\+ID is found, for example \mbox{\Hypertarget{_a_d_s1299___params_8h_a3b5e8f9b8cd095db1f1c6acd3a87505c}\label{_a_d_s1299___params_8h_a3b5e8f9b8cd095db1f1c6acd3a87505c}} 
+\mbox{\Hypertarget{_a_d_s1299___params_8h_a3b5e8f9b8cd095db1f1c6acd3a87505c}\label{_a_d_s1299___params_8h_a3b5e8f9b8cd095db1f1c6acd3a87505c}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!Reg\_ID\_t@{Reg\_ID\_t}}
 \index{Reg\_ID\_t@{Reg\_ID\_t}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{Reg\_ID\_t}{Reg\_ID\_t}}
@@ -605,9 +645,9 @@ It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no 
 
 
 
-This enum assigns a unique register ID to each register, and counts the number of registers. 
+This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example. 
 
-It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example \mbox{\Hypertarget{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}\label{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}} 
+\mbox{\Hypertarget{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}\label{_a_d_s1299___params_8h_a19d32c5e7cce3e83632beaa2e028db92}} 
 \index{ADS1299\_Params.h@{ADS1299\_Params.h}!SRB1\_Connection\_Status\_t@{SRB1\_Connection\_Status\_t}}
 \index{SRB1\_Connection\_Status\_t@{SRB1\_Connection\_Status\_t}!ADS1299\_Params.h@{ADS1299\_Params.h}}
 \doxysubsubsection{\texorpdfstring{SRB1\_Connection\_Status\_t}{SRB1\_Connection\_Status\_t}}
@@ -652,7 +692,7 @@ This enum creates several return value to indicate the success or failure of var
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ADS1299\_SUCCESS@{ADS1299\_SUCCESS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!ADS1299\_SUCCESS@{ADS1299\_SUCCESS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569addd6609f419af9f4a1de79813838f08e}\label{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569addd6609f419af9f4a1de79813838f08e}} 
-A\+D\+S1299\+\_\+\+S\+U\+C\+C\+E\+SS&The operation executed successfully. \\
+A\+D\+S1299\+\_\+\+S\+U\+C\+C\+E\+SS&The operation executed successfully \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ADS1299\_INVALID@{ADS1299\_INVALID}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!ADS1299\_INVALID@{ADS1299\_INVALID}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569a47118522dd234e4c22657ad51b7407e6}\label{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569a47118522dd234e4c22657ad51b7407e6}} 
@@ -660,11 +700,11 @@ A\+D\+S1299\+\_\+\+I\+N\+V\+A\+L\+ID&The operation requested was invalid, e.\+g.
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ADS1299\_COMMS\_ERROR@{ADS1299\_COMMS\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!ADS1299\_COMMS\_ERROR@{ADS1299\_COMMS\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569a8537224bfa7e1deca89ab56ee25ab5cb}\label{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569a8537224bfa7e1deca89ab56ee25ab5cb}} 
-A\+D\+S1299\+\_\+\+C\+O\+M\+M\+S\+\_\+\+E\+R\+R\+OR&There was a comms error and the data was not sent. \\
+A\+D\+S1299\+\_\+\+C\+O\+M\+M\+S\+\_\+\+E\+R\+R\+OR&There was a comms error and the data was not sent \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ADS1299\_UNHANDLED@{ADS1299\_UNHANDLED}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!ADS1299\_UNHANDLED@{ADS1299\_UNHANDLED}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569a4957a4140e984655f000862357fdf9cf}\label{_a_d_s1299___params_8h_a2a5e279b4b1ab170ef14c30713903569a4957a4140e984655f000862357fdf9cf}} 
-A\+D\+S1299\+\_\+\+U\+N\+H\+A\+N\+D\+L\+ED&An unhandled case was encountered. \\
+A\+D\+S1299\+\_\+\+U\+N\+H\+A\+N\+D\+L\+ED&An unhandled case was encountered \\
 \hline
 
 \end{DoxyEnumFields}
@@ -684,11 +724,11 @@ B\+I\+A\+S\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED&This state means the bias lead is conn
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_DISCONNECTED@{BIAS\_DISCONNECTED}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_DISCONNECTED@{BIAS\_DISCONNECTED}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_abfff3c813c9e685582de4b6aa3b747aca501dbfff1f688f49158651942771d2a3}\label{_a_d_s1299___params_8h_abfff3c813c9e685582de4b6aa3b747aca501dbfff1f688f49158651942771d2a3}} 
-B\+I\+A\+S\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED&This state means the bias lead is disconnected. \\
+B\+I\+A\+S\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED&This state means the bias lead is disconnected \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_LOFF\_ERROR@{BIAS\_LOFF\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_LOFF\_ERROR@{BIAS\_LOFF\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_abfff3c813c9e685582de4b6aa3b747acad23a8fdbc1ffb88c46dfdf1992baa143}\label{_a_d_s1299___params_8h_abfff3c813c9e685582de4b6aa3b747acad23a8fdbc1ffb88c46dfdf1992baa143}} 
-B\+I\+A\+S\+\_\+\+L\+O\+F\+F\+\_\+\+E\+R\+R\+OR&This is a return value for if there was an error associated with the bias lead-\/off status. \\
+B\+I\+A\+S\+\_\+\+L\+O\+F\+F\+\_\+\+E\+R\+R\+OR&This is a return value for if there was an error associated with the bias lead-\/off status \\
 \hline
 
 \end{DoxyEnumFields}
@@ -708,11 +748,11 @@ B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+O\+FF&This settings powers down the bias 
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_POWER\_ON@{BIAS\_POWER\_ON}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_POWER\_ON@{BIAS\_POWER\_ON}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a6f15d9be6e0e8c8db26cfa3e2ff41c10a8ea4c493ec83075e02ac7ef0b9385abd}\label{_a_d_s1299___params_8h_a6f15d9be6e0e8c8db26cfa3e2ff41c10a8ea4c493ec83075e02ac7ef0b9385abd}} 
-B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+ON&This setting powers on the bias buffer. \\
+B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+ON&This setting powers on the bias buffer \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_POWER\_ERROR@{BIAS\_POWER\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_POWER\_ERROR@{BIAS\_POWER\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a6f15d9be6e0e8c8db26cfa3e2ff41c10adfdcfeb1909ccad72428845fa8ce8bfe}\label{_a_d_s1299___params_8h_a6f15d9be6e0e8c8db26cfa3e2ff41c10adfdcfeb1909ccad72428845fa8ce8bfe}} 
-B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the bias buffer power state. \\
+B\+I\+A\+S\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the bias buffer power state \\
 \hline
 
 \end{DoxyEnumFields}
@@ -732,11 +772,11 @@ B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+D\+I\+S\+A\+B\+L\+ED&This setting disable
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_SENSE\_ENABLED@{BIAS\_SENSE\_ENABLED}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_SENSE\_ENABLED@{BIAS\_SENSE\_ENABLED}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a08b98cfdd58aa41c3e6ae12028069094aa25fff30b67a847b0e5a7c41c910de21}\label{_a_d_s1299___params_8h_a08b98cfdd58aa41c3e6ae12028069094aa25fff30b67a847b0e5a7c41c910de21}} 
-B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+E\+N\+A\+B\+L\+ED&This setting enables bias signal sensing. \\
+B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+E\+N\+A\+B\+L\+ED&This setting enables bias signal sensing \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_SENSE\_ERROR@{BIAS\_SENSE\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_SENSE\_ERROR@{BIAS\_SENSE\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a08b98cfdd58aa41c3e6ae12028069094a9f8143a8066ee77c928181c3c85a1da4}\label{_a_d_s1299___params_8h_a08b98cfdd58aa41c3e6ae12028069094a9f8143a8066ee77c928181c3c85a1da4}} 
-B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error with the bias sense function. \\
+B\+I\+A\+S\+\_\+\+S\+E\+N\+S\+E\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error with the bias sense function \\
 \hline
 
 \end{DoxyEnumFields}
@@ -752,7 +792,7 @@ This enum assigns values to different test bias signal sources.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_INTERNAL@{BIAS\_INTERNAL}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_INTERNAL@{BIAS\_INTERNAL}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0a407f0dcecdca56940a72e303d8809187}\label{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0a407f0dcecdca56940a72e303d8809187}} 
-B\+I\+A\+S\+\_\+\+I\+N\+T\+E\+R\+N\+AL&The bias signal (A\+V\+DD + A\+V\+SS) / 2 is generated internally. \\
+B\+I\+A\+S\+\_\+\+I\+N\+T\+E\+R\+N\+AL&The bias signal (A\+V\+DD + A\+V\+SS) / 2 is generated internally \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_EXTERNAL@{BIAS\_EXTERNAL}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_EXTERNAL@{BIAS\_EXTERNAL}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0a84acdfe95fbe89e3c1d55bbdd871982c}\label{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0a84acdfe95fbe89e3c1d55bbdd871982c}} 
@@ -760,7 +800,7 @@ B\+I\+A\+S\+\_\+\+E\+X\+T\+E\+R\+N\+AL&The bias signal is fed externally (defaul
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BIAS\_ERROR@{BIAS\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!BIAS\_ERROR@{BIAS\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0a3cc2205c6203e2b2db295b6392de00b6}\label{_a_d_s1299___params_8h_a47ecaaabed43435f5c17ade1be51bbc0a3cc2205c6203e2b2db295b6392de00b6}} 
-B\+I\+A\+S\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the bias signal source. \\
+B\+I\+A\+S\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the bias signal source \\
 \hline
 
 \end{DoxyEnumFields}
@@ -777,7 +817,7 @@ This enum assigns values to the different channel connection types ~\newline
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_ELECTRODE\_INPUT@{CH\_ELECTRODE\_INPUT}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_ELECTRODE\_INPUT@{CH\_ELECTRODE\_INPUT}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a84403632e8caf949ee61741e0cca23d4}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a84403632e8caf949ee61741e0cca23d4}} 
-C\+H\+\_\+\+E\+L\+E\+C\+T\+R\+O\+D\+E\+\_\+\+I\+N\+P\+UT&The channel is a regular electrode connection. \\
+C\+H\+\_\+\+E\+L\+E\+C\+T\+R\+O\+D\+E\+\_\+\+I\+N\+P\+UT&The channel is a regular electrode connection \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_SHORTED@{CH\_SHORTED}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_SHORTED@{CH\_SHORTED}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a10d0d2e4bfac379e0c66a085ddc1747c}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a10d0d2e4bfac379e0c66a085ddc1747c}} 
@@ -785,31 +825,31 @@ C\+H\+\_\+\+S\+H\+O\+R\+T\+ED&The channel is unused, and is therefore shorted to
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_BIAS\_MEAS@{CH\_BIAS\_MEAS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_BIAS\_MEAS@{CH\_BIAS\_MEAS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a9ab1bed12b958223ae4e54c337c845ad}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a9ab1bed12b958223ae4e54c337c845ad}} 
-C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS&If bias measurement has been enabled, this channel is used to measure the bias signal. \\
+C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+M\+E\+AS&If bias measurement has been enabled, this channel is used to measure the bias signal \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_SUPPLY\_MEAS@{CH\_SUPPLY\_MEAS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_SUPPLY\_MEAS@{CH\_SUPPLY\_MEAS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a72863e6d6da4f0f3715b3c9f87d952b7}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a72863e6d6da4f0f3715b3c9f87d952b7}} 
-C\+H\+\_\+\+S\+U\+P\+P\+L\+Y\+\_\+\+M\+E\+AS&This signal is M\+V\+DD for supply measurements. \\
+C\+H\+\_\+\+S\+U\+P\+P\+L\+Y\+\_\+\+M\+E\+AS&This signal is M\+V\+DD for supply measurements \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_TEMP\_SENS@{CH\_TEMP\_SENS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_TEMP\_SENS@{CH\_TEMP\_SENS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a7e9b77e821fb0f565d78adec1fa4d677}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a7e9b77e821fb0f565d78adec1fa4d677}} 
-C\+H\+\_\+\+T\+E\+M\+P\+\_\+\+S\+E\+NS&This channel is a temperature sensor. \\
+C\+H\+\_\+\+T\+E\+M\+P\+\_\+\+S\+E\+NS&This channel is a temperature sensor \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_TEST\_SIG@{CH\_TEST\_SIG}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_TEST\_SIG@{CH\_TEST\_SIG}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a69c992dab8fdd7662e300677017f9d7d}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a69c992dab8fdd7662e300677017f9d7d}} 
-C\+H\+\_\+\+T\+E\+S\+T\+\_\+\+S\+IG&This channel is an externally driven test signal. \\
+C\+H\+\_\+\+T\+E\+S\+T\+\_\+\+S\+IG&This channel is an externally driven test signal \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_BIAS\_DRIVE\_POS@{CH\_BIAS\_DRIVE\_POS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_BIAS\_DRIVE\_POS@{CH\_BIAS\_DRIVE\_POS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a7069223a6351500956c70ed5a2463c2a}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a7069223a6351500956c70ed5a2463c2a}} 
-C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+OS&This channel\textquotesingle{}s positive electrode is a bias driver. \\
+C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+D\+R\+I\+V\+E\+\_\+\+P\+OS&This channel\textquotesingle{}s positive electrode is a bias driver \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_BIAS\_DRIVE\_NEG@{CH\_BIAS\_DRIVE\_NEG}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_BIAS\_DRIVE\_NEG@{CH\_BIAS\_DRIVE\_NEG}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a011f5ef821c0cc88603e420f7e9ecf7b}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212a011f5ef821c0cc88603e420f7e9ecf7b}} 
-C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+D\+R\+I\+V\+E\+\_\+\+N\+EG&This channel\textquotesingle{}s negative electrode is a bias driver. \\
+C\+H\+\_\+\+B\+I\+A\+S\+\_\+\+D\+R\+I\+V\+E\+\_\+\+N\+EG&This channel\textquotesingle{}s negative electrode is a bias driver \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_CONNECTION\_ERROR@{CH\_CONNECTION\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_CONNECTION\_ERROR@{CH\_CONNECTION\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212adc2a266193f548f4adcec3a6ca51f2a0}\label{_a_d_s1299___params_8h_a3ab5de845053b1e5811624752bc67212adc2a266193f548f4adcec3a6ca51f2a0}} 
-C\+H\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel connection type. \\
+C\+H\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel connection type \\
 \hline
 
 \end{DoxyEnumFields}
@@ -833,7 +873,7 @@ C\+H\+\_\+\+P\+O\+W\+E\+R\+\_\+\+O\+FF&The channel is powered off. Channels in t
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_POWER\_ERROR@{CH\_POWER\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_POWER\_ERROR@{CH\_POWER\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a0df3e917bf437ea944916fdd89382a8ea9fae8ad268611250ce6b2a7ab7235814}\label{_a_d_s1299___params_8h_a0df3e917bf437ea944916fdd89382a8ea9fae8ad268611250ce6b2a7ab7235814}} 
-C\+H\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel power state. \\
+C\+H\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel power state \\
 \hline
 
 \end{DoxyEnumFields}
@@ -849,39 +889,39 @@ This enum assigns values to the channels of the A\+DC.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH1@{CH1}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH1@{CH1}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a703cf81b7a9530ba8650e0ee2f29d68e}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a703cf81b7a9530ba8650e0ee2f29d68e}} 
-C\+H1&Channel 1. \\
+C\+H1&Channel 1 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH2@{CH2}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH2@{CH2}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298ae574b39c34bd88c27ea641014831e53a}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298ae574b39c34bd88c27ea641014831e53a}} 
-C\+H2&Channel 2. \\
+C\+H2&Channel 2 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH3@{CH3}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH3@{CH3}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298aaee6d12bf63ae430250764aa97e9e429}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298aaee6d12bf63ae430250764aa97e9e429}} 
-C\+H3&Channel 3. \\
+C\+H3&Channel 3 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH4@{CH4}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH4@{CH4}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298aad6a6b3e7230ebcbbb5a26385b11ade7}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298aad6a6b3e7230ebcbbb5a26385b11ade7}} 
-C\+H4&Channel 4. \\
+C\+H4&Channel 4 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH5@{CH5}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH5@{CH5}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298ab28dd1f2b29cfd4579a30d5a49a060aa}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298ab28dd1f2b29cfd4579a30d5a49a060aa}} 
-C\+H5&Channel 5. \\
+C\+H5&Channel 5 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH6@{CH6}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH6@{CH6}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a6e3be20f86045cb8e4031541d9af8e41}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a6e3be20f86045cb8e4031541d9af8e41}} 
-C\+H6&Channel 6. \\
+C\+H6&Channel 6 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH7@{CH7}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH7@{CH7}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a20bbdad0daed7216c15449423a442c62}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a20bbdad0daed7216c15449423a442c62}} 
-C\+H7&Channel 7. \\
+C\+H7&Channel 7 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH8@{CH8}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH8@{CH8}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298aaff31f75e03046c856938e05e4b36cc3}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298aaff31f75e03046c856938e05e4b36cc3}} 
-C\+H8&Channel 8. \\
+C\+H8&Channel 8 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CH\_ERROR@{CH\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CH\_ERROR@{CH\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a1eb7450d8443a8c7b39bf2dcd1cd5b24}\label{_a_d_s1299___params_8h_a32c85459ddc485abaa37aa13a8416298a1eb7450d8443a8c7b39bf2dcd1cd5b24}} 
-C\+H\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error finding the requested channel. \\
+C\+H\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error finding the requested channel \\
 \hline
 
 \end{DoxyEnumFields}
@@ -897,15 +937,15 @@ This enum associates a value with each A\+D\+S1299 command.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{WAKEUP@{WAKEUP}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!WAKEUP@{WAKEUP}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa9204d962c01740d01d1ea40b219a0472}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa9204d962c01740d01d1ea40b219a0472}} 
-W\+A\+K\+E\+UP&Wakes the device out of low-\/power standby mode. \\
+W\+A\+K\+E\+UP&Wakes the device out of low-\/power standby mode \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{STANDBY@{STANDBY}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!STANDBY@{STANDBY}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafae4634ae4352b512b38c5da9dc1610ca6}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafae4634ae4352b512b38c5da9dc1610ca6}} 
-S\+T\+A\+N\+D\+BY&Enters the device into low-\/power standby mode. \\
+S\+T\+A\+N\+D\+BY&Enters the device into low-\/power standby mode \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{RESET@{RESET}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!RESET@{RESET}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa589b7d94a3d91d145720e2fed0eb3a05}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa589b7d94a3d91d145720e2fed0eb3a05}} 
-R\+E\+S\+ET&Resets the device by issueing a power cycle and resetting the registers to their default value. \\
+R\+E\+S\+ET&Resets the device by issueing a power cycle and resetting the registers to their default value \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{START@{START}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!START@{START}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa13d000b4d7dc70d90239b7430d1eb6b2}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa13d000b4d7dc70d90239b7430d1eb6b2}} 
@@ -917,11 +957,11 @@ S\+T\+OP&Stops converting. The device must be stopped before changing settings \
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{RDATAC@{RDATAC}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!RDATAC@{RDATAC}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa5694044a538efd02036f6b4810dde7a3}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa5694044a538efd02036f6b4810dde7a3}} 
-R\+D\+A\+T\+AC&Reads data continuously from the device. \\
+R\+D\+A\+T\+AC&Reads data continuously from the device \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SDATAC@{SDATAC}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SDATAC@{SDATAC}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa619f2e3a5da29a7b81532e104c1e5025}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa619f2e3a5da29a7b81532e104c1e5025}} 
-S\+D\+A\+T\+AC&Stops continuous data reading from the device. \\
+S\+D\+A\+T\+AC&Stops continuous data reading from the device \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{RDATA@{RDATA}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!RDATA@{RDATA}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa19179fef8f37317859c38513f1d05416}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa19179fef8f37317859c38513f1d05416}} 
@@ -929,11 +969,11 @@ R\+D\+A\+TA&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{RREG@{RREG}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!RREG@{RREG}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa831f7014397d31a43eaf555b8555322b}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafa831f7014397d31a43eaf555b8555322b}} 
-R\+R\+EG&Reads the value of a register. \\
+R\+R\+EG&Reads the value of a register \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{WREG@{WREG}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!WREG@{WREG}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafac855f8976f313bdb94545dc11fc7f6bb}\label{_a_d_s1299___params_8h_a30a49ce74b3e4d010c0879ef70090cafac855f8976f313bdb94545dc11fc7f6bb}} 
-W\+R\+EG&Writes register data to the device. \\
+W\+R\+EG&Writes register data to the device \\
 \hline
 
 \end{DoxyEnumFields}
@@ -954,11 +994,11 @@ C\+O\+N\+T\+I\+N\+U\+O\+U\+S\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON&The device will c
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLE\_SHOT@{SINGLE\_SHOT}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SINGLE\_SHOT@{SINGLE\_SHOT}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a63ebc84f8d6dcc901662aefa1e999d6da34076d762aeabc2d33fb0a38676c3baf}\label{_a_d_s1299___params_8h_a63ebc84f8d6dcc901662aefa1e999d6da34076d762aeabc2d33fb0a38676c3baf}} 
-S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT&The device will convert 1 sample per S\+T\+A\+RT command sent. \\
+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT&The device will convert 1 sample per S\+T\+A\+RT command sent \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CONV\_MODE\_ERROR@{CONV\_MODE\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!CONV\_MODE\_ERROR@{CONV\_MODE\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a63ebc84f8d6dcc901662aefa1e999d6da702fab99c5cd8ca2ed1822f1f083752e}\label{_a_d_s1299___params_8h_a63ebc84f8d6dcc901662aefa1e999d6da702fab99c5cd8ca2ed1822f1f083752e}} 
-C\+O\+N\+V\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the converion mode. \\
+C\+O\+N\+V\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the converion mode \\
 \hline
 
 \end{DoxyEnumFields}
@@ -978,11 +1018,11 @@ D\+A\+I\+S\+Y\+\_\+\+C\+H\+A\+I\+N\+\_\+\+M\+O\+DE&The device is in daisy chain 
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{MULTIPLE\_READBACK\_MODE@{MULTIPLE\_READBACK\_MODE}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!MULTIPLE\_READBACK\_MODE@{MULTIPLE\_READBACK\_MODE}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14af7ae09e4583a0c67f7856837395557af}\label{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14af7ae09e4583a0c67f7856837395557af}} 
-M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+R\+E\+A\+D\+B\+A\+C\+K\+\_\+\+M\+O\+DE&The device is in multiple readback mode. \\
+M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+R\+E\+A\+D\+B\+A\+C\+K\+\_\+\+M\+O\+DE&The device is in multiple readback mode \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{DAISY\_MODE\_ERROR@{DAISY\_MODE\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!DAISY\_MODE\_ERROR@{DAISY\_MODE\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14ae51e3ad8fb9910fed3725825b111f96e}\label{_a_d_s1299___params_8h_a5a00b583d848f17ff44e01887967df14ae51e3ad8fb9910fed3725825b111f96e}} 
-D\+A\+I\+S\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&A return value for if there was an error associated with the daisy chain mode. \\
+D\+A\+I\+S\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&A return value for if there was an error associated with the daisy chain mode \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1026,7 +1066,7 @@ S\+P\+S250&250 Samples per Second (default) \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SPS\_ERROR@{SPS\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SPS\_ERROR@{SPS\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3e97c0a8d6216adc12d7a094446bffb1ab2926fdf2c11c9e202df9437f7a65e11}\label{_a_d_s1299___params_8h_a3e97c0a8d6216adc12d7a094446bffb1ab2926fdf2c11c9e202df9437f7a65e11}} 
-S\+P\+S\+\_\+\+E\+R\+R\+OR&A return value for if there is an error associated with the sample rate. \\
+S\+P\+S\+\_\+\+E\+R\+R\+OR&A return value for if there is an error associated with the sample rate \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1042,27 +1082,27 @@ This enum assigns values to the different channel gain settings.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA1@{PGA1}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA1@{PGA1}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427ade5235c6862d2e20a909c055dae05d9b}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427ade5235c6862d2e20a909c055dae05d9b}} 
-P\+G\+A1&The gain of the channel is 1. \\
+P\+G\+A1&The gain of the channel is 1 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA2@{PGA2}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA2@{PGA2}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aaae92d4c0889a5817b2b6148cb703237}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aaae92d4c0889a5817b2b6148cb703237}} 
-P\+G\+A2&The gain of the channel is 2. \\
+P\+G\+A2&The gain of the channel is 2 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA4@{PGA4}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA4@{PGA4}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aaa133d46d77fb1632a5e47517f040342}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aaa133d46d77fb1632a5e47517f040342}} 
-P\+G\+A4&The gain of the channel is 4. \\
+P\+G\+A4&The gain of the channel is 4 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA6@{PGA6}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA6@{PGA6}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427ad28833982857d32f0f5e9fd55355af9f}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427ad28833982857d32f0f5e9fd55355af9f}} 
-P\+G\+A6&The gain of the channel is 6. \\
+P\+G\+A6&The gain of the channel is 6 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA8@{PGA8}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA8@{PGA8}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aa9024ada8105224b248d166a48447c9d}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aa9024ada8105224b248d166a48447c9d}} 
-P\+G\+A8&The gain of the channel is 8. \\
+P\+G\+A8&The gain of the channel is 8 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA12@{PGA12}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA12@{PGA12}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aad2077a153a30b96fe0736f5138573a5}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427aad2077a153a30b96fe0736f5138573a5}} 
-P\+G\+A12&The gain of the channel is 12. \\
+P\+G\+A12&The gain of the channel is 12 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA24@{PGA24}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA24@{PGA24}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427ab5a507d293ca6df39e28422f0e0e3eab}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427ab5a507d293ca6df39e28422f0e0e3eab}} 
@@ -1070,7 +1110,7 @@ P\+G\+A24&The gain of the channel is 24 (default) \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PGA\_ERROR@{PGA\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PGA\_ERROR@{PGA\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427af57eab0909d01ee0ca8743dcd3a84fbe}\label{_a_d_s1299___params_8h_a2907629d474706d1bc22c99b18d9f427af57eab0909d01ee0ca8743dcd3a84fbe}} 
-P\+G\+A\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel gain setting. \\
+P\+G\+A\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel gain setting \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1086,7 +1126,7 @@ This enum assigns values to the different G\+P\+IO modes of each pin.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_OUTPUT@{GPIO\_OUTPUT}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO\_OUTPUT@{GPIO\_OUTPUT}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a7ff7ea245cad46cfec4b9bdcd05a1d83aa248e73c1faee9c6f072fd91569cf516}\label{_a_d_s1299___params_8h_a7ff7ea245cad46cfec4b9bdcd05a1d83aa248e73c1faee9c6f072fd91569cf516}} 
-G\+P\+I\+O\+\_\+\+O\+U\+T\+P\+UT&This G\+P\+IO pin is an output. \\
+G\+P\+I\+O\+\_\+\+O\+U\+T\+P\+UT&This G\+P\+IO pin is an output \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_INPUT@{GPIO\_INPUT}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO\_INPUT@{GPIO\_INPUT}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a7ff7ea245cad46cfec4b9bdcd05a1d83aa1ea38ffc304a6c32480a65b5fec7302}\label{_a_d_s1299___params_8h_a7ff7ea245cad46cfec4b9bdcd05a1d83aa1ea38ffc304a6c32480a65b5fec7302}} 
@@ -1094,7 +1134,7 @@ G\+P\+I\+O\+\_\+\+I\+N\+P\+UT&This G\+P\+IO pin is an input (default) \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_MODE\_ERROR@{GPIO\_MODE\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO\_MODE\_ERROR@{GPIO\_MODE\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a7ff7ea245cad46cfec4b9bdcd05a1d83a058549c16aaae8720f947aad330c5632}\label{_a_d_s1299___params_8h_a7ff7ea245cad46cfec4b9bdcd05a1d83a058549c16aaae8720f947aad330c5632}} 
-G\+P\+I\+O\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the G\+P\+IO mode. \\
+G\+P\+I\+O\+\_\+\+M\+O\+D\+E\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the G\+P\+IO mode \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1110,23 +1150,23 @@ This enum assigns values to the G\+P\+IO pins of the device.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO1@{GPIO1}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO1@{GPIO1}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a0123074370c1cd8e93857da489755c08}\label{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a0123074370c1cd8e93857da489755c08}} 
-G\+P\+I\+O1&G\+P\+IO Pin 1. \\
+G\+P\+I\+O1&G\+P\+IO Pin 1 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO2@{GPIO2}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO2@{GPIO2}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a686b285ad775caedcb01f6d65f4b7cb1}\label{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a686b285ad775caedcb01f6d65f4b7cb1}} 
-G\+P\+I\+O2&G\+P\+IO Pin 2. \\
+G\+P\+I\+O2&G\+P\+IO Pin 2 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO3@{GPIO3}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO3@{GPIO3}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3ae2f945169734dab69d5bb12d5398142e}\label{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3ae2f945169734dab69d5bb12d5398142e}} 
-G\+P\+I\+O3&G\+P\+IO Pin 3. \\
+G\+P\+I\+O3&G\+P\+IO Pin 3 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO4@{GPIO4}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO4@{GPIO4}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a3f1f3de08b82473f5d32ecc4543a7f85}\label{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a3f1f3de08b82473f5d32ecc4543a7f85}} 
-G\+P\+I\+O4&G\+P\+IO Pin 4. \\
+G\+P\+I\+O4&G\+P\+IO Pin 4 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_ERROR@{GPIO\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!GPIO\_ERROR@{GPIO\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a655a17b7b79de8c0c8e5356f966e506f}\label{_a_d_s1299___params_8h_a0d45fd8c0da90554e0d9d6c2082a0fe3a655a17b7b79de8c0c8e5356f966e506f}} 
-G\+P\+I\+O\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the G\+P\+IO pins. \\
+G\+P\+I\+O\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the G\+P\+IO pins \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1146,35 +1186,35 @@ L\+O\+F\+F\+\_\+5\+Per&This setting sets the lead-\/off comparator threshold at 
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_7Per5@{LOFF\_7Per5}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_7Per5@{LOFF\_7Per5}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba12936b7b3c1028684d94808e31a11e26}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba12936b7b3c1028684d94808e31a11e26}} 
-L\+O\+F\+F\+\_\+7\+Per5&This setting sets the lead-\/off comparator threshold at 92.\+5\% for positive, 7.\+5\% for negative. \\
+L\+O\+F\+F\+\_\+7\+Per5&This setting sets the lead-\/off comparator threshold at 92.\+5\% for positive, 7.\+5\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_10Per@{LOFF\_10Per}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_10Per@{LOFF\_10Per}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba48831d7d9c3cca2e6e457fedbc357812}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba48831d7d9c3cca2e6e457fedbc357812}} 
-L\+O\+F\+F\+\_\+10\+Per&This setting sets the lead-\/off comparator threshold at 90\% for positive, 10\% for negative. \\
+L\+O\+F\+F\+\_\+10\+Per&This setting sets the lead-\/off comparator threshold at 90\% for positive, 10\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_12Per5@{LOFF\_12Per5}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_12Per5@{LOFF\_12Per5}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6ebaa658e5bac980770017fbcce226e31b37}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6ebaa658e5bac980770017fbcce226e31b37}} 
-L\+O\+F\+F\+\_\+12\+Per5&This setting sets the lead-\/off comparator threshold at 87.\+5\% for positive, 12.\+5\% for negative. \\
+L\+O\+F\+F\+\_\+12\+Per5&This setting sets the lead-\/off comparator threshold at 87.\+5\% for positive, 12.\+5\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_15Per@{LOFF\_15Per}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_15Per@{LOFF\_15Per}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba363dff3634ebc9506e2ff9dc4d8d69d9}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba363dff3634ebc9506e2ff9dc4d8d69d9}} 
-L\+O\+F\+F\+\_\+15\+Per&This setting sets the lead-\/off comparator threshold at 85\% for positive, 15\% for negative. \\
+L\+O\+F\+F\+\_\+15\+Per&This setting sets the lead-\/off comparator threshold at 85\% for positive, 15\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_20Per@{LOFF\_20Per}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_20Per@{LOFF\_20Per}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6ebad6d5689920c2a27d36a376a37c7acfb7}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6ebad6d5689920c2a27d36a376a37c7acfb7}} 
-L\+O\+F\+F\+\_\+20\+Per&This setting sets the lead-\/off comparator threshold at 80\% for positive, 20\% for negative. \\
+L\+O\+F\+F\+\_\+20\+Per&This setting sets the lead-\/off comparator threshold at 80\% for positive, 20\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_25Per@{LOFF\_25Per}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_25Per@{LOFF\_25Per}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba813a0019dbfa317b00ecb39c13544a1c}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba813a0019dbfa317b00ecb39c13544a1c}} 
-L\+O\+F\+F\+\_\+25\+Per&This setting sets the lead-\/off comparator threshold at 75\% for positive, 25\% for negative. \\
+L\+O\+F\+F\+\_\+25\+Per&This setting sets the lead-\/off comparator threshold at 75\% for positive, 25\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_30Per@{LOFF\_30Per}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_30Per@{LOFF\_30Per}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba75b5265075d5d8a116dc73bc6626eb28}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba75b5265075d5d8a116dc73bc6626eb28}} 
-L\+O\+F\+F\+\_\+30\+Per&This setting sets the lead-\/off comparator threshold at 70\% for positive, 30\% for negative. \\
+L\+O\+F\+F\+\_\+30\+Per&This setting sets the lead-\/off comparator threshold at 70\% for positive, 30\% for negative \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_THRESH\_ERROR@{LOFF\_THRESH\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_THRESH\_ERROR@{LOFF\_THRESH\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba140ec291ac6eb0f423d9d48e893184e1}\label{_a_d_s1299___params_8h_a11318f1e3a3cea467fdbc3cf704bd6eba140ec291ac6eb0f423d9d48e893184e1}} 
-L\+O\+F\+F\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the lead-\/off comparator threshold. \\
+L\+O\+F\+F\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the lead-\/off comparator threshold \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1194,19 +1234,19 @@ L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+6nA&The lead-\/off current will be 6n
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_CURRENT\_24nA@{LOFF\_CURRENT\_24nA}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_CURRENT\_24nA@{LOFF\_CURRENT\_24nA}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca5e41b6c8b006abe07b9856d41122a61c}\label{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca5e41b6c8b006abe07b9856d41122a61c}} 
-L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+24nA&The lead-\/off current will be 24nA. \\
+L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+24nA&The lead-\/off current will be 24nA \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_CURRENT\_6uA@{LOFF\_CURRENT\_6uA}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_CURRENT\_6uA@{LOFF\_CURRENT\_6uA}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca98786482615665919e83dfa1e2d1eeab}\label{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca98786482615665919e83dfa1e2d1eeab}} 
-L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+6uA&The lead-\/off current will be 6uA. \\
+L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+6uA&The lead-\/off current will be 6uA \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_CURRENT\_24uA@{LOFF\_CURRENT\_24uA}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_CURRENT\_24uA@{LOFF\_CURRENT\_24uA}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca9562e7c6e0ed9a79b4c9a70c62f064e5}\label{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca9562e7c6e0ed9a79b4c9a70c62f064e5}} 
-L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+24uA&The lead-\/off current will be 24uA. \\
+L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+24uA&The lead-\/off current will be 24uA \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_CURRENT\_ERROR@{LOFF\_CURRENT\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_CURRENT\_ERROR@{LOFF\_CURRENT\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca006585127f8b1c3e2df448f9fe1f387c}\label{_a_d_s1299___params_8h_a4b58f74716a453f1e2dda86983f6c8eca006585127f8b1c3e2df448f9fe1f387c}} 
-L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the lead-\/off current. \\
+L\+O\+F\+F\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the lead-\/off current \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1226,19 +1266,19 @@ L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+DC&DC lead-\/off detection (default) \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_FREQ\_7Hz8@{LOFF\_FREQ\_7Hz8}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_FREQ\_7Hz8@{LOFF\_FREQ\_7Hz8}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873a7664265075b985841f3c3b9ef7295e69}\label{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873a7664265075b985841f3c3b9ef7295e69}} 
-L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+7\+Hz8&AC lead-\/off detection at 7.\+8\+Hz. \\
+L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+7\+Hz8&AC lead-\/off detection at 7.\+8\+Hz \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_FREQ\_31Hz2@{LOFF\_FREQ\_31Hz2}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_FREQ\_31Hz2@{LOFF\_FREQ\_31Hz2}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873ab4a87ba948740f9020ba667b86973c38}\label{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873ab4a87ba948740f9020ba667b86973c38}} 
-L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+31\+Hz2&AC lead-\/off detection at 31.\+2\+Hz. \\
+L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+31\+Hz2&AC lead-\/off detection at 31.\+2\+Hz \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_FREQ\_SPS\_OVER\_4@{LOFF\_FREQ\_SPS\_OVER\_4}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_FREQ\_SPS\_OVER\_4@{LOFF\_FREQ\_SPS\_OVER\_4}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873a1b294da3070c4f6a2227dcb1a034994d}\label{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873a1b294da3070c4f6a2227dcb1a034994d}} 
-L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4&AC lead of detection at 1/4 $\ast$ the selected data rate. \\
+L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+P\+S\+\_\+\+O\+V\+E\+R\+\_\+4&AC lead of detection at 1/4 $\ast$ the selected data rate \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_FREQ\_ERROR@{LOFF\_FREQ\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_FREQ\_ERROR@{LOFF\_FREQ\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873a91326705211e1cf8cd17c94b48f339b4}\label{_a_d_s1299___params_8h_a69091a9feedaaec0c068604ee22a8873a91326705211e1cf8cd17c94b48f339b4}} 
-L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error assocaited with the lead-\/off frequency. \\
+L\+O\+F\+F\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error assocaited with the lead-\/off frequency \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1258,11 +1298,11 @@ L\+O\+F\+F\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+I\+S\+A\+B\+L\+ED&This removes power f
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_POWER\_ENABLED@{LOFF\_POWER\_ENABLED}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_POWER\_ENABLED@{LOFF\_POWER\_ENABLED}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a5480e76309bed506c886e97502cff3c9a00bffef70fba9318f62a338ca88d27eb}\label{_a_d_s1299___params_8h_a5480e76309bed506c886e97502cff3c9a00bffef70fba9318f62a338ca88d27eb}} 
-L\+O\+F\+F\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+L\+ED&This provides power to the lead-\/off comparator. \\
+L\+O\+F\+F\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+N\+A\+B\+L\+ED&This provides power to the lead-\/off comparator \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LOFF\_POWER\_ERROR@{LOFF\_POWER\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!LOFF\_POWER\_ERROR@{LOFF\_POWER\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a5480e76309bed506c886e97502cff3c9adba655a296abd197249ab96f2df68392}\label{_a_d_s1299___params_8h_a5480e76309bed506c886e97502cff3c9adba655a296abd197249ab96f2df68392}} 
-L\+O\+F\+F\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the lead-\/off power state. \\
+L\+O\+F\+F\+\_\+\+P\+O\+W\+E\+R\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the lead-\/off power state \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1278,19 +1318,19 @@ This enum assigns values to different numbers of channels.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_CHANNELS\_4@{NUM\_CHANNELS\_4}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_CHANNELS\_4@{NUM\_CHANNELS\_4}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50a6b04d62950452d6b79aa6e85d40c87af}\label{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50a6b04d62950452d6b79aa6e85d40c87af}} 
-N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+4&The device has 4 channels. \\
+N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+4&The device has 4 channels \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_CHANNELS\_6@{NUM\_CHANNELS\_6}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_CHANNELS\_6@{NUM\_CHANNELS\_6}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50a993130638469bf2c57432416bd878ccc}\label{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50a993130638469bf2c57432416bd878ccc}} 
-N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+6&The device has 6 channels. \\
+N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+6&The device has 6 channels \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_CHANNELS\_8@{NUM\_CHANNELS\_8}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_CHANNELS\_8@{NUM\_CHANNELS\_8}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50ab0cbcec78ca883e64e90f76b5aec5448}\label{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50ab0cbcec78ca883e64e90f76b5aec5448}} 
-N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+8&The device has 8 channels. \\
+N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+8&The device has 8 channels \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_CHANNELS\_ERROR@{NUM\_CHANNELS\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_CHANNELS\_ERROR@{NUM\_CHANNELS\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50ab5f4e82b35ba7036101cdc751edae639}\label{_a_d_s1299___params_8h_a4d2b150cf835bfa1fb9bb4ef4f465c50ab5f4e82b35ba7036101cdc751edae639}} 
-N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the test frequency. \\
+N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the test frequency \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1302,15 +1342,15 @@ N\+U\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+E\+R\+R\+OR&This is a return value 
 
 
 
-This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. 
+This enum assigns a unique parameter ID to each parameter, and counts the number of parameters. It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no P\+A\+R\+A\+M\+\_\+\+ID is found, for example. 
 
-It also creates a P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR, which can be returned if no P\+A\+R\+A\+M\+\_\+\+ID is found, for example \begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_PARAMS@{NUM\_PARAMS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_PARAMS@{NUM\_PARAMS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a52c45b0b512fc178cc4625f4c1995fd5}\label{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a52c45b0b512fc178cc4625f4c1995fd5}} 
-N\+U\+M\+\_\+\+P\+A\+R\+A\+MS&The number of registers in the Param\+\_\+\+Array. \\
+N\+U\+M\+\_\+\+P\+A\+R\+A\+MS&The number of registers in the Param\+\_\+\+Array \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{PARAM\_ERROR@{PARAM\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!PARAM\_ERROR@{PARAM\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a29b637a2d1deeee76888713aaf142a6c}\label{_a_d_s1299___params_8h_a529fbbd27b608a1a975f5d49c110f7d2a29b637a2d1deeee76888713aaf142a6c}} 
-P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR&A value to return if there was an error finding a Param\+\_\+\+ID. \\
+P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR&A value to return if there was an error finding a Param\+\_\+\+ID \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1322,15 +1362,15 @@ P\+A\+R\+A\+M\+\_\+\+E\+R\+R\+OR&A value to return if there was an error finding
 
 
 
-This enum assigns a unique register ID to each register, and counts the number of registers. 
+This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example. 
 
-It also creates a R\+E\+G\+\_\+\+E\+R\+R\+OR, which can be returned if no R\+E\+G\+\_\+\+ID is found, for example \begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_REGS@{NUM\_REGS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!NUM\_REGS@{NUM\_REGS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774}\label{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa19c5ea248b70421ba2f5dc7bb469a774}} 
-N\+U\+M\+\_\+\+R\+E\+GS&The number of registers in the Reg\+\_\+\+Array. \\
+N\+U\+M\+\_\+\+R\+E\+GS&The number of registers in the Reg\+\_\+\+Array \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{REG\_ERROR@{REG\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!REG\_ERROR@{REG\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337}\label{_a_d_s1299___params_8h_ac21547e38fb0ad7824bff2905c1b4f1fa046c06121ab80cbd427b1b46101bd337}} 
-R\+E\+G\+\_\+\+E\+R\+R\+OR&A value to return if there was an error finding a Reg\+\_\+\+ID. \\
+R\+E\+G\+\_\+\+E\+R\+R\+OR&A value to return if there was an error finding a Reg\+\_\+\+ID \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1350,11 +1390,11 @@ S\+R\+B1\+\_\+\+O\+P\+E\+N\+\_\+\+A\+L\+L\+\_\+\+C\+H\+A\+N\+N\+E\+LS&All the ch
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SRB1\_CLOSED\_ALL\_CHANNELS@{SRB1\_CLOSED\_ALL\_CHANNELS}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SRB1\_CLOSED\_ALL\_CHANNELS@{SRB1\_CLOSED\_ALL\_CHANNELS}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3a0d55789cf27305cf2777d57aaf263caf75119feae927cce2b09cbb098328923}\label{_a_d_s1299___params_8h_a3a0d55789cf27305cf2777d57aaf263caf75119feae927cce2b09cbb098328923}} 
-S\+R\+B1\+\_\+\+C\+L\+O\+S\+E\+D\+\_\+\+A\+L\+L\+\_\+\+C\+H\+A\+N\+N\+E\+LS&All the channels are referenced to S\+R\+B1, This is generally used in referred montage. \\
+S\+R\+B1\+\_\+\+C\+L\+O\+S\+E\+D\+\_\+\+A\+L\+L\+\_\+\+C\+H\+A\+N\+N\+E\+LS&All the channels are referenced to S\+R\+B1, This is generally used in referred montage \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SRB1\_ERROR@{SRB1\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SRB1\_ERROR@{SRB1\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a3a0d55789cf27305cf2777d57aaf263ca0bc0e787634b709c27e94faad3b9cd95}\label{_a_d_s1299___params_8h_a3a0d55789cf27305cf2777d57aaf263ca0bc0e787634b709c27e94faad3b9cd95}} 
-S\+R\+B1\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the global S\+R\+B1 connection. \\
+S\+R\+B1\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the global S\+R\+B1 connection \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1374,11 +1414,11 @@ S\+R\+B2\+\_\+\+O\+P\+EN&The channel\textquotesingle{}s negative signal is not c
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SRB2\_CLOSED@{SRB2\_CLOSED}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SRB2\_CLOSED@{SRB2\_CLOSED}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a538c23ca9af4445544ce959ed6430799afc207fbaba85dc2166d78c9c894ca451}\label{_a_d_s1299___params_8h_a538c23ca9af4445544ce959ed6430799afc207fbaba85dc2166d78c9c894ca451}} 
-S\+R\+B2\+\_\+\+C\+L\+O\+S\+ED&The channel\textquotesingle{}s positive signal is connected to S\+R\+B2. \\
+S\+R\+B2\+\_\+\+C\+L\+O\+S\+ED&The channel\textquotesingle{}s positive signal is connected to S\+R\+B2 \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SRB2\_ERROR@{SRB2\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!SRB2\_ERROR@{SRB2\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a538c23ca9af4445544ce959ed6430799aff4d851c4f095f0e53deb514fc6846cc}\label{_a_d_s1299___params_8h_a538c23ca9af4445544ce959ed6430799aff4d851c4f095f0e53deb514fc6846cc}} 
-S\+R\+B2\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel\textquotesingle{}s S\+R\+B2 connection. \\
+S\+R\+B2\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the channel\textquotesingle{}s S\+R\+B2 connection \\
 \hline
 
 \end{DoxyEnumFields}
@@ -1398,19 +1438,19 @@ T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+F\+C\+L\+K\+\_\+\+D\+I\+V\+\_\+2\+\_\+21&The
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_FREQ\_FCLK\_DIV\_2\_20@{TEST\_FREQ\_FCLK\_DIV\_2\_20}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!TEST\_FREQ\_FCLK\_DIV\_2\_20@{TEST\_FREQ\_FCLK\_DIV\_2\_20}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a478637a9cc6d297e0a7cb2f45eb27824}\label{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a478637a9cc6d297e0a7cb2f45eb27824}} 
-T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+F\+C\+L\+K\+\_\+\+D\+I\+V\+\_\+2\+\_\+20&The test signal is pulsed at the clock frequency / (2 $^\wedge$ 20) Hz. \\
+T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+F\+C\+L\+K\+\_\+\+D\+I\+V\+\_\+2\+\_\+20&The test signal is pulsed at the clock frequency / (2 $^\wedge$ 20) Hz \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_FREQ\_INVALID@{TEST\_FREQ\_INVALID}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!TEST\_FREQ\_INVALID@{TEST\_FREQ\_INVALID}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a75115d43bba2dd887bd4114255371e8c}\label{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a75115d43bba2dd887bd4114255371e8c}} 
-T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+I\+N\+V\+A\+L\+ID&This test frequency should not be used. \\
+T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+I\+N\+V\+A\+L\+ID&This test frequency should not be used \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_FREQ\_0@{TEST\_FREQ\_0}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!TEST\_FREQ\_0@{TEST\_FREQ\_0}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a81934954d3fbd7134b5908f6e3d47d71}\label{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a81934954d3fbd7134b5908f6e3d47d71}} 
-T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+0&The test signal is DC. \\
+T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+0&The test signal is DC \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_FREQ\_ERROR@{TEST\_FREQ\_ERROR}!ADS1299\_Params.h@{ADS1299\_Params.h}}\index{ADS1299\_Params.h@{ADS1299\_Params.h}!TEST\_FREQ\_ERROR@{TEST\_FREQ\_ERROR}}}\mbox{\Hypertarget{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a73e632c113b5ab0721ecf11f532c9849}\label{_a_d_s1299___params_8h_a2f7bb913094aeec493cf018fff1e51c1a73e632c113b5ab0721ecf11f532c9849}} 
-T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the test frequency. \\
+T\+E\+S\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+E\+R\+R\+OR&This is a return value for if there is an error associated with the test frequency \\
 \hline
 
 \end{DoxyEnumFields}
