@@ -167,8 +167,8 @@ void setup()
   check_register(CH8SET, 0x81);
   check_register(MISC1, 0x20);
 
-
-  //---------------------------------
+  ADS1299->send_command(START);                                                /* Start converting data */
+  ADS1299->send_command(RDATAC);                                               /* Pipe the data as soon as it's ready */
 }
 
 
@@ -228,7 +228,6 @@ void toggleLED(uint16_t half_period, uint8_t debounce_ms)
     last_toggle_millis = millis();                                             /* Save the last toggle time */
     Comms->debugMsg("Toggling");                                               /* Send a debug message */
     Hardware_Map->toggle_pin(STATUS_LED);                                      /* Toggle the status LED */
-    // Hardware_Map->update_pins();                                               /* Update the pin values in the pin array */
     if (last_toggle_millis > (0xFFFFFFFF - (half_period)))                     /* If next time we need to toggle millis() will have overflowed */
     {
       last_toggle_millis = 0;                                                  /* Reset the last toggle time to 0 */

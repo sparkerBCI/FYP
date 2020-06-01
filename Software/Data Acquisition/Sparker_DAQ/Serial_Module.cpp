@@ -257,9 +257,10 @@ bool Serial_Module::send_single_channel_sample_Bluetooth(Sample_Data_t input_sam
   if (sample_num != (DECEMATION_ORDER - 1))
   {
     sample_num++;
+    debugMsg("Decemated Sample, skipping...");
     return true;
   }
-
+  debugMsg("Sending Sample over Bluetooth");
   myBluetooth->print(input_sample.id);
   myBluetooth->print(input_sample.Channel_Data[0]);
   myBluetooth->print('\n');
