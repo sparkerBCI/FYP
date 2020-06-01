@@ -20,9 +20,14 @@
  *  @brief Constructs a new Serial Module with a baud rate of 38400.
  *
  *********************************************************************************************/
-Serial_Module::Serial_Module()
+Serial_Module::Serial_Module(SoftwareSerial* my_ss)
 {
-  Serial.begin(38400);
+  // USB Connection
+  Serial.begin(115200);                                                        /* Start USB connection at 115200 baud */
+  
+  // Bluetooth Connection
+  myBluetooth = my_ss;
+  
 }
 
 
@@ -87,7 +92,7 @@ void Serial_Module::debugMsg(String input)
 
 
 /*! ******************************************************************************************
- *  @brief Sends a sample over the serial interface.
+ *  @brief Sends a sample over the USB interface.
  *
  *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
  *  <Channel 1><Channel 2><Channel 3>...<Channel 8><\n>. Everything except the \n are
@@ -96,11 +101,11 @@ void Serial_Module::debugMsg(String input)
  *  @param[in] input_sample            - The sample to send over the serial interface
  *
  *********************************************************************************************/
-bool Serial_Module::send_sample(Sample_Data_t input_sample)
+bool Serial_Module::send_sample_USB(Sample_Data_t input_sample)
 {
   if (!Serial)
   {
-    warningMsg("Serial not available!");
+    warningMsg("USB not available!");
     return false;
   }
 
@@ -122,7 +127,85 @@ bool Serial_Module::send_sample(Sample_Data_t input_sample)
 
 
 /*! ******************************************************************************************
- *  @brief Sends a sample from Channel 1 over the serial interface.
+ *  @brief Sends a sample over the Bluetooth interface.
+ *
+ *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
+ *  <Channel 1><Channel 2><Channel 3>...<Channel 8><\n>. Everything except the \n are
+ *  uint32_ts in 8 data bits, no parity, 1 stop bit.
+ *
+ *  @param[in] input_sample            - The sample to send over the serial interface
+ *
+ *********************************************************************************************/
+bool Serial_Module::send_sample_Bluetooth(Sample_Data_t input_sample)
+{
+  if (!myBluetooth)
+  {
+    warningMsg("Bluetooth not available!");
+    return false;
+  }
+
+  if (sample_num != (DECEMATION_ORDER - 1))
+  {
+    sample_num++;
+    return true;
+  }
+
+  myBluetooth->print(input_sample.id);
+  for (uint8_t i = 0; i < MAX_ADC_CHANNELS; i++)
+  {
+    myBluetooth->print(input_sample.Channel_Data[i]);
+  }
+  myBluetooth->print('\n');
+  sample_num = 0;
+  return true;
+}
+
+
+/*! ******************************************************************************************
+ *  @brief Sends a sample over the Bluetooth interface and the USB interface.
+ *
+ *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
+ *  <Channel 1><Channel 2><Channel 3>...<Channel 8><\n>. Everything except the \n are
+ *  uint32_ts in 8 data bits, no parity, 1 stop bit.
+ *
+ *  @param[in] input_sample            - The sample to send over the serial interface
+ *
+ *********************************************************************************************/
+bool Serial_Module::send_sample_Both(Sample_Data_t input_sample)
+{
+  if (!myBluetooth)
+  {
+    warningMsg("Bluetooth not available!");
+    return false;
+  }
+  if (!Serial)
+  {
+    warningMsg("USB not available!");
+    return false;
+  }
+
+  if (sample_num != (DECEMATION_ORDER - 1))
+  {
+    sample_num++;
+    return true;
+  }
+
+  myBluetooth->print(input_sample.id);
+  Serial.print(input_sample.id);
+  for (uint8_t i = 0; i < MAX_ADC_CHANNELS; i++)
+  {
+    myBluetooth->print(input_sample.Channel_Data[i]);
+    Serial.print(input_sample.Channel_Data[i]);
+  }
+  myBluetooth->print('\n');
+  Serial.print('\n');
+  sample_num = 0;
+  return true;
+}
+
+
+/*! ******************************************************************************************
+ *  @brief Sends a sample from Channel 1 over the USB interface.
  *
  *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
  *  <Channel 1><\n>. Everything except the \n are uint32_ts in 8 data bits, no parity,
@@ -131,11 +214,11 @@ bool Serial_Module::send_sample(Sample_Data_t input_sample)
  *  @param[in] input_sample            - The sample to send over the serial interface
  *
  *********************************************************************************************/
-bool Serial_Module::send_single_channel_sample(Sample_Data_t input_sample)
+bool Serial_Module::send_single_channel_sample_USB(Sample_Data_t input_sample)
 {
   if (!Serial)
   {
-    warningMsg("Serial not available!");
+    warningMsg("USB not available!");
     return false;
   }
   if (sample_num != (DECEMATION_ORDER - 1))
@@ -147,6 +230,37 @@ bool Serial_Module::send_single_channel_sample(Sample_Data_t input_sample)
   Serial.print(input_sample.id);
   Serial.print(input_sample.Channel_Data[0]);
   Serial.print('\n');
+  sample_num = 0;
+  return true;
+}
+
+
+/*! ******************************************************************************************
+ *  @brief Sends a sample from Channel 1 over the USB interface.
+ *
+ *  Samples are sent over the serial interface (38400 baud) in the format <sample ID>
+ *  <Channel 1><\n>. Everything except the \n are uint32_ts in 8 data bits, no parity,
+ *  1 stop bit.
+ *
+ *  @param[in] input_sample            - The sample to send over the serial interface
+ *
+ *********************************************************************************************/
+bool Serial_Module::send_single_channel_sample_Bluetooth(Sample_Data_t input_sample)
+{
+  if (!myBluetooth)
+  {
+    warningMsg("Bluetooth not available!");
+    return false;
+  }
+  if (sample_num != (DECEMATION_ORDER - 1))
+  {
+    sample_num++;
+    return true;
+  }
+
+  myBluetooth->print(input_sample.id);
+  myBluetooth->print(input_sample.Channel_Data[0]);
+  myBluetooth->print('\n');
   sample_num = 0;
   return true;
 }

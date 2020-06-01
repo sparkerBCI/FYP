@@ -17,7 +17,7 @@
  *  @mainpage The Sparker Wireless EEG Data Acquisition System
  *
  *  @author Sam Parker
- *  @version 0.02
+ *  @version 0.03
  *
  *  @section intro_sec Introduction
  *  This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed
@@ -60,7 +60,7 @@
 #include "DAQ_Pin_Map.h"
 #include "Serial_Module.h"
 
-
+SoftwareSerial mySS(8, 9);                                                     /**< Creates a UART interface for the Bluetooth Module, RX on 8, TX on 9 */
 
 DAQ_Pin_Map    *Hardware_Map;                                                  /**< This class stores information about how the MCU is connected to the ADC */
 ADS1299_Module *ADS1299;                                                       /**< This class enables communication with the ADC */
@@ -74,13 +74,12 @@ Serial_Module  *Comms;                                                         /
 void setup()
 {
   Hardware_Map = new DAQ_Pin_Map();                                            /* Create the Hardware Map, which holds details about how the MCU is connected */
-
-  ADS1299 = new ADS1299_Module(Hardware_Map);                                  /* Creates the ADS1299 Module, for communication and control of the ADC */
-
-  Comms = new Serial_Module();                                                 /* Creates the Serial Module, for communication with the host device over bluetooth or USB */
-
+  
+  Comms = new Serial_Module(&mySS);                                            /* Creates the Serial Module, for communication with the host device over bluetooth and USB */
   Comms->msg_enabled   = true;                                                 /* Enables additional messages on the serial bus */
   Comms->debug_enabled = true;                                                 /* Additional enabler for debug messages */
+
+  ADS1299 = new ADS1299_Module(Hardware_Map);                                  /* Creates the ADS1299 Module, for communication and control of the ADC */
 
   if (ADS1299->get_device_id() != VALID_DEVICE_ID)                             /* If the device gives us an invalid device ID */
   {
@@ -160,7 +159,7 @@ void loop()
       Sample_Data_t this_sample = process_sample(input_buffer);                /* Build a sample structure by processing the input data buffer */
       if (this_sample.id != 0)                                                 /* If the sample was valid (corresponding to a sample ID of something other than 0) */
       {
-        if (!(Comms->send_single_channel_sample(this_sample)))                 /* If we don't successfully send the command */
+        if (!(Comms->send_single_channel_sample_Bluetooth(this_sample)))                 /* If we don't successfully send the command */
         {
           Comms->warningMsg("Could not send processed sample!");               /* Send a warning */
         }

@@ -46,8 +46,6 @@
    PIN_ENTRY(DAQ_SCLK,              13,         OUTPUT,    "SPI Serial Clock",        LOW)                 \
    PIN_ENTRY(DAQ_MISO,              12,         OUTPUT,            "SPI MISO",        LOW)                 \
    PIN_ENTRY(DAQ_MOSI,              11,          INPUT,            "SPI MOSI",        LOW)                 \
-   PIN_ENTRY(BT_TX,                  9,         OUTPUT,        "Bluetooth TX",        LOW)                 \
-   PIN_ENTRY(BT_RX,                  8,          INPUT,        "Bluetooth RX",        LOW)                 \
    PIN_ENTRY(START_PIN,              7,         OUTPUT,               "Start",        LOW)                 \
    PIN_ENTRY(NOT_DATA_READY,         6,          INPUT,          "Data Ready",       HIGH)                 \
    PIN_ENTRY(NOT_POWER_DOWN,         5,         OUTPUT,          "Power Down",       HIGH)                 \
