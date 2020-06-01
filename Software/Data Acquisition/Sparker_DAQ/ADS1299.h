@@ -847,6 +847,40 @@ public:
   ADS1299_Status_t read_sample(uint8_t *output_buffer);
 
 /*! ******************************************************************************************
+ * @brief Gets the current value of a Register from the ADS1299 given a Reg_ID.
+ *
+ * The Read Register command on the ADS1299 is a 16 bit command, asking for the register, and
+ * the number of sequential registers to read - 1. Since we only want to read 1 register, the
+ * second byte is 0, so we AND the command with 0xFF00 to ensure the lower byte is 0. Updates
+ * the value stored in local memory.
+ *
+ * @param[in] Register        - Which register to read from.
+ *
+ * @return                    - The current value of the Register from the device.
+ *                              0 if error. This isn't great, because if the register
+ *                              contains 0 it may be interpreted as an error, so this retval
+ *                              shouldn't be considered an error.
+ *
+ *********************************************************************************************/
+  uint8_t read_register(Reg_ID_t Register);
+
+/*! ******************************************************************************************
+ * @brief Gets the current value of a Register from the ADS1299 given a memory address.
+ *
+ * This overloads read_register. First converts the address to a Reg_ID, then calls
+ * read_register with the found Reg_ID, if there was a Reg_ID matching the address.
+ *
+ * @param[in] Register_Address      - Which register address to read from.
+ *
+ * @return                          - The current value of the Register from the device.
+ *                                    0 if error. This isn't great, because if the register
+ *                                    contains 0 it may be interpreted as an error, so this
+ *                                    retval shouldn't be considered an error.
+ *
+ *********************************************************************************************/
+  uint8_t read_register_from_address(int Register_Address);
+
+/*! ******************************************************************************************
  * @brief This struct contains information about a register
  *
  *********************************************************************************************/
@@ -858,6 +892,7 @@ public:
     uint8_t  Value_on_Reset;                                                   /**< The value of the register on reset */
     uint8_t  Current_Value;                                                    /**< The current value of the register */
     bool     Bit_Per_Channel;                                                  /**< True if the regsiter holds info about all the channels, 1 bit per channel */
+    String   Register_Name;   
   } Reg_Areay_t;
 
 /*! ******************************************************************************************
@@ -872,7 +907,7 @@ public:
   } Param_Array_t;
 
 /* Create the register array and populate the value with default value */
-#define REG_ENTRY(a, b, c, d, e)    { a, b, c, d, d, e },                      /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
+#define REG_ENTRY(a, b, c, d, e, f)    { a, b, c, d, d, e, f },                      /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
   Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
 #undef REG_ENTRY
 
@@ -919,41 +954,7 @@ private:
  * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
-  ADS1299_Status_t write_register(int Register_Address, uint8_t value);
-
-/*! ******************************************************************************************
- * @brief Gets the current value of a Register from the ADS1299 given a Reg_ID.
- *
- * The Read Register command on the ADS1299 is a 16 bit command, asking for the register, and
- * the number of sequential registers to read - 1. Since we only want to read 1 register, the
- * second byte is 0, so we AND the command with 0xFF00 to ensure the lower byte is 0. Updates
- * the value stored in local memory.
- *
- * @param[in] Register        - Which register to read from.
- *
- * @return                    - The current value of the Register from the device.
- *                              0 if error. This isn't great, because if the register
- *                              contains 0 it may be interpreted as an error, so this retval
- *                              shouldn't be considered an error.
- *
- *********************************************************************************************/
-  uint8_t read_register(Reg_ID_t Register);
-
-/*! ******************************************************************************************
- * @brief Gets the current value of a Register from the ADS1299 given a memory address.
- *
- * This overloads read_register. First converts the address to a Reg_ID, then calls
- * read_register with the found Reg_ID, if there was a Reg_ID matching the address.
- *
- * @param[in] Register_Address      - Which register address to read from.
- *
- * @return                          - The current value of the Register from the device.
- *                                    0 if error. This isn't great, because if the register
- *                                    contains 0 it may be interpreted as an error, so this
- *                                    retval shouldn't be considered an error.
- *
- *********************************************************************************************/
-  uint8_t read_register(int Register_Address);
+  ADS1299_Status_t write_register_at_address(int Register_Address, uint8_t value);
 
 /*! ******************************************************************************************
  * @brief Gets info from a bit-addressable register.
@@ -997,6 +998,16 @@ private:
  *
  *********************************************************************************************/
   ADS1299_Status_t set_bit_addressable_channel_info(Reg_ID_t Register, Channel_t channel, bool new_state);
+
+/*! ******************************************************************************************
+ * @brief Transfers a byte over the SPI interface
+ *
+ * @param[in] payload               - One byte of data to send on the MOSI pin
+ *
+ * @return                          - The data present on the MISO pin
+ *
+ *********************************************************************************************/
+  byte transfer(byte payload);
 
   DAQ_Pin_Map *Hardware_Info;                                                  /**< This holds information about how the ADS1299 is connected to the MCU */
 

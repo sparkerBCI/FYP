@@ -125,32 +125,32 @@ PARAM_ENTRY(BITMSK_SRB1,                       0x20,                  5)
  *  Column E: Is Bit Per Channel: True if the register corresponds 1 bit to 1 channel <br/>
  *
  *********************************************************************************************/
-#define REG_TABLE                                                                                                         \
-   /*           Reg_ID        Address      Is Read Only     Default Value       Is Bit per Channel       */               \
-   REG_ENTRY(ID,               0x00,           true,            0xFF,               false)                \
-   REG_ENTRY(CONFIG1,          0x01,          false,            0x96,               false)                \
-   REG_ENTRY(CONFIG2,          0x02,          false,            0xC0,               false)                \
-   REG_ENTRY(CONFIG3,          0x03,          false,            0x60,               false)                \
-   REG_ENTRY(LOFF,             0x04,          false,            0x00,               false)                \
-   REG_ENTRY(CH1SET,           0x05,          false,            0x61,               false)                \
-   REG_ENTRY(CH2SET,           0x06,          false,            0x61,               false)                \
-   REG_ENTRY(CH3SET,           0x07,          false,            0x61,               false)                \
-   REG_ENTRY(CH4SET,           0x08,          false,            0x61,               false)                \
-   REG_ENTRY(CH5SET,           0x09,          false,            0x61,               false)                \
-   REG_ENTRY(CH6SET,           0x0A,          false,            0x61,               false)                \
-   REG_ENTRY(CH7SET,           0x0B,          false,            0x61,               false)                \
-   REG_ENTRY(CH8SET,           0x0C,          false,            0x61,               false)                \
-   REG_ENTRY(BIAS_SENSP,       0x0D,          false,            0x00,                true)                \
-   REG_ENTRY(BIAS_SENSN,       0x0E,          false,            0x00,                true)                \
-   REG_ENTRY(LOFF_SENSP,       0x0F,          false,            0x00,                true)                \
-   REG_ENTRY(LOFF_SENSN,       0x10,          false,            0x00,                true)                \
-   REG_ENTRY(LOFF_FLIP,        0x11,          false,            0x00,                true)                \
-   REG_ENTRY(LOFF_STATP,       0x12,          true,             0x00,                true)                \
-   REG_ENTRY(LOFF_STATN,       0x13,          true,             0x00,                true)                \
-   REG_ENTRY(GPIO,             0x14,          false,            0x0F,               false)                \
-   REG_ENTRY(MISC1,            0x15,          false,            0x00,               false)                \
-   REG_ENTRY(MISC2,            0x16,          false,            0x00,               false)                \
-   REG_ENTRY(CONFIG4,          0x17,          false,            0x00,               false)
+#define REG_TABLE                                                                                                          \
+   /*           Reg_ID        Address      Is Read Only     Default Value       Is Bit per Channel       Register Name    */               \
+   REG_ENTRY(ID,               0x00,           true,            0xFF,               false,               "ID"        )     \
+   REG_ENTRY(CONFIG1,          0x01,          false,            0x96,               false,               "CONFIG1"   )     \
+   REG_ENTRY(CONFIG2,          0x02,          false,            0xC0,               false,               "CONFIG2"   )     \
+   REG_ENTRY(CONFIG3,          0x03,          false,            0x60,               false,               "CONFIG3"   )     \
+   REG_ENTRY(LOFF,             0x04,          false,            0x00,               false,               "LOFF"      )     \
+   REG_ENTRY(CH1SET,           0x05,          false,            0x61,               false,               "CH1SET"    )     \
+   REG_ENTRY(CH2SET,           0x06,          false,            0x61,               false,               "CH2SET"    )     \
+   REG_ENTRY(CH3SET,           0x07,          false,            0x61,               false,               "CH3SET"    )     \
+   REG_ENTRY(CH4SET,           0x08,          false,            0x61,               false,               "CH4SET"    )     \
+   REG_ENTRY(CH5SET,           0x09,          false,            0x61,               false,               "CH5SET"    )     \
+   REG_ENTRY(CH6SET,           0x0A,          false,            0x61,               false,               "CH6SET"    )     \
+   REG_ENTRY(CH7SET,           0x0B,          false,            0x61,               false,               "CH7SET"    )     \
+   REG_ENTRY(CH8SET,           0x0C,          false,            0x61,               false,               "CH8SET"    )     \
+   REG_ENTRY(BIAS_SENSP,       0x0D,          false,            0x00,                true,               "BIAS_SENSP")     \
+   REG_ENTRY(BIAS_SENSN,       0x0E,          false,            0x00,                true,               "BIAS_SENSN")     \
+   REG_ENTRY(LOFF_SENSP,       0x0F,          false,            0x00,                true,               "LOFF_SENSP")     \
+   REG_ENTRY(LOFF_SENSN,       0x10,          false,            0x00,                true,               "LOFF_SENSN")     \
+   REG_ENTRY(LOFF_FLIP,        0x11,          false,            0x00,                true,               "LOFF_FLIP" )     \
+   REG_ENTRY(LOFF_STATP,       0x12,          true,             0x00,                true,               "LOFF_STATP")     \
+   REG_ENTRY(LOFF_STATN,       0x13,          true,             0x00,                true,               "LOFF_STATN")     \
+   REG_ENTRY(GPIO,             0x14,          false,            0x0F,               false,               "GPIO"      )     \
+   REG_ENTRY(MISC1,            0x15,          false,            0x00,               false,               "MISC1"     )     \
+   REG_ENTRY(MISC2,            0x16,          false,            0x00,               false,               "MISC2"     )     \
+   REG_ENTRY(CONFIG4,          0x17,          false,            0x00,               false,               "CONFIG4"   )
 /* *INDENT-ON* */
 
 
@@ -167,7 +167,7 @@ typedef enum Param_ID_t
 /*! @brief This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a REG_ERROR, which can be returned if no REG_ID is found, for example */
 typedef enum Reg_ID_t
 {
-#define REG_ENTRY(a, b, c, d, e)    a,                                         /**< This macro lists the IDs of the registers in the Reg_Table as a comma separated list */
+#define REG_ENTRY(a, b, c, d, e, f)    a,                                         /**< This macro lists the IDs of the registers in the Reg_Table as a comma separated list */
   REG_TABLE
 #undef REG_ENTRY
   NUM_REGS,                                                                    /**< The number of registers in the Reg_Array */

@@ -81,6 +81,10 @@ void setup()
   Comms->debug_enabled = true;                                                 /* Additional enabler for debug messages */
 
   ADS1299 = new ADS1299_Module(Hardware_Map);                                  /* Creates the ADS1299 Module, for communication and control of the ADC */
+  delay(10);                                                                   /* Delay to ensure connection and device power on */
+
+  ADS1299->reset();                                                            /* Restart the device */
+  ADS1299->send_command(SDATAC);                                               /* Stop the continuous data conversion (this is default mode on power up) */
 
   if (ADS1299->get_device_id() != VALID_DEVICE_ID)                             /* If the device gives us an invalid device ID */
   {
@@ -99,45 +103,72 @@ void setup()
 
 
   /* Set up ADS1299 */
-  ADS1299->set_reference_buffer_state(true);                                   /* Enable internal reference */
-  ADS1299->set_data_rate(SPS250);                                              /* Set device to 250 SPS */
+//  ADS.WREG(CONFIG1, 0b11010110); // Disable daisy chain mode, clock will not ouput on clk pin, data rate 250sps
+//  ADS.WREG(CONFIG2, 0xC0); //Disable test signals
+//  ADS.WREG(CONFIG3, 0xE0); //Enable internal 4.5V reference. Do not measure bias.
+//  ADS.WREG(MISC1, 0x20); //Connect SRB1 to all negative channel pins
+//  ADS.WREG(CH1SET, 0x60); //Set as normal electrode input with gain of 24
+//  ADS.WREG(CH2SET, 0x81); //power off unused channels and short to power
+//  ADS.WREG(CH3SET, 0x81);
+//  ADS.WREG(CH4SET, 0x81);
+//  ADS.WREG(CH5SET, 0x81);
+//  ADS.WREG(CH6SET, 0x81);
+//  ADS.WREG(CH7SET, 0x81);
+//  ADS.WREG(CH8SET, 0x81);
+//  ADS.START();
+//  ADS.RDATAC();
 
+  //---------------------------------
+  ADS1299->set_daisy_mode(MULTIPLE_READBACK_MODE);          /* Put the device in multiple readback mode */
+  ADS1299->set_clock_mode(false);                           /* The oscillator will not output onto the CLK pin */
+  ADS1299->set_data_rate(SPS250);                           /* Set the device to 250 samples per second */
+  ADS1299->set_int_cal(false);                              /* Power down internal test signal generator */
+  ADS1299->set_reference_buffer_state(true);                /* Enable internal reference */
+  ADS1299->set_bias_measurement_state(false);               /* Do not measure the bias signal */
+  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS); /* Route the SRB1 signal to all channels' negative inputs */
+  
   /* Set Up Channel 1 */
   ADS1299->set_channel_gain(CH1, PGA24);                                       /* Set channel 1 gain as 24 */
   ADS1299->set_channel_connection_type(CH1, CH_ELECTRODE_INPUT);               /* Set channel 1 as an electrode input */
-
   /* Set Up Channel 2 */
   ADS1299->set_channel_power_state(CH2, CH_POWER_OFF);                         /* Turn off Channel 2 */
   ADS1299->set_channel_connection_type(CH2, CH_SHORTED);                       /* Short Channel 2 to power */
-
   /* Set Up Channel 3 */
   ADS1299->set_channel_power_state(CH3, CH_POWER_OFF);                         /* Turn off Channel 3 */
   ADS1299->set_channel_connection_type(CH3, CH_SHORTED);                       /* Short Channel 3 to power */
-
   /* Set Up Channel 4 */
   ADS1299->set_channel_power_state(CH4, CH_POWER_OFF);                         /* Turn off Channel 4 */
   ADS1299->set_channel_connection_type(CH4, CH_SHORTED);                       /* Short Channel 4 to power */
-
   /* Set Up Channel 5 */
   ADS1299->set_channel_power_state(CH5, CH_POWER_OFF);                         /* Turn off Channel 5 */
   ADS1299->set_channel_connection_type(CH5, CH_SHORTED);                       /* Short Channel 5 to power */
-
   /* Set Up Channel 6 */
   ADS1299->set_channel_power_state(CH6, CH_POWER_OFF);                         /* Turn off Channel 6 */
   ADS1299->set_channel_connection_type(CH6, CH_SHORTED);                       /* Short Channel 6 to power */
-
   /* Set Up Channel 7 */
   ADS1299->set_channel_power_state(CH7, CH_POWER_OFF);                         /* Turn off Channel 7 */
   ADS1299->set_channel_connection_type(CH7, CH_SHORTED);                       /* Short Channel 7 to power */
-
   /* Set Up Channel 8 */
   ADS1299->set_channel_power_state(CH8, CH_POWER_OFF);                         /* Turn off Channel 8 */
   ADS1299->set_channel_connection_type(CH8, CH_SHORTED);                       /* Short Channel 8 to power */
 
-  /* Set Up Reference Channel */
-  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);   /* Reference all channels to the reference electrode */
-
-  ADS1299->send_command(START);                                                /* Start the device */
+  /* Confirm requested setup is current */
+  check_register(CONFIG1, 0xD6);
+  check_register(CONFIG2, 0xC0);
+  check_register(CONFIG3, 0xE0);
+  check_register(CH1SET, 0x60);
+  check_register(CH2SET, 0x81);
+  check_register(CH3SET, 0x81);
+  check_register(CH4SET, 0x81);
+  check_register(CH5SET, 0x81);
+  check_register(CH6SET, 0x81);
+  check_register(CH7SET, 0x81);
+  check_register(CH8SET, 0x81);
+  check_register(MISC1, 0x20);
+  
+  
+  //---------------------------------
+  
 }
 
 
@@ -261,4 +292,28 @@ Sample_Data_t process_sample(uint8_t *input_buffer)
   }
 
   return processed_sample;                                                     /* Return the valid sample */
+}
+
+/*! ******************************************************************************************
+ *  @brief Compares the value reported by the ADS1299 to the expected value and prints
+ *  the status on the Serial interface.
+ *
+ *  @param[in] reg                     - The register to compare
+ *  @param[in] expected_value          - The value the user is expecting the register to return.
+ *
+ *********************************************************************************************/
+void check_register(Reg_ID_t reg, uint8_t expected_value) {
+  uint8_t reg_data = 0;
+  reg_data = ADS1299->read_register(CONFIG1);
+  if (reg_data != 0xD6) {
+    Serial.print(ADS1299->Reg_Array[reg].Register_Name);
+    Serial.print(" SET INCORRECTLY! EXPECTED ");
+    Serial.print(expected_value, HEX);
+    Serial.print(", ACTUAL: ");
+  }
+  else {
+    Serial.print(ADS1299->Reg_Array[reg].Register_Name);
+    Serial.print(" set correctly: ");
+  }
+  Serial.println(reg_data, HEX);
 }

@@ -44,17 +44,13 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
   /* Set Bit Order */
   SPCR &= ~(_BV(DORD));                                                        /* SPI data format is MSB (pg. 25) */
 
-
-  SPI.beginTransaction(SPISettings(Hardware_Info->SPI_SPEED_HZ, Hardware_Info->SPI_ENDIAN, Hardware_Info->SPI_MODE));
-
-
-#ifndef NO_SPI
-  /* Configure the ADC for the recording montage */
-  reset();                                                                     /* Reset device */
-  send_command(SDATAC);                                                        /* Device defaults to continuous recording mode */
-
-  number_of_channels = get_num_channels_from_device();
-#endif
+//#ifndef NO_SPI
+//  /* Configure the ADC for the recording montage */
+//  reset();                                                                     /* Reset device */
+//  send_command(SDATAC);                                                        /* Device defaults to continuous recording mode */
+//
+//  number_of_channels = get_num_channels_from_device();
+//#endif
 }
 
 
@@ -76,16 +72,17 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
  *********************************************************************************************/
 uint8_t ADS1299_Module::read_register(Reg_ID_t Register)
 {
-  if ((Register >= ID) && (Register < NUM_REGS))
+  if ((Register >= ID) && (Register < NUM_REGS))                                       /* If the register address is valid */
   {
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
-    uint16_t command = (RREG | Reg_Array[Register].Address) << 8;
-    uint8_t  result  = SPI.transfer16(command & 0xFF00);
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
-    Reg_Array[Register].Current_Value = result;
-    return(result);
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);                  /* Address the ADS1299 */
+    transfer(RREG | Reg_Array[Register].Address);                                      /* Format the Read Register Command as 001r rrrr where r is the register address */
+    transfer(0x00);                                                                    /* We only want 1 byte, so no second byte info is needed */
+    uint8_t result = transfer(0x00);                                                   /* Pulse SCLK to read a byte from the ADS1299 */
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);                 /* Bring CS HIGH */
+    Reg_Array[Register].Current_Value = result;                                        /* Save the current value of this register */
+    return(result);                                                                    /* Return what we got from the ADS1299 */
   }
-  return(0);
+  return(0);                                                                           /* Otherwise, return 0 */
 }
 
 
@@ -103,7 +100,7 @@ uint8_t ADS1299_Module::read_register(Reg_ID_t Register)
  *                                    retval shouldn't be considered an error.
  *
  *********************************************************************************************/
-uint8_t ADS1299_Module::read_register(int Register_Address)
+uint8_t ADS1299_Module::read_register_from_address(int Register_Address)
 {
   Reg_ID_t temp_ID = get_Reg_ID_from_Address(Register_Address);
 
@@ -156,17 +153,17 @@ Reg_ID_t ADS1299_Module::get_Reg_ID_from_Address(uint8_t register_address)
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
 {
-  if ((Register >= ID) && (Register < NUM_REGS) && !(Reg_Array[Register].Read_Only))
+  if ((Register >= ID) && (Register < NUM_REGS) && !(Reg_Array[Register].Read_Only))            /* If the register exists and is not read only */
   {
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
-    uint16_t command = (WREG | Reg_Array[Register].Address) << 8;
-    SPI.transfer16(command & 0xFF00);
-    SPI.transfer(value);
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
-    Reg_Array[Register].Current_Value = value;
-    return(ADS1299_SUCCESS);
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);                           /* Address the ADS1299 */
+    transfer(WREG | Reg_Array[Register].Address);                                               /* Format the Write to Register command as 010r rrrr where r is the register address */
+    transfer(0x00);                                                                             /* We are writing to 1 register */
+    transfer(value);                                                                            /* Write the new value to the regsiter */
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);                          /* Stop talking to the ADS1299 */
+    Reg_Array[Register].Current_Value = value;                                                  /* Update the current value in memory */
+    return(ADS1299_SUCCESS);                                                                    /* Success, return */
   }
-  return(ADS1299_COMMS_ERROR);
+  return(ADS1299_COMMS_ERROR);                                                                  /* Otherwise, the register was invalid */
 }
 
 
@@ -186,7 +183,7 @@ ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value
  * @return                          - ADS1299_Status_t indicating success / failure.
  *
  *********************************************************************************************/
-ADS1299_Status_t ADS1299_Module::write_register(int Register_Address, uint8_t value)
+ADS1299_Status_t ADS1299_Module::write_register_at_address(int Register_Address, uint8_t value)
 {
   Reg_ID_t temp_ID = get_Reg_ID_from_Address(Register_Address);
 
@@ -213,20 +210,17 @@ ADS1299_Status_t ADS1299_Module::send_command(Command_t command)
   if ((command >= WAKEUP) && (command < RREG))
   {
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
-    delay(1);
-    SPI.transfer(command);
+    transfer(command);
     digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
 
     if (command == START)
     {
       is_running = true;
-      Hardware_Info->set_state(Hardware_Info->Pin_Array[START_PIN].Pin_ID, HIGH);
       delay(1);
     }
     else if (command == STOP)
     {
       is_running = false;
-      Hardware_Info->set_state(Hardware_Info->Pin_Array[START_PIN].Pin_ID, LOW);
       delay(1);
     }
     return(ADS1299_SUCCESS);
@@ -245,7 +239,12 @@ ADS1299_Status_t ADS1299_Module::send_command(Command_t command)
 void ADS1299_Module::reset()
 {
   send_command(RESET);
-  delay(1);
+  delay(10);
+  delay(18.0*TCLK_PERIOD_MS);
+
+  for (int this_reg = ID; this_reg < NUM_REGS; this_reg++) {                   /* Until we have looked at every register */
+    Reg_Array[this_reg].Current_Value = Reg_Array[this_reg].Value_on_Reset;    /* Reset its saved value back to the default */
+  }
 }
 
 
@@ -439,32 +438,15 @@ Data_Rate_Setting_t ADS1299_Module::get_data_rate(void)
   reg_data  &= Param_Array[BITMSK_DATA_RATE].Bitmask;                          /* Isolate the clock mode section */
   reg_data >>= Param_Array[BITMSK_DATA_RATE].Shifts;
 
-  switch (reg_data)                                                            /* Decode the value */
-  {
-  case SPS16k:
-    return(SPS16k);
-
-  case SPS8k:
-    return(SPS8k);
-
-  case SPS4k:
-    return(SPS4k);
-
-  case SPS2k:
-    return(SPS2k);
-
-  case SPS1k:
-    return(SPS1k);
-
-  case SPS500:
-    return(SPS500);
-
-  case SPS250:
-    return(SPS250);
-
-  default:
-    return(SPS_ERROR);
+  if ((reg_data == SPS16k) ||
+      (reg_data == SPS8k) ||
+      (reg_data == SPS4k) ||
+      (reg_data == SPS2k) ||
+      (reg_data == SPS500) ||
+      (reg_data == SPS250)) {
+    return reg_data;
   }
+  return SPS_ERROR;
 }
 
 
@@ -1993,10 +1975,10 @@ ADS1299_Status_t ADS1299_Module::read_sample(uint8_t *output_buffer)
   }
   digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);
   delay(1);
-  SPI.transfer(RREG);
+  transfer(RREG);
   for (uint8_t byte_number = 0; byte_number < (3 + 3 * number_of_channels); byte_number++)
   {
-    output_buffer[byte_number] = SPI.transfer(0x00);
+    output_buffer[byte_number] = transfer(0x00);
 #else
   for (uint8_t byte_number = 0; byte_number < (3 + 3 * 8); byte_number++)
   {
@@ -2005,4 +1987,11 @@ ADS1299_Status_t ADS1299_Module::read_sample(uint8_t *output_buffer)
   }
   digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);
   return ADS1299_SUCCESS;
+}
+
+byte ADS1299_Module::transfer(byte payload) {
+  SPDR = payload;
+  while (!(SPSR & _BV(SPIF)))
+      ;
+  return SPDR;
 }
