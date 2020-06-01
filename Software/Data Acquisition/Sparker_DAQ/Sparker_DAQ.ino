@@ -20,7 +20,7 @@
  *  @version 0.03
  *
  *  @section intro_sec Introduction
- *  This is the software for the Sparker Wireless EEG Data Acqusition System. It was developed
+ *  This is the software for the Sparker Wireless EEG Data Acquisition System. It was developed
  *  by Sam Parker as part of his Electrical Engineering Final Year Project at the University
  *  of Newcastle, Australia. This software contains interface functions to set-up, configure,
  *  and operate a Texas Instruments ADS1299 EEG Analog Front End device. It then pipes the data
@@ -50,8 +50,8 @@
  *  overflow a good sample will be read as invalid? Yes it does. But the sample IDs won't
  *  overflow for 192 days of continuous recording, and if you're running this thing for 192
  *  days you should use a better DAQ system. Valid samples are then sent over the serial
- *  interface (38400 baud) in the format <sample ID><Channel 1><Channel 2><Channel 3>
- *  ...<Channel 8><\n>. Everything except the \n are uint32_ts in 8 data bits, no parity,
+ *  interface (38400 baud) in the format (sample ID)(Channel 1)(Channel 2)(Channel 3)
+ *  ...(Channel 8)(\\n). Everything except the \\n are uint32_ts in 8 data bits, no parity,
  *  1 stop bit. Data is sent MSB first, most significant byte first. It then polls the Data
  *  Ready pin and starts again.
  *********************************************************************************************/
