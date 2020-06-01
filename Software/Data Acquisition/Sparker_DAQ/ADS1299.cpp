@@ -31,6 +31,20 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
   Hardware_Info = m_Hardware_Info;
 
   /* Set up SPI interface */
+  SPCR |= _BV(MSTR);
+  SPCR |= _BV(SPE);
+
+  /* Set Clock Divider */
+  SPCR = (SPCR & ~SPI_CLOCK_MASK) | (SPI_CLOCK_DIV16 & SPI_CLOCK_MASK);             /* Divides 16MHz clock by 16 to set CLK speed to 1MHz */
+  SPSR = (SPSR & ~SPI_2XCLOCK_MASK) | ((SPI_CLOCK_DIV16 >> 2) & SPI_2XCLOCK_MASK);  /* Divides 16MHz clock by 16 to set CLK speed to 1MHz */
+
+  /* Set Data Mode */
+  SPCR = (SPCR & ~SPI_MODE_MASK) | SPI_DATA_MODE;                                   /* Clock polarity = 0; clock phase = 1 (pg. 8) */
+
+  /* Set Bit Order */
+  SPCR &= ~(_BV(DORD));                                                             /* SPI data format is MSB (pg. 25) */
+
+  
   SPI.beginTransaction(SPISettings(Hardware_Info->SPI_SPEED_HZ, Hardware_Info->SPI_ENDIAN, Hardware_Info->SPI_MODE));
 
 

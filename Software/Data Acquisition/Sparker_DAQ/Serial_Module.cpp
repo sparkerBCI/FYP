@@ -24,9 +24,12 @@ Serial_Module::Serial_Module(SoftwareSerial* my_ss)
 {
   // USB Connection
   Serial.begin(115200);                                                        /* Start USB connection at 115200 baud */
+  Serial.println();
+  Serial.println("Serial Module Initialised!");
   
   // Bluetooth Connection
   myBluetooth = my_ss;
+  myBluetooth->begin(38400);
   
 }
 
