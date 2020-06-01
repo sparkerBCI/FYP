@@ -167,7 +167,7 @@ typedef enum Param_ID_t
 /*! @brief This enum assigns a unique register ID to each register, and counts the number of registers. It also creates a REG_ERROR, which can be returned if no REG_ID is found, for example */
 typedef enum Reg_ID_t
 {
-#define REG_ENTRY(a, b, c, d, e, f)    a,                                         /**< This macro lists the IDs of the registers in the Reg_Table as a comma separated list */
+#define REG_ENTRY(a, b, c, d, e, f)    a,                                      /**< This macro lists the IDs of the registers in the Reg_Table as a comma separated list */
   REG_TABLE
 #undef REG_ENTRY
   NUM_REGS,                                                                    /**< The number of registers in the Reg_Array */

@@ -892,7 +892,7 @@ public:
     uint8_t  Value_on_Reset;                                                   /**< The value of the register on reset */
     uint8_t  Current_Value;                                                    /**< The current value of the register */
     bool     Bit_Per_Channel;                                                  /**< True if the regsiter holds info about all the channels, 1 bit per channel */
-    String   Register_Name;   
+    String   Register_Name;
   } Reg_Areay_t;
 
 /*! ******************************************************************************************
@@ -907,7 +907,7 @@ public:
   } Param_Array_t;
 
 /* Create the register array and populate the value with default value */
-#define REG_ENTRY(a, b, c, d, e, f)    { a, b, c, d, d, e, f },                      /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
+#define REG_ENTRY(a, b, c, d, e, f)    { a, b, c, d, d, e, f },                /**< This macro generates an array of Reg_Array_t entries, and sets the current value of the registers to their default value */
   Reg_Array_t Reg_Array[NUM_REGS] = { REG_TABLE };
 #undef REG_ENTRY
 

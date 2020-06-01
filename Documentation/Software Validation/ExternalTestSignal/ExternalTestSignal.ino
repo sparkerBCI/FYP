@@ -162,7 +162,7 @@ void loop(){
   Serial.println("Starting Testing");
 
   ADS.SDATAC();
-  ADS.WREG(CONFIG2, 0x60);  // Internal tests,  230mv / 2400 95.8uV amplitude, at DC if 3 in lower nibble, 0.97656Hz
+  ADS.WREG(CONFIG2, 0x60); 
   ADS.WREG(CONFIG3, 0xE0);
   ADS.WREG(MISC1, 0x20); //Connect SRB1 to all negative channel pins
   ADS.WREG(CH1SET, 0x00);

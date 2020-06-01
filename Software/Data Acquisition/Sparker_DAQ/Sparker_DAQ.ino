@@ -81,6 +81,7 @@ void setup()
   Comms->debug_enabled = true;                                                 /* Additional enabler for debug messages */
 
   ADS1299 = new ADS1299_Module(Hardware_Map);                                  /* Creates the ADS1299 Module, for communication and control of the ADC */
+
   delay(10);                                                                   /* Delay to ensure connection and device power on */
 
   ADS1299->reset();                                                            /* Restart the device */
@@ -119,14 +120,14 @@ void setup()
 //  ADS.RDATAC();
 
   //---------------------------------
-  ADS1299->set_daisy_mode(MULTIPLE_READBACK_MODE);          /* Put the device in multiple readback mode */
-  ADS1299->set_clock_mode(false);                           /* The oscillator will not output onto the CLK pin */
-  ADS1299->set_data_rate(SPS250);                           /* Set the device to 250 samples per second */
-  ADS1299->set_int_cal(false);                              /* Power down internal test signal generator */
-  ADS1299->set_reference_buffer_state(true);                /* Enable internal reference */
-  ADS1299->set_bias_measurement_state(false);               /* Do not measure the bias signal */
-  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS); /* Route the SRB1 signal to all channels' negative inputs */
-  
+  ADS1299->set_daisy_mode(MULTIPLE_READBACK_MODE);                             /* Put the device in multiple readback mode */
+  ADS1299->set_clock_mode(false);                                              /* The oscillator will not output onto the CLK pin */
+  ADS1299->set_data_rate(SPS250);                                              /* Set the device to 250 samples per second */
+  ADS1299->set_int_cal(false);                                                 /* Power down internal test signal generator */
+  ADS1299->set_reference_buffer_state(true);                                   /* Enable internal reference */
+  ADS1299->set_bias_measurement_state(false);                                  /* Do not measure the bias signal */
+  ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);   /* Route the SRB1 signal to all channels' negative inputs */
+
   /* Set Up Channel 1 */
   ADS1299->set_channel_gain(CH1, PGA24);                                       /* Set channel 1 gain as 24 */
   ADS1299->set_channel_connection_type(CH1, CH_ELECTRODE_INPUT);               /* Set channel 1 as an electrode input */
@@ -165,10 +166,9 @@ void setup()
   check_register(CH7SET, 0x81);
   check_register(CH8SET, 0x81);
   check_register(MISC1, 0x20);
-  
-  
+
+
   //---------------------------------
-  
 }
 
 
@@ -294,6 +294,7 @@ Sample_Data_t process_sample(uint8_t *input_buffer)
   return processed_sample;                                                     /* Return the valid sample */
 }
 
+
 /*! ******************************************************************************************
  *  @brief Compares the value reported by the ADS1299 to the expected value and prints
  *  the status on the Serial interface.
@@ -302,16 +303,20 @@ Sample_Data_t process_sample(uint8_t *input_buffer)
  *  @param[in] expected_value          - The value the user is expecting the register to return.
  *
  *********************************************************************************************/
-void check_register(Reg_ID_t reg, uint8_t expected_value) {
+void check_register(Reg_ID_t reg, uint8_t expected_value)
+{
   uint8_t reg_data = 0;
-  reg_data = ADS1299->read_register(CONFIG1);
-  if (reg_data != 0xD6) {
+
+  reg_data = ADS1299->read_register(reg);
+  if (reg_data != expected_value)
+  {
     Serial.print(ADS1299->Reg_Array[reg].Register_Name);
     Serial.print(" SET INCORRECTLY! EXPECTED ");
     Serial.print(expected_value, HEX);
     Serial.print(", ACTUAL: ");
   }
-  else {
+  else
+  {
     Serial.print(ADS1299->Reg_Array[reg].Register_Name);
     Serial.print(" set correctly: ");
   }

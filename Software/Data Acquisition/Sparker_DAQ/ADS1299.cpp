@@ -72,17 +72,17 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
  *********************************************************************************************/
 uint8_t ADS1299_Module::read_register(Reg_ID_t Register)
 {
-  if ((Register >= ID) && (Register < NUM_REGS))                                       /* If the register address is valid */
+  if ((Register >= ID) && (Register < NUM_REGS))                               /* If the register address is valid */
   {
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);                  /* Address the ADS1299 */
-    transfer(RREG | Reg_Array[Register].Address);                                      /* Format the Read Register Command as 001r rrrr where r is the register address */
-    transfer(0x00);                                                                    /* We only want 1 byte, so no second byte info is needed */
-    uint8_t result = transfer(0x00);                                                   /* Pulse SCLK to read a byte from the ADS1299 */
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);                 /* Bring CS HIGH */
-    Reg_Array[Register].Current_Value = result;                                        /* Save the current value of this register */
-    return(result);                                                                    /* Return what we got from the ADS1299 */
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);          /* Address the ADS1299 */
+    transfer(RREG | Reg_Array[Register].Address);                              /* Format the Read Register Command as 001r rrrr where r is the register address */
+    transfer(0x00);                                                            /* We only want 1 byte, so no second byte info is needed */
+    uint8_t result = transfer(0x00);                                           /* Pulse SCLK to read a byte from the ADS1299 */
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);         /* Bring CS HIGH */
+    Reg_Array[Register].Current_Value = result;                                /* Save the current value of this register */
+    return(result);                                                            /* Return what we got from the ADS1299 */
   }
-  return(0);                                                                           /* Otherwise, return 0 */
+  return(0);                                                                   /* Otherwise, return 0 */
 }
 
 
@@ -153,17 +153,17 @@ Reg_ID_t ADS1299_Module::get_Reg_ID_from_Address(uint8_t register_address)
  *********************************************************************************************/
 ADS1299_Status_t ADS1299_Module::write_register(Reg_ID_t Register, uint8_t value)
 {
-  if ((Register >= ID) && (Register < NUM_REGS) && !(Reg_Array[Register].Read_Only))            /* If the register exists and is not read only */
+  if ((Register >= ID) && (Register < NUM_REGS) && !(Reg_Array[Register].Read_Only)) /* If the register exists and is not read only */
   {
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);                           /* Address the ADS1299 */
-    transfer(WREG | Reg_Array[Register].Address);                                               /* Format the Write to Register command as 010r rrrr where r is the register address */
-    transfer(0x00);                                                                             /* We are writing to 1 register */
-    transfer(value);                                                                            /* Write the new value to the regsiter */
-    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);                          /* Stop talking to the ADS1299 */
-    Reg_Array[Register].Current_Value = value;                                                  /* Update the current value in memory */
-    return(ADS1299_SUCCESS);                                                                    /* Success, return */
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, LOW);          /* Address the ADS1299 */
+    transfer(WREG | Reg_Array[Register].Address);                              /* Format the Write to Register command as 010r rrrr where r is the register address */
+    transfer(0x00);                                                            /* We are writing to 1 register */
+    transfer(value);                                                           /* Write the new value to the regsiter */
+    digitalWrite(Hardware_Info->Pin_Array[NOT_CHIP_SELECT].Pin, HIGH);         /* Stop talking to the ADS1299 */
+    Reg_Array[Register].Current_Value = value;                                 /* Update the current value in memory */
+    return(ADS1299_SUCCESS);                                                   /* Success, return */
   }
-  return(ADS1299_COMMS_ERROR);                                                                  /* Otherwise, the register was invalid */
+  return(ADS1299_COMMS_ERROR);                                                 /* Otherwise, the register was invalid */
 }
 
 
@@ -240,9 +240,10 @@ void ADS1299_Module::reset()
 {
   send_command(RESET);
   delay(10);
-  delay(18.0*TCLK_PERIOD_MS);
+  delay(18.0 * TCLK_PERIOD_MS);
 
-  for (int this_reg = ID; this_reg < NUM_REGS; this_reg++) {                   /* Until we have looked at every register */
+  for (int this_reg = ID; this_reg < NUM_REGS; this_reg++)                     /* Until we have looked at every register */
+  {
     Reg_Array[this_reg].Current_Value = Reg_Array[this_reg].Value_on_Reset;    /* Reset its saved value back to the default */
   }
 }
@@ -443,7 +444,8 @@ Data_Rate_Setting_t ADS1299_Module::get_data_rate(void)
       (reg_data == SPS4k) ||
       (reg_data == SPS2k) ||
       (reg_data == SPS500) ||
-      (reg_data == SPS250)) {
+      (reg_data == SPS250))
+  {
     return reg_data;
   }
   return SPS_ERROR;
@@ -1989,9 +1991,12 @@ ADS1299_Status_t ADS1299_Module::read_sample(uint8_t *output_buffer)
   return ADS1299_SUCCESS;
 }
 
-byte ADS1299_Module::transfer(byte payload) {
+
+byte ADS1299_Module::transfer(byte payload)
+{
   SPDR = payload;
   while (!(SPSR & _BV(SPIF)))
-      ;
+  {
+  }
   return SPDR;
 }
