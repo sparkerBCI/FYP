@@ -1012,7 +1012,7 @@ private:
   DAQ_Pin_Map *Hardware_Info;                                                  /**< This holds information about how the ADS1299 is connected to the MCU */
 
 
-  Num_Channels_t number_of_channels = NUM_CHANNELS_ERROR;                      /**< This holds the number of channels that the ADS1299 has. Initialised to 0, an invalid number */
+  Num_Channels_t number_of_channels = NUM_CHANNELS_8;                          /**< This holds the number of channels that the ADS1299 has. Initialised to 0, an invalid number */
 };
 
 #endif

@@ -45,6 +45,30 @@ void Serial_Module::send_line(String input)
 }
 
 
+void Serial_Module::send_line_over_bluetooth(String input)
+{
+  myBluetooth->println(input);
+}
+
+
+void Serial_Module::send_over_bluetooth(String input)
+{
+  myBluetooth->print(input);
+}
+
+
+void Serial_Module::send_line_over_usb(String input)
+{
+  Serial.println(input);
+}
+
+
+void Serial_Module::send_over_usb(String input)
+{
+  Serial.print(input);
+}
+
+
 /*! ******************************************************************************************
  *  @brief Sends an error message, by prepending the error prefix and timestamp. Terminated
  *  by "\n".
@@ -216,7 +240,7 @@ bool Serial_Module::send_sample_Both(Sample_Data_t input_sample)
  *  @param[in] input_sample            - The sample to send over the serial interface
  *
  *********************************************************************************************/
-bool Serial_Module::send_single_channel_sample_USB(Sample_Data_t input_sample)
+bool Serial_Module::send_single_channel_sample_USB(Sample_Data_t input_sample, int data_label)
 {
   if (!Serial)
   {
@@ -229,7 +253,8 @@ bool Serial_Module::send_single_channel_sample_USB(Sample_Data_t input_sample)
     return true;
   }
 
-  Serial.print(input_sample.id);
+  Serial.print(data_label);
+  Serial.print('\t');
   Serial.print(input_sample.Channel_Data[0]);
   Serial.print('\n');
   sample_num = 0;

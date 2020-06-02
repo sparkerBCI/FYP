@@ -43,14 +43,6 @@ ADS1299_Module::ADS1299_Module(DAQ_Pin_Map *m_Hardware_Info)
 
   /* Set Bit Order */
   SPCR &= ~(_BV(DORD));                                                        /* SPI data format is MSB (pg. 25) */
-
-//#ifndef NO_SPI
-//  /* Configure the ADC for the recording montage */
-//  reset();                                                                     /* Reset device */
-//  send_command(SDATAC);                                                        /* Device defaults to continuous recording mode */
-//
-//  number_of_channels = get_num_channels_from_device();
-//#endif
 }
 
 

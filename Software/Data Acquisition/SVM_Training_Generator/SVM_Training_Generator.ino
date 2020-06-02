@@ -1,11 +1,10 @@
 /*! ******************************************************************************************
- *  @file Sparker_DAQ.ino
+ *  @file SVM_Training_Generator.ino
  *
- *  @brief The main file for the Sparker DAQ.
+ *  @brief The main file for the SVM Training Data Generator.
  *
- *  Everything starts here. Gets the hardware info from the DAQ_Pin_Map class, and creates a
- *  ADS1299_Module for working with the ADC. Also opens the UART connection for talking over
- *  USB or Bluetooth.
+ *  Everything starts here. Sets up the ADS1299 and communication interfaces. Then prompts the
+ *  user to begin, and provides cues for each epoch.
  *
  *  @author Sam Parker
  *
@@ -124,7 +123,7 @@ void setup()
   ADS1299->set_clock_mode(false);                                              /* The oscillator will not output onto the CLK pin */
   ADS1299->set_data_rate(SPS250);                                              /* Set the device to 250 samples per second */
   ADS1299->set_int_cal(false);                                                 /* Power down internal test signal generator */
-  ADS1299->set_reference_buffer_state(true);                                   /* Enable internal reference */
+  ADS1299->set_reference_buffer_state(true);                                   /* Enable internal 4.5V reference */
   ADS1299->set_bias_measurement_state(false);                                  /* Do not measure the bias signal */
   ADS1299->set_all_channel_SRB1_connection_status(SRB1_CLOSED_ALL_CHANNELS);   /* Route the SRB1 signal to all channels' negative inputs */
 
@@ -167,8 +166,17 @@ void setup()
   check_register(CH8SET, 0x81);
   check_register(MISC1, 0x20);
 
-  ADS1299->send_command(START);                                                /* Start converting data */
-  ADS1299->send_command(RDATAC);                                               /* Pipe the data as soon as it's ready */
+  randomSeed(analogRead(0));                                                   /* Set the random seed based on thermal noise present on Analog Pin 0 */
+
+  /* The device is now set up, and is stopped, waiting to start. Issue start command then RDATAC to begin recording */
+  Comms->send_line_over_bluetooth("Device configuration complete. Press any key to continue...");
+  while (Serial.available() < 1)
+  {
+  }
+  Serial.read();
+  Comms->send_line_over_bluetooth("Starting data generation...");
+  Comms->send_line_over_bluetooth("Let Hand Rest");
+  delay(5000);
 }
 
 
@@ -178,30 +186,34 @@ void setup()
  *********************************************************************************************/
 void loop()
 {
-  static uint8_t input_buffer[27] = { 0 };                                     /**< A buffer to save data from the ADC to */
+  int data_label = random(2);                                                  /* Create data label, 0 for open, 1 for closed */
 
-  if (ADS1299->is_running)                                                     /* If the ADC is converting */
+  prompt_cue(data_label);                                                      /* Prompt the user over Bluetooth to make the requested movement. Also includes 3 second countdown */
+
+  Comms->send_line_over_bluetooth("Start!");                                   /* Tell the user to make the movement */
+  Comms->send_line_over_bluetooth("\n");
+  Comms->send_line_over_bluetooth("\n");
+
+  ADS1299->send_command(START);                                                /* Start data conversion */
+  ADS1299->send_command(RDATAC);                                               /* Ask the ADC for data as soon as it's ready */
+
+  unsigned long start_time = millis();                                         /* Record the start time */
+  while (millis() < start_time + 1000)                                         /* Until we have recorded 1 second of data */
   {
     toggleLED(500, 50);                                                        /* Flash the LED with a 500ms half period and 50ms debounce period */
-
-
-    if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)       /* If the device has data to read */
-    {
-      ADS1299->read_sample(input_buffer);                                      /* Read data into the input buffer */
-      Sample_Data_t this_sample = process_sample(input_buffer);                /* Build a sample structure by processing the input data buffer */
-      if (this_sample.id != 0)                                                 /* If the sample was valid (corresponding to a sample ID of something other than 0) */
-      {
-        if (!(Comms->send_single_channel_sample_Bluetooth(this_sample)))       /* If we don't successfully send the command */
-        {
-          Comms->warningMsg("Could not send processed sample!");               /* Send a warning */
-        }
-      }
-      else                                                                     /* Otherwise, we must have gotten an invalid sample ID */
-      {
-        Comms->warningMsg("Invalid Sample ID. This happens if there is a problem, or if the device has been recording for 192 days."); /* Send a warning */
-      }
-    }
+    check_data(data_label);                                                    /* Check the DRDY Pin and process available data */
   }
+
+  ADS1299->send_command(SDATAC);                                               /* Stop reading back data */
+  ADS1299->send_command(STOP);                                                 /* Stop data conversion. This makes sure the ADS1299 doesn't have any saved data leaking over into the next epoch */
+
+  Comms->send_line_over_bluetooth("\n");
+  Comms->send_line_over_bluetooth("\n");
+  Comms->send_line_over_bluetooth("Stop! Let Hand Rest...");                   /* Tell the user to stop making that movement */
+  Comms->send_line_over_bluetooth("\n");
+  Comms->send_line_over_bluetooth("\n");
+
+  delay(1000);
 }
 
 
@@ -320,4 +332,61 @@ void check_register(Reg_ID_t reg, uint8_t expected_value)
     Serial.print(" set correctly: ");
   }
   Serial.println(reg_data, HEX);
+}
+
+
+/*! ******************************************************************************************
+ *  @brief Checks the status of DRDY, then processes available samples and sends them over the
+ *  USB interface.
+ *
+ *  @param[in] reg                     - The register to compare
+ *  @param[in] expected_value          - The value the user is expecting the register to return.
+ *
+ *********************************************************************************************/
+void check_data(int data_label)
+{
+  static uint8_t input_buffer[27] = { 0 };                                     /**< A buffer to save data from the ADC to */
+
+  if (digitalRead(Hardware_Map->Pin_Array[NOT_DATA_READY].Pin) == LOW)         /* If the device has data to read */
+  {
+    ADS1299->read_sample(input_buffer);                                        /* Read data into the input buffer */
+    Sample_Data_t this_sample = process_sample(input_buffer);                  /* Build a sample structure by processing the input data buffer */
+    if (this_sample.id != 0)                                                   /* If the sample was valid (corresponding to a sample ID of something other than 0) */
+    {
+      if (!(Comms->send_single_channel_sample_USB(this_sample, data_label)))   /* If we don't successfully send the command */
+      {
+        Comms->warningMsg("Could not send processed sample!");                 /* Send a warning */
+      }
+    }
+    else                                                                       /* Otherwise, we must have gotten an invalid sample ID */
+    {
+      Comms->warningMsg("Invalid Sample ID. This happens if there is a problem, or if the device has been recording for 192 days."); /* Send a warning */
+    }
+  }
+}
+
+
+/*! ******************************************************************************************
+ *  @brief Prompts the user to prepare for the appropriate movement and gives 3 second timer.
+ *
+ *  @param[in] data_label              - The type of movement to execute. 1 for open, 0 for closed
+ *
+ *********************************************************************************************/
+void prompt_cue(int data_label)
+{
+  if (data_label)
+  {
+    Comms->send_line_over_bluetooth("Prepare to Open Hand...");
+  }
+  else
+  {
+    Comms->send_line_over_bluetooth("Prepare to Close Hand...");
+  }
+  delay(2000);
+  Comms->send_line_over_bluetooth("3..");
+  delay(1000);
+  Comms->send_line_over_bluetooth("2...");
+  delay(1000);
+  Comms->send_line_over_bluetooth("1...");
+  delay(1000);
 }

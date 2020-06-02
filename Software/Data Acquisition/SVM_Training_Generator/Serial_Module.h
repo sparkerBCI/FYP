@@ -134,7 +134,15 @@ public:
  *  @param[in] input_sample            - The sample to send over the serial interface
  *
  *********************************************************************************************/
-  bool send_single_channel_sample_USB(Sample_Data_t input_sample);
+  bool send_single_channel_sample_USB(Sample_Data_t input_sample, int data_label);
+
+  void send_line_over_bluetooth(String input);
+
+  void send_over_bluetooth(String input);
+
+  void send_line_over_usb(String input);
+
+  void send_over_usb(String input);
 
 /*! ******************************************************************************************
  *  @brief Sends a sample from Channel 1 over the serial interface.
