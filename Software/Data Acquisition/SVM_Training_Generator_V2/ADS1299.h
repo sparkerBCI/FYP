@@ -41,7 +41,7 @@ public:
     void WREG(byte _address, byte _value); //
     void WREG(byte _address, byte _value, byte _numRegistersMinusOne); //
     
-    long updateData();
+    long updateData(int data_label);
     
     //SPI Arduino Library Stuff
     byte transfer(byte _data);

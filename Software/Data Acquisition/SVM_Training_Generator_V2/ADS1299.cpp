@@ -183,7 +183,7 @@ void ADS1299::WREG(byte _address, byte _value) {
 //    
 //}
 
-long ADS1299::updateData(){
+long ADS1299::updateData(int data_label){
     if(digitalRead(DRDY) == LOW){
         digitalWrite(CS, LOW);
 //        long output[100][9];
@@ -199,14 +199,13 @@ long ADS1299::updateData(){
             dataPacket = 0;
         }
         digitalWrite(CS, HIGH);
-        //Serial.print(outputCount);
-        //Serial.print(", ");
-//        for (int i=0;i<9; i++) {
-//            Serial.print(output[i], HEX);
-//            if(i!=8) Serial.print(",");
-//            
-//        }
-       // Serial.println(output[1], HEX);
+        Serial.print(data_label);
+        Serial.print("\t");
+        for (int i=1;i<9; i++) {
+            Serial.print(output[i], HEX);
+            if(i!=8) Serial.print("\t");
+        }
+        Serial.println();
         outputCount++;
         return (output[1]);
     }

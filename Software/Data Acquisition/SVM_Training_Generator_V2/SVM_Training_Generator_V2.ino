@@ -106,7 +106,6 @@ void setup() {
 void loop(){
    static unsigned long start_time;
    static int data_label;
-   static long data;
    
    data_label = random(2);
 
@@ -119,12 +118,7 @@ void loop(){
    start_time = millis();
 
   while(millis() < start_time + 1000) {
-    data = ADS.updateData(); 
-    if (data != -1) {
-      Serial.print(data_label);
-      Serial.print("\t");
-      Serial.println(data, HEX);
-    }
+    ADS.updateData(data_label); 
     flash_LED(500);
   }
 
