@@ -19,7 +19,7 @@
 #include "ADS1299.h"
 #include <SoftwareSerial.h>
 
-SoftwareSerial Bluetooth(8, 9);
+SoftwareSerial Bluetooth(8, 9); //RX, TX
 
 ADS1299 ADS;
 
@@ -131,4 +131,3 @@ void flash_LED(unsigned int half_period) {
     last_toggle_millis = millis();
   } 
 }
-
