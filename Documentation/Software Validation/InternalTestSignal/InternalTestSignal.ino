@@ -79,19 +79,21 @@ void setup() {
 
   //Set Data Rate
   ADS.WREG(CONFIG1, 0x96);   // 250sps
-  ADS.WREG(CONFIG2, 0xD0);  // Internal tests,  230mv / 2400 95.8uV amplitude, at DC if 3 in lower nibble, 0.97656Hz
-  ADS.WREG(CH1SET, 0x05);
-  ADS.WREG(CH2SET, 0x05);
-  ADS.WREG(CH3SET, 0x05);
-  ADS.WREG(CH4SET, 0x05);
-  ADS.WREG(CH5SET, 0x05);
-  ADS.WREG(CH6SET, 0x05);
-  ADS.WREG(CH7SET, 0x05);
-  ADS.WREG(CH8SET, 0x05);
-  ADS.RDATAC();
+  ADS.WREG(CONFIG2, 0xC0);
+
+  //Set all channels  to Input Short
+  ADS.WREG(CH1SET, 0x01);
+  ADS.WREG(CH2SET, 0x01);
+  ADS.WREG(CH3SET, 0x01);
+  ADS.WREG(CH4SET, 0x01);
+  ADS.WREG(CH5SET, 0x01);
+  ADS.WREG(CH6SET, 0x01);
+  ADS.WREG(CH7SET, 0x01);
+  ADS.WREG(CH8SET, 0x01);
 
   //Read Data Continuous
-
+  ADS.RDATAC();
+  
 }
 
 void loop(){
@@ -159,7 +161,17 @@ void loop(){
   }
   Serial.println("Starting Testing");
 
-
+  ADS.SDATAC();
+  ADS.WREG(CONFIG2, 0xD0);  // Internal tests,  230mv / 2400 95.8uV amplitude, at DC if 3 in lower nibble, 0.97656Hz
+  ADS.WREG(CH1SET, 0x05);
+  ADS.WREG(CH2SET, 0x05);
+  ADS.WREG(CH3SET, 0x05);
+  ADS.WREG(CH4SET, 0x05);
+  ADS.WREG(CH5SET, 0x05);
+  ADS.WREG(CH6SET, 0x05);
+  ADS.WREG(CH7SET, 0x05);
+  ADS.WREG(CH8SET, 0x05);
+  ADS.RDATAC();
 
   while(1) {
     ADS.updateData(); 
