@@ -95,7 +95,7 @@ void loop(){
    static long data;
     data = ADS.updateData(); 
     if (data != -1) {
-      Bluetooth.println(data, HEX);
+      Serial.println(data, HEX);
     }
     flash_LED(500);
   
