@@ -92,10 +92,13 @@ void setup() {
 }
 
 void loop(){
+  static long samp_num = 0;
    static long data;
     data = ADS.updateData(); 
-    if (data != -1) {
-      Serial.println(data, HEX);
+    if (data != -1 && samp_num++ % 2) {
+      Bluetooth.print(data, HEX);
+      Bluetooth.println(",");
+      samp_num = 0;
     }
     flash_LED(500);
   
