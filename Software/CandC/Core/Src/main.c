@@ -62,13 +62,35 @@ static void MX_UART4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t* RX_data[10];
+unsigned char RX_data[120] = {0};
+unsigned long epoch_data[100];
+
+void print_epoch(long* input_data) {
+	HAL_UART_Transmit(&huart4, "These are numbers:\n\r", 21, 0xFFFF);
+	for (int i = 0; i < 10; i++) {
+		char data_string[11] = {0};
+		snprintf(data_string,  11, "%ld", input_data[i]);
+		HAL_UART_Transmit(&huart4, data_string, 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
+	}
+}
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	HAL_UART_Transmit(&huart4, "Interrupt\n", 11, 0xFFFF);
-	HAL_UART_Transmit(&huart4, RX_data, 10, 0xFFFF);
-
-	HAL_UART_Receive_IT(&huart4, RX_data, 10);
+	HAL_UART_Transmit(&huart4, "Interrupt!\n\r", 12, 0xFFFF);
+	char delim[] = ",\r";
+	char *ptr = strtok(RX_data, delim);
+	int sample_number = 0;
+	while(ptr != NULL)
+	{
+		int num_chars = strlen(ptr);
+		HAL_UART_Transmit(&huart4, ptr, num_chars, 0xFFFF);
+		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
+		epoch_data[sample_number] = atol(ptr);
+		sample_number++;
+		ptr = strtok(NULL, delim);
+	}
+    print_epoch(epoch_data);
+	HAL_UART_Receive_IT(&huart4, RX_data, 120);
 }
 
 /* USER CODE END 0 */
@@ -107,7 +129,7 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_IT(&huart4, RX_data, 10);
+  HAL_UART_Receive_IT(&huart4, RX_data, 120);
 
   /* USER CODE END 2 */
  
