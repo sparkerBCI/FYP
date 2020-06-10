@@ -121,10 +121,10 @@ void DCT2(int N, double* x) {
 }
 
 
-extern void dct_test(double * z, int m) {
+extern void dct_test(double * z, long * data, int m) {
 
 	int i;
-	for (i = 0; i < 32; ++i) z[i] = i;
+	for (i = 0; i < m; ++i) z[i] =  data[i];
 
 	DCT2(m, z);
 }

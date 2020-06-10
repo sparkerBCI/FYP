@@ -62,8 +62,8 @@ static void MX_UART4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-unsigned char RX_data[120] = {0};
-unsigned long epoch_data[100];
+unsigned char RX_data[192] = {0};
+unsigned long epoch_data[16] = {0};
 
 void print_epoch(long* input_data) {
 	HAL_UART_Transmit(&huart4, "These are numbers:\n\r", 21, 0xFFFF);
@@ -76,21 +76,30 @@ void print_epoch(long* input_data) {
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	HAL_UART_Transmit(&huart4, "Interrupt!\n\r", 12, 0xFFFF);
+	HAL_UART_Transmit(&huart4, "\r\nInterrupt!\n\r", 14, 0xFFFF);
 	char delim[] = ",\r";
 	char *ptr = strtok(RX_data, delim);
 	int sample_number = 0;
 	while(ptr != NULL)
 	{
-		int num_chars = strlen(ptr);
-		HAL_UART_Transmit(&huart4, ptr, num_chars, 0xFFFF);
-		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
 		epoch_data[sample_number] = atol(ptr);
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
-    print_epoch(epoch_data);
-	HAL_UART_Receive_IT(&huart4, RX_data, 120);
+	HAL_UART_Receive_IT(&huart4, RX_data, 192); // Start listening. You now have 1 epoch to process this epoch
+	// Process this epoch
+	int number_of_samples = sizeof(epoch_data) / sizeof(long);
+	double coeffs[number_of_samples];
+	dct_test(coeffs, epoch_data, number_of_samples);
+	for (int i = 0; i < number_of_samples; i++) {
+		coeffs[i] *= 100;
+		char data_string[11] = {0};
+		snprintf(data_string,  11, "%010ld", (long)coeffs[i]);
+		HAL_UART_Transmit(&huart4, data_string, 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
+	}
+	free(coeffs);
+
 }
 
 /* USER CODE END 0 */
@@ -129,7 +138,7 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_IT(&huart4, RX_data, 120);
+  HAL_UART_Receive_IT(&huart4, RX_data, 192);
 
   /* USER CODE END 2 */
  
@@ -139,16 +148,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  int m = 32;
-	  double * z = (double*) malloc(m*sizeof(double));
-	  dct_test(z, m);
-	  //HAL_UART_Transmit(&huart4, (unsigned char*)"Test DCT Coeffs:\n", 18, 0xFFFF);
-	  char *hello_world = (char*)malloc(256 * sizeof(char));
-	  sprintf(hello_world, "\n%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", (int)(z[0]*100), (int)(z[1]*100), (int)(z[2]*100), (int)(z[3]*100), (int)(z[4]*100), (int)(z[5]*100), (int)(z[6]*100), (int)(z[7]*100), (int)(z[8]*100), (int)(z[9]*100), (int)(z[10]*100), (int)(z[11]*100), (int)(z[12]*100), (int)(z[13]*100), (int)(z[14]*100), (int)(z[15]*100), (int)(z[16]*100), (int)(z[17]*100), (int)(z[18]*100), (int)(z[19]*100), (int)(z[20]*100), (int)(z[21]*100), (int)(z[22]*100), (int)(z[23]*100), (int)(z[24]*100), (int)(z[25]*100), (int)(z[26]*100), (int)(z[27]*100), (int)(z[28]*100), (int)(z[29]*100), (int)(z[30]*100), (int)(z[31]*100));
-	  //HAL_UART_Transmit(&huart4, hello_world, strlen(hello_world), 0xFFFF);
-	  //HAL_Delay(1000);
-	  free(z);
-	  free(hello_world);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -2,4 +2,4 @@ DCT.c:13:6:power_of_two	24	static
 DCT.c:22:12:bit_reverse	24	static
 DCT.c:30:6:FFTcore	184	static
 DCT.c:105:6:DCT2	96	static
-DCT.c:124:13:dct_test	32	static
+DCT.c:124:13:dct_test	40	static
