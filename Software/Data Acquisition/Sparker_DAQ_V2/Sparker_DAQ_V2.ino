@@ -35,6 +35,7 @@ ADS1299 ADS;
 
 boolean deviceIDReturned = false;
 boolean startedLogging = false;
+char output[50] = {0};
 
 void setup() {
 
@@ -96,7 +97,8 @@ void loop(){
    static long data;
     data = ADS.updateData(); 
     if (data != -1 && samp_num++ % 2) {
-      Bluetooth.print(data, HEX);
+      snprintf(output, 11, "%010ld", data);
+      Bluetooth.print(output);
       Bluetooth.println(",");
       samp_num = 0;
     }
