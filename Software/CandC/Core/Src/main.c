@@ -45,6 +45,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart4;
+DMA_HandleTypeDef hdma_uart4_rx;
 
 /* USER CODE BEGIN PV */
 
@@ -53,6 +54,7 @@ UART_HandleTypeDef huart4;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -60,6 +62,14 @@ static void MX_UART4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t* RX_data[10];
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	HAL_UART_Transmit(&huart4, "Interrupt\n", 11, 0xFFFF);
+	HAL_UART_Transmit(&huart4, RX_data, 10, 0xFFFF);
+
+	HAL_UART_Receive_IT(&huart4, RX_data, 10);
+}
 
 /* USER CODE END 0 */
 
@@ -70,6 +80,7 @@ static void MX_UART4_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
 
   /* USER CODE END 1 */
   
@@ -92,8 +103,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_UART_Receive_IT(&huart4, RX_data, 10);
 
   /* USER CODE END 2 */
  
@@ -103,17 +117,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 	  int m = 32;
 	  double * z = (double*) malloc(m*sizeof(double));
 	  dct_test(z, m);
-	  HAL_UART_Transmit(&huart4, (unsigned char*)"Test DCT Coeffs:\n", 18, 0xFFFF);
+	  //HAL_UART_Transmit(&huart4, (unsigned char*)"Test DCT Coeffs:\n", 18, 0xFFFF);
 	  char *hello_world = (char*)malloc(256 * sizeof(char));
 	  sprintf(hello_world, "\n%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", (int)(z[0]*100), (int)(z[1]*100), (int)(z[2]*100), (int)(z[3]*100), (int)(z[4]*100), (int)(z[5]*100), (int)(z[6]*100), (int)(z[7]*100), (int)(z[8]*100), (int)(z[9]*100), (int)(z[10]*100), (int)(z[11]*100), (int)(z[12]*100), (int)(z[13]*100), (int)(z[14]*100), (int)(z[15]*100), (int)(z[16]*100), (int)(z[17]*100), (int)(z[18]*100), (int)(z[19]*100), (int)(z[20]*100), (int)(z[21]*100), (int)(z[22]*100), (int)(z[23]*100), (int)(z[24]*100), (int)(z[25]*100), (int)(z[26]*100), (int)(z[27]*100), (int)(z[28]*100), (int)(z[29]*100), (int)(z[30]*100), (int)(z[31]*100));
-	  HAL_UART_Transmit(&huart4, hello_world, strlen(hello_world), 0xFFFF);
-	  HAL_Delay(1000);
+	  //HAL_UART_Transmit(&huart4, hello_world, strlen(hello_world), 0xFFFF);
+	  //HAL_Delay(1000);
 	  free(z);
 	  free(hello_world);
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -192,6 +206,22 @@ static void MX_UART4_Init(void)
   /* USER CODE BEGIN UART4_Init 2 */
 
   /* USER CODE END UART4_Init 2 */
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
 
 }
 
