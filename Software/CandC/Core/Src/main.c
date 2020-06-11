@@ -29,6 +29,8 @@
 #include "DCT.h"
 
 #define PRINTING_COEFFS
+#define EPOCH_LENGTH_SAMPLES 16
+#define CHARS_PER_SAMPLE 11
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,21 +66,19 @@ static void MX_UART4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-unsigned char RX_data[176] = {0};
-unsigned long epoch_data[16] = {0};
-
-void print_epoch(long* input_data) {
-	HAL_UART_Transmit(&huart4, "These are numbers:\n\r", 21, 0xFFFF);
-	for (int i = 0; i < 10; i++) {
-		char data_string[11] = {0};
-		snprintf(data_string,  11, "%ld", input_data[i]);
-		HAL_UART_Transmit(&huart4, data_string, 11, 0xFFFF);
-		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
-	}
-}
+unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
+unsigned long epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
+char model_received = 0;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, "\r\nInterrupt!\n\r", 14, 0xFFFF);
+	if (model_received == 0) {
+        process_sample();
+	}
+
+}
+
+void process_sample(void) {
 	char delim[] = ",";
 	char *ptr = strtok(RX_data, delim);
 	int sample_number = 0;
@@ -88,7 +88,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
-	HAL_UART_Receive_IT(&huart4, RX_data, 176); // Start listening. You now have 1 epoch to process this epoch
+	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 	// Process this epoch
 	int number_of_samples = sizeof(epoch_data) / sizeof(long);
 	double coeffs[number_of_samples];
@@ -97,16 +97,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
 		coeffs[i] *= 100;
-		char data_string[11] = {0};
-		snprintf(data_string,  11, "%010ld", (long)coeffs[i]);
-		HAL_UART_Transmit(&huart4, data_string, 11, 0xFFFF);
+		char data_string[CHARS_PER_SAMPLE] = {0};
+		snprintf(data_string,  CHARS_PER_SAMPLE, "%010ld", (long)coeffs[i]);
+		HAL_UART_Transmit(&huart4, data_string, CHARS_PER_SAMPLE, 0xFFFF);
 		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
 	}
 #endif
 
 	//Garbage Collection
 	free(coeffs);
-
 }
 
 /* USER CODE END 0 */
@@ -145,7 +144,7 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_IT(&huart4, RX_data, 176);
+  HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
 
   /* USER CODE END 2 */
  
