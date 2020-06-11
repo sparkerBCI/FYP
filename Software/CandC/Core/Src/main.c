@@ -27,6 +27,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "DCT.h"
+
+#define PRINTING_COEFFS
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,6 +93,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	int number_of_samples = sizeof(epoch_data) / sizeof(long);
 	double coeffs[number_of_samples];
 	dct_test(coeffs, epoch_data, number_of_samples);
+#ifdef PRINTING_COEFFS
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
 		coeffs[i] *= 100;
@@ -99,6 +102,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		HAL_UART_Transmit(&huart4, data_string, 11, 0xFFFF);
 		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
 	}
+#endif
+
 	//Garbage Collection
 	free(coeffs);
 
