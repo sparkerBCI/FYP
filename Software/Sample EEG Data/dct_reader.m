@@ -31,17 +31,22 @@ changes(changes_one(2:2:end)) = 0;
 indexes = [transpose(find(changes)), length(o.marker)];
 
 value_splits = cell(length(indexes)-1, 2);
+data_num_label = zeros(length(indexes)-1, 1);   % vector of data labels -1 for rest, 1 for open, 0 if error
 for i = 1:(length(indexes)-1)
     value_splits(i, 1) = {channel_data(indexes(i):(indexes(i)+epoch_seconds*o.sampFreq), 5)};
     if o.marker(indexes(i)+1) == 0
         value_splits(i, 2) = {'Idle'};
         disp('found idle');
+        data_num_label(i) = 0;
     elseif o.marker(indexes(i)+1) == 1
         value_splits(i, 2) = {'Left Hand'};
+        data_num_label(i) = 0;
     elseif o.marker(indexes(i)+1) == 2
         value_splits(i, 2) = {'Right Hand'};
+        data_num_label(i) = 1;
     elseif o.marker(indexes(i)+1) == 3
         value_splits(i, 2) = {'Rest'};
+        data_num_label(i) = -1;
     end
         
     %value_splits(i, 2) = {o.marker(indexes(i+1))};
@@ -50,6 +55,7 @@ end
 inds1 = ~strcmp(value_splits(:, 2), 'Left Hand');
 X1 = value_splits(inds1, 1);
 y1 = value_splits(inds1, 2);
+data_labels = data_num_label(inds1);
 
 inds = ~strcmp(y1, 'Idle');
 X = X1(inds);
@@ -63,7 +69,7 @@ if (frequency_plotting == 1)
 end
 for observation = 1:length(X)
 
-    n = 2^15;
+    %n = 2^15;
     
     
 %     data = cell2mat(X(observation));
@@ -147,13 +153,13 @@ Gauss_SVM_Accuracy = cp.CorrectRate
 
 
 
-SVMModel = fitcsvm(psd, y, 'KernelFunction', 'linear', 'Holdout', holdout_percentage, 'Standardize', true);
-CompactSVMModel = SVMModel.Trained{1}; % Extract trained, compact classifier
-testInds = test(SVMModel.Partition);   % Extract the test indices
+LinSVMModel = fitcsvm(psd, y, 'KernelFunction', 'linear', 'Holdout', holdout_percentage, 'Standardize', true);
+CompactLinSVMModel = LinSVMModel.Trained{1}; % Extract trained, compact classifier
+testInds = test(LinSVMModel.Partition);   % Extract the test indices
 XTest = psd(testInds,:);
 YTest = y(testInds,:);
 tic
-[label,score] = predict(CompactSVMModel,XTest);
+[label,score] = predict(CompactLinSVMModel,XTest);
 linear_svm_time = toc
 cp = classperf(YTest, label);
 Linear_SVM_Accuracy = cp.CorrectRate
@@ -228,6 +234,11 @@ tic
 knn_time = toc
 cp = classperf(YTest, label);
 KNN_Accuracy = cp.CorrectRate
+
+
+W = CompactLinSVMModel.Beta
+b = CompactLinSVMModel.Bias
+s = CompactLinSVMModel.KernelParameters.Scale
 
 
 gauss_svm_score = Gauss_SVM_Accuracy / gauss_svm_time
