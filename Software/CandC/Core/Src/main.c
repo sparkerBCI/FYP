@@ -62,7 +62,7 @@ static void MX_UART4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-unsigned char RX_data[192] = {0};
+unsigned char RX_data[176] = {0};
 unsigned long epoch_data[16] = {0};
 
 void print_epoch(long* input_data) {
@@ -77,7 +77,7 @@ void print_epoch(long* input_data) {
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, "\r\nInterrupt!\n\r", 14, 0xFFFF);
-	char delim[] = ",\r";
+	char delim[] = ",";
 	char *ptr = strtok(RX_data, delim);
 	int sample_number = 0;
 	while(ptr != NULL)
@@ -86,7 +86,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
-	HAL_UART_Receive_IT(&huart4, RX_data, 192); // Start listening. You now have 1 epoch to process this epoch
+	HAL_UART_Receive_IT(&huart4, RX_data, 176); // Start listening. You now have 1 epoch to process this epoch
 	// Process this epoch
 	int number_of_samples = sizeof(epoch_data) / sizeof(long);
 	double coeffs[number_of_samples];
@@ -138,7 +138,7 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_IT(&huart4, RX_data, 192);
+  HAL_UART_Receive_IT(&huart4, RX_data, 176);
 
   /* USER CODE END 2 */
  
