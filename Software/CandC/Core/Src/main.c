@@ -73,8 +73,12 @@ char model_received = 0;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, "\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (model_received == 0) {
+	if (model_received == 0) {  // This should be 1, not 0
         process_sample();
+	}
+	else {        //This happens when we haven't got the model yet
+		/* Get the model */
+		model_received = 1;
 	}
 
 }
