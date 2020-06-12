@@ -69,10 +69,9 @@ static void MX_UART4_Init(void);
 /* USER CODE BEGIN 0 */
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 unsigned long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
-char model_received = 0;
-Linear_SVM_Model SVM = {NULL, 0.0, 1.0, 1};
+Linear_SVM_Model* SVM;
 
-void parse_buffer(void) {
+int parse_buffer(void) {
 	char delim[] = ",";
 	char *ptr = strtok((char*)RX_data, delim);
 	int sample_number = 0;
@@ -82,6 +81,7 @@ void parse_buffer(void) {
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
+	return sample_number;
 }
 
 void process_sample(void) {
@@ -105,11 +105,28 @@ void process_sample(void) {
 	free(coeffs);
 }
 
-void build_model(void) {
+int build_model(void) {
+	int ret_val = 0;
 	parse_buffer();
+	if (SVM->weight_vector == NULL) {
+		/* Load the weight vector */
+		int number_of_weights = sizeof(parsed_epoch_data) / sizeof(long);   // Get the number of coefficients in the weight vector
+		double vect[number_of_weights];      // This is an array to hold the weights once converted to double from long
+		for (int i = 0; i < number_of_weights; i++) {
+			vect[i] = ((double)parsed_epoch_data[i]) / 1000; // Convert the weight to double then divide by the scale factor
+		}
+		SVM->weight_vector = malloc(sizeof(vect));
+		memcpy(SVM->weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
+	}
+	else {
+		/* Load the offset, scale and dimension */
+		ret_val = 1;    // Now we have the vector, scale, offset, and dimension, so we have all the info we need
+	}
+	return ret_val;
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	static char model_received = 0;
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 	if (model_received == 0) {  // This should be 1, not 0
@@ -117,9 +134,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
-        build_model();
-		/* We now have the model */
-		model_received = 1;
+		model_received = build_model();
 	}
 
 }
@@ -159,7 +174,8 @@ int main(void)
   MX_DMA_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-
+  SVM = malloc(sizeof(Linear_SVM_Model));
+  SVM->weight_vector = NULL;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
 
   /* USER CODE END 2 */
