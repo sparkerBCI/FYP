@@ -68,24 +68,28 @@ static void MX_UART4_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
-unsigned long epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
+unsigned long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 char model_received = 0;
 Linear_SVM_Model SVM = {NULL, 0.0, 1.0, 1};
 
-void process_sample(void) {
+void parse_buffer(void) {
 	char delim[] = ",";
 	char *ptr = strtok((char*)RX_data, delim);
 	int sample_number = 0;
 	while(ptr != NULL)
 	{
-		epoch_data[sample_number] = atol(ptr);
+		parsed_epoch_data[sample_number] = atol(ptr);
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
+}
+
+void process_sample(void) {
+    parse_buffer();
 	// Process this epoch
-	int number_of_samples = sizeof(epoch_data) / sizeof(long);
+	int number_of_samples = sizeof(parsed_epoch_data) / sizeof(long);
 	double coeffs[number_of_samples];
-	dct_test(coeffs, epoch_data, number_of_samples);
+	dct_test(coeffs, parsed_epoch_data, number_of_samples);
 #ifdef PRINTING_COEFFS
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
@@ -101,6 +105,10 @@ void process_sample(void) {
 	free(coeffs);
 }
 
+void build_model(void) {
+	parse_buffer();
+}
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
@@ -109,7 +117,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
-
+        build_model();
 		/* We now have the model */
 		model_received = 1;
 	}
