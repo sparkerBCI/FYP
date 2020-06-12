@@ -19,7 +19,7 @@ int  power_of_two(int i) {
 
 
 
-static int bit_reverse(int N, int l) {
+int bit_reverse(int N, int l) {
 	int ans = 0, i;
 	for (i = 0; i<l; ++i)
 		if (N & (1 << i))    ans |= (1 << l - 1 - i);
@@ -121,7 +121,7 @@ void DCT2(int N, double* x) {
 }
 
 
-extern void dct_test(double * z, long * data, int m) {
+void dct_test(double * z, unsigned long * data, int m) {
 
 	int i;
 	for (i = 0; i < m; ++i) z[i] =  data[i];

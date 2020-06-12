@@ -10,13 +10,13 @@
 
 int  power_of_two(int i);
 
-static int bit_reverse(int N, int l);
+int bit_reverse(int N, int l);
 
 void FFTcore(int Nr, int Nc, double* Ar, int Ldr, double* Ai, int Ldi, char tran, char flag);
 
 void DCT2(int N, double* x);
 
-extern void dct_test(double* z, long* data, int m);
+void dct_test(double* z, unsigned long* data, int m);
 
 
 #endif /* INC_DCT_H_ */

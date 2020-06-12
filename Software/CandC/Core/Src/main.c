@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "DCT.h"
+#include "svm_predict.h"
 
 #define PRINTING_COEFFS
 #define EPOCH_LENGTH_SAMPLES 16
@@ -69,23 +70,11 @@ static void MX_UART4_Init(void);
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 unsigned long epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 char model_received = 0;
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	HAL_UART_Transmit(&huart4, "\r\nInterrupt!\n\r", 14, 0xFFFF);
-	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (model_received == 0) {  // This should be 1, not 0
-        process_sample();
-	}
-	else {        //This happens when we haven't got the model yet
-		/* Get the model */
-		model_received = 1;
-	}
-
-}
+Linear_SVM_Model SVM = {NULL, 0.0, 1.0, 1};
 
 void process_sample(void) {
 	char delim[] = ",";
-	char *ptr = strtok(RX_data, delim);
+	char *ptr = strtok((char*)RX_data, delim);
 	int sample_number = 0;
 	while(ptr != NULL)
 	{
@@ -103,13 +92,28 @@ void process_sample(void) {
 		coeffs[i] *= 100;
 		char data_string[CHARS_PER_SAMPLE] = {0};
 		snprintf(data_string,  CHARS_PER_SAMPLE, "%010ld", (long)coeffs[i]);
-		HAL_UART_Transmit(&huart4, data_string, CHARS_PER_SAMPLE, 0xFFFF);
-		HAL_UART_Transmit(&huart4, "\n\r", 3, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char *)data_string, CHARS_PER_SAMPLE, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char *)"\n\r", 3, 0xFFFF);
 	}
 #endif
 
 	//Garbage Collection
 	free(coeffs);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
+	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
+	if (model_received == 0) {  // This should be 1, not 0
+        process_sample();
+	}
+	else {        //This happens when we haven't got the model yet
+		/* Get the model */
+
+		/* We now have the model */
+		model_received = 1;
+	}
+
 }
 
 /* USER CODE END 0 */
