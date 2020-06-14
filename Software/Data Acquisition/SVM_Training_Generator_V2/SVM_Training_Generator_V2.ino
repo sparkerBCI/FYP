@@ -105,9 +105,9 @@ void setup() {
 
 void loop(){
    static unsigned long start_time;
-   static int data_label;
+   static int data_label = 0;
    
-   data_label = random(2);
+   data_label = data_label % 2;
 
    prompt_cue(data_label);
    //Bluetooth.println("Start!\n\n");
@@ -117,7 +117,7 @@ void loop(){
 
    start_time = millis();
 
-  while(millis() < start_time + 1000) {
+  while(millis() < start_time + 2000) {
     ADS.updateData(data_label); 
     flash_LED(500);
   }
@@ -127,6 +127,7 @@ void loop(){
   //Bluetooth.println("\n\nStop! Let Hand Rest...\n\n");
   Serial.println("\n\nStop! Let Hand Rest...\n\n");
   delay(500);
+  data_label++;
   
 }
 

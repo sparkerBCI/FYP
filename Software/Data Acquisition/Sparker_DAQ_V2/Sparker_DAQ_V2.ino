@@ -72,18 +72,18 @@ void setup() {
   ADS.WREG(CH8SET, 0x81);
 
   /* Confirm requested setup is current */
-//  check_register(CONFIG1, 0xD6);
-//  check_register(CONFIG2, 0xC0);
-//  check_register(CONFIG3, 0xE0);
-//  check_register(CH1SET, 0x60);
-//  check_register(CH2SET, 0x81);
-//  check_register(CH3SET, 0x81);
-//  check_register(CH4SET, 0x81);
-//  check_register(CH5SET, 0x81);
-//  check_register(CH6SET, 0x81);
-//  check_register(CH7SET, 0x81);
-//  check_register(CH8SET, 0x81);
-//  check_register(MISC1, 0x20);
+  check_register(CONFIG1, 0xD6);
+  check_register(CONFIG2, 0xC0);
+  check_register(CONFIG3, 0xE0);
+  check_register(CH1SET, 0x60);
+  check_register(CH2SET, 0x81);
+  check_register(CH3SET, 0x81);
+  check_register(CH4SET, 0x81);
+  check_register(CH5SET, 0x81);
+  check_register(CH6SET, 0x81);
+  check_register(CH7SET, 0x81);
+  check_register(CH8SET, 0x81);
+  check_register(MISC1, 0x20);
 
   Serial.println("Device Configuration Complete!");
 

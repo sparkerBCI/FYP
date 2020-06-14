@@ -2,39 +2,41 @@ clear all
 close all
 clc
 timescale = 100;
-holdout_percentage = 0.3;
+holdout_percentage = 0.1;
 
-data = tdfread("20200614_1244.txt");
+%data = tdfread("20200614_1244.txt");
+data = tdfread("20200614_1631.txt");
+
 Ch1 = hex2dec(data.Ch1);
-Ch1(Ch1>0.8e6) = mean(Ch1);
-Ch1(Ch1<50e3) = mean(Ch1);
+% Ch1(Ch1>0.8e6) = mean(Ch1);
+% Ch1(Ch1<50e3) = mean(Ch1);
 
 Ch2 = hex2dec(data.Ch2);
-Ch2(Ch2>0.8e6) = mean(Ch2);
-Ch2(Ch2<50e3) = mean(Ch2);
+% Ch2(Ch2>0.8e6) = mean(Ch2);
+% Ch2(Ch2<50e3) = mean(Ch2);
 Ch3 = hex2dec(data.Ch3);
-Ch3(Ch3>0.8e6) = mean(Ch3);
-Ch3(Ch3<50e3) = mean(Ch3);
+% Ch3(Ch3>0.8e6) = mean(Ch3);
+% Ch3(Ch3<50e3) = mean(Ch3);
 
 Ch4 = hex2dec(data.Ch4);
-Ch4(Ch4>0.8e6) = mean(Ch4);
-Ch4(Ch4<50e3) = mean(Ch4);
+% Ch4(Ch4>0.8e6) = mean(Ch4);
+% Ch4(Ch4<50e3) = mean(Ch4);
 
 Ch5 = hex2dec(data.Ch5);
-Ch5(Ch5>0.8e6) = mean(Ch5);
-Ch5(Ch5<50e3) = mean(Ch5);
+% Ch5(Ch5>0.8e6) = mean(Ch5);
+% Ch5(Ch5<50e3) = mean(Ch5);
 
 Ch6 = hex2dec(data.Ch6);
-Ch6(Ch6>0.8e6) = mean(Ch6);
-Ch6(Ch6<50e3) = mean(Ch6);
+% Ch6(Ch6>0.8e6) = mean(Ch6);
+% Ch6(Ch6<50e3) = mean(Ch6);
 
 Ch7 = hex2dec(data.Ch7);
-Ch7(Ch7>0.8e6) = mean(Ch7);
-Ch7(Ch7<50e3) = mean(Ch7);
+% Ch7(Ch7>0.8e6) = mean(Ch7);
+% Ch7(Ch7<50e3) = mean(Ch7);
 
 Ch8 = hex2dec(data.Ch8);
-Ch8(Ch8>0.8e6) = mean(Ch8);
-Ch8(Ch8<50e3) = mean(Ch8);
+% Ch8(Ch8>0.8e6) = mean(Ch8);
+% Ch8(Ch8<50e3) = mean(Ch8);
 
 transitions = logical(diff(data.Marker));
 
@@ -128,14 +130,14 @@ Ch4 = filter(B, A, Ch4);
 
 
 transition_indexs = find(transitions);
-for observation = 1:(length(transition_indexs))
-    observations.Ch1.data(observation, :) = Ch1(transition_indexs((observation)):(transition_indexs((observation))+255));
+for observation = 1:(length(transition_indexs)-1)
+    observations.Ch1.data(observation, :) = Ch1(transition_indexs((observation)):(transition_indexs((observation))+499));
     observations.Ch1.dct(observation, :) = dct(observations.Ch1.data(observation, :));
-    observations.Ch2.data(observation, :) = Ch2(transition_indexs((observation)):(transition_indexs((observation))+255));
+    observations.Ch2.data(observation, :) = Ch2(transition_indexs((observation)):(transition_indexs((observation))+499));
     observations.Ch2.dct(observation, :) = dct(observations.Ch2.data(observation, :));
-    observations.Ch3.data(observation, :) = Ch3(transition_indexs((observation)):(transition_indexs((observation))+255));
+    observations.Ch3.data(observation, :) = Ch3(transition_indexs((observation)):(transition_indexs((observation))+499));
     observations.Ch3.dct(observation, :) = dct(observations.Ch3.data(observation, :));
-    observations.Ch4.data(observation, :) = Ch4(transition_indexs((observation)):(transition_indexs((observation))+255));
+    observations.Ch4.data(observation, :) = Ch4(transition_indexs((observation)):(transition_indexs((observation))+499));
     observations.Ch4.dct(observation, :) = dct(observations.Ch4.data(observation, :));
     observations.Marker(observation) = data.Marker(transition_indexs(observation)+1);
 end
