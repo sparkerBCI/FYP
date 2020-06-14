@@ -98,8 +98,8 @@ void loop(){
     data = ADS.updateData(); 
     if (data != -1 && samp_num++ % 2) {
       snprintf(output, 11, "%010ld", data);
-      Bluetooth.print(output);
-      Bluetooth.println(",");
+      Serial.print(output);
+      Serial.println(",");
       samp_num = 0;
     }
     flash_LED(500);
