@@ -2,7 +2,7 @@ clear all
 close all
 clc
 timescale = 100;
-holdout_percentage = 0.1;
+holdout_percentage = 0.3;
 
 data = tdfread("20200614_1244.txt");
 Ch1 = hex2dec(data.Ch1);
@@ -118,6 +118,14 @@ if 0
     legend("Edge", "Location", "EastOutside");
     ylim([-0.1, 1.1]);
 end
+
+Wn = 30 / 250;
+[B, A] = butter(10, Wn, 'low');
+Ch1 = filter(B, A, Ch1);
+Ch2 = filter(B, A, Ch2);
+Ch3 = filter(B, A, Ch3);
+Ch4 = filter(B, A, Ch4);
+
 
 transition_indexs = find(transitions);
 for observation = 1:(length(transition_indexs))
