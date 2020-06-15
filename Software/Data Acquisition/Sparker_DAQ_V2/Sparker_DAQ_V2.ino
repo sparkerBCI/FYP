@@ -17,7 +17,7 @@
  *  @mainpage The Sparker Wireless EEG Data Acquisition System
  *
  *  @author Sam Parker
- *  @version 0.03
+ *  @version 2.03
  *
  *  @section intro_sec Introduction
  *  This is the software for the Sparker Wireless EEG Data Acquisition System. It was developed
@@ -106,10 +106,10 @@ boolean deviceIDReturned = false;                                               
 boolean startedLogging = false;                                                      /**< A flag to indicate whether logging data has started */
 char output[50] = {0};                                                               /**< A string to hold a single channel sample to send over the serial bus */
 
-/** ***********************************************************************
+/*! ******************************************************************************************
  *  @brief Sets up the serial and bluetooth links, establishes and checks
  *  connection with ADS1299, and configures the ADS1299 as desired.
- **************************************************************************/
+ *********************************************************************************************/
 void setup() {
 
   /* Set up Serial Comms */
@@ -169,9 +169,9 @@ void setup() {
   
 }
 
-/** ***********************************************************************
+/*! ******************************************************************************************
  *  @brief The main loop. Plays all the jazz.
- **************************************************************************/
+ *********************************************************************************************/
 void loop(){
   static long samp_num = 0;                           /* Track the sample number we are looking at */
    static long data;                                  /* Create a single variable to hold a single sample in */
@@ -187,14 +187,14 @@ void loop(){
 }
 
 
-/** ***********************************************************************
+/*! ******************************************************************************************
  *  @brief Compares the value of a register to the expected value.
  *  
  *  Prints result to the screen.
  *  
  *  @param[in] reg               - A byte holding the address of a register to check,
  *  @param[in] expected_value    - The desired value of that register
- **************************************************************************/
+ *********************************************************************************************/
 void check_register(byte reg, uint8_t expected_value)
 {
   uint8_t reg_data = 0;                                /* A place to store the data we read from  the device */
@@ -214,11 +214,16 @@ void check_register(byte reg, uint8_t expected_value)
   Serial.println(reg_data, HEX);                        /* Display the current value of the register */
 }
 
+/*! ******************************************************************************************
+ *  @brief Toggles an LED to make a square wave at the provided half-period
+ * 
+ *  @param[in] half_period            - Half of the full wave period of the desired square wave
+ *********************************************************************************************/
 void flash_LED(unsigned int half_period) {
-  static unsigned long last_toggle_millis = millis();
+  static unsigned long last_toggle_millis = millis();        /* A variable to store when the pin last toggled, even across function calls. Initialise to first function call */
 
-  if((millis() - last_toggle_millis) >= half_period) {
-    digitalWrite(3, !digitalRead(3));
-    last_toggle_millis = millis();
+  if((millis() - last_toggle_millis) >= half_period) {            /* If the current runtime is longer or equal to the half period of the desired square wave */
+    digitalWrite(3, !digitalRead(3));                            /* Toggle the pin */
+    last_toggle_millis = millis();                              /* Save the time that the pin was last toggled */
   } 
 }
