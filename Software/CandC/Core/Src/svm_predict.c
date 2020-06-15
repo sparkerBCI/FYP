@@ -8,9 +8,15 @@
 #include "svm_predict.h"
 
 double Linear_SVM_Predict(Linear_SVM_Model* model, double* observation) {
-	return 0.0;
+	return SVM_dot_product(model->weight_vector, observation, model->dimension);
 }
 
-double* SVM_dot_product(double* Vect_A, double* Vect_B) {
-	return Vect_A;
+double SVM_dot_product(double* Vect_A, double* Vect_B, int dimension) {
+	double sum = 0.0;
+
+	for (int i = 0; i < dimension; i++) {
+		sum += (Vect_A[i] * Vect_B[i]);
+	}
+
+	return sum;
 }
