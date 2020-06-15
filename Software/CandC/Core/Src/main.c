@@ -29,6 +29,7 @@
 #include "DCT.h"
 #include "svm_predict.h"
 
+#define PRINTING_MODEL
 #define PRINTING_COEFFS
 #ifndef EPOCH_LENGTH_SAMPLES
   #define EPOCH_LENGTH_SAMPLES 16
@@ -72,7 +73,6 @@ static void MX_UART4_Init(void);
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model* SVM;
-char model_received = 0;
 
 int parse_buffer(void) {
 	char delim[] = ",";
@@ -97,7 +97,6 @@ void process_sample(void) {
 #ifdef PRINTING_COEFFS
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
-		//coeffs[i] *= 100;
 		char data_string[CHARS_PER_SAMPLE] = {0};
 		snprintf(data_string,  CHARS_PER_SAMPLE, "%010lf", coeffs[i]);
 		HAL_UART_Transmit(&huart4, (unsigned char *)data_string, CHARS_PER_SAMPLE, 0xFFFF);
@@ -105,10 +104,9 @@ void process_sample(void) {
 	}
 #endif
 
-	//Garbage Collection
-	//free(coeffs);
 }
 
+#ifdef PRINTING_MODEL
 void print_model(Linear_SVM_Model* model) {
 	if (model->complete) {
 		char weight_str[255] = {0};
@@ -140,9 +138,9 @@ void print_model(Linear_SVM_Model* model) {
 	}
 
 }
+#endif
 
-int build_model(void) {
-	int ret_val = 0;
+void build_model(void) {
 	parse_buffer();
 	if (SVM->has_vector == 0) {
 		/* Load the weight vector */
@@ -154,7 +152,6 @@ int build_model(void) {
 		//SVM->weight_vector = malloc(number_of_weights * sizeof(double));
 		memcpy(SVM->weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
 		SVM->has_vector = 1;
-		ret_val = 1;
 	}
 	else {
 		/* Load the offset, scale and dimension */
@@ -162,10 +159,10 @@ int build_model(void) {
 		SVM->offset = ((double)parsed_epoch_data[1]) / 1000;
 		SVM->dimension = ((double)parsed_epoch_data[2]) / 1000;
 		SVM->complete = 1;
-		ret_val = 2;    // Now we have the vector, scale, offset, and dimension, so we have all the info we need
+#ifdef PRINTING_MODEL
 		print_model(SVM);
+#endif
 	}
-	return ret_val;
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
@@ -176,7 +173,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
-		model_received = build_model();
+		build_model();
 	}
 
 }
