@@ -30,7 +30,9 @@
 #include "svm_predict.h"
 
 #define PRINTING_COEFFS
-#define EPOCH_LENGTH_SAMPLES 16
+#ifndef EPOCH_LENGTH_SAMPLES
+  #define EPOCH_LENGTH_SAMPLES 16
+#endif
 #define CHARS_PER_SAMPLE 11
 /* USER CODE END Includes */
 
@@ -70,6 +72,7 @@ static void MX_UART4_Init(void);
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 unsigned long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model* SVM;
+char model_received = 0;
 
 int parse_buffer(void) {
 	char delim[] = ",";
@@ -108,33 +111,44 @@ void process_sample(void) {
 int build_model(void) {
 	int ret_val = 0;
 	parse_buffer();
-	if (SVM->weight_vector == NULL) {
+	if (model_received == 0) {
 		/* Load the weight vector */
 		int number_of_weights = sizeof(parsed_epoch_data) / sizeof(long);   // Get the number of coefficients in the weight vector
 		double vect[number_of_weights];      // This is an array to hold the weights once converted to double from long
 		for (int i = 0; i < number_of_weights; i++) {
 			vect[i] = ((double)parsed_epoch_data[i]) / 1000; // Convert the weight to double then divide by the scale factor
 		}
-		SVM->weight_vector = malloc(sizeof(vect));
+		//SVM->weight_vector = malloc(number_of_weights * sizeof(double));
 		memcpy(SVM->weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
+		ret_val = 1;
 	}
 	else {
 		/* Load the offset, scale and dimension */
-		ret_val = 1;    // Now we have the vector, scale, offset, and dimension, so we have all the info we need
+		ret_val = 2;    // Now we have the vector, scale, offset, and dimension, so we have all the info we need
 	}
 	return ret_val;
 }
 
+void print_model(Linear_SVM_Model* model) {
+	char weight_str[255] = {0};
+	HAL_UART_Transmit(&huart4, (unsigned char *)"Weights\n\r", 10, 0xFFFF);
+	for (int i = 0; i < EPOCH_LENGTH_SAMPLES; i++) {
+		snprintf(weight_str, 11, "%010ld", (long)(model->weight_vector[i]));
+		HAL_UART_Transmit(&huart4, (unsigned char *)weight_str, 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char *)"\r\n", 3, 0xFFFF);
+	}
+}
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	static char model_received = 0;
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (model_received == 0) {  // This should be 1, not 0
+	if (model_received == 2) {  // This should be 2, not 0
         process_sample();
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
 		model_received = build_model();
+		print_model(SVM);
 	}
 
 }
@@ -175,7 +189,6 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   SVM = malloc(sizeof(Linear_SVM_Model));
-  SVM->weight_vector = NULL;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
 
   /* USER CODE END 2 */

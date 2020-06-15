@@ -8,8 +8,12 @@
 #ifndef INC_SVM_PREDICT_H_
 #define INC_SVM_PREDICT_H_
 
+#ifndef EPOCH_LENGTH_SAMPLES
+  #define EPOCH_LENGTH_SAMPLES 16
+#endif
+
 typedef struct Linear_SVM_Model {
-	double* weight_vector;
+	double weight_vector[EPOCH_LENGTH_SAMPLES];
 	double offset;
 	double scale;
 	int dimension;
