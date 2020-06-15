@@ -32,7 +32,7 @@
 #define PRINTING_MODEL
 #define PRINTING_COEFFS
 #ifndef EPOCH_LENGTH_SAMPLES
-  #define EPOCH_LENGTH_SAMPLES 128
+  #define EPOCH_LENGTH_SAMPLES 16
 #endif
 #define CHARS_PER_SAMPLE 11
 /* USER CODE END Includes */
@@ -217,18 +217,6 @@ int main(void)
   SVM->has_vector = 0;
   SVM->complete = 0;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
-
-  double A[10];
-  double B[10];
-  for (int i = 1; i < 11; i++) {
-	  A[i-1] = i*0.5;
-	  B[i-1] = i*0.5+10;
-  }
-  double res = SVM_dot_product(A, B, 10);
-  char res_str[12];
-  snprintf(res_str, 11, "%010lf", res);
-  HAL_UART_Transmit(&huart4, (unsigned char*)res_str, 11, 0xFFFF);
-
 
   /* USER CODE END 2 */
  
