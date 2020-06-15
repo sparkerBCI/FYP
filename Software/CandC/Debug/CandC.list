@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  000201e0  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000096cd  00000000  00000000  00020210  2**0
+ 12 .debug_info   000096e5  00000000  00000000  00020210  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00001a55  00000000  00000000  000298dd  2**0
+ 13 .debug_abbrev 00001a55  00000000  00000000  000298f5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 000007b0  00000000  00000000  0002b338  2**3
+ 14 .debug_aranges 000007b0  00000000  00000000  0002b350  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 000006d8  00000000  00000000  0002bae8  2**3
+ 15 .debug_ranges 000006d8  00000000  00000000  0002bb00  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0002121c  00000000  00000000  0002c1c0  2**0
+ 16 .debug_macro  0002121c  00000000  00000000  0002c1d8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00006fe8  00000000  00000000  0004d3dc  2**0
+ 17 .debug_line   00006fe9  00000000  00000000  0004d3f4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000c3688  00000000  00000000  000543c4  2**0
+ 18 .debug_str    000c3688  00000000  00000000  000543dd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00117a4c  2**0
+ 19 .comment      0000007b  00000000  00000000  00117a65  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002880  00000000  00000000  00117ac8  2**2
+ 20 .debug_frame  00002880  00000000  00000000  00117ae0  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2158,7 +2158,7 @@ void dct_test(double * z, unsigned long * data, int m) {
 
 0800176c <parse_buffer>:
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
-unsigned long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
+long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model* SVM;
 char model_received = 0;
 
@@ -2168,9 +2168,9 @@ int parse_buffer(void) {
  8001770:	af00      	add	r7, sp, #0
 	char delim[] = ",";
  8001772:	232c      	movs	r3, #44	; 0x2c
- 8001774:	80bb      	strh	r3, [r7, #4]
+ 8001774:	803b      	strh	r3, [r7, #0]
 	char *ptr = strtok((char*)RX_data, delim);
- 8001776:	1d3b      	adds	r3, r7, #4
+ 8001776:	463b      	mov	r3, r7
  8001778:	4619      	mov	r1, r3
  800177a:	4810      	ldr	r0, [pc, #64]	; (80017bc <parse_buffer+0x50>)
  800177c:	f002 ff38 	bl	80045f0 <strtok>
@@ -2181,20 +2181,21 @@ int parse_buffer(void) {
 	while(ptr != NULL)
  8001786:	e011      	b.n	80017ac <parse_buffer+0x40>
 	{
-		parsed_epoch_data[sample_number] = atol(ptr);
+		long value = atol(ptr);
  8001788:	68f8      	ldr	r0, [r7, #12]
  800178a:	f002 fddf 	bl	800434c <atol>
- 800178e:	4603      	mov	r3, r0
- 8001790:	4619      	mov	r1, r3
- 8001792:	4a0b      	ldr	r2, [pc, #44]	; (80017c0 <parse_buffer+0x54>)
- 8001794:	68bb      	ldr	r3, [r7, #8]
- 8001796:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 800178e:	6078      	str	r0, [r7, #4]
+		parsed_epoch_data[sample_number] = value;
+ 8001790:	490b      	ldr	r1, [pc, #44]	; (80017c0 <parse_buffer+0x54>)
+ 8001792:	68bb      	ldr	r3, [r7, #8]
+ 8001794:	687a      	ldr	r2, [r7, #4]
+ 8001796:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 		sample_number++;
  800179a:	68bb      	ldr	r3, [r7, #8]
  800179c:	3301      	adds	r3, #1
  800179e:	60bb      	str	r3, [r7, #8]
 		ptr = strtok(NULL, delim);
- 80017a0:	1d3b      	adds	r3, r7, #4
+ 80017a0:	463b      	mov	r3, r7
  80017a2:	4619      	mov	r1, r3
  80017a4:	2000      	movs	r0, #0
  80017a6:	f002 ff23 	bl	80045f0 <strtok>
@@ -2412,7 +2413,7 @@ int build_model(void) {
  8001952:	693b      	ldr	r3, [r7, #16]
  8001954:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
  8001958:	4618      	mov	r0, r3
- 800195a:	f7fe fdcb 	bl	80004f4 <__aeabi_ui2d>
+ 800195a:	f7fe fddb 	bl	8000514 <__aeabi_i2d>
  800195e:	f04f 0200 	mov.w	r2, #0
  8001962:	4b15      	ldr	r3, [pc, #84]	; (80019b8 <build_model+0xdc>)
  8001964:	f7fe ff6a 	bl	800083c <__aeabi_ddiv>

@@ -70,7 +70,7 @@ static void MX_UART4_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
-unsigned long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
+long parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model* SVM;
 char model_received = 0;
 
@@ -80,7 +80,8 @@ int parse_buffer(void) {
 	int sample_number = 0;
 	while(ptr != NULL)
 	{
-		parsed_epoch_data[sample_number] = atol(ptr);
+		long value = atol(ptr);
+		parsed_epoch_data[sample_number] = value;
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
