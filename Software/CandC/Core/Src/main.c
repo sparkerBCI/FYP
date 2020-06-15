@@ -97,9 +97,9 @@ void process_sample(void) {
 #ifdef PRINTING_COEFFS
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
-		coeffs[i] *= 100;
+		//coeffs[i] *= 100;
 		char data_string[CHARS_PER_SAMPLE] = {0};
-		snprintf(data_string,  CHARS_PER_SAMPLE, "%010ld", (long)coeffs[i]);
+		snprintf(data_string,  CHARS_PER_SAMPLE, "%010lf", coeffs[i]);
 		HAL_UART_Transmit(&huart4, (unsigned char *)data_string, CHARS_PER_SAMPLE, 0xFFFF);
 		HAL_UART_Transmit(&huart4, (unsigned char *)"\n\r", 3, 0xFFFF);
 	}

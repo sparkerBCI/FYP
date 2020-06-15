@@ -1,5 +1,5 @@
 main.c:77:5:parse_buffer	24	static
-main.c:91:6:process_sample	56	dynamic
+main.c:91:6:process_sample	64	dynamic
 main.c:112:6:print_model	1056	static
 main.c:144:5:build_model	56	dynamic
 main.c:171:6:HAL_UART_RxCpltCallback	16	static
