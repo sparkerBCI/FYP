@@ -106,7 +106,7 @@ void process_sample(void) {
 #endif
 
 	//Garbage Collection
-	free(coeffs);
+	//free(coeffs);
 }
 
 void print_model(Linear_SVM_Model* model) {
