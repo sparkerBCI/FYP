@@ -32,7 +32,7 @@
 #define PRINTING_MODEL
 #define PRINTING_COEFFS
 #ifndef EPOCH_LENGTH_SAMPLES
-  #define EPOCH_LENGTH_SAMPLES 16
+  #define EPOCH_LENGTH_SAMPLES 128
 #endif
 #define CHARS_PER_SAMPLE 11
 /* USER CODE END Includes */
@@ -168,7 +168,7 @@ void build_model(void) {
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (SVM->complete) {  // This should be 2, not 0
+	if (!SVM->complete) {  // This should be 2, not 0
         process_sample();
 	}
 	else {        //This happens when we haven't got the model yet
