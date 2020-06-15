@@ -17,6 +17,8 @@ typedef struct Linear_SVM_Model {
 	double offset;
 	double scale;
 	int dimension;
+	int has_vector;
+	int complete;
 } Linear_SVM_Model;
 
 double Linear_SVM_Predict(Linear_SVM_Model* model, double* observation);

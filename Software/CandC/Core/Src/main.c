@@ -93,7 +93,7 @@ void process_sample(void) {
 	// Process this epoch
 	int number_of_samples = sizeof(parsed_epoch_data) / sizeof(long);
 	double coeffs[number_of_samples];
-	dct_test(coeffs, parsed_epoch_data, number_of_samples);
+	dct_test(coeffs, (unsigned long *)parsed_epoch_data, number_of_samples);
 #ifdef PRINTING_COEFFS
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
@@ -109,10 +109,42 @@ void process_sample(void) {
 	free(coeffs);
 }
 
+void print_model(Linear_SVM_Model* model) {
+	if (model->complete) {
+		char weight_str[255] = {0};
+		HAL_UART_Transmit(&huart4, (unsigned char *)"Weights\n\r", 10, 0xFFFF);
+		for (int i = 0; i < EPOCH_LENGTH_SAMPLES; i++) {
+			snprintf(weight_str, 11, "%010ld", (long)(model->weight_vector[i]*1000));
+			HAL_UART_Transmit(&huart4, (unsigned char *)weight_str, 11, 0xFFFF);
+			HAL_UART_Transmit(&huart4, (unsigned char *)"\r\n", 3, 0xFFFF);
+		}
+
+		char scale_str[255] = {0};
+		char offset_str[255] = {0};
+		char dimension_str[255] = {0};
+		snprintf(scale_str, 11, "%010ld", (long)(model->scale * 1000));
+		snprintf(offset_str, 11, "%010ld", (long)(model->offset * 1000));
+		snprintf(dimension_str, 11, "%010ld", (long)(model->dimension * 1000));
+
+		HAL_UART_Transmit(&huart4, (unsigned char*)"Scale: ", 7, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char*)scale_str, 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char*)"\n\r", 3, 0xFFFF);
+
+		HAL_UART_Transmit(&huart4, (unsigned char*)"Offset: ", 8, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char*)offset_str, 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char*)"\n\r", 3, 0xFFFF);
+
+		HAL_UART_Transmit(&huart4, (unsigned char*)"Dimension: ", 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char*)dimension_str, 11, 0xFFFF);
+		HAL_UART_Transmit(&huart4, (unsigned char*)"\n\r", 3, 0xFFFF);
+	}
+
+}
+
 int build_model(void) {
 	int ret_val = 0;
 	parse_buffer();
-	if (model_received == 0) {
+	if (SVM->has_vector == 0) {
 		/* Load the weight vector */
 		int number_of_weights = sizeof(parsed_epoch_data) / sizeof(long);   // Get the number of coefficients in the weight vector
 		double vect[number_of_weights];      // This is an array to hold the weights once converted to double from long
@@ -121,35 +153,30 @@ int build_model(void) {
 		}
 		//SVM->weight_vector = malloc(number_of_weights * sizeof(double));
 		memcpy(SVM->weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
+		SVM->has_vector = 1;
 		ret_val = 1;
 	}
 	else {
 		/* Load the offset, scale and dimension */
+		SVM->scale = ((double)parsed_epoch_data[0]) / 1000;
+		SVM->offset = ((double)parsed_epoch_data[1]) / 1000;
+		SVM->dimension = ((double)parsed_epoch_data[2]) / 1000;
+		SVM->complete = 1;
 		ret_val = 2;    // Now we have the vector, scale, offset, and dimension, so we have all the info we need
+		print_model(SVM);
 	}
 	return ret_val;
-}
-
-void print_model(Linear_SVM_Model* model) {
-	char weight_str[255] = {0};
-	HAL_UART_Transmit(&huart4, (unsigned char *)"Weights\n\r", 10, 0xFFFF);
-	for (int i = 0; i < EPOCH_LENGTH_SAMPLES; i++) {
-		snprintf(weight_str, 11, "%010ld", (long)(model->weight_vector[i]));
-		HAL_UART_Transmit(&huart4, (unsigned char *)weight_str, 11, 0xFFFF);
-		HAL_UART_Transmit(&huart4, (unsigned char *)"\r\n", 3, 0xFFFF);
-	}
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (model_received == 2) {  // This should be 2, not 0
+	if (SVM->complete) {  // This should be 2, not 0
         process_sample();
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
 		model_received = build_model();
-		print_model(SVM);
 	}
 
 }
@@ -190,6 +217,8 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   SVM = malloc(sizeof(Linear_SVM_Model));
+  SVM->has_vector = 0;
+  SVM->complete = 0;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
 
   /* USER CODE END 2 */
