@@ -111,5 +111,22 @@ for i = 1:256
 end
 fwrite(s, samp_str);
 
+output =  cell(611, 1);
+obs = 1;
+
+for j = 1:611
+    samp_str = "";
+    for i = 1:256
+        samp_str = samp_str + sprintf("%010ld\n", round(all_data(j, i) * 100000));
+    end
+    fwrite(s, samp_str);
+    pause(0.1);
+    if (s.BytesAvailable)
+        received = fgets(s)
+        output{obs} = received;
+        obs = obs + 1;
+    end
+end
+
 fclose(s);
 instrreset
