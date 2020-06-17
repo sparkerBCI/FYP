@@ -13,4 +13,4 @@ for i = 1:122
     
 end
 
-CorrectRate = score / 122 * 100
+CorrectRate = score / 122
