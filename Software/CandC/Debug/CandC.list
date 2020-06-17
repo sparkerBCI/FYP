@@ -2175,8 +2175,8 @@ int parse_buffer(void) {
  800177c:	b580      	push	{r7, lr}
  800177e:	b084      	sub	sp, #16
  8001780:	af00      	add	r7, sp, #0
-	char delim[] = ",";
- 8001782:	232c      	movs	r3, #44	; 0x2c
+	char delim[] = "\n";
+ 8001782:	230a      	movs	r3, #10
  8001784:	803b      	strh	r3, [r7, #0]
 	char *ptr = strtok((char*)RX_data, delim);
  8001786:	463b      	mov	r3, r7
@@ -2734,7 +2734,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  8001c28:	490b      	ldr	r1, [pc, #44]	; (8001c58 <HAL_UART_RxCpltCallback+0x48>)
  8001c2a:	480a      	ldr	r0, [pc, #40]	; (8001c54 <HAL_UART_RxCpltCallback+0x44>)
  8001c2c:	f001 fe16 	bl	800385c <HAL_UART_Receive_IT>
-	if (!SVM->complete) {  // This should be 2, not 0
+	if (!SVM->complete) {  // This should be svm_complete, not not svm_complete
  8001c30:	4b0a      	ldr	r3, [pc, #40]	; (8001c5c <HAL_UART_RxCpltCallback+0x4c>)
  8001c32:	681b      	ldr	r3, [r3, #0]
  8001c34:	f8d3 3098 	ldr.w	r3, [r3, #152]	; 0x98
