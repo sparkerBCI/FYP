@@ -16,7 +16,7 @@ void FFTcore(int Nr, int Nc, double* Ar, int Ldr, double* Ai, int Ldi, char tran
 
 void DCT2(int N, double* x);
 
-void dct_test(double* z, unsigned long* data, int m);
+void dct_test(double* z, long* data, int m);
 
 
 #endif /* INC_DCT_H_ */

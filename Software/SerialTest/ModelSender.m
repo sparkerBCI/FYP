@@ -102,5 +102,12 @@ disp("Weight vector sent, sending model details...");
 fwrite(s, dets_str);
 pause(3);
 disp("Complete!");
+
+samp_str = "";
+for i = 1:256
+    samp_str = samp_str + sprintf("%010ld\n", i);
+end
+fwrite(s, samp_str);
+
 fclose(s);
 instrreset

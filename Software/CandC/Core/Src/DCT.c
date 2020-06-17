@@ -121,7 +121,7 @@ void DCT2(int N, double* x) {
 }
 
 
-void dct_test(double * z, unsigned long * data, int m) {
+void dct_test(double * z, long * data, int m) {
 
 	int i;
 	for (i = 0; i < m; ++i) z[i] =  data[i];

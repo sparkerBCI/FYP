@@ -88,12 +88,11 @@ int parse_buffer(void) {
 	return sample_number;
 }
 
-void process_sample(void) {
+void process_sample(double coeffs[]) {
     parse_buffer();
 	// Process this epoch
 	int number_of_samples = sizeof(parsed_epoch_data) / sizeof(long);
-	double coeffs[number_of_samples];
-	dct_test(coeffs, (unsigned long *)parsed_epoch_data, number_of_samples);
+	dct_test(coeffs, parsed_epoch_data, number_of_samples);
 #ifdef PRINTING_COEFFS
 	//This is just printing
 	for (int i = 0; i < number_of_samples; i++) {
@@ -169,7 +168,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 	if (SVM->complete) {  // This should be svm_complete, not not svm_complete
-        process_sample();
+		double coeffs[EPOCH_LENGTH_SAMPLES];
+        process_sample(coeffs);
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
