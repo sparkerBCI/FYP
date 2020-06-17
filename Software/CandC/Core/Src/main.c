@@ -32,7 +32,7 @@
 #define PRINTING_MODEL
 #define PRINTING_COEFFS
 #ifndef EPOCH_LENGTH_SAMPLES
-  #define EPOCH_LENGTH_SAMPLES 16
+  #define EPOCH_LENGTH_SAMPLES 256
 #endif
 #define CHARS_PER_SAMPLE 11
 /* USER CODE END Includes */
@@ -147,7 +147,7 @@ void build_model(void) {
 		int number_of_weights = sizeof(parsed_epoch_data) / sizeof(long);   // Get the number of coefficients in the weight vector
 		double vect[number_of_weights];      // This is an array to hold the weights once converted to double from long
 		for (int i = 0; i < number_of_weights; i++) {
-			vect[i] = ((double)parsed_epoch_data[i]) / 1000; // Convert the weight to double then divide by the scale factor
+			vect[i] = ((double)parsed_epoch_data[i]) / 1000000; // Convert the weight to double then divide by the scale factor
 		}
 		//SVM->weight_vector = malloc(number_of_weights * sizeof(double));
 		memcpy(SVM->weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
@@ -155,9 +155,9 @@ void build_model(void) {
 	}
 	else {
 		/* Load the offset, scale and dimension */
-		SVM->scale = ((double)parsed_epoch_data[0]) / 1000;
-		SVM->offset = ((double)parsed_epoch_data[1]) / 1000;
-		SVM->dimension = ((double)parsed_epoch_data[2]) / 1000;
+		SVM->scale = ((double)parsed_epoch_data[0]) / 1000000;
+		SVM->offset = ((double)parsed_epoch_data[1]) / 1000000;
+		SVM->dimension = ((double)parsed_epoch_data[2]) / 1000000;
 		SVM->complete = 1;
 #ifdef PRINTING_MODEL
 		print_model(SVM);
@@ -168,7 +168,7 @@ void build_model(void) {
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (!SVM->complete) {  // This should be svm_complete, not not svm_complete
+	if (SVM->complete) {  // This should be svm_complete, not not svm_complete
         process_sample();
 	}
 	else {        //This happens when we haven't got the model yet

@@ -9,7 +9,7 @@
 #define INC_SVM_PREDICT_H_
 
 #ifndef EPOCH_LENGTH_SAMPLES
-  #define EPOCH_LENGTH_SAMPLES 16
+  #define EPOCH_LENGTH_SAMPLES 256
 #endif
 
 typedef struct Linear_SVM_Model {

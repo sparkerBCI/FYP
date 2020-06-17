@@ -54,6 +54,7 @@ y = y1(inds);
 for observation = 1:length(X)
 
     data = cell2mat(X(observation));
+    data = data(1:256);
     Y = dct(hanning(length(data)).*data);
     
     psd(observation, :) = Y;
@@ -80,27 +81,26 @@ s = CompactLinSVMModel.KernelParameters.Scale
 
 linear_svm_score = Linear_SVM_Accuracy / linear_svm_time
 
+vect_str = "";
+for i = 1:length(W)
+    vect_str = vect_str +  sprintf("%010ld\n", round(1000000*W(i)));
+end
 
-accuracy = [Linear_SVM_Accuracy];
-time = [linear_svm_time];
-score = [linear_svm_score];
+dets_str = sprintf("%010ld\n%010ld\n%010ld\n", round(1000000*s), round(1000000*b), round(1000000*length(W)));
+for i = 4:length(W)
+    dets_str = dets_str + sprintf("0000000000\n");
+end
 
-c = categorical({'Linear SVM'});
+disp("Parsed model into strings. Sending to device...");
 
-figure()
-bar(c, accuracy);
-%legend('Gauss SVM', 'Linear SVM', 'RBF SVM', 'Polynomial SVM', 'LDA', 'KNN');
-title('Accuracy');
-ylim([0, 1]);
-
-figure()
-bar(c, time);
-%legend('Gauss SVM', 'Linear SVM', 'RBF SVM', 'Polynomial SVM', 'LDA', 'KNN');
-title('Time');
-
-figure()
-bar(c, score);
-%legend('Gauss SVM', 'Linear SVM', 'RBF SVM', 'Polynomial SVM', 'LDA', 'KNN');
-title('Score');
-
-max_accuracy = max(accuracy)
+s = serial('COM14', 'BaudRate', 38400, 'TimeOut', 10, 'Terminator', 'LF');
+s.OutputBufferSize = 4096;
+fopen(s);
+fwrite(s, vect_str);
+pause(3);
+disp("Weight vector sent, sending model details...");
+fwrite(s, dets_str);
+pause(3);
+disp("Complete!");
+fclose(s);
+instrreset
