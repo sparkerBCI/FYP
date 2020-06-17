@@ -74,6 +74,7 @@ static void MX_UART4_Init(void);
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 double parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model* SVM;
+int classes[1024];
 
 int parse_buffer(void) {
 	char delim[] = "\n";
@@ -167,22 +168,18 @@ void build_model(void) {
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	static unsigned int observation = 0;
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 	if (SVM->complete) {
 		double coeffs[EPOCH_LENGTH_SAMPLES];
         process_sample(coeffs);
         double prediction = Linear_SVM_Predict(SVM, coeffs);
-        char label[13];
-        int chars;
         if (prediction < 0) {
-        	strcpy(label, "Rest\r\n");
-        	chars = 7;
+        	classes[observation] = 0;
         }
         else {
-        	strcpy(label, "Right Hand\r\n");
-        	chars = 13;
+        	classes[observation] = 1;
         }
-        HAL_UART_Transmit(&huart4, (unsigned char*)label, chars, 0xFFFF);
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
