@@ -29,8 +29,8 @@
 #include "DCT.h"
 #include "svm_predict.h"
 
-#define PRINTING_MODEL
-#define PRINTING_COEFFS
+//#define PRINTING_MODEL
+//#define PRINTING_COEFFS
 #ifndef EPOCH_LENGTH_SAMPLES
   #define EPOCH_LENGTH_SAMPLES 256
 #endif
@@ -167,7 +167,6 @@ void build_model(void) {
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	HAL_UART_Transmit(&huart4, (unsigned char *)"\r\nInterrupt!\n\r", 14, 0xFFFF);
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 	if (SVM->complete) {
 		double coeffs[EPOCH_LENGTH_SAMPLES];
