@@ -40,47 +40,48 @@ Ch8 = hex2dec(data.Ch8);
 
 transitions = logical(diff(data.Marker));
 
-if 0
-    figure();
-    for i = 2:length(Ch1)
-        if i <= timescale
-            subplot(5, 1, 1);
-            plot(1:i, Ch1(1:i), 'b');
-            xlim([1,i]);
-            subplot(5, 1, 2);
-            plot(1:i, Ch2(1:i), 'r');
-            xlim([1,i]);
-            subplot(5, 1, 3);
-            plot(1:i, Ch3(1:i), 'g');
-            xlim([1,i]);
-            subplot(5, 1, 4);
-            plot(1:i, Ch4(1:i), 'k');
-            xlim([1,i]);
-            subplot(5, 1, 5);
-            plot(1:i, data.Marker(1:i), 'm');
-            xlim([1,i]);
-            ylim([-0.1, 1.1]);
-        else 
-            subplot(5, 1, 1);
-            plot((i-timescale):i, Ch1((i-timescale):i), 'b');
-            xlim([(i-timescale),i]);
-            subplot(5, 1, 2);
-            plot((i-timescale):i, Ch2((i-timescale):i), 'r');
-            xlim([(i-timescale),i]);
-            subplot(5, 1, 3);
-            plot((i-timescale):i, Ch3((i-timescale):i), 'g');
-            xlim([(i-timescale),i]);
-            subplot(5, 1, 4);
-            plot((i-timescale):i, Ch4((i-timescale):i), 'k');
-            xlim([(i-timescale),i]);
-            subplot(5, 1, 5);
-            plot((i-timescale):i, data.Marker((i-timescale):i), 'm');
-            xlim([(i-timescale),i]);
-            ylim([-0.1, 1.1]);
+if 1
+    if 0
+        figure();
+        for i = 2:length(Ch1)
+            if i <= timescale
+                subplot(5, 1, 1);
+                plot(1:i, Ch1(1:i), 'b');
+                xlim([1,i]);
+                subplot(5, 1, 2);
+                plot(1:i, Ch2(1:i), 'r');
+                xlim([1,i]);
+                subplot(5, 1, 3);
+                plot(1:i, Ch3(1:i), 'g');
+                xlim([1,i]);
+                subplot(5, 1, 4);
+                plot(1:i, Ch4(1:i), 'k');
+                xlim([1,i]);
+                subplot(5, 1, 5);
+                plot(1:i, data.Marker(1:i), 'm');
+                xlim([1,i]);
+                ylim([-0.1, 1.1]);
+            else 
+                subplot(5, 1, 1);
+                plot((i-timescale):i, Ch1((i-timescale):i), 'b');
+                xlim([(i-timescale),i]);
+                subplot(5, 1, 2);
+                plot((i-timescale):i, Ch2((i-timescale):i), 'r');
+                xlim([(i-timescale),i]);
+                subplot(5, 1, 3);
+                plot((i-timescale):i, Ch3((i-timescale):i), 'g');
+                xlim([(i-timescale),i]);
+                subplot(5, 1, 4);
+                plot((i-timescale):i, Ch4((i-timescale):i), 'k');
+                xlim([(i-timescale),i]);
+                subplot(5, 1, 5);
+                plot((i-timescale):i, data.Marker((i-timescale):i), 'm');
+                xlim([(i-timescale),i]);
+                ylim([-0.1, 1.1]);
+            end
+            pause(0.01);
         end
-        pause(0.01);
     end
-
 
     figure();
     subplot(5, 1, 1);
@@ -141,6 +142,20 @@ for observation = 1:(length(transition_indexs)-1)
     observations.Ch4.dct(observation, :) = dct(observations.Ch4.data(observation, :));
     observations.Marker(observation) = data.Marker(transition_indexs(observation)+1);
 end
+
+figure();
+subplot(2, 1, 1);
+clims = [min(min(transpose(observations.Ch1.dct(21:end, 10:100)))), max(max(transpose(observations.Ch1.dct(21:end, 10:100))))];
+imagesc(transpose(observations.Ch1.dct(21:end, 1:100)), clims);
+ylabel('Frequency Bin');
+xlabel('Observation');
+title('DCT Coefficients - 250sps');
+subplot(2, 1, 2);
+stairs(1:length(observations.Marker(21:end)), observations.Marker(21:end));
+ylim([-0.1, 1.1]);
+xlim([0, 141]);
+ylabel({'1 - Right Hand';'0 - Rest'});
+xlabel('Observation');
 
 LinSVMModel = fitcsvm(observations.Ch1.dct, observations.Marker, 'KernelFunction', 'linear', 'Holdout', holdout_percentage, 'Standardize', true);
 CompactLinSVMModel = LinSVMModel.Trained{1}; % Extract trained, compact classifier

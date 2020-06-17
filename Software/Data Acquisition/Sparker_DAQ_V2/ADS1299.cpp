@@ -200,161 +200,115 @@ long ADS1299::updateData(){
     if(digitalRead(DRDY) == LOW){                             /* If there is data available */
         digitalWrite(CS, LOW);                                /* Take CS LOW */
         long output[9];                                       /* Create the array to hold the data from the SPI bus */
-        long dataPacket;
-        for(int i = 0; i<9; i++){
-            for(int j = 0; j<3; j++){
-                byte dataByte = transfer(0x00);
-                dataPacket = (dataPacket<<8) | dataByte;
+        long dataPacket;                                      /* This initially holds the first trnasferred byte, then is shifted to hold the full 24 bits */
+        for(int i = 0; i<9; i++){                             /* Until all 9 24 bit values have been transferred */
+            for(int j = 0; j<3; j++){                         /* 24 bits is 8 bytes */
+                byte dataByte = transfer(0x00);               /* Recieve a byte */
+                dataPacket = (dataPacket<<8) | dataByte;      /* Shift the recieved byte up to make room for the next one */
             }
-            output[i] = dataPacket;
-            dataPacket = 0;
+            output[i] = dataPacket;                           /* Once all the shifting is done, save the byte into the array */
+            dataPacket = 0;                                   /* Reset the data packet back to 0, we need to read a new 24 bit number */
         }
-        digitalWrite(CS, HIGH);
-        outputCount++;
-        return (output[1]);
+        digitalWrite(CS, HIGH);                               /* Take the CS pin HIGH, the transmission has ended */
+        outputCount++;                                        /* We have recieved another sample, increment the output count */
+        return (output[1]);                                   /* Return the Channel 1 data */
     }
-    return -1;
+    return -1;                                                /* Otherwise, there was no data to read, return -1 */
 }
 
-// String-Byte converters for RREG and WREG
-void ADS1299::printRegisterName(byte _address) {
-    if(_address == ID){
+/*! ******************************************************************************************
+ * @brief Prints a human readable register name to the serial port
+ * 
+ * @param[in] address                  - The address of the register to print. Prints nothing
+ *                                       if the address does not match.
+ * 
+ *********************************************************************************************/
+void ADS1299::printRegisterName(byte address) {
+    if(address == ID){
         Serial.print("ID");
     }
-    else if(_address == CONFIG1){
+    else if(address == CONFIG1){
         Serial.print("CONFIG1");
     }
-    else if(_address == CONFIG2){
+    else if(address == CONFIG2){
         Serial.print("CONFIG2");
     }
-    else if(_address == CONFIG3){
+    else if(address == CONFIG3){
         Serial.print("CONFIG3");
     }
-    else if(_address == LOFF){
+    else if(address == LOFF){
         Serial.print("LOFF");
     }
-    else if(_address == CH1SET){
+    else if(address == CH1SET){
         Serial.print("CH1SET");
     }
-    else if(_address == CH2SET){
+    else if(address == CH2SET){
         Serial.print("CH2SET");
     }
-    else if(_address == CH3SET){
+    else if(address == CH3SET){
         Serial.print("CH3SET");
     }
-    else if(_address == CH4SET){
+    else if(address == CH4SET){
         Serial.print("CH4SET");
     }
-    else if(_address == CH5SET){
+    else if(address == CH5SET){
         Serial.print("CH5SET");
     }
-    else if(_address == CH6SET){
+    else if(address == CH6SET){
         Serial.print("CH6SET");
     }
-    else if(_address == CH7SET){
+    else if(address == CH7SET){
         Serial.print("CH7SET");
     }
-    else if(_address == CH8SET){
+    else if(address == CH8SET){
         Serial.print("CH8SET");
     }
-    else if(_address == BIAS_SENSP){
+    else if(address == BIAS_SENSP){
         Serial.print("BIAS_SENSP");
     }
-    else if(_address == BIAS_SENSN){
+    else if(address == BIAS_SENSN){
         Serial.print("BIAS_SENSN");
     }
-    else if(_address == LOFF_SENSP){
+    else if(address == LOFF_SENSP){
         Serial.print("LOFF_SENSP");
     }
-    else if(_address == LOFF_SENSN){
+    else if(address == LOFF_SENSN){
         Serial.print("LOFF_SENSN");
     }
-    else if(_address == LOFF_FLIP){
+    else if(address == LOFF_FLIP){
         Serial.print("LOFF_FLIP");
     }
-    else if(_address == LOFF_STATP){
+    else if(address == LOFF_STATP){
         Serial.print("LOFF_STATP");
     }
-    else if(_address == LOFF_STATN){
+    else if(address == LOFF_STATN){
         Serial.print("LOFF_STATN");
     }
-    else if(_address == GPIO){
+    else if(address == GPIO){
         Serial.print("GPIO");
     }
-    else if(_address == MISC1){
+    else if(address == MISC1){
         Serial.print("MISC1");
     }
-    else if(_address == MISC2){
+    else if(address == MISC2){
         Serial.print("MISC2");
     }
-    else if(_address == CONFIG4){
+    else if(address == CONFIG4){
         Serial.print("CONFIG4");
     }
 }
 
-//SPI communication methods
-byte ADS1299::transfer(byte _data) {
-    SPDR = _data;
-    while (!(SPSR & _BV(SPIF)))
+/*! ******************************************************************************************
+ * @brief Executes a bidirectional SPI transfer
+ * 
+ * @param[in] data                  - A byte to send from Master to Slave
+ * 
+ * @returns byte                    - A byte recieved from the Slave
+ * 
+ *********************************************************************************************/
+byte ADS1299::transfer(byte data) {
+    SPDR = data;                          /* Set the output shift register to the byte to output */
+    while (!(SPSR & _BV(SPIF)))           /* While the data is being output, do nothing */
         ;
-    return SPDR;
+    return SPDR;                          /* Return the value of the input shift register */
 }
-
-//-------------------------------------------------------------------//
-//-------------------------------------------------------------------//
-//-------------------------------------------------------------------//
-
-////UNNECESSARY SPI-ARDUINO METHODS
-//void ADS1299::attachInterrupt() {
-//    SPCR |= _BV(SPIE);
-//}
-//
-//void ADS1299::detachInterrupt() {
-//    SPCR &= ~_BV(SPIE);
-//}
-//
-//void ADS1299::begin() {
-//    // Set direction register for SCK and MOSI pin.
-//    // MISO pin automatically overrides to INPUT.
-//    // When the SS pin is set as OUTPUT, it can be used as
-//    // a general purpose output port (it doesn't influence
-//    // SPI operations).
-//
-//    pinMode(SCK, OUTPUT);
-//    pinMode(MOSI, OUTPUT);
-//    pinMode(SS, OUTPUT);
-//
-//    digitalWrite(SCK, LOW);
-//    digitalWrite(MOSI, LOW);
-//    digitalWrite(SS, HIGH);
-//
-//    // Warning: if the SS pin ever becomes a LOW INPUT then SPI
-//    // automatically switches to Slave, so the data direction of
-//    // the SS pin MUST be kept as OUTPUT.
-//    SPCR |= _BV(MSTR);
-//    SPCR |= _BV(SPE);
-//}
-//
-//void ADS1299::end() {
-//    SPCR &= ~_BV(SPE);
-//}
-//
-////void ADS1299::setBitOrder(uint8_t bitOrder)
-////{
-////    if(bitOrder == LSBFIRST) {
-////        SPCR |= _BV(DORD);
-////    } else {
-////        SPCR &= ~(_BV(DORD));
-////    }
-////}
-////
-////void ADS1299::setDataMode(uint8_t mode)
-////{
-////    SPCR = (SPCR & ~SPI_MODE_MASK) | mode;
-////}
-////
-////void ADS1299::setClockDivider(uint8_t rate)
-////{
-////    SPCR = (SPCR & ~SPI_CLOCK_MASK) | (rate & SPI_CLOCK_MASK);
-////    SPSR = (SPSR & ~SPI_2XCLOCK_MASK) | ((rate >> 2) & SPI_2XCLOCK_MASK);
-//}
