@@ -114,12 +114,6 @@ for j = 1:611
         samp_str = samp_str + sprintf("%010ld\n", round(all_data(j, i) * 100000));
     end
     fwrite(s, samp_str);
-    pause(0.5);
-    if (s.BytesAvailable ~= 0)
-        received = fscanf(s)
-        output{obs} = received(1:(end-2));
-        obs = obs + 1;
-    end
 end
 
 fclose(s);
