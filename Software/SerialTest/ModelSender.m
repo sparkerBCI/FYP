@@ -55,9 +55,11 @@ for observation = 1:length(X)
 
     data = cell2mat(X(observation));
     data = data(1:256);
-    Y = dct(hanning(length(data)).*data);
+    windowed_data = hanning(length(data)).*data;
+    Y = dct(windowed_data);
     
     psd(observation, :) = Y;
+    all_data(observation, :) = windowed_data;
 end
 
 
@@ -83,10 +85,10 @@ linear_svm_score = Linear_SVM_Accuracy / linear_svm_time
 
 vect_str = "";
 for i = 1:length(W)
-    vect_str = vect_str +  sprintf("%010ld\n", round(1000000*W(i)));
+    vect_str = vect_str +  sprintf("%010ld\n", round(100000*W(i)));
 end
 
-dets_str = sprintf("%010ld\n%010ld\n%010ld\n", round(1000000*s), round(1000000*b), round(1000000*length(W)));
+dets_str = sprintf("%010ld\n%010ld\n%010ld\n", round(100000*s), round(100000*b), round(100000*length(W)));
 for i = 4:length(W)
     dets_str = dets_str + sprintf("0000000000\n");
 end
@@ -105,7 +107,7 @@ disp("Complete!");
 
 samp_str = "";
 for i = 1:256
-    samp_str = samp_str + sprintf("%010ld\n", i);
+    samp_str = samp_str + sprintf("%010ld\n", round(all_data(8, i) * 100000));
 end
 fwrite(s, samp_str);
 
