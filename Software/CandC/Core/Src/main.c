@@ -73,8 +73,7 @@ static void MX_UART4_Init(void);
 /* USER CODE BEGIN 0 */
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 double parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
-Linear_SVM_Model* SVM;
-int classes[1024];
+Linear_SVM_Model SVM;
 
 int parse_buffer(void) {
 	char delim[] = "\n";
@@ -144,7 +143,7 @@ void print_model(Linear_SVM_Model* model) {
 
 void build_model(void) {
 	parse_buffer();
-	if (SVM->has_vector == 0) {
+	if (SVM.has_vector == 0) {
 		/* Load the weight vector */
 		int number_of_weights = sizeof(parsed_epoch_data) / sizeof(double);   // Get the number of coefficients in the weight vector
 		double vect[number_of_weights];      // This is an array to hold the weights once converted to double from long
@@ -152,15 +151,15 @@ void build_model(void) {
 			vect[i] = (parsed_epoch_data[i]); // Convert the weight to double then divide by the scale factor
 		}
 		//SVM->weight_vector = malloc(number_of_weights * sizeof(double));
-		memcpy(SVM->weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
-		SVM->has_vector = 1;
+		memcpy(SVM.weight_vector, vect, sizeof(vect));   // Store the scaled weights into the model, SVM.weight_vector is no longer NULL
+		SVM.has_vector = 1;
 	}
 	else {
 		/* Load the offset, scale and dimension */
-		SVM->scale = (parsed_epoch_data[0]);
-		SVM->offset = (parsed_epoch_data[1]);
-		SVM->dimension = (parsed_epoch_data[2]);
-		SVM->complete = 1;
+		SVM.scale = (parsed_epoch_data[0]);
+		SVM.offset = (parsed_epoch_data[1]);
+		SVM.dimension = (parsed_epoch_data[2]);
+		SVM.complete = 1;
 #ifdef PRINTING_MODEL
 		print_model(SVM);
 #endif
@@ -168,18 +167,22 @@ void build_model(void) {
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	static unsigned int observation = 0;
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (SVM->complete) {
+	if (SVM.complete) {
 		double coeffs[EPOCH_LENGTH_SAMPLES];
         process_sample(coeffs);
-        double prediction = Linear_SVM_Predict(SVM, coeffs);
+        double prediction = Linear_SVM_Predict(&SVM, coeffs);
+        char label[13];
+        int chars;
         if (prediction < 0) {
-        	classes[observation] = 0;
+        	strcpy(label, "Rest\r\n");
+        	chars = 7;
         }
         else {
-        	classes[observation] = 1;
+        	strcpy(label, "Right Hand\r\n");
+        	chars = 13;
         }
+        HAL_UART_Transmit(&huart4, (unsigned char*)label, chars, 0xFFFF);
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
@@ -223,9 +226,8 @@ int main(void)
   MX_DMA_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-  SVM = malloc(sizeof(Linear_SVM_Model));
-  SVM->has_vector = 0;
-  SVM->complete = 0;
+  SVM.has_vector = 0;
+  SVM.complete = 0;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
 
   /* USER CODE END 2 */
