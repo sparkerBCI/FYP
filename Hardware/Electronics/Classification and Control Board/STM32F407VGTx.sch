@@ -1157,4 +1157,6 @@ Wire Notes Line
 Text Label 10050 5500 0    50   ~ 0
 ADC1_IN0
 NoConn ~ 8150 1150
+Text Notes 5200 3300 0    50   ~ 0
+8MHz crystal --> 168MHz \nPLL Clock
 $EndSCHEMATC
