@@ -14,7 +14,7 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 7400 2150 2    50   Input ~ 0
+Text HLabel 7400 2250 2    50   Input ~ 0
 TX
 Wire Wire Line
 	7400 2250 7100 2250
@@ -422,7 +422,7 @@ Wire Wire Line
 	6400 5150 7000 5150
 NoConn ~ 7100 3150
 NoConn ~ 7100 3250
-Text HLabel 7400 2250 2    50   Input ~ 0
+Text HLabel 7400 2150 2    50   Input ~ 0
 RX
 NoConn ~ 2450 7150
 Wire Notes Line
