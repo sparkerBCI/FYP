@@ -133,9 +133,9 @@ Wire Wire Line
 	5300 7100 5700 7100
 Wire Wire Line
 	5300 6900 5700 6900
-Text Label 5550 6900 0    50   ~ 0
+Text Label 5550 7100 0    50   ~ 0
 GND
-Text Label 5500 7100 0    50   ~ 0
+Text Label 5400 6900 0    50   ~ 0
 VIN_RAW
 Wire Wire Line
 	3300 1800 2800 1800
