@@ -103,8 +103,8 @@ SoftwareSerial Bluetooth(8, 9);                                                 
 
 ADS1299 ADS;                                                                          /**< This class enables communication with the ADC */
 boolean deviceIDReturned = false;                                                    /**< A flag to indicate whether the device ID has been returned from the ADS1299 */
-boolean startedLogging = false;                                                      /**< A flag to indicate whether logging data has started */
-char output[50] = {0};                                                               /**< A string to hold a single channel sample to send over the serial bus */
+boolean startedLogging = false;                                                      /**< A flag to indicate whether logging data has started */                                                              
+long epoch[256] = {0};
 
 /*! ******************************************************************************************
  *  @brief Sets up the serial and bluetooth links, establishes and checks
@@ -174,13 +174,23 @@ void setup() {
  *********************************************************************************************/
 void loop(){
   static long samp_num = 0;                           /* Track the sample number we are looking at */
+  static unsigned long last_transmission = millis();
    static long data;                                  /* Create a single variable to hold a single sample in */
+  static unsigned long epoch_time;
     data = ADS.updateData();                         /* Read the channel 1 data from the device if it is available */
-    if (data != -1) {                               /* If there was data to read */ 
-      snprintf(output, 11, "%010ld", data);         /* Save the data as a string for communication over the serial bus */
-      Serial.print(output);                         /* Output the data over the serial bus */
-      Serial.print(",");                          /* Separate samples with a comma */
-      samp_num = 0;
+    if (data != -1 && samp_num < 256) {              /* If there was data to read and space in the epoch buffer */ 
+      epoch[samp_num] = data;
+      samp_num++;
+    }
+     if ((millis() - last_transmission) >= 1000) {
+       for (unsigned int i = 0; i < samp_num; i++) {
+          char sample[12] = {0};
+          snprintf(sample, 12, "%010ld\n", epoch[i]);         /* Save the data as a string for communication over the serial bus */
+          Bluetooth.print(sample);                         /* Output the data over the serial bus */
+          Serial.print(sample);
+       }
+       samp_num = 0;
+       last_transmission = millis();
     }
     flash_LED(500);                                /* We want to toggle the status LED every 500ms */
   

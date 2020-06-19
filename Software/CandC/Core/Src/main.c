@@ -35,7 +35,8 @@
   #define EPOCH_LENGTH_SAMPLES 256
 #endif
 #define CHARS_PER_SAMPLE 11
-#define EEG_SCALE_FACTOR 100000
+#define SVM_SCALE_FACTOR 100000
+#define EEG_SCALE_FACTOR 1
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -83,7 +84,12 @@ int parse_buffer(void) {
 	while(ptr != NULL)
 	{
 		long value = atol(ptr);
-		parsed_epoch_data[sample_number] = ((double)value) / EEG_SCALE_FACTOR;
+		if (SVM.complete) {
+			parsed_epoch_data[sample_number] = ((double)value) / EEG_SCALE_FACTOR;
+		}
+		else {
+			parsed_epoch_data[sample_number] = ((double)value) / SVM_SCALE_FACTOR;
+		}
 		sample_number++;
 		ptr = strtok(NULL, delim);
 	}
@@ -169,8 +175,7 @@ void build_model(void) {
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	static unsigned int observation = 0;
-	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
-	if (SVM.complete) {
+	if (!SVM.complete) { //should be complete not not complete
 		double coeffs[EPOCH_LENGTH_SAMPLES];
         process_sample(coeffs);
         double prediction = Linear_SVM_Predict(&SVM, coeffs);
@@ -186,7 +191,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		/* Get the model */
 		build_model();
 	}
-
+	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 }
 
 /* USER CODE END 0 */
@@ -236,7 +241,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
