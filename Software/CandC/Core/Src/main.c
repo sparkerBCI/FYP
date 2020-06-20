@@ -87,7 +87,7 @@ int parse_buffer(void) {
 	while(ptr != NULL)
 	{
 		long value = atol(ptr);
-		if (SVM.complete) {
+		if (!SVM.complete) { // this should be svm.complete
 			parsed_epoch_data[sample_number] = ((double)value) / EEG_SCALE_FACTOR;
 		}
 		else {
@@ -179,7 +179,7 @@ void build_model(void) {
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	static unsigned int observation = 0;
 	if (!SVM.complete) { //should be complete not not complete
-		double coeffs[EPOCH_LENGTH_SAMPLES];
+		double coeffs[EPOCH_LENGTH_SAMPLES] = {0};
         process_sample(coeffs);
         double prediction = Linear_SVM_Predict(&SVM, coeffs);
         if (prediction < 0) {
