@@ -249,12 +249,13 @@ int main(void)
   SVM.complete = 0;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  int rising;
+  int value;
 
   /* USER CODE END 2 */
  
  
-  long value = 0;
-  char rising = 1;
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -262,13 +263,13 @@ int main(void)
 	  HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
 
 	  if (rising) {
-		  value += 256;
-		  if (value >= 32768) {
+		  value += 10;
+		  if (value >= 324) {
 			  rising = 0;
 		  }
 	  }
 	  else {
-		  value -= 256;
+		  value -= 10;
 		  if (value <= 0) {
 			 rising = 1;
 		  }
@@ -348,9 +349,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 2047;
+  htim3.Init.Prescaler = 1;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 62493;
+  htim3.Init.Period = 324;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
@@ -373,7 +374,7 @@ static void MX_TIM3_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 32767;
+  sConfigOC.Pulse = 160;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)

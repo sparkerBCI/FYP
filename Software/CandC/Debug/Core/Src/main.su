@@ -4,9 +4,9 @@ main.c:154:6:build_model	40	dynamic
 main.c:179:6:HAL_UART_RxCpltCallback	2072	static
 main.c:200:6:user_pwm_setvalue	48	static
 main.c:218:5:main	16	static
-main.c:293:6:SystemClock_Config	88	static
-main.c:336:13:MX_TIM3_Init	64	static
-main.c:395:13:MX_UART4_Init	8	static
-main.c:426:13:MX_DMA_Init	16	static
-main.c:444:13:MX_GPIO_Init	24	static
-main.c:462:6:Error_Handler	4	static
+main.c:294:6:SystemClock_Config	88	static
+main.c:337:13:MX_TIM3_Init	64	static
+main.c:396:13:MX_UART4_Init	8	static
+main.c:427:13:MX_DMA_Init	16	static
+main.c:445:13:MX_GPIO_Init	24	static
+main.c:463:6:Error_Handler	4	static
