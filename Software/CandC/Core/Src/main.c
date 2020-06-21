@@ -199,7 +199,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE); // Start listening. You now have 1 epoch to process this epoch
 }
 
-void user_pwm_setvalue(long value, uint32_t channel)
+void user_pwm_setvalue(long value, TIM_HandleTypeDef* timer, uint32_t channel)
 {
     TIM_OC_InitTypeDef sConfigOC;
 
@@ -207,8 +207,8 @@ void user_pwm_setvalue(long value, uint32_t channel)
     sConfigOC.Pulse = value;
     sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-    HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, channel);
-    HAL_TIM_PWM_Start(&htim3, channel);
+    HAL_TIM_PWM_ConfigChannel(timer, &sConfigOC, channel);
+    HAL_TIM_PWM_Start(timer, channel);
 }
 
 /* USER CODE END 0 */
@@ -277,7 +277,12 @@ int main(void)
 			 rising = 1;
 		  }
 	  }
-	  user_pwm_setvalue(value, TIM_CHANNEL_1);
+	  user_pwm_setvalue(value, &htim3, TIM_CHANNEL_1);
+	  user_pwm_setvalue(value, &htim3, TIM_CHANNEL_2);
+	  user_pwm_setvalue(value, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(value, &htim3, TIM_CHANNEL_4);
+	  user_pwm_setvalue(value, &htim4, TIM_CHANNEL_1);
+	  user_pwm_setvalue(value, &htim4, TIM_CHANNEL_2);
 	  HAL_Delay(100);
 
 
