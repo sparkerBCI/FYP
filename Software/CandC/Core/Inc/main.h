@@ -62,6 +62,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Thumb_Pin GPIO_PIN_6
 #define Thumb_GPIO_Port GPIOA
+#define Index_Pin GPIO_PIN_7
+#define Index_GPIO_Port GPIOA
+#define Middle_Pin GPIO_PIN_0
+#define Middle_GPIO_Port GPIOB
+#define Ring_Pin GPIO_PIN_1
+#define Ring_GPIO_Port GPIOB
+#define Pinky_Pin GPIO_PIN_12
+#define Pinky_GPIO_Port GPIOD
+#define Wrist_Pin GPIO_PIN_13
+#define Wrist_GPIO_Port GPIOD
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
