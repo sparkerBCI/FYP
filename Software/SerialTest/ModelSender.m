@@ -111,10 +111,11 @@ tic
 pause(0.1);
 for j = 1:611
     time = toc;
-    if (time < 1)
-        1 - time
-       pause(1 - time);
+    if (time < 1.5)
+        1 - time;
+       pause(1.5 - time);
     end
+    disp(y(j))
     samp_str = "";
     for i = 1:256
         samp_str = samp_str + sprintf("%010ld\n", round(all_data(j, i) * 100000));
