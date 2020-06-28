@@ -36,7 +36,8 @@
 #endif
 #define CHARS_PER_SAMPLE 11
 #define SVM_SCALE_FACTOR 100000
-#define EEG_SCALE_FACTOR 1
+//#define EEG_SCALE_FACTOR 1
+#define EEG_SCALE_FACTOR 100000
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -72,6 +73,8 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
+void open_hand(void);
+void close_hand(void);
 
 /* USER CODE END PFP */
 
@@ -89,7 +92,7 @@ int parse_buffer(void) {
 	while(ptr != NULL)
 	{
 		long value = atol(ptr);
-		if (!SVM.complete) { // this should be svm.complete
+		if (SVM.complete) { // this should be svm.complete
 			parsed_epoch_data[sample_number] = ((double)value) / EEG_SCALE_FACTOR;
 		}
 		else {
@@ -180,15 +183,17 @@ void build_model(void) {
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	static unsigned int observation = 0;
-	if (!SVM.complete) { //should be complete not not complete
+	if (SVM.complete) { //should be complete not not complete
 		double coeffs[EPOCH_LENGTH_SAMPLES] = {0};
         process_sample(coeffs);
         double prediction = Linear_SVM_Predict(&SVM, coeffs);
         if (prediction < 0) {
         	label[observation] = 0;
+        	open_hand();
         }
         else {
         	label[observation] = 1;
+        	close_hand();
         }
         observation++;
 	}
@@ -209,6 +214,22 @@ void user_pwm_setvalue(long value, TIM_HandleTypeDef* timer, uint32_t channel)
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     HAL_TIM_PWM_ConfigChannel(timer, &sConfigOC, channel);
     HAL_TIM_PWM_Start(timer, channel);
+}
+
+void close_hand(void) {
+	  user_pwm_setvalue(32, &htim3, TIM_CHANNEL_1);
+	  user_pwm_setvalue(28, &htim3, TIM_CHANNEL_2);
+	  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_4);
+	  user_pwm_setvalue(25, &htim4, TIM_CHANNEL_1);
+}
+
+void open_hand(void) {
+	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_1);
+	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_2);
+	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_4);
+	  user_pwm_setvalue(12, &htim4, TIM_CHANNEL_1);
 }
 
 /* USER CODE END 0 */
@@ -252,7 +273,7 @@ int main(void)
   SVM.complete = 0;
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  int value = 0;
+  close_hand();
 
   /* USER CODE END 2 */
  
@@ -263,27 +284,6 @@ int main(void)
   while (1)
   {
 	  HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
-
-	  if (value) {
-		  user_pwm_setvalue(32, &htim3, TIM_CHANNEL_1);
-		  user_pwm_setvalue(28, &htim3, TIM_CHANNEL_2);
-		  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_3);
-		  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_4);
-		  user_pwm_setvalue(25, &htim4, TIM_CHANNEL_1);
-		  value = 0;
-	  }
-	  else {
-		  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_1);
-		  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_2);
-		  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_3);
-		  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_4);
-		  user_pwm_setvalue(12, &htim4, TIM_CHANNEL_1);
-		  value = 1;
-	  }
-	  HAL_Delay(8000);
-
-
-
 
     /* USER CODE END WHILE */
 
