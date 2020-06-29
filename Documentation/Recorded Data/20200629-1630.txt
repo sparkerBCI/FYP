@@ -1,14 +1,4 @@
-Device Configuration Complete! Waiting for operator...
-Device Configuration Complete! Waiting for operator...
-Starting data generation...
-Let Hand Rest
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
+Marker	Ch1
 0	56569
 0	DBB01
 0	102A21
@@ -378,18 +368,6 @@ Start!
 0	3D80F
 0	120558
 0	B6964
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	116704
 1	ACD48
 1	74A81
@@ -759,18 +737,6 @@ Start!
 1	71AC0
 1	57196
 1	E40B6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	91B64
 0	C556F
 0	1068EF
@@ -1140,18 +1106,6 @@ Start!
 0	146520
 0	645E5
 0	F315B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	8070E
 1	9981B
 1	12D629
@@ -1521,18 +1475,6 @@ Start!
 1	13D59D
 1	5035C
 1	E759F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	61D03
 0	FB179
 0	C820B
@@ -1903,18 +1845,6 @@ Start!
 0	F1684
 0	6D701
 0	50823
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	68442
 1	14689A
 1	5DD2B
@@ -2285,18 +2215,6 @@ Start!
 1	5D9C0
 1	D6863
 1	68BBA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F3EF6
 0	CF191
 0	56B50
@@ -2668,18 +2586,6 @@ Start!
 0	135D76
 0	60DCD
 0	10CD7D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6F3A5
 1	E7AD7
 1	DD572
@@ -3050,18 +2956,6 @@ Start!
 1	5C34F
 1	136D6E
 1	71A40
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	1447ED
 0	67ACC
 0	EFBEC
@@ -3432,18 +3326,6 @@ Start!
 0	3FD05
 0	1013C6
 0	84831
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	115AEC
 1	3C515
 1	11F996
@@ -3814,18 +3696,6 @@ Start!
 1	428BF
 1	112BEE
 1	CA6DA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E328B
 0	4B800
 0	140A72
@@ -4196,18 +4066,6 @@ Start!
 0	A77AF
 0	3D884
 0	124617
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	8DC36
 1	122E14
 1	3E8A9
@@ -4577,18 +4435,6 @@ Start!
 1	130AFA
 1	576B1
 1	8C40A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AE5D9
 0	11F2C0
 0	56C50
@@ -4959,18 +4805,6 @@ Start!
 0	660FB
 0	5C5F2
 0	FF420
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	84D0E
 1	13824B
 1	54429
@@ -5340,18 +5174,6 @@ Start!
 1	D22AB
 1	5C53D
 1	6AEBA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	131C9A
 0	63806
 0	C0792
@@ -5723,18 +5545,6 @@ Start!
 0	1311A1
 0	66633
 0	10FCF1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	B7712
 1	10B491
 1	40C0A
@@ -6106,18 +5916,6 @@ Start!
 1	9CD76
 1	3FEDB
 1	118003
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DE843
 0	ED089
 0	4C349
@@ -6489,18 +6287,6 @@ Start!
 0	B3237
 0	11E133
 0	3CF3C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	A43B8
 1	A96EA
 1	112F07
@@ -6872,18 +6658,6 @@ Start!
 1	C5B53
 1	61D1D
 1	137917
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CBB3F
 0	10B3F3
 0	62166
@@ -7255,18 +7029,6 @@ Start!
 0	9A309
 0	13656C
 0	55071
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6CFA3
 1	B4C52
 1	1169AE
@@ -7639,18 +7401,6 @@ Start!
 1	123F34
 1	8C4
 1	12C231
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	91959
 0	12355A
 0	40671
@@ -8023,18 +7773,6 @@ Start!
 0	8BD81
 0	42221
 0	108F3C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5A298
 1	10C135
 1	AE4C6
@@ -8407,18 +8145,6 @@ Start!
 1	60662
 1	C3C15
 1	606AC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	6CA6E
 0	1329B2
 0	52C24
@@ -8790,18 +8516,6 @@ Start!
 0	FC9F6
 0	66AA5
 0	13E000
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	12F670
 1	9A3AB
 1	BBA7D
@@ -9174,18 +8888,6 @@ Start!
 1	11E0A5
 1	A5685
 1	119244
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	116DFD
 0	596B4
 0	12DDCF
@@ -9557,18 +9259,6 @@ Start!
 0	E0084
 0	754E3
 0	12D19C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	122112
 1	58201
 1	12B0CD
@@ -9941,18 +9631,6 @@ Start!
 1	1052FD
 1	63A43
 1	616C5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	13952F
 0	5A029
 0	111BED
@@ -10325,18 +10003,6 @@ Start!
 0	10C3E3
 0	57245
 0	12830E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	10C597
 1	5C13D
 1	12E77F
@@ -10708,18 +10374,6 @@ Start!
 1	B3229
 1	11A0AD
 1	3E1CC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	82445
 0	124BB0
 0	419AA
@@ -11092,18 +10746,6 @@ Start!
 0	B97E6
 0	3FAB0
 0	12B00A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	12E042
 1	62677
 1	BEE1D
@@ -11475,18 +11117,6 @@ Start!
 1	12B759
 1	755C9
 1	11B415
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	A6955
 0	10D570
 0	3DCE9
@@ -11859,18 +11489,6 @@ Start!
 0	FE8D3
 0	3E6D8
 0	1282A8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	12A326
 1	65D8D
 1	B713C
@@ -12242,18 +11860,6 @@ Start!
 1	127DEB
 1	D47E5
 1	EC679
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	95390
 0	7EAA0
 0	12E13D
@@ -12625,18 +12231,6 @@ Start!
 0	1288BC
 0	B5A8C
 0	10AB07
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	B1E03
 1	66591
 1	1361FF
@@ -13009,18 +12603,6 @@ Start!
 1	7E867
 1	9C29A
 1	58A37
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	79832
 0	9CA25
 0	11CB27
@@ -13392,18 +12974,6 @@ Start!
 0	3E24B
 0	125C99
 0	B6761
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	A91B8
 1	116330
 1	56B51
@@ -13773,18 +13343,6 @@ Start!
 1	139A1C
 1	66C97
 1	CC6FD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FCB62
 0	6414C
 0	12D203
@@ -14155,18 +13713,6 @@ Start!
 0	73566
 0	D6D51
 0	48403
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	66B7B
 1	ECCFA
 1	CA777
@@ -14540,18 +14086,6 @@ Start!
 1	12D885
 1	5DBC8
 1	C5377
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	1206D9
 0	41407
 0	FB249
@@ -14921,18 +14455,6 @@ Start!
 0	113CEE
 0	7D01F
 0	12B208
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4752A
 1	EAB3C
 1	DD292
@@ -15301,18 +14823,6 @@ Start!
 1	B03E6
 1	6E8CB
 1	5C79D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	60766
 0	BE803
 0	103B3C
@@ -15685,18 +15195,6 @@ Start!
 0	402A3
 0	8F418
 0	B55B4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3E990
 1	123DEB
 1	96F6F
@@ -16066,18 +15564,6 @@ Start!
 1	6146E
 1	13748A
 1	F82F4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3EB99
 0	125956
 0	93E56
@@ -16449,18 +15935,6 @@ Start!
 0	3C120
 0	11B56C
 0	A752F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F18E5
 1	40CC7
 1	129C2C
@@ -16832,18 +16306,6 @@ Start!
 1	12C3C3
 1	55C38
 1	F5616
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	55C19
 0	120ACE
 0	6F2A0
@@ -17214,18 +16676,6 @@ Start!
 0	6B4B1
 0	DF6A5
 0	D2B03
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	134CD0
 1	73FB0
 1	D9DC3
@@ -17597,18 +17047,6 @@ Start!
 1	C1E52
 1	8A263
 1	11B456
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	10F160
 0	A9FFF
 0	9730E
@@ -17980,18 +17418,6 @@ Start!
 0	D137E
 0	67B6A
 0	125CA3
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	44E0B
 1	E837C
 1	D66B9
@@ -18363,18 +17789,6 @@ Start!
 1	B3D10
 1	10987F
 1	124416
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3BCF2
 0	112FF6
 0	A6D87
@@ -18745,18 +18159,6 @@ Start!
 0	3D569
 0	105CAC
 0	B76A4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	B4A20
 1	62268
 1	133537
@@ -19127,18 +18529,6 @@ Start!
 1	C5ED9
 1	1345
 1	64446
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	12263C
 0	64FDB
 0	B0755
@@ -19509,18 +18899,6 @@ Start!
 0	102CF3
 0	6B94B
 0	12C0D6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	EB482
 1	CDD60
 1	56B8C
@@ -19891,18 +19269,6 @@ Start!
 1	6CEE3
 1	12D085
 1	57143
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	1320CF
 0	7B32A
 0	D45ED
@@ -20273,18 +19639,6 @@ Start!
 0	774DA
 0	130B28
 0	10878A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	12229A
 1	64662
 1	B16F3
@@ -20653,18 +20007,6 @@ Start!
 1	9381F
 1	1183C9
 1	107DD5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	10D3DD
 0	5F301
 0	129AEB
@@ -21034,18 +20376,6 @@ Start!
 0	131F51
 0	6689E
 0	C8495
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	83AF4
 1	13182D
 1	5BC99
@@ -21415,18 +20745,6 @@ Start!
 1	6190B
 1	13B578
 1	F7C37
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	6F13D
 0	B3026
 0	112E67
@@ -21795,18 +21113,6 @@ Start!
 0	80049
 0	11A73B
 0	53131
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	47AFF
 1	EA49D
 1	D9F33
@@ -22175,18 +21481,6 @@ Start!
 1	12BD84
 1	54824
 1	EFA82
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AC920
 0	100CC3
 0	3F88C
@@ -22554,18 +21848,6 @@ Start!
 0	7BB84
 0	414DA
 0	EDD4F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	C22A6
 1	FB476
 1	44F78
@@ -22933,18 +22215,6 @@ Start!
 1	89507
 1	F21BC
 1	47734
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	68838
 0	124470
 0	53536
@@ -23312,18 +22582,6 @@ Start!
 0	D4168
 0	11DC20
 0	46461
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	60558
 1	10DDF2
 1	A79AF
@@ -23691,18 +22949,6 @@ Start!
 1	5A4BB
 1	11840A
 1	922EA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	A5AB2
 0	99266
 0	1062EE
@@ -24070,18 +23316,6 @@ Start!
 0	B32C5
 0	8A4C0
 0	3CB99
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	1334EF
 1	6242F
 1	FC5B8
@@ -24449,18 +23683,6 @@ Start!
 1	133E8C
 1	FB750
 1	B64DA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DBE0B
 0	6A0FE
 0	11BDAA
@@ -24828,18 +24050,6 @@ Start!
 0	A5F6F
 0	56C74
 0	11B60A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	50FFE
 1	D8714
 1	EA246
@@ -25207,18 +24417,6 @@ Start!
 1	68D7A
 1	B2AE3
 1	5E2C6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E0104
 0	4079E
 0	12135E
@@ -25585,18 +24783,6 @@ Start!
 0	B9523
 0	580B3
 0	12AAD6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E71C0
 1	49B3F
 1	12F071
@@ -25963,18 +25149,6 @@ Start!
 1	116D8A
 1	A54D9
 1	134B63
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F1DD8
 0	BA65E
 0	5E04A
@@ -26343,18 +25517,6 @@ Start!
 0	877D6
 0	8C041
 0	120279
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F3E13
 1	4AE5F
 1	12FB4C
@@ -26722,18 +25884,6 @@ Start!
 1	D3157
 1	135F54
 1	75A88
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	439D2
 0	F02FE
 0	CDF3D
@@ -27101,18 +26251,6 @@ Start!
 0	3F37D
 0	10491C
 0	97913
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	71D35
 1	A2B0B
 1	1110F5
@@ -27479,18 +26617,6 @@ Start!
 1	57255
 1	D58CA
 1	7329F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	86DEF
 0	8938F
 0	11FBD6
@@ -27859,18 +26985,6 @@ Start!
 0	A861B
 0	10A5A9
 0	59D2A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	42733
 1	123242
 1	8E3B4
@@ -28238,18 +27352,6 @@ Start!
 1	44601
 1	124269
 1	9587C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	A1A7A
 0	709C3
 0	12A248
@@ -28617,18 +27719,6 @@ Start!
 0	D18AC
 0	4FC74
 0	6FCE9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	11300D
 1	A0268
 1	7F3CF
@@ -28996,18 +28086,6 @@ Start!
 1	720B9
 1	D0787
 1	5ACA1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5A93F
 0	10F0F9
 0	953F2
@@ -29374,18 +28452,6 @@ Start!
 0	12765C
 0	CAF35
 0	E5699
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4CF43
 1	12F661
 1	7FC1B
@@ -29753,18 +28819,6 @@ Start!
 1	43FD1
 1	B7CA8
 1	9A12C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F32C9
 0	3F841
 0	11BB57
@@ -30131,18 +29185,6 @@ Start!
 0	120F69
 0	500D1
 0	E3EC2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5E0B4
 1	11EF49
 1	69116
@@ -30508,18 +29550,6 @@ Start!
 1	7DDE3
 1	CC0FA
 1	E2EE5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FDCE4
 0	B8A25
 0	8C91F
@@ -30885,18 +29915,6 @@ Start!
 0	97513
 0	124E85
 0	58CDF
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FD275
 1	3E109
 1	112F70
@@ -31262,18 +30280,6 @@ Start!
 1	5CB19
 1	10F075
 1	7942A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	1290F7
 0	72B7D
 0	D5E89
@@ -31639,18 +30645,6 @@ Start!
 0	105287
 0	B0890
 0	10D1D1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	55E89
 1	12E2A3
 1	6CEC2
@@ -32015,18 +31009,6 @@ Start!
 1	C7502
 1	12ECF0
 1	6E1C8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	42FB6
 0	F0667
 0	C9181
@@ -32390,18 +31372,6 @@ Start!
 0	10DC5F
 0	40183
 0	B1E36
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	116C0B
 1	977DF
 1	884EF
@@ -32767,18 +31737,6 @@ Start!
 1	123715
 1	9C446
 1	1213A6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D3AF8
 0	4D53C
 0	128B2A
@@ -33142,18 +32100,6 @@ Start!
 0	105005
 0	C00000
 0	1249BB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F4478
 1	BADD1
 1	6114F
@@ -33517,18 +32463,6 @@ Start!
 1	1216A7
 1	6F891
 1	10BA73
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	1030C2
 0	9C4D6
 0	7455A
@@ -33892,18 +32826,6 @@ Start!
 0	103F1A
 0	986F5
 0	12395E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6EBE8
 1	11D245
 1	4F282
@@ -34267,18 +33189,6 @@ Start!
 1	5BCA6
 1	11AFC5
 1	9DE83
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5FCF4
 0	11DB37
 0	63703
@@ -34641,18 +33551,6 @@ Start!
 0	128F64
 0	F6299
 0	AD430
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6280E
 1	12A212
 1	61006
@@ -35016,18 +33914,6 @@ Start!
 1	4EB0F
 1	10FA73
 1	D3842
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	11357B
 0	4B4CF
 0	CC2D1
@@ -35390,18 +34276,6 @@ Start!
 0	517DC
 0	9DD3A
 0	65EC7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5680C
 1	F485D
 1	A0C80
@@ -35764,18 +34638,6 @@ Start!
 1	113810
 1	B2AE8
 1	E4D8E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	11E012
 0	6B788
 0	C7CFA
@@ -36138,18 +35000,6 @@ Start!
 0	F3485
 0	ACCC3
 0	817A4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4293C
 1	D8DE5
 1	CBA12
@@ -36511,18 +35361,6 @@ Start!
 1	114F19
 1	99CB8
 1	10D1FB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F9BE1
 0	375DF
 0	F40A7
@@ -36886,18 +35724,6 @@ Start!
 0	7B9A6
 0	FF754
 0	EAC1C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	8AFF5
 1	A0DC6
 1	ED9BF
@@ -37260,18 +36086,6 @@ Start!
 1	E3A4F
 1	5EA3F
 1	112E31
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	B89CD
 0	E4445
 0	58463
@@ -37635,18 +36449,6 @@ Start!
 0	8352A
 0	10948E
 0	FD87F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3F56F
 1	DB4D8
 1	C4CC8
@@ -38009,18 +36811,6 @@ Start!
 1	107AE6
 1	DD10B
 1	C0260
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FEC38
 0	7546C
 0	84872
@@ -38384,18 +37174,6 @@ Start!
 0	10C2FF
 0	54266
 0	B0C8B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DEA51
 1	B1F03
 1	5581F
@@ -38757,18 +37535,6 @@ Start!
 1	D1965
 1	C3FBE
 1	4CA20
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4A424
 0	1006EC
 0	691F7
@@ -39131,18 +37897,6 @@ Start!
 0	49C00
 0	F462C
 0	84331
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E837F
 1	57CE1
 1	10DFD4
@@ -39504,18 +38258,6 @@ Start!
 1	8FA32
 1	103C6B
 1	102654
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	411AF
 0	D1F3C
 0	C7B33
@@ -39878,18 +38620,6 @@ Start!
 0	54102
 0	AF745
 0	E6943
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D7D53
 1	3BE54
 1	110888
@@ -40251,18 +38981,6 @@ Start!
 1	DE2BD
 1	AF037
 1	11CB1E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DA532
 0	AD88F
 0	544F3
@@ -40624,18 +39342,6 @@ Start!
 0	10A6B5
 0	A27D9
 0	F3AD7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FEFF2
 1	7E409
 1	8026D
@@ -40997,18 +39703,6 @@ Start!
 1	110F9D
 1	B01C1
 1	EDE82
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AD166
 0	50DAF
 0	117D70
@@ -41370,18 +40064,6 @@ Start!
 0	DCCEA
 0	A39D6
 0	117876
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6BC69
 1	108C6C
 1	413AD
@@ -41742,18 +40424,6 @@ Start!
 1	74665
 1	4134B
 1	DF505
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C2622
 0	C45F0
 0	442E7
@@ -42115,18 +40785,6 @@ Start!
 0	B185E
 0	D29E1
 0	111E0E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4EE22
 1	102D45
 1	7743F
@@ -42487,18 +41145,6 @@ Start!
 1	527DB
 1	108D11
 1	89FC9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	B0C98
 0	7420B
 0	FE7B6
@@ -42860,18 +41506,6 @@ Start!
 0	A154C
 0	5044A
 0	1078BB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	9E9B1
 1	F6800
 1	4F90D
@@ -43232,18 +41866,6 @@ Start!
 1	BE794
 1	11BCEC
 1	6490E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CCFEA
 0	3E9F0
 0	11168D
@@ -43604,18 +42226,6 @@ Start!
 0	880D9
 0	37639
 0	F3D37
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	BBC5B
 1	D11E7
 1	41955
@@ -43975,18 +42585,6 @@ Start!
 1	8D6B9
 1	EDA09
 1	3A502
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4E6E0
 0	E9393
 0	95125
@@ -44347,18 +42945,6 @@ Start!
 0	5931C
 0	D25E9
 0	B050E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	104F8E
 1	498D0
 1	FA5CD
@@ -44717,18 +43303,6 @@ Start!
 1	11FE84
 1	66A96
 1	C0DE7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	77FEC
 0	10BD8B
 0	4AD95
@@ -45089,18 +43663,6 @@ Start!
 0	6D537
 0	110707
 0	EE00F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	37E57
 1	10528A
 1	88C84
@@ -45459,18 +44021,6 @@ Start!
 1	DF7BF
 1	1142D1
 1	7F5DD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	50753
 0	B3E13
 0	DFBCF
@@ -45831,18 +44381,6 @@ Start!
 0	529E6
 0	B1892
 0	56FCB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	CA8D5
 1	40532
 1	1120E1
@@ -46201,18 +44739,6 @@ Start!
 1	D223C
 1	BD8D0
 1	11AFB1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	9AF8F
 0	E5935
 0	384F1
@@ -46574,18 +45100,6 @@ Start!
 0	AA123
 0	51212
 0	56A78
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D84ED
 1	3969B
 1	108E3B
@@ -46944,18 +45458,6 @@ Start!
 1	D1527
 1	4BC79
 1	11A2CC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F03F3
 0	355D4
 0	EFE3D
@@ -47316,18 +45818,6 @@ Start!
 0	EA262
 0	35079
 0	F6EBF
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F7EBE
 1	7C5D0
 1	7BB1D
@@ -47687,18 +46177,6 @@ Start!
 1	4B300
 1	82725
 1	79887
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	74D7C
 0	FCC1C
 0	3A42F
@@ -48058,18 +46536,6 @@ Start!
 0	D700C
 0	59385
 0	4D5F6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	B0D05
 1	DC94A
 1	538E9
@@ -48429,18 +46895,6 @@ Start!
 1	49E83
 1	11556F
 1	C8BA8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	EE1CE
 0	34EC2
 0	EC880
@@ -48802,18 +47256,6 @@ Start!
 0	E293E
 0	89DFD
 0	10A8C3
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	90C0B
 1	89696
 1	EA9BF
@@ -49173,18 +47615,6 @@ Start!
 1	113ED7
 1	525A2
 1	9F99D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	354EF
 0	E1C24
 0	A7042
@@ -49547,18 +47977,6 @@ Start!
 0	AA312
 0	4A0FF
 0	10EBFC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6D999
 1	F8F00
 1	38AE8
@@ -49918,18 +48336,6 @@ Start!
 1	1151CD
 1	D8C38
 1	A73EC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FB978
 0	80B72
 0	92D2C
@@ -50292,18 +48698,6 @@ Start!
 0	89508
 0	F4E69
 0	F4106
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	9DDD7
 1	51D5F
 1	10E46E
@@ -50663,18 +49057,6 @@ Start!
 1	76CFE
 1	398BC
 1	DF229
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4A40F
 0	FB444
 0	5DAB9
@@ -51035,18 +49417,6 @@ Start!
 0	F5436
 0	8C971
 0	E2911
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	58AEB
 1	111F90
 1	50678
@@ -51406,18 +49776,6 @@ Start!
 1	F7A0C
 1	7160F
 1	3FD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F3BF9
 0	472AD
 0	F8733
@@ -51779,18 +50137,6 @@ Start!
 0	882A0
 0	F4D79
 0	F42E5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E473C
 1	91698
 1	61255
@@ -52150,18 +50496,6 @@ Start!
 1	500BA
 1	D932B
 1	9FD6B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5129E
 0	10F71B
 0	502BF
@@ -52524,18 +50858,6 @@ Start!
 0	E86A4
 0	6667E
 0	106AA6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4BC8E
 1	FC471
 1	58416
@@ -52896,18 +51218,6 @@ Start!
 1	D6E21
 1	6E6BE
 1	F8CEE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	33744
 0	FC606
 0	7D0D2
@@ -53269,18 +51579,6 @@ Start!
 0	B5163
 0	3E01F
 0	10AAC4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4F0CC
 1	DCCF1
 1	9BCFC
@@ -53640,18 +51938,6 @@ Start!
 1	F72D4
 1	48D0E
 1	F8E3F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3724E
 0	DA655
 0	AE310
@@ -54012,18 +52298,6 @@ Start!
 0	AADD6
 0	C68FF
 0	1087C3
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FFBFF
 1	4685F
 1	EDC01
@@ -54384,18 +52658,6 @@ Start!
 1	AA418
 1	DC817
 1	FEFD5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F849C
 0	3A99F
 0	CBFA5
@@ -54757,18 +53019,6 @@ Start!
 0	69210
 0	395BD
 0	D3107
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DC44F
 1	50A68
 1	100774
@@ -55128,18 +53378,6 @@ Start!
 1	56990
 1	E66CF
 1	4D4F8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F8EBF
 0	5A52B
 0	9416B
@@ -55500,18 +53738,6 @@ Start!
 0	DDC05
 0	4B3E7
 0	FA8E5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3E277
 1	C5D93
 1	C1E6D
@@ -55870,18 +54096,6 @@ Start!
 1	D89DD
 1	38EC1
 1	7CB7E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4788D
 0	F66CE
 0	5CA62
@@ -56242,18 +54456,6 @@ Start!
 0	68EA4
 0	A69F7
 0	385F0
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	104BDC
 1	6D282
 1	A5E6B
@@ -56613,18 +54815,6 @@ Start!
 1	E52CD
 1	A1F30
 1	787F9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	36ABD
 0	10156C
 0	73921
@@ -56984,18 +55174,6 @@ Start!
 0	3488C
 0	DE28B
 0	A451F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E65DA
 1	33084
 1	EAE3A
@@ -57355,18 +55533,6 @@ Start!
 1	54DAC
 1	FEE80
 1	B08CE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	94D7A
 0	7E1B9
 0	E867A
@@ -57727,18 +55893,6 @@ Start!
 0	B85F2
 0	60D10
 0	3BAFC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D9A29
 1	A7A0E
 1	6E201
@@ -58098,18 +56252,6 @@ Start!
 1	8FD8F
 1	499F9
 1	F961D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	A2B17
 0	DBADE
 0	4B55F
@@ -58470,18 +56612,6 @@ Start!
 0	60BC2
 0	104F17
 0	DAAC6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	9B695
 1	4FDAA
 1	10A497
@@ -58841,18 +56971,6 @@ Start!
 1	66338
 1	F7BD8
 1	CC7E9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	103DE8
 0	46C48
 0	E4546
@@ -59213,18 +57331,6 @@ Start!
 0	AAA99
 0	68E73
 0	F1E09
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	60BC3
 1	108BFA
 1	491EF
@@ -59584,18 +57690,6 @@ Start!
 1	F9559
 1	3D839
 1	BC010
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4CE16
 0	CB76E
 0	9C6E5
@@ -59956,18 +58050,6 @@ Start!
 0	EDE13
 0	F01DA
 0	66672
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4ABC0
 1	AFCD5
 1	D7146
@@ -60326,18 +58408,6 @@ Start!
 1	F9FB3
 1	3E7C9
 1	C2EDD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	96D49
 0	782C4
 0	E9AA0
@@ -60698,18 +58768,6 @@ Start!
 0	FF7E3
 0	9F4F4
 0	C9B3D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	85408
 1	F3411
 1	43CD4
@@ -61068,18 +59126,6 @@ Start!
 1	EDB7F
 1	E0C3F
 1	A231F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DEA96
 0	821D2
 0	63615
@@ -61439,18 +59485,6 @@ Start!
 0	47685
 0	F515B
 0	8CD8F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	98E15
 1	E7F2D
 1	490FE
@@ -61809,18 +59843,6 @@ Start!
 1	69EF7
 1	86734
 1	F66C2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	428B3
 0	E6108
 0	7620D
@@ -62180,18 +60202,6 @@ Start!
 0	E418C
 0	F3C31
 0	5A940
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	32BEB
 1	E85F3
 1	9610A
@@ -62550,18 +60560,6 @@ Start!
 1	AC504
 1	10CF05
 1	57A45
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F6573
 0	50CD4
 0	9DCD9
@@ -62921,18 +60919,6 @@ Start!
 0	79116
 0	E79A8
 0	E3FDE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	10DB13
 1	50973
 1	D5603
@@ -63288,18 +61274,6 @@ Start!
 1	500B6
 1	DAFCE
 1	53BA6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	B0441
 0	46265
 0	10B1BF
@@ -63656,18 +61630,6 @@ Start!
 0	4CA6E
 0	5316D
 0	9FC28
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	67C27
 1	ABB66
 1	C5484
@@ -64023,18 +61985,6 @@ Start!
 1	633AD
 1	4B7EE
 1	DE872
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	76679
 0	78E8E
 0	FF1FC
@@ -64390,18 +62340,6 @@ Start!
 0	4A3EC
 0	F91A8
 0	8BE44
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	CBBEC
 1	B8D94
 1	63ADE
@@ -64757,18 +62695,6 @@ Start!
 1	C692C
 1	10D307
 1	6D80B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FFCE9
 0	48859
 0	B8180
@@ -65124,18 +63050,6 @@ Start!
 0	69D7B
 0	C8BEA
 0	3C701
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D2F86
 1	B4CF9
 1	6A2C3
@@ -65491,18 +63405,6 @@ Start!
 1	10F0C4
 1	60AFB
 1	BAA32
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	561B0
 0	A66FE
 0	E4D97
@@ -65858,18 +63760,6 @@ Start!
 0	F496C
 0	DFC91
 0	AB54B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	AAC30
 1	CF4B2
 1	3BA64
@@ -66223,18 +64113,6 @@ Start!
 1	4F039
 1	E9DD4
 1	9067E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FBBFF
 0	8C5E6
 0	96E84
@@ -66589,18 +64467,6 @@ Start!
 0	512EB
 0	ABE8F
 0	544E1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FF527
 1	5198C
 1	AA09B
@@ -66955,18 +64821,6 @@ Start!
 1	ED4A8
 1	835DA
 1	105FF2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4A273
 0	F64D6
 0	6882A
@@ -67322,18 +65176,6 @@ Start!
 0	C5861
 0	AEC20
 0	10DD6D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6FA83
 1	AD9CA
 1	CAE54
@@ -67686,18 +65528,6 @@ Start!
 1	EA266
 1	54345
 1	5F274
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3BE5B
 0	106B3D
 0	778B0
@@ -68053,18 +65883,6 @@ Start!
 0	96A3A
 0	10CD91
 0	50C13
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FD184
 1	55D3C
 1	A1D3E
@@ -68417,18 +66235,6 @@ Start!
 1	95B63
 1	8940C
 1	3698A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	63AA1
 0	10E511
 0	5125D
@@ -68784,18 +66590,6 @@ Start!
 0	4B793
 0	D3E08
 0	55F2C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	894F0
 1	E7F63
 1	36E13
@@ -69150,18 +66944,6 @@ Start!
 1	A405E
 1	D4A0A
 1	102F29
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FD812
 0	7B25E
 0	9AB0E
@@ -69517,18 +67299,6 @@ Start!
 0	3587B
 0	F53D4
 0	9035C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	64310
 1	FC787
 1	40714
@@ -69882,18 +67652,6 @@ Start!
 1	B72FF
 1	D246A
 1	101937
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FF1F6
 0	52946
 0	A5B71
@@ -70249,18 +68007,6 @@ Start!
 0	FA16B
 0	3D5C5
 0	C65E7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	7C7A3
 1	9CBC2
 1	D8A51
@@ -70616,18 +68362,6 @@ Start!
 1	1094CE
 1	4F089
 1	9B43D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	51E5D
 0	A083C
 0	DD184
@@ -70983,18 +68717,6 @@ Start!
 0	F53F8
 0	3885F
 0	ABD2B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	7998E
 1	9ECEC
 1	D5759
@@ -71351,18 +69073,6 @@ Start!
 1	10A66D
 1	C6A83
 1	AEEC7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	87AFF
 0	F040F
 0	477C2
@@ -71717,18 +69427,6 @@ Start!
 0	F1970
 0	373E5
 0	D2EF0
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	542B2
 1	D3E6B
 1	A4037
@@ -72080,18 +69778,6 @@ Start!
 1	DBA55
 1	580BE
 1	54E7B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	444A4
 0	10DB75
 0	68D37
@@ -72444,18 +70130,6 @@ Start!
 0	82903
 0	1041C6
 0	4AF78
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F6449
 1	6EC29
 1	827DE
@@ -72806,18 +70480,6 @@ Start!
 1	5A23B
 1	107E56
 1	8DF53
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C4BFB
 0	D050F
 0	64A31
@@ -73168,18 +70830,6 @@ Start!
 0	37A3E
 0	87CFF
 0	95138
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5F27C
 1	986EC
 1	ED74E
@@ -73529,18 +71179,6 @@ Start!
 1	D0A83
 1	4E49A
 1	1140BE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F5105
 0	7277A
 0	80A79
@@ -73891,18 +71529,6 @@ Start!
 0	4B65D
 0	818D5
 0	7036D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5782B
 1	FF12A
 1	4ED81
@@ -74252,18 +71878,6 @@ Start!
 1	107FDE
 1	F81E7
 1	82B9E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F0C1E
 0	4CA80
 0	F9DC4
@@ -74615,18 +72229,6 @@ Start!
 0	10B498
 0	CAC9F
 0	ACE3D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	1125FD
 1	6FCC9
 1	C3BE1
@@ -74976,18 +72578,6 @@ Start!
 1	3EA69
 1	B1578
 1	84683
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3BBAD
 0	104723
 0	7820A
@@ -75337,18 +72927,6 @@ Start!
 0	D9B26
 0	38C74
 0	7F0C7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FDD5C
 1	59A11
 1	9E3A5
@@ -75698,18 +73276,6 @@ Start!
 1	109D85
 1	56D10
 1	E19E4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DD115
 0	9B50A
 0	5BFD2
@@ -76060,18 +73626,6 @@ Start!
 0	E89FC
 0	84261
 0	103A20
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	92907
 1	E2312
 1	377B4
@@ -76422,18 +73976,6 @@ Start!
 1	A5253
 1	E2355
 1	3BEF1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	67E71
 0	FB7D7
 0	40025
@@ -76784,18 +74326,6 @@ Start!
 0	A3CEF
 0	39FE5
 0	102164
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	CC492
 1	3D3FE
 1	105C53
@@ -77147,18 +74677,6 @@ Start!
 1	80802
 1	7841D
 1	104DA5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	80BBD
 0	6E747
 0	101169
@@ -77510,18 +75028,6 @@ Start!
 0	483AD
 0	CCFF0
 0	5A27E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	949C6
 1	ECEEE
 1	4CBDB
@@ -77871,18 +75377,6 @@ Start!
 1	DFDBE
 1	AB082
 1	78EC2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E608F
 0	9D485
 0	7F9EB
@@ -78234,18 +75728,6 @@ Start!
 0	105093
 0	4CB98
 0	8D677
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	BED9C
 1	65634
 1	FBCDD
@@ -78596,18 +76078,6 @@ Start!
 1	F9319
 1	4CF70
 1	73A8C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CC2D4
 0	B337E
 0	4DBDE
@@ -78957,18 +76427,6 @@ Start!
 0	9D9F4
 0	3806E
 0	FD569
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	51094
 1	A6B4F
 1	D9376
@@ -79318,18 +76776,6 @@ Start!
 1	B153B
 1	111F1E
 1	60385
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AA5CB
 0	DDB55
 0	55F1D
@@ -79679,18 +77125,6 @@ Start!
 0	42F93
 0	10632C
 0	BCAFD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6CFE0
 1	1020D8
 1	4A221
@@ -80040,18 +77474,6 @@ Start!
 1	D285F
 1	BFC0E
 1	1007D9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CBC47
 0	57E06
 0	FB316
@@ -80402,18 +77824,6 @@ Start!
 0	E3880
 0	9D7BE
 0	ECCC7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	AC1E6
 1	D7CB5
 1	55380
@@ -80764,18 +78174,6 @@ Start!
 1	A7C8B
 1	7F574
 1	F6445
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D3505
 0	573B6
 0	FD760
@@ -81126,18 +78524,6 @@ Start!
 0	9C88C
 0	7B230
 0	EBC4A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D88A7
 1	570DF
 1	1005D7
@@ -81487,18 +78873,6 @@ Start!
 1	DB207
 1	7BAA6
 1	105EE9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F04E9
 0	52941
 0	1006E8
@@ -81849,18 +79223,6 @@ Start!
 0	D52A9
 0	5CC51
 0	4FC71
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	109F30
 1	506CD
 1	DF26C
@@ -82210,18 +79572,6 @@ Start!
 1	71D12
 1	5559A
 1	EF816
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E0D6C
 0	C4187
 0	7EE5D
@@ -82571,18 +79921,6 @@ Start!
 0	43941
 0	C1D1E
 0	73D70
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	47A5D
 1	111969
 1	708E7
@@ -82932,18 +80270,6 @@ Start!
 1	E1ECA
 1	11109B
 1	8A4EB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	732FA
 0	88EDF
 0	FE9F8
@@ -83293,18 +80619,6 @@ Start!
 0	FA63E
 0	7D381
 0	104B28
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	10232E
 1	42C35
 1	D9D18
@@ -83654,18 +80968,6 @@ Start!
 1	71E81
 1	50735
 1	CD8BF
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	BFFD7
 0	CA9FD
 0	45A09
@@ -84015,18 +81317,6 @@ Start!
 0	6BCF7
 0	C390E
 0	45788
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	B9A33
 1	75AD8
 1	FF252
@@ -84377,18 +81667,6 @@ Start!
 1	99432
 1	F2793
 1	42C12
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	88695
 0	FE93D
 0	40AFA
@@ -84738,18 +82016,6 @@ Start!
 0	B1552
 0	D7D97
 0	40671
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	61B07
 1	FF621
 1	47026
@@ -85099,18 +82365,6 @@ Start!
 1	C6A29
 1	104210
 1	47147
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	61CE1
 0	C3FBF
 0	B78E9
@@ -85461,18 +82715,6 @@ Start!
 0	7D653
 0	A05C1
 0	38FE8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	108026
 1	78B0D
 1	AEA34
@@ -85823,18 +83065,6 @@ Start!
 1	C2A49
 1	6D01D
 1	10065D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CA482
 0	C347E
 0	675BE
@@ -86185,18 +83415,6 @@ Start!
 0	6B6BE
 0	4C74B
 0	E6D9F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	38665
 1	F552B
 1	957FF
@@ -86546,18 +83764,6 @@ Start!
 1	D1E1A
 1	B5622
 1	112CF2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	101BC9
 0	4E3C8
 0	F0A9C
@@ -86908,18 +84114,6 @@ Start!
 0	97F18
 0	E9556
 0	4D8A0
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	10059E
 1	480D4
 1	BD534
@@ -87270,18 +84464,6 @@ Start!
 1	7AF34
 1	3FE88
 1	DDB6C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AA6EF
 0	764B9
 0	F6B4B
@@ -87632,18 +84814,6 @@ Start!
 0	C5903
 0	C4EFF
 0	62816
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E068D
 1	9C492
 1	5D796
@@ -87993,18 +85163,6 @@ Start!
 1	7B1EA
 1	AB25D
 1	D637A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	39BD6
 0	DDE98
 0	AC9E5
@@ -88354,18 +85512,6 @@ Start!
 0	7C879
 0	37E18
 0	E3344
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	78299
 1	A8618
 1	D4696
@@ -88715,18 +85861,6 @@ Start!
 1	5EFC5
 1	10F005
 1	DDF51
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	436A1
 0	C2636
 0	C56F5
@@ -89076,18 +86210,6 @@ Start!
 0	A746E
 0	D08AF
 0	3B3C1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	1024D2
 1	4C4A6
 1	EC077
@@ -89438,18 +86560,6 @@ Start!
 1	B3168
 1	5E
 1	106A92
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4545B
 0	10C8EF
 0	67E82
@@ -89800,18 +86910,6 @@ Start!
 0	53B04
 0	A8ACE
 0	551DF
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E3E60
 1	A0BA8
 1	609DA
@@ -90161,18 +87259,6 @@ Start!
 1	6F24B
 1	1067E8
 1	CCFEF
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	104EA5
 0	4E8BF
 0	EAC1A
@@ -90523,18 +87609,6 @@ Start!
 0	D845F
 0	70945
 0	F391C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3E1C7
 1	10775B
 1	7D966
@@ -90884,18 +87958,6 @@ Start!
 1	D82B3
 1	3CAF9
 1	80D06
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D2902
 0	5C9A6
 0	10039C
@@ -91246,18 +88308,6 @@ Start!
 0	64CC4
 0	4F55C
 0	DF56E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F5CEA
 1	3B186
 1	D98C9
@@ -91606,18 +88656,6 @@ Start!
 1	DBD36
 1	59C38
 1	55995
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	6F215
 0	84B12
 0	F916A
@@ -91968,18 +89006,6 @@ Start!
 0	F9603
 0	678BE
 0	F11DE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F324F
 1	4ECA6
 1	F97D5
@@ -92330,18 +89356,6 @@ Start!
 1	F4874
 1	52485
 1	6CB9F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	6D754
 0	8500A
 0	F73B3
@@ -92691,18 +89705,6 @@ Start!
 0	4CC45
 0	F349F
 0	7A371
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6A6FF
 1	107E5E
 1	4E94F
@@ -93052,18 +90054,6 @@ Start!
 1	7EAC7
 1	7DE71
 1	50985
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	56556
 0	FBE03
 0	4EAA1
@@ -93414,18 +90404,6 @@ Start!
 0	A99DE
 0	72F28
 0	3A9F2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	37FC1
 1	EED58
 1	9A194
@@ -93775,18 +90753,6 @@ Start!
 1	879E8
 1	383F5
 1	E8420
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C8C89
 0	59DB3
 0	FAADF
@@ -94136,18 +91102,6 @@ Start!
 0	5A5E3
 0	962D8
 0	4C398
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	497D6
 1	E7456
 1	80C65
@@ -94498,18 +91452,6 @@ Start!
 1	501F7
 1	DAF73
 1	98916
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4FE93
 0	10B6AD
 0	58956
@@ -94859,18 +91801,6 @@ Start!
 0	A66D3
 0	4CDC9
 0	56C9E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	65B5B
 1	B0215
 1	BF370
@@ -95220,18 +92150,6 @@ Start!
 1	1069F9
 1	699BF
 1	C59CD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C812B
 0	39A95
 0	FEA8C
@@ -95582,18 +92500,6 @@ Start!
 0	A6BF0
 0	3994E
 0	FF7CA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	9E3C1
 1	78CC7
 1	EDEC3
@@ -95943,18 +92849,6 @@ Start!
 1	40366
 1	C6332
 1	64E5A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FBB5E
 0	5A459
 0	9C5E3
@@ -96304,18 +93198,6 @@ Start!
 0	556AF
 0	F76AA
 0	AA669
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D38D8
 1	B4180
 1	6DF02
@@ -96666,18 +93548,6 @@ Start!
 1	37074
 1	F2E2A
 1	8FC2D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C08FC
 0	B0FC6
 0	4670C
@@ -97028,18 +93898,6 @@ Start!
 0	484ED
 0	7AE30
 0	70BE2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	C5792
 1	5D3AF
 1	FB415
@@ -97389,18 +94247,6 @@ Start!
 1	38C60
 1	A2DEC
 1	78001
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E9032
 0	36CD8
 0	E8169
@@ -97750,18 +94596,6 @@ Start!
 0	8B4F0
 0	E28D3
 0	3411D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DFF17
 1	A0380
 1	7879F
@@ -98111,18 +94945,6 @@ Start!
 1	DB442
 1	36E54
 1	84C02
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5B519
 0	BC25D
 0	AF2E4
@@ -98473,18 +95295,6 @@ Start!
 0	101D3F
 0	4A3F1
 0	DA0C4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3D785
 1	A1FD2
 1	C020A
@@ -98837,18 +95647,6 @@ Start!
 1	890A9
 1	320FE
 1	EC999
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4D7DA
 0	F638B
 0	5BDB2
@@ -99198,18 +95996,6 @@ Start!
 0	6944F
 0	A60A7
 0	C1259
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E777C
 1	89991
 1	82131
@@ -99559,18 +96345,6 @@ Start!
 1	6E44B
 1	F4127
 1	4A010
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	9DA3B
 0	53DEE
 0	107BBB
@@ -99920,18 +96694,6 @@ Start!
 0	649A0
 0	385A2
 0	C7138
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	47D7F
 1	D5032
 1	8A54A
@@ -100281,18 +97043,6 @@ Start!
 1	DA593
 1	4FFBD
 1	F8046
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	348C4
 0	EBA2B
 0	908A0
@@ -100643,18 +97393,6 @@ Start!
 0	9EA82
 0	4B580
 0	50CF0
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	56ABE
 1	F2172
 1	4209C
@@ -101004,18 +97742,6 @@ Start!
 1	7BB13
 1	9F674
 1	D43A4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	9B384
 0	E0B8A
 0	4D6F6
@@ -101365,18 +98091,6 @@ Start!
 0	D6B78
 0	EE87A
 0	81F4E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E2BB1
 1	850B0
 1	6774A
@@ -101726,18 +98440,6 @@ Start!
 1	DB7DC
 1	FBF65
 1	57793
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E18B0
 0	A045F
 0	7837B
@@ -102088,18 +98790,6 @@ Start!
 0	34F1B
 0	F5995
 0	928BF
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	96C77
 1	CFC48
 1	3547F
@@ -102449,18 +99139,6 @@ Start!
 1	F34D3
 1	8FB02
 1	E5465
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	32A49
 0	E7BFB
 0	8C3A1
@@ -102810,18 +99488,6 @@ Start!
 0	9B63F
 0	36624
 0	F7CCD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	649B8
 1	AF56B
 1	BCFE2
@@ -103171,18 +99837,6 @@ Start!
 1	A4972
 1	109BE6
 1	58CFA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F772A
 0	646B5
 0	8E291
@@ -103533,18 +100187,6 @@ Start!
 0	6CF7A
 0	EEB50
 0	D0843
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	10594B
 1	5839B
 1	C2897
@@ -103894,18 +100536,6 @@ Start!
 1	70389
 1	F5DCD
 1	4BC86
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F507C
 0	411D5
 0	BC523
@@ -104255,18 +100885,6 @@ Start!
 0	A52FE
 0	6D6C1
 0	3880C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3712F
 1	E4561
 1	9E0A1
@@ -104617,18 +101235,6 @@ Start!
 1	CD190
 1	106D52
 1	753C4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F9D4A
 0	5A6CA
 0	9BA98
@@ -104979,18 +101585,6 @@ Start!
 0	924EA
 0	D52F9
 0	F2E7B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E96D4
 1	48CA7
 1	F08F5
@@ -105340,18 +101934,6 @@ Start!
 1	3CF88
 1	B1C41
 1	71FDD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	BE943
 0	403F3
 0	1033E8
@@ -105701,18 +102283,6 @@ Start!
 0	4C509
 0	8B7C0
 0	5FD57
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DDBE0
 1	4F3C9
 1	F7E28
@@ -106063,18 +102633,6 @@ Start!
 1	3CF9D
 1	ACEB0
 1	7AF1D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	76EEF
 0	759AF
 0	F6B95
@@ -106424,18 +102982,6 @@ Start!
 0	84399
 0	34D2C
 0	E7211
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4BAA8
 1	F1D10
 1	55D6F
@@ -106785,18 +103331,6 @@ Start!
 1	A1AA7
 1	825F6
 1	3BDE7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3F351
 0	101491
 0	62C80
@@ -107147,18 +103681,6 @@ Start!
 0	9CE8B
 0	102DD7
 0	50D08
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DD347
 1	7AA65
 1	680DD
@@ -107508,18 +104030,6 @@ Start!
 1	F2E85
 1	F6E8B
 1	6D030
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CBD7F
 0	A9898
 0	64B3F
@@ -107869,18 +104379,6 @@ Start!
 0	D2F8E
 0	EE440
 0	7F3A9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	95B8A
 1	CB968
 1	35632
@@ -108230,18 +104728,6 @@ Start!
 1	F7F66
 1	7983F
 1	D497D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DB631
 0	3289F
 0	E4E63
@@ -108591,18 +105077,6 @@ Start!
 0	80B20
 0	D7484
 0	3332D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F9F84
 1	654DF
 1	A13F4
@@ -108952,18 +105426,6 @@ Start!
 1	9991C
 1	104FE0
 1	519BD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F4185
 0	4F3B0
 0	A1914
@@ -109314,18 +105776,6 @@ Start!
 0	689E4
 0	EA505
 0	CCABB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F4437
 1	70175
 1	954D7
@@ -109676,18 +106126,6 @@ Start!
 1	9310A
 1	100AE0
 1	4D662
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F06B8
 0	43063
 0	B1257
@@ -110037,18 +106475,6 @@ Start!
 0	79332
 0	8E585
 0	33D4B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	8D42D
 1	E4B18
 1	46D69
@@ -110398,18 +106824,6 @@ Start!
 1	D820F
 1	F8F72
 1	81DF8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F4318
 0	3D3B2
 0	CA9C3
@@ -110760,18 +107174,6 @@ Start!
 0	CEDB1
 0	963D7
 0	1029CE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	A2FB6
 1	76505
 1	ED97A
@@ -111122,18 +107524,6 @@ Start!
 1	6458D
 1	C15A5
 1	B820F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	BCD4D
 0	C7BDB
 0	5E163
@@ -111484,18 +107874,6 @@ Start!
 0	45769
 0	10332A
 0	B99C6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DA41F
 1	3A8B6
 1	F97E6
@@ -111846,18 +108224,6 @@ Start!
 1	FB11D
 1	C6AE5
 1	C41B3
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E142C
 0	34334
 0	E3781
@@ -112209,18 +108575,6 @@ Start!
 0	F39A5
 0	BF62C
 0	C126F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F6A51
 1	455C1
 1	B4A63
@@ -112570,18 +108924,6 @@ Start!
 1	540EA
 1	DBDD7
 1	5A8F5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F2BB5
 0	7DC1B
 0	919FD
@@ -112932,18 +109274,6 @@ Start!
 0	69DAD
 0	FA7EC
 0	DDA00
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F4130
 1	3C9BB
 1	D12CF
@@ -113293,18 +109623,6 @@ Start!
 1	6D015
 1	C49CB
 1	4186E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C92B6
 0	628FD
 0	FB190
@@ -113654,18 +109972,6 @@ Start!
 0	3D3FF
 0	67678
 0	AB1BD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F5CC1
 1	4DCFF
 1	A5E24
@@ -114015,18 +110321,6 @@ Start!
 1	A15AE
 1	DD49A
 1	3D321
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E15E2
 0	55E65
 0	FC749
@@ -114376,18 +110670,6 @@ Start!
 0	38592
 0	790AA
 0	9B580
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3D2C8
 1	C72EA
 1	B8101
@@ -114738,18 +111020,6 @@ Start!
 1	900D4
 1	6D01B
 1	5487A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DBB5D
 0	958DE
 0	5EF5F
@@ -115100,18 +111370,6 @@ Start!
 0	7F421
 0	E7726
 0	E180C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E491F
 1	4E7FD
 1	F6968
@@ -115462,18 +111720,6 @@ Start!
 1	1003F0
 1	885EB
 1	E4701
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	42D01
 0	C9B08
 0	BFC49
@@ -115824,18 +112070,6 @@ Start!
 0	76167
 0	F6F35
 0	495A5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5A401
 1	9DA86
 1	E0D22
@@ -116186,18 +112420,6 @@ Start!
 1	7C673
 1	7DEBA
 1	51278
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	EED02
 0	3990A
 0	D4513
@@ -116548,18 +112770,6 @@ Start!
 0	6F29A
 0	3A51F
 0	CE27E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	C2985
 1	AB8F4
 1	4C026
@@ -116909,18 +113119,6 @@ Start!
 1	6E2D3
 1	BE2A2
 1	45216
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F672D
 0	4D09F
 0	EDB23
@@ -117270,18 +113468,6 @@ Start!
 0	53F34
 0	C00000
 0	CCD70
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	67A6B
 1	104572
 1	50112
@@ -117631,18 +113817,6 @@ Start!
 1	C3416
 1	46FF0
 1	715DD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E77F8
 0	8DE7D
 0	6D0A0
@@ -117992,18 +114166,6 @@ Start!
 0	4BB49
 0	8F412
 0	5E95A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	6F097
 1	FC11F
 1	43533
@@ -118354,18 +114516,6 @@ Start!
 1	7B1F6
 1	F8A57
 1	DC7D8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	53438
 0	F9F1A
 0	6C88F
@@ -118716,18 +114866,6 @@ Start!
 0	EAB0B
 0	385E7
 0	A3798
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	CBB22
 1	38648
 1	F7CCC
@@ -119078,18 +115216,6 @@ Start!
 1	5E5B6
 1	E441B
 1	5714B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F1460
 0	8053C
 0	91720
@@ -119440,18 +115566,6 @@ Start!
 0	DA91D
 0	4CEEC
 0	F1CA8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	87549
 1	8D232
 1	DC30D
@@ -119802,18 +115916,6 @@ Start!
 1	F25C0
 1	F5943
 1	6D888
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	7FD84
 0	E332E
 0	387C1
@@ -120164,18 +116266,6 @@ Start!
 0	4947C
 0	6A0ED
 0	81F4D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E9D60
 1	3AC60
 1	E7988
@@ -120526,18 +116616,6 @@ Start!
 1	FDB81
 1	5EFF9
 1	E3E2D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	A7376
 0	4A30C
 0	101F07
@@ -120887,18 +116965,6 @@ Start!
 0	E2D40
 0	E7C00
 0	93423
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	68BE2
 1	1041F3
 1	51037
@@ -121248,18 +117314,6 @@ Start!
 1	3CBB6
 1	829C3
 1	A0100
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	DF8BA
 0	52C45
 0	F7291
@@ -121610,18 +117664,6 @@ Start!
 0	4EAC5
 0	DA5C0
 0	6047E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	8F2F6
 1	DE896
 1	37914
@@ -121972,18 +118014,6 @@ Start!
 1	100370
 1	CA673
 1	C2A3E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	9A86D
 0	EC096
 0	56D6A
@@ -122334,18 +118364,6 @@ Start!
 0	F2301
 0	4A734
 0	EAA33
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	709CC
 1	A8587
 1	CA22C
@@ -122696,18 +118714,6 @@ Start!
 1	63FAF
 1	FBECA
 1	4B16C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C5A18
 0	A4F6B
 0	4DB99
@@ -123058,18 +119064,6 @@ Start!
 0	C6429
 0	FD45A
 0	6FB17
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	1026BB
 1	69E8C
 1	B4F82
@@ -123419,18 +119413,6 @@ Start!
 1	524E2
 1	E399B
 1	67690
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E13E9
 0	34084
 0	D5DF7
@@ -123781,18 +119763,6 @@ Start!
 0	3ACF9
 0	5FBA7
 0	A676A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4ACFF
 1	DAB7A
 1	83F9E
@@ -124143,18 +120113,6 @@ Start!
 1	E3A17
 1	793AF
 1	F53FB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	55A1D
 0	949D2
 0	D804D
@@ -124505,18 +120463,6 @@ Start!
 0	38811
 0	A7B88
 0	665D5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4BCE1
 1	CD1B7
 1	8E9B2
@@ -124867,18 +120813,6 @@ Start!
 1	F330C
 1	487DB
 1	AFAAB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	427F7
 0	FE6B7
 0	5B033
@@ -125229,18 +121163,6 @@ Start!
 0	F58FB
 0	DA91D
 0	7DADE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	EC971
 1	705F2
 1	7F74A
@@ -125592,18 +121514,6 @@ Start!
 1	73746
 1	809F1
 1	4D0D6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	7E8A1
 0	E7E4F
 0	441DB
@@ -125954,18 +121864,6 @@ Start!
 0	E2C99
 0	E8649
 0	60189
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F22B9
 1	4CAB6
 1	A7B74
@@ -126316,18 +122214,6 @@ Start!
 1	F866C
 1	C52C1
 1	BF41C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F760E
 0	6CB4E
 0	A15B2
@@ -126678,18 +122564,6 @@ Start!
 0	F396F
 0	E0D27
 0	741F0
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DA4CE
 1	35BE6
 1	E656F
@@ -127039,18 +122913,6 @@ Start!
 1	A3DE9
 1	105CDB
 1	57FD3
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AF63C
 0	621B5
 0	EC95D
@@ -127400,18 +123262,6 @@ Start!
 0	7D0C7
 0	8D988
 0	34E83
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	BFAE9
 1	A7A16
 1	49D58
@@ -127761,18 +123611,6 @@ Start!
 1	89BA0
 1	FF30F
 1	507C2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C3846
 0	62F5A
 0	F79A7
@@ -128123,18 +123961,6 @@ Start!
 0	9B4C8
 0	C3864
 0	F6DD4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4CF58
 1	AA2BD
 1	D0265
@@ -128485,18 +124311,6 @@ Start!
 1	3A8F0
 1	87CA6
 1	935F1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4904B
 0	DA2B7
 0	7FE73
@@ -128847,18 +124661,6 @@ Start!
 0	EC9A5
 0	5A5F2
 0	DC8DD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4283C
 1	B8CD3
 1	C054C
@@ -129210,18 +125012,6 @@ Start!
 1	DD3F0
 1	7BB2C
 1	EA6BD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	CA2D4
 0	8AE4E
 0	56707
@@ -129572,18 +125362,6 @@ Start!
 0	C00000
 0	A6615
 0	C8A09
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FADBB
 1	5240F
 1	B99D6
@@ -129934,18 +125712,6 @@ Start!
 1	4B194
 1	6AEBA
 1	82D23
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	3A11A
 0	BF3B6
 0	AE70C
@@ -130295,18 +126061,6 @@ Start!
 0	31C5A
 0	DBF9F
 0	7C3FD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	100032
 1	62BEA
 1	B5FCB
@@ -130656,18 +126410,6 @@ Start!
 1	101487
 1	D4C99
 1	92440
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D6CB3
 0	4E49C
 0	82ACA
@@ -131018,18 +126760,6 @@ Start!
 0	DF035
 0	7FB93
 0	DBF0F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4A055
 1	104F85
 1	60CAD
@@ -131379,18 +127109,6 @@ Start!
 1	3EAB6
 1	AFCAE
 1	70474
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F3F9E
 0	7C459
 0	98D41
@@ -131741,18 +127459,6 @@ Start!
 0	F11AE
 0	4AF50
 0	733D4
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D18DB
 1	57D31
 1	F7BA7
@@ -132103,18 +127809,6 @@ Start!
 1	65429
 1	C5C60
 1	4A8A1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4E7EC
 0	EF56E
 0	719DE
@@ -132465,18 +128159,6 @@ Start!
 0	A3941
 0	C771B
 0	FA775
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	EFAC7
 1	689EC
 1	890C0
@@ -132826,18 +128508,6 @@ Start!
 1	B4622
 1	4727E
 1	61D6C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4C217
 0	AF108
 0	CCF80
@@ -133188,18 +128858,6 @@ Start!
 0	59BFC
 0	FC0F8
 0	D17B5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	AA4C6
 1	D2595
 1	57E0A
@@ -133550,18 +129208,6 @@ Start!
 1	101632
 1	B4179
 1	BB43F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5C2AB
 0	BDA77
 0	ACB85
@@ -133913,18 +129559,6 @@ Start!
 0	4C784
 0	8B347
 0	64645
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	669E3
 1	ECB60
 1	3BADC
@@ -134275,18 +129909,6 @@ Start!
 1	48A88
 1	54789
 1	92C5D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4C48E
 0	EF4F0
 0	599D2
@@ -134636,18 +130258,6 @@ Start!
 0	FBC27
 0	68F7D
 0	A5B7A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	48BB9
 1	AAD47
 1	CB586
@@ -134998,18 +130608,6 @@ Start!
 1	D87F6
 1	3D799
 1	82515
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4CE4D
 0	EFA6B
 0	67897
@@ -135360,18 +130958,6 @@ Start!
 0	A8F10
 0	70A63
 0	EF380
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5FF5E
 1	100218
 1	4EC86
@@ -135722,18 +131308,6 @@ Start!
 1	F54EC
 1	C3812
 1	BC805
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E4C8D
 0	83447
 0	6E506
@@ -136083,18 +131657,6 @@ Start!
 0	9B16D
 0	E8F88
 0	3870D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DFE48
 1	4BEB1
 1	F00E1
@@ -136445,18 +132007,6 @@ Start!
 1	F848E
 1	7205E
 1	CA601
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	2B9CC
 0	C238C
 0	8F077
@@ -136806,18 +132356,6 @@ Start!
 0	83390
 0	487EA
 0	EDB01
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4BA90
 1	E96A8
 1	4C9E0
@@ -137168,18 +132706,6 @@ Start!
 1	A8B74
 1	E7177
 1	38C87
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D6E9C
 0	95743
 0	72694
@@ -137529,18 +133055,6 @@ Start!
 0	C2EBF
 0	33203
 0	70380
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4F53C
 1	C971C
 1	97B95
@@ -137891,18 +133405,6 @@ Start!
 1	E2AC8
 1	EF98A
 1	63130
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D6434
 0	986AA
 0	71DF3
@@ -138252,18 +133754,6 @@ Start!
 0	BF084
 0	398C5
 0	6BF74
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5BF14
 1	B03B4
 1	AE95B
@@ -138614,18 +134104,6 @@ Start!
 1	61C22
 1	B945C
 1	B455E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	56040
 0	FAEAA
 0	4C6BA
@@ -138976,18 +134454,6 @@ Start!
 0	EBCAE
 0	8CF17
 0	DF148
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	AF536
 1	BD0FE
 1	40B84
@@ -139338,18 +134804,6 @@ Start!
 1	61E87
 1	F6647
 1	B8511
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AE3A6
 0	652C4
 0	EB1A4
@@ -139700,18 +135154,6 @@ Start!
 0	CCFDF
 0	50E2D
 0	4F9B8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DC98A
 1	98F16
 1	7C0F2
@@ -140063,18 +135505,6 @@ Start!
 1	B6A22
 1	5F52E
 1	F5DD6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	C25F6
 0	B3B13
 0	62C26
@@ -140425,18 +135855,6 @@ Start!
 0	79D4B
 0	EC4E4
 0	E18C5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5FD64
 1	8FE95
 1	E3076
@@ -140787,18 +136205,6 @@ Start!
 1	7091E
 1	EDBA8
 1	4BC95
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	38229
 0	F2E84
 0	7340C
@@ -141149,18 +136555,6 @@ Start!
 0	4D28A
 0	FACF7
 0	C2C56
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	3CB0F
 1	F8D06
 1	713F3
@@ -141511,18 +136905,6 @@ Start!
 1	A3A06
 1	FFC73
 1	587B3
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	35C5A
 0	EA92F
 0	830E8
@@ -141873,18 +137255,6 @@ Start!
 0	43011
 0	5B689
 0	B187A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	EB7B6
 1	844BE
 1	8ECC6
@@ -142235,18 +137605,6 @@ Start!
 1	FCF94
 1	6996E
 1	BF31E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	A5E78
 0	C9793
 0	528BF
@@ -142598,18 +137956,6 @@ Start!
 0	D9A6D
 0	498DE
 0	5BC14
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D804C
 1	99655
 1	7745E
@@ -142960,18 +138306,6 @@ Start!
 1	C1FE7
 1	B8AD6
 1	F1F97
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	407F9
 0	FACD8
 0	62FB6
@@ -143322,18 +138656,6 @@ Start!
 0	4B72C
 0	FA7A7
 0	BEC12
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	371DA
 1	E60C6
 1	8C438
@@ -143684,18 +139006,6 @@ Start!
 1	42094
 1	FC59C
 1	B0705
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	35AF3
 0	E53C8
 0	89945
@@ -144046,18 +139356,6 @@ Start!
 0	4AAAB
 0	FAA6D
 0	BDA86
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5033D
 1	FB032
 1	51D90
@@ -144409,18 +139707,6 @@ Start!
 1	B1510
 1	6D007
 1	3FB28
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	4DEF9
 0	D7F2C
 0	87607
@@ -144771,18 +140057,6 @@ Start!
 0	B4684
 0	B2E0A
 0	452F8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DD656
 1	37901
 1	E2B34
@@ -145133,18 +140407,6 @@ Start!
 1	3BF21
 1	A2377
 1	7BCE5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AA510
 0	7769A
 0	ED538
@@ -145495,18 +140757,6 @@ Start!
 0	75303
 0	E899C
 0	D5340
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	ED259
 1	3DC2C
 1	CEB98
@@ -145858,18 +141108,6 @@ Start!
 1	C8F97
 1	B6133
 1	6D3CD
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AC417
 0	6FF91
 0	ECAEA
@@ -146220,18 +141458,6 @@ Start!
 0	896BD
 0	D9357
 0	387C1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	A11F4
 1	5535F
 1	FFC9A
@@ -146582,18 +141808,6 @@ Start!
 1	68DA7
 1	E72EB
 1	53309
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	883F7
 0	8E28B
 0	D8F69
@@ -146944,18 +142158,6 @@ Start!
 0	638A2
 0	B59BD
 0	4295F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	9FB70
 1	54144
 1	FE947
@@ -147306,18 +142508,6 @@ Start!
 1	A435C
 1	100953
 1	5C67B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	EDF13
 0	7C629
 0	968B0
@@ -147668,18 +142858,6 @@ Start!
 0	BE4C7
 0	5D663
 0	456B5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	835E6
 1	955AE
 1	D509B
@@ -148030,18 +143208,6 @@ Start!
 1	4EA3D
 1	6C8EE
 1	861C8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	ED7FC
 0	417F6
 0	BE806
@@ -148392,18 +143558,6 @@ Start!
 0	75396
 0	EEB33
 0	4AF05
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FD794
 1	69130
 1	B673E
@@ -148754,18 +143908,6 @@ Start!
 1	F80F4
 1	AA546
 1	C53EA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	ACFF6
 0	B99E8
 0	417A0
@@ -149116,18 +144258,6 @@ Start!
 0	AE633
 0	3FF70
 0	F58BE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	465BF
 1	F41AF
 1	A4B94
@@ -149478,18 +144608,6 @@ Start!
 1	D2AB9
 1	C9927
 1	C00000
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	102DBA
 0	5BC2A
 0	DEA70
@@ -149840,18 +144958,6 @@ Start!
 0	99682
 0	E73F0
 0	3D64F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	C124C
 1	CA843
 1	4E739
@@ -150202,18 +145308,6 @@ Start!
 1	105CB0
 1	75241
 1	F574C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FBEDA
 0	5B046
 0	A7762
@@ -150564,18 +145658,6 @@ Start!
 0	DBA43
 0	3F1F7
 0	89FFB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	D239F
 1	4CF50
 1	10682D
@@ -150926,18 +146008,6 @@ Start!
 1	7C856
 1	FAD32
 1	68108
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	85B1A
 0	F5E07
 0	5883B
@@ -151288,18 +146358,6 @@ Start!
 0	4FFF3
 0	CB577
 0	68F3D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	7EE8F
 1	10555B
 1	64252
@@ -151650,18 +146708,6 @@ Start!
 1	A4A6B
 1	F4ABD
 1	1067F7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	104DCA
 0	5F520
 0	DD80F
@@ -152012,18 +147058,6 @@ Start!
 0	ECCA5
 0	5BB8E
 0	6F973
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	10BF41
 1	6BA6E
 1	EA0B3
@@ -152374,18 +147408,6 @@ Start!
 1	F6CC9
 1	6A27E
 1	7BEF6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	FDE5C
 0	5CA4D
 0	EE19A
@@ -152736,18 +147758,6 @@ Start!
 0	E1256
 0	FBD84
 0	624DE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	741A7
 1	CDB71
 1	C0B91
@@ -153097,18 +148107,6 @@ Start!
 1	10CB5F
 1	7F75C
 1	CD1BB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	869D1
 0	F773A
 0	5B978
@@ -153459,18 +148457,6 @@ Start!
 0	5F9AF
 0	6414B
 0	D8D45
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	87A5D
 1	FD69A
 1	60A71
@@ -153820,18 +148806,6 @@ Start!
 1	CCAF7
 1	623A5
 1	83583
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E62E1
 0	A389B
 0	6A05E
@@ -154185,18 +149159,6 @@ Start!
 0	9FB31
 0	EB5F9
 0	42730
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E5DDC
 1	681CA
 1	103151
@@ -154546,18 +149508,6 @@ Start!
 1	FFFFF
 1	A87BD
 1	F7234
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	72064
 0	90000
 0	F212E
@@ -154908,18 +149858,6 @@ Start!
 0	F1BFA
 0	DC9F2
 0	AD67C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	DC39B
 1	A79B0
 1	5FE28
@@ -155270,18 +150208,6 @@ Start!
 1	70BD3
 1	107118
 1	B4FF9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	10386B
 0	7066E
 0	C3B11
@@ -155632,18 +150558,6 @@ Start!
 0	82F1C
 0	59F0A
 0	EF67F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4C382
 1	C1CC4
 1	C8CAB
@@ -155994,18 +150908,6 @@ Start!
 1	ECFAC
 1	45262
 1	9D69E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	6ACED
 0	C60D2
 0	B6992
@@ -156356,18 +151258,6 @@ Start!
 0	FC37E
 0	59B59
 0	90739
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5BAC1
 1	A904A
 1	DFAB2
@@ -156718,18 +151608,6 @@ Start!
 1	EFF6D
 1	E8846
 1	A5CD9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F2CD2
 0	83E8B
 0	7FA4A
@@ -157079,18 +151957,6 @@ Start!
 0	ACFD8
 0	F3535
 0	43110
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	108957
 1	6CBD8
 1	D96EC
@@ -157440,18 +152306,6 @@ Start!
 1	6620E
 1	E615A
 1	6154F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	B7591
 0	489CB
 0	FCB08
@@ -157802,18 +152656,6 @@ Start!
 0	F5169
 0	5DB87
 0	DB6BA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	59820
 1	E91AA
 1	8732C
@@ -158163,18 +153005,6 @@ Start!
 1	106F85
 1	CC676
 1	C09BB
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D79AA
 0	59938
 0	F35F5
@@ -158525,18 +153355,6 @@ Start!
 0	E51D3
 0	54BB1
 0	69F3D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	C3059
 1	BDDFE
 1	6D15C
@@ -158887,18 +153705,6 @@ Start!
 1	95DA2
 1	F3CDA
 1	FBA8A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5037B
 0	B226D
 0	CD9B4
@@ -159249,18 +154055,6 @@ Start!
 0	6A24B
 0	E6803
 0	520D7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5384D
 1	B203F
 1	D0E13
@@ -159610,18 +154404,6 @@ Start!
 1	F5856
 1	7A1EB
 1	89329
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	6BE55
 0	F343D
 0	48DFE
@@ -159972,18 +154754,6 @@ Start!
 0	58C47
 0	F2D99
 0	8F13A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	EF1A4
 1	5EDD8
 1	F7DB5
@@ -160334,18 +155104,6 @@ Start!
 1	86B2D
 1	B908F
 1	4AD4D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	D9911
 0	A5134
 0	80853
@@ -160696,18 +155454,6 @@ Start!
 0	7BF1B
 0	F3845
 0	E8F8B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	A4287
 1	55EFE
 1	FF6BE
@@ -161058,18 +155804,6 @@ Start!
 1	1008F3
 1	5058A
 1	C65A2
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5693A
 0	E768A
 0	812AF
@@ -161421,18 +156155,6 @@ Start!
 0	8279D
 0	ED8D6
 0	DB007
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	FDAC8
 1	66163
 1	F89E0
@@ -161783,18 +156505,6 @@ Start!
 1	ED27F
 1	AADDF
 1	F7ED9
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	59B61
 0	A448D
 0	D913D
@@ -162145,18 +156855,6 @@ Start!
 0	C466F
 0	42FAD
 0	F8E36
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	5FB2C
 1	F9557
 1	675F4
@@ -162507,18 +157205,6 @@ Start!
 1	AECD3
 1	F7B49
 1	49A32
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F8413
 0	57F4D
 0	E5BA5
@@ -162868,18 +157554,6 @@ Start!
 0	3EC60
 0	D7D4C
 0	A5492
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F1DD6
 1	628B1
 1	94622
@@ -163230,18 +157904,6 @@ Start!
 1	B06B3
 1	48BC4
 1	FB7DA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	63932
 0	F588C
 0	53A8F
@@ -163592,18 +158254,6 @@ Start!
 0	ECBFF
 0	8A3F2
 0	DA5F8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	BB757
 1	58271
 1	106B8F
@@ -163954,18 +158604,6 @@ Start!
 1	F97F8
 1	C00000
 1	FD0EE
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	7FC44
 0	F1890
 0	45097
@@ -164315,18 +158953,6 @@ Start!
 0	F73FA
 0	7B384
 0	CCF40
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	BED5E
 1	45A08
 1	FAB2F
@@ -164677,18 +159303,6 @@ Start!
 1	C3911
 1	4E78F
 1	102F25
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	7C6E2
 0	A6F1B
 0	CD48A
@@ -165039,18 +159653,6 @@ Start!
 0	EE803
 0	89B0D
 0	DA585
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	EFA1F
 1	42C5B
 1	D3139
@@ -165401,18 +160003,6 @@ Start!
 1	77356
 1	102BF8
 1	C15A5
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	F6D95
 0	55FCB
 0	E1B56
@@ -165764,18 +160354,6 @@ Start!
 0	B43F6
 0	FCA63
 0	6AE0D
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	9BAD5
 1	E435F
 1	43B35
@@ -166125,18 +160703,6 @@ Start!
 1	FD81E
 1	909C1
 1	E2202
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	5B974
 0	FF984
 0	61443
@@ -166486,18 +161052,6 @@ Start!
 0	52253
 0	772FB
 0	7B438
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E2364
 1	68A48
 1	FF7BF
@@ -166848,18 +161402,6 @@ Start!
 1	D3F9B
 1	AC372
 1	EE1CC
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	43D0A
 0	F8175
 0	76BA3
@@ -167210,18 +161752,6 @@ Start!
 0	D0D11
 0	57955
 0	FBD0E
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	67244
 1	E8E89
 1	9C28A
@@ -167571,18 +162101,6 @@ Start!
 1	A5715
 1	EAD1A
 1	100FC8
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	40816
 0	F42CA
 0	7E2A6
@@ -167933,18 +162451,6 @@ Start!
 0	6595F
 0	93468
 0	5831F
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F04DB
 1	913C5
 1	7A426
@@ -168294,18 +162800,6 @@ Start!
 1	9073C
 1	B0058
 1	4A627
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	E0D4D
 0	B744C
 0	8F195
@@ -168656,18 +163150,6 @@ Start!
 0	6B00C
 0	F9160
 0	DC05A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	E36A3
 1	3C11E
 1	DB915
@@ -169018,18 +163500,6 @@ Start!
 1	C7331
 1	CBA5F
 1	104B5B
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	555A1
 0	E9D6B
 0	75BFF
@@ -169380,18 +163850,6 @@ Start!
 0	CD65E
 0	60D7E
 0	54A25
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	48E7C
 1	CD48C
 1	BF58C
@@ -169742,18 +164200,6 @@ Start!
 1	F4320
 1	E83C7
 1	ADDE6
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	AC274
 0	C6AE1
 0	42DC7
@@ -170103,18 +164549,6 @@ Start!
 0	FA4ED
 0	5BE10
 0	9D147
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	61C9B
 1	BA1FF
 1	DFE5D
@@ -170465,18 +164899,6 @@ Start!
 1	E5491
 1	4CFB4
 1	98632
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	56F0F
 0	E7AE3
 0	7C7B1
@@ -170828,18 +165250,6 @@ Start!
 0	CD57C
 0	63B4D
 0	56DE7
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	43E43
 1	DBE97
 1	AD137
@@ -171190,18 +165600,6 @@ Start!
 1	ECDBF
 1	F4855
 1	A3E5C
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	9A4D8
 0	D9475
 0	3F971
@@ -171552,18 +165950,6 @@ Start!
 0	E817F
 0	93EB6
 0	E1381
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F732E
 1	53F3E
 1	B27AB
@@ -171914,18 +166300,6 @@ Start!
 1	6D656
 1	743C6
 1	A2027
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	ED809
 0	573E1
 0	ECA69
@@ -172276,18 +166650,6 @@ Start!
 0	81130
 0	EEA5D
 0	E9C9A
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	F0B29
 1	988B0
 1	79908
@@ -172638,18 +167000,6 @@ Start!
 1	69AE5
 1	F6B28
 1	80DA1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	996A2
 0	C2355
 0	4C578
@@ -172999,18 +167349,6 @@ Start!
 0	DB85C
 0	AAEFE
 0	AF631
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	4CD89
 1	E3F6D
 1	61086
@@ -173361,18 +167699,6 @@ Start!
 1	F07DD
 1	4EE5B
 1	8ADEA
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
 0	EAE6E
 0	47423
 0	AFDC9
@@ -173723,18 +168049,6 @@ Start!
 0	F2BE7
 0	B710C
 0	A5CA0
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Open Hand...
-3..
-2...
-1...
-Start!
-
-
 1	7F763
 1	662A0
 1	EE7A4
@@ -174085,274 +168399,3 @@ Start!
 1	93D3D
 1	D3573
 1	E86B1
-
-
-Stop! Let Hand Rest...
-
-
-Prepare to Close Hand...
-3..
-2...
-1...
-Start!
-
-
-0	9D311
-0	9931A
-0	3CAEC
-0	347F5
-0	9877E
-0	3CC98
-0	C02AC
-0	33197
-0	A6762
-0	3C273
-0	33856
-0	8E563
-0	3AF5C
-0	C27A4
-0	37106
-0	B1C61
-0	396A3
-0	39AA4
-0	85781
-0	B7EC9
-0	C21FD
-0	3D183
-0	B9F53
-0	36C2C
-0	3FBF2
-0	7B9B3
-0	BEA79
-0	C0776
-0	43F1B
-0	C1589
-0	34C1C
-0	C0935
-0	71C1A
-0	C5B71
-0	BD9AF
-0	4AFFD
-0	6CA98
-0	35390
-0	BFE77
-0	6761F
-0	CAC46
-0	BB045
-0	52D83
-0	6361B
-0	335E9
-0	B9B92
-0	5E3D0
-0	D0115
-0	33C00
-0	5A8A4
-0	5A40E
-0	33CDD
-0	B4054
-0	539C5
-0	D44DA
-0	3403F
-0	63D5F
-0	51BCB
-0	35D98
-0	AE3F7
-0	671DA
-0	D8852
-0	35C21
-0	6C8DC
-0	4991F
-0	3803E
-0	A83BB
-0	7089A
-0	DCDF0
-0	39A09
-0	76030
-0	420B1
-0	3B80F
-0	A1494
-0	700000
-0	DE1A0
-0	3D240
-0	7E278
-0	3B0D6
-0	3FA2E
-0	9A098
-0	38AD2
-0	DDF64
-0	41FF6
-0	852CA
-0	35606
-0	45906
-0	92F61
-0	338EA
-0	DCF0F
-0	8F2AD
-0	8DA57
-0	320B7
-0	4A1D5
-0	8B744
-0	2F7C5
-0	DB8B0
-0	87D6E
-0	955A7
-0	2DEA2
-0	51BE0
-0	84383
-0	2C319
-0	D8998
-0	8003D
-0	9CD34
-0	2AE01
-0	591D3
-0	7BFF4
-0	29958
-0	D4F6D
-0	781DB
-0	A40CE
-0	28BBC
-0	6111E
-0	748E8
-0	27C30
-0	D05C6
-0	705BB
-0	AB37A
-0	CE636
-0	6B434
-0	AF7CB
-0	25910
-0	C78CE
-0	68B3A
-0	B2FEF
-0	C6D2E
-0	757DB
-0	B5F4B
-0	263C0
-0	C1E22
-0	610E5
-0	B9029
-0	C0068
-0	8092F
-0	BE2F2
-0	27FBB
-0	B9A35
-0	59CF8
-0	C0AFA
-0	B7B63
-0	8C568
-0	56C9D
-0	2B578
-0	B2613
-0	53D96
-0	C737A
-0	AEDA1
-0	98736
-0	503E8
-0	2EF55
-0	AA040
-0	4ECA0
-0	CC692
-0	A5414
-0	A40BF
-0	CE1A1
-0	35878
-0	9F70F
-0	49044
-0	D0104
-0	9AC06
-0	B0CCB
-0	D26DC
-0	3DF82
-0	94C77
-0	44C64
-0	D2D6E
-0	90018
-0	BE6B9
-0	D425A
-0	47F89
-0	C4634
-0	42936
-0	D47B8
-0	84A38
-0	CB6BA
-0	D4680
-0	52ABE
-0	D016D
-0	41BA5
-0	57925
-0	7A10C
-0	D6451
-0	D3038
-0	5EA95
-0	DAAF4
-0	42B3A
-0	64E1A
-0	6FC8D
-0	4346E
-0	D0852
-0	6B92A
-0	E52D0
-0	47447
-0	754A1
-0	6699A
-0	4A13F
-0	CFD39
-0	5F2AB
-0	EF41F
-0	4E2DA
-0	86C13
-0	5DECF
-0	52BCD
-0	CD4D2
-0	56B93
-0	F56C5
-0	573A1
-0	9647D
-0	57A05
-0	59D15
-0	C8BB8
-0	518B2
-0	F82F3
-0	C4AEA
-0	A1B88
-0	50CCC
-0	5FF07
-0	C1A2A
-0	4B600
-0	F92B1
-0	BDE0A
-0	AF3C9
-0	4BD44
-0	69211
-0	BB356
-0	480B0
-0	F98E8
-0	B6C56
-0	BAA05
-0	FAB10
-0	7299A
-0	B45C9
-0	43BD7
-0	F8E07
-0	B283E
-0	C7CD8
-0	FB142
-0	84978
-0	B2243
-0	41D94
-0	F75F6
-0	AD263
-0	D861B
-0	F90BE
-0	903D6
-0	DD8D1
-0	44749
-0	F34FE
-0	A31DC
-0	E24A3
-0	F3281
-0	98F19
-0	E5DC6
-0	45C07
-0	ED8A4
-0	9
