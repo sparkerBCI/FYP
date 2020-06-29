@@ -90,15 +90,15 @@ void setup() {
 
   Serial.println("Device Configuration Complete! Press any key to continue...");
   Bluetooth.println("Device Configuration Complete! Waiting for operator...");
-  while (Serial.available() < 1)
+  while (Bluetooth.available() < 1)
   {
   }
-  Serial.read();
+  Bluetooth.read();
   Serial.println("Starting data generation...");
-  //Bluetooth.println("Starting data generation...");
+  Bluetooth.println("Starting data generation...");
   delay(500);
   Serial.println("Let Hand Rest");
-  //Bluetooth.println("Let Hand Rest");
+  Bluetooth.println("Let Hand Rest");
   delay(1000);
   
 }
@@ -110,7 +110,7 @@ void loop(){
    data_label = data_label % 2;
 
    prompt_cue(data_label);
-   //Bluetooth.println("Start!\n\n");
+   Bluetooth.println("Start!\n\n");
    Serial.println("Start!\n\n");
    ADS.START();
    ADS.RDATAC();
@@ -118,13 +118,18 @@ void loop(){
    start_time = millis();
 
   while(millis() < start_time + 2000) {
-    ADS.updateData(data_label); 
+    long res = ADS.updateData(data_label); 
+    if (res != -1) {
+      Bluetooth.print(data_label);
+      Bluetooth.print('\t');
+      Bluetooth.println(res, HEX);
+    }
     flash_LED(500);
   }
 
   ADS.SDATAC();
   ADS.STOP();
-  //Bluetooth.println("\n\nStop! Let Hand Rest...\n\n");
+  Bluetooth.println("\n\nStop! Let Hand Rest...\n\n");
   Serial.println("\n\nStop! Let Hand Rest...\n\n");
   delay(500);
   data_label++;
@@ -172,22 +177,22 @@ void prompt_cue(int data_label)
 {
   if (data_label)
   {
-    //Bluetooth.println("Prepare to Open Hand...");
+    Bluetooth.println("Prepare to Open Hand...");
     Serial.println("Prepare to Open Hand...");
   }
   else
   {
-    //Bluetooth.println("Prepare to Close Hand...");
+    Bluetooth.println("Prepare to Close Hand...");
     Serial.println("Prepare to Close Hand...");
   }
   delay(1000);
-  //Bluetooth.println("3..");
+  Bluetooth.println("3..");
   Serial.println("3..");
   delay(500);
-  //Bluetooth.println("2...");
+  Bluetooth.println("2...");
   Serial.println("2...");
   delay(500);
-  //Bluetooth.println("1...");
+  Bluetooth.println("1...");
   Serial.println("1...");
   delay(500);
 }

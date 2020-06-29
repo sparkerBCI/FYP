@@ -182,8 +182,8 @@ void loop(){
       epoch[samp_num] = data;
       samp_num++;
     }
-     if ((millis() - last_transmission) >= 1000) {
-       for (unsigned int i = 0; i < samp_num; i++) {
+     if (((millis() - last_transmission) >= 1000) && samp_num >= 256) {
+       for (unsigned int i = 0; i < 256; i++) {
           char sample[12] = {0};
           snprintf(sample, 12, "%010ld\n", epoch[i]);         /* Save the data as a string for communication over the serial bus */
           Bluetooth.print(sample);                         /* Output the data over the serial bus */
