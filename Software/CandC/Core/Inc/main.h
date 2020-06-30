@@ -60,10 +60,24 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Ring_AD_Pin GPIO_PIN_0
+#define Ring_AD_GPIO_Port GPIOC
+#define Middle_ADC_Pin GPIO_PIN_1
+#define Middle_ADC_GPIO_Port GPIOC
+#define Index_ADC_Pin GPIO_PIN_2
+#define Index_ADC_GPIO_Port GPIOC
+#define Thumb_ADC_Pin GPIO_PIN_3
+#define Thumb_ADC_GPIO_Port GPIOC
+#define VSUPPLY_ADC_Pin GPIO_PIN_0
+#define VSUPPLY_ADC_GPIO_Port GPIOA
 #define Thumb_Pin GPIO_PIN_6
 #define Thumb_GPIO_Port GPIOA
 #define Index_Pin GPIO_PIN_7
 #define Index_GPIO_Port GPIOA
+#define Pinky_ADC_Pin GPIO_PIN_4
+#define Pinky_ADC_GPIO_Port GPIOC
+#define Wrist_ADC_Pin GPIO_PIN_5
+#define Wrist_ADC_GPIO_Port GPIOC
 #define Middle_Pin GPIO_PIN_0
 #define Middle_GPIO_Port GPIOB
 #define Ring_Pin GPIO_PIN_1
