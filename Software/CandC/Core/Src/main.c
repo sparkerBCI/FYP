@@ -84,6 +84,7 @@ void open_hand(void);
 void close_hand(void);
 double convert_ADC_to_volts(uint32_t);
 double ohms_law(double, double);
+double moving_average(double*, int);
 
 /* USER CODE END PFP */
 
@@ -94,6 +95,7 @@ unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 double parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model SVM;
 uint32_t adc_values[7];        /**< The ADC Values are saved here */
+double index_current_history[10] = {0};
 
 int parse_buffer(void) {
 	char delim[] = "\n";
@@ -249,6 +251,17 @@ double ohms_law(double volts, double resistance) {
 	return 0;
 }
 
+double moving_average(double data[], int length) {
+	if (length == 0) {
+		return 0.0;
+	}
+	double sum = 0;
+	for (int i = 0; i < length; i++) {
+		sum += data[i];
+	}
+	return (sum / length);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -292,6 +305,7 @@ int main(void)
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   close_hand();
+  open_hand();
 
   HAL_ADC_Start_DMA(&hadc1, adc_values, 7);    /**< Starts the ADC in DMA Mode */
 
@@ -308,26 +322,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  double index_volts = convert_ADC_to_volts(adc_values[1]);    // Read voltage after index sense resistor
+	  double index_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after index sense resistor
 	  double ref_volts = convert_ADC_to_volts(adc_values[0]);        // Read voltage before sense resistors
-	  double index_current = ohms_law(ref_volts - index_volts, 0.05);   // Compute voltage drop, then divide by 50mOhm sense resistor
-	  index_current *= 1000;
-	  char index_current_ma[30];
-	  snprintf(index_current_ma, 30, "Index Current mA:\t%010ld\n", (long)index_current);
-
-	  index_volts *= 1000;
-	  char index_volts_mv[30];
-	  snprintf(index_volts_mv, 28, "Index Volts mV:\t%010ld\n", (long)index_volts);
-
-	  ref_volts *= 1000;
-	  char ref_volts_mv[30];
-	  snprintf(ref_volts_mv, 29, "Supply Volts mV:\t%010ld\n", (long)ref_volts);
-
-
-	  HAL_UART_Transmit(&huart4, (unsigned char *)index_current_ma, 12, 0xFFFF);
-	  HAL_UART_Transmit(&huart4, (unsigned char *)index_volts_mv, 12, 0xFFFF);
-	  HAL_UART_Transmit(&huart4, (unsigned char *)ref_volts_mv, 12, 0xFFFF);
+	  double index_current = ohms_law(ref_volts - index_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
+	  for (int i = 0; i < 9; i++) {
+		  index_current_history[i] = index_current_history[i+1]; // left shift
+	  }
+	  index_current_history[9] = index_current;
+	  index_current = moving_average(index_current_history, 10);
 	  HAL_Delay(1000);
+	  close_hand();
 
 
   }
