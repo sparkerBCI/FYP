@@ -3071,9 +3071,9 @@ static void MX_ADC1_Init(void)
  8001e00:	4b3c      	ldr	r3, [pc, #240]	; (8001ef4 <MX_ADC1_Init+0x140>)
  8001e02:	2207      	movs	r2, #7
  8001e04:	61da      	str	r2, [r3, #28]
-  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
  8001e06:	4b3b      	ldr	r3, [pc, #236]	; (8001ef4 <MX_ADC1_Init+0x140>)
- 8001e08:	2200      	movs	r2, #0
+ 8001e08:	2201      	movs	r2, #1
  8001e0a:	f883 2030 	strb.w	r2, [r3, #48]	; 0x30
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
  8001e0e:	4b39      	ldr	r3, [pc, #228]	; (8001ef4 <MX_ADC1_Init+0x140>)
