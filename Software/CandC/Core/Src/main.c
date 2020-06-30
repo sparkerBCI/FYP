@@ -38,6 +38,9 @@
 #define SVM_SCALE_FACTOR 100000
 //#define EEG_SCALE_FACTOR 1
 #define EEG_SCALE_FACTOR 100000
+#define ADC_VREF 3.3
+#define ADC_MAX_COUNT 4095
+#define FEEDBACK_GAIN 6
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -79,15 +82,18 @@ static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
 void open_hand(void);
 void close_hand(void);
+double convert_ADC_to_volts(uint32_t);
+double ohms_law(double, double);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 double parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model SVM;
-int label[611];
+uint32_t adc_values[7];        /**< The ADC Values are saved here */
 
 int parse_buffer(void) {
 	char delim[] = "\n";
@@ -186,20 +192,16 @@ void build_model(void) {
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	static unsigned int observation = 0;
 	if (SVM.complete) { //should be complete not not complete
 		double coeffs[EPOCH_LENGTH_SAMPLES] = {0};
         process_sample(coeffs);
         double prediction = Linear_SVM_Predict(&SVM, coeffs);
         if (prediction < 0) {
-        	label[observation] = 0;
         	open_hand();
         }
         else {
-        	label[observation] = 1;
         	close_hand();
         }
-        observation++;
 	}
 	else {        //This happens when we haven't got the model yet
 		/* Get the model */
@@ -234,6 +236,17 @@ void open_hand(void) {
 	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_3);
 	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_4);
 	  user_pwm_setvalue(12, &htim4, TIM_CHANNEL_1);
+}
+
+double convert_ADC_to_volts(uint32_t adc_count) {
+	return ((double)adc_count * ((ADC_VREF) / (ADC_MAX_COUNT)) * FEEDBACK_GAIN);
+}
+
+double ohms_law(double volts, double resistance) {
+	if (resistance) {
+	return (volts / resistance);
+	}
+	return 0;
 }
 
 /* USER CODE END 0 */
@@ -280,6 +293,8 @@ int main(void)
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   close_hand();
 
+  HAL_ADC_Start_DMA(&hadc1, adc_values, 7);    /**< Starts the ADC in DMA Mode */
+
   /* USER CODE END 2 */
  
  
@@ -293,6 +308,28 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  double index_volts = convert_ADC_to_volts(adc_values[1]);    // Read voltage after index sense resistor
+	  double ref_volts = convert_ADC_to_volts(adc_values[0]);        // Read voltage before sense resistors
+	  double index_current = ohms_law(ref_volts - index_volts, 0.05);   // Compute voltage drop, then divide by 50mOhm sense resistor
+	  index_current *= 1000;
+	  char index_current_ma[30];
+	  snprintf(index_current_ma, 30, "Index Current mA:\t%010ld\n", (long)index_current);
+
+	  index_volts *= 1000;
+	  char index_volts_mv[30];
+	  snprintf(index_volts_mv, 28, "Index Volts mV:\t%010ld\n", (long)index_volts);
+
+	  ref_volts *= 1000;
+	  char ref_volts_mv[30];
+	  snprintf(ref_volts_mv, 29, "Supply Volts mV:\t%010ld\n", (long)ref_volts);
+
+
+	  HAL_UART_Transmit(&huart4, (unsigned char *)index_current_ma, 12, 0xFFFF);
+	  HAL_UART_Transmit(&huart4, (unsigned char *)index_volts_mv, 12, 0xFFFF);
+	  HAL_UART_Transmit(&huart4, (unsigned char *)ref_volts_mv, 12, 0xFFFF);
+	  HAL_Delay(1000);
+
+
   }
   /* USER CODE END 3 */
 }
