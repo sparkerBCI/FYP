@@ -85,6 +85,7 @@ void close_hand(void);
 double convert_ADC_to_volts(uint32_t);
 double ohms_law(double, double);
 double moving_average(double*, int);
+void user_pwm_setvalue(long, TIM_HandleTypeDef*, uint32_t);
 
 /* USER CODE END PFP */
 
@@ -95,7 +96,13 @@ unsigned char RX_data[EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE] = {0};
 double parsed_epoch_data[EPOCH_LENGTH_SAMPLES] = {0};
 Linear_SVM_Model SVM;
 uint32_t adc_values[7];        /**< The ADC Values are saved here */
+double thumb_current_history[10] = {0};
 double index_current_history[10] = {0};
+double middle_current_history[10] = {0};
+double ring_current_history[10] = {0};
+double pinky_current_history[10] = {0};
+char is_blocked[6] = {0};
+char is_open = 0;
 
 int parse_buffer(void) {
 	char delim[] = "\n";
@@ -187,6 +194,9 @@ void build_model(void) {
 		SVM.offset = (parsed_epoch_data[1]);
 		SVM.dimension = (parsed_epoch_data[2]);
 		SVM.complete = 1;
+		open_hand();
+		HAL_Delay(250);
+		close_hand();
 #ifdef PRINTING_MODEL
 		print_model(SVM);
 #endif
@@ -225,19 +235,33 @@ void user_pwm_setvalue(long value, TIM_HandleTypeDef* timer, uint32_t channel)
 }
 
 void close_hand(void) {
+	char old_state = is_open;
 	  user_pwm_setvalue(32, &htim3, TIM_CHANNEL_1);
 	  user_pwm_setvalue(28, &htim3, TIM_CHANNEL_2);
 	  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_3);
 	  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_4);
 	  user_pwm_setvalue(25, &htim4, TIM_CHANNEL_1);
+	  is_open = 0;
+	  if (is_open != old_state) {
+		  for (int i = 0; i < 5; i++) {
+			  is_blocked[i] = 0;
+		  }
+	  }
 }
 
 void open_hand(void) {
+	char old_state = is_open;
 	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_1);
-	  user_pwm_setvalue(4, &htim3, TIM_CHANNEL_2);
-	  user_pwm_setvalue(8, &htim3, TIM_CHANNEL_3);
-	  user_pwm_setvalue(8, &htim3, TIM_CHANNEL_4);
-	  user_pwm_setvalue(8, &htim4, TIM_CHANNEL_1);
+	  user_pwm_setvalue(13, &htim3, TIM_CHANNEL_2);
+	  user_pwm_setvalue(13, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(13, &htim3, TIM_CHANNEL_4);
+	  user_pwm_setvalue(13, &htim4, TIM_CHANNEL_1);
+	  is_open = 1;
+	  if (is_open != old_state) {
+		  for (int i = 0; i < 5; i++) {
+			  is_blocked[i] = 0;
+		  }
+	  }
 }
 
 double convert_ADC_to_volts(uint32_t adc_count) {
@@ -260,6 +284,59 @@ double moving_average(double data[], int length) {
 		sum += data[i];
 	}
 	return (sum / length);
+}
+
+void bang_bang_control(void) {
+	  double thumb_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after thumb sense resistor
+	  double index_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after index sense resistor
+	  double middle_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after middle sense resistor
+	  double ring_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after ring sense resistor
+	  double pinky_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after pinky sense resistor
+	  double ref_volts = convert_ADC_to_volts(adc_values[0]);        // Read voltage before sense resistors
+
+
+	  double thumb_current = ohms_law(ref_volts - thumb_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
+	  double index_current = ohms_law(ref_volts - index_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
+	  double middle_current = ohms_law(ref_volts - middle_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
+	  double ring_current = ohms_law(ref_volts - ring_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
+	  double pinky_current = ohms_law(ref_volts - pinky_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
+
+
+
+	  for (int i = 0; i < 9; i++) {
+		  thumb_current_history[i] = thumb_current_history[i+1]; // left shift
+		  index_current_history[i] = index_current_history[i+1]; // left shift
+		  middle_current_history[i] = middle_current_history[i+1]; // left shift
+		  ring_current_history[i] = ring_current_history[i+1]; // left shift
+		  pinky_current_history[i] = pinky_current_history[i+1]; // left shift
+	  }
+	  thumb_current_history[9] = thumb_current;
+	  index_current_history[9] = index_current;
+	  middle_current_history[9] = middle_current;
+	  ring_current_history[9] = ring_current;
+	  pinky_current_history[9] = pinky_current;
+
+	  thumb_current = moving_average(thumb_current_history, 10);
+	  index_current = moving_average(index_current_history, 10);
+	  index_current = moving_average(middle_current_history, 10);
+	  index_current = moving_average(ring_current_history, 10);
+	  index_current = moving_average(pinky_current_history, 10);
+
+	  if (thumb_current > 1) {
+		  is_blocked[0] = 1;
+	  }
+	  if (index_current > 1) {
+		  is_blocked[1] = 1;
+	  }
+	  if (middle_current > 1) {
+		  is_blocked[2] = 1;
+	  }
+	  if (ring_current > 1) {
+		  is_blocked[3] = 1;
+	  }
+	  if (pinky_current > 1) {
+		  is_blocked[4] = 1;
+	  }
 }
 
 /* USER CODE END 0 */
@@ -305,7 +382,6 @@ int main(void)
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   close_hand();
-  open_hand();
 
   HAL_ADC_Start_DMA(&hadc1, adc_values, 7);    /**< Starts the ADC in DMA Mode */
 
@@ -322,16 +398,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  double index_volts = convert_ADC_to_volts(adc_values[2]);    // Read voltage after index sense resistor
-	  double ref_volts = convert_ADC_to_volts(adc_values[0]);        // Read voltage before sense resistors
-	  double index_current = ohms_law(ref_volts - index_volts, 50);   // Compute voltage drop, then divide by 50mOhm sense resistor
-	  for (int i = 0; i < 9; i++) {
-		  index_current_history[i] = index_current_history[i+1]; // left shift
-	  }
-	  index_current_history[9] = index_current;
-	  index_current = moving_average(index_current_history, 10);
-	  HAL_Delay(1000);
-	  close_hand();
+      bang_bang_control();
+	  //HAL_Delay(1000);
 
 
   }
