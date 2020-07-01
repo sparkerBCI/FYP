@@ -1,21 +1,3 @@
-//Developed by Conor Russomanno (June 2013)
-//This example uses the ADS1299 Arduino Library, a software bridge between the ADS1299 TI chip and 
-//Arduino. See http://www.ti.com/product/ads1299 for more information about the device and the reference
-//folder in the ADS1299 directory for more information about the library.
-
-//Note: this Library and example file are still in early stages of development.
-/*Currently, you are able to:
-  - execute all System Commands (Datasheet, pg. 35-36)
-  - Enable/disable read data continuous mode (Datasheet, pg. 35-38)
-  - Read and write registers of the ADS1299 using RREG and WREG with HEX or BINARY values to edit the appropriate bits (Datasheet, pg. 39-47)
-  
-  Future Methods:
-  - Commands/functions to edit ADS1299 settings without having to rewrite entire register bytes (ex. "setNumChannels(4);" would automatically power-down channels 5-8 by accessing those bits behind the scenes)
-  - Fix timing issue with RDATAC - right now some data is getting lost (from test below, you'll see the serial monitor consistantly prints ~1511 samples from 225ms to 10000ms, but that # should be ~2443 based on default 250samples/second setting)
-  - add SD-card functionality to log data packets to an SD
-  - add txt file creation/writing for data storage when operating through a computer
-*/
-
 #include "ADS1299.h"
 #include <SoftwareSerial.h>
 

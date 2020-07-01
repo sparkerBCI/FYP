@@ -43,40 +43,42 @@ Ch1 = hex2dec(data.Ch1);
 transitions = logical(diff(data.Marker));
 
 if 0
-    if 0
+    if 1
         figure();
         for i = 2:length(Ch1)
             if i <= timescale
-                subplot(5, 1, 1);
+                subplot(2, 1, 1);
                 plot(1:i, Ch1(1:i), 'b');
                 xlim([1,i]);
-                subplot(5, 1, 2);
-                plot(1:i, Ch2(1:i), 'r');
-                xlim([1,i]);
-                subplot(5, 1, 3);
-                plot(1:i, Ch3(1:i), 'g');
-                xlim([1,i]);
-                subplot(5, 1, 4);
-                plot(1:i, Ch4(1:i), 'k');
-                xlim([1,i]);
-                subplot(5, 1, 5);
+                ylim([0 4e5]);
+%                 subplot(5, 1, 2);
+%                 plot(1:i, Ch2(1:i), 'r');
+%                 xlim([1,i]);
+%                 subplot(5, 1, 3);
+%                 plot(1:i, Ch3(1:i), 'g');
+%                 xlim([1,i]);
+%                 subplot(5, 1, 4);
+%                 plot(1:i, Ch4(1:i), 'k');
+%                 xlim([1,i]);
+                subplot(2, 1, 2);
                 plot(1:i, data.Marker(1:i), 'm');
                 xlim([1,i]);
                 ylim([-0.1, 1.1]);
             else 
-                subplot(5, 1, 1);
+                subplot(2, 1, 1);
                 plot((i-timescale):i, Ch1((i-timescale):i), 'b');
                 xlim([(i-timescale),i]);
-                subplot(5, 1, 2);
-                plot((i-timescale):i, Ch2((i-timescale):i), 'r');
-                xlim([(i-timescale),i]);
-                subplot(5, 1, 3);
-                plot((i-timescale):i, Ch3((i-timescale):i), 'g');
-                xlim([(i-timescale),i]);
-                subplot(5, 1, 4);
-                plot((i-timescale):i, Ch4((i-timescale):i), 'k');
-                xlim([(i-timescale),i]);
-                subplot(5, 1, 5);
+                ylim([0 4e5]);
+%                 subplot(5, 1, 2);
+%                 plot((i-timescale):i, Ch2((i-timescale):i), 'r');
+%                 xlim([(i-timescale),i]);
+%                 subplot(5, 1, 3);
+%                 plot((i-timescale):i, Ch3((i-timescale):i), 'g');
+%                 xlim([(i-timescale),i]);
+%                 subplot(5, 1, 4);
+%                 plot((i-timescale):i, Ch4((i-timescale):i), 'k');
+%                 xlim([(i-timescale),i]);
+                subplot(2, 1, 2);
                 plot((i-timescale):i, data.Marker((i-timescale):i), 'm');
                 xlim([(i-timescale),i]);
                 ylim([-0.1, 1.1]);
@@ -85,43 +87,43 @@ if 0
         end
     end
 
-    figure();
-    subplot(5, 1, 1);
-    plot(1:length(Ch1), Ch1, 'b');
-    subplot(5, 1, 2);
-    plot(1:length(Ch2), Ch2, 'r');
-    subplot(5, 1, 3);
-    plot(1:length(Ch3), Ch3, 'g');
-    subplot(5, 1, 4);
-    plot(1:length(Ch4), Ch4, 'k');
-    subplot(5, 1, 5);
-    plot(1:length(data.Marker), data.Marker, 'm');
-
-
-
-    figure();
-    plot(1:length(Ch1), Ch1);
-
-    figure();
-    plot(1:length(Ch1), fft(Ch1)); hold on
-    plot(1:length(Ch2), fft(Ch2));
-    plot(1:length(Ch3), fft(Ch3));
-    plot(1:length(Ch4), fft(Ch4));
-    title({"Raw EEG Data Frequency Content: Ch1"; "Sample Frequency: 250Hz"});
-    xlabel("Frequency Bin");
-    ylabel("FFT");
-
-    figure();
-    subplot(2, 1, 1);
-    plot(1:length(data.Marker), data.Marker);
-    title("Marker Edge Detection");
-    legend("Marker", "Location", "EastOutside");
-    ylim([-0.1, 1.1]);
-    subplot(2, 1, 2);
-    plot(2:length(data.Marker), transitions , 'r-')
-    xlabel("Sample");
-    legend("Edge", "Location", "EastOutside");
-    ylim([-0.1, 1.1]);
+%     figure();
+%     subplot(5, 1, 1);
+%     plot(1:length(Ch1), Ch1, 'b');
+%     subplot(5, 1, 2);
+%     plot(1:length(Ch2), Ch2, 'r');
+%     subplot(5, 1, 3);
+%     plot(1:length(Ch3), Ch3, 'g');
+%     subplot(5, 1, 4);
+%     plot(1:length(Ch4), Ch4, 'k');
+%     subplot(5, 1, 5);
+%     plot(1:length(data.Marker), data.Marker, 'm');
+% 
+% 
+% 
+%     figure();
+%     plot(1:length(Ch1), Ch1);
+% 
+%     figure();
+%     plot(1:length(Ch1), fft(Ch1)); hold on
+%     plot(1:length(Ch2), fft(Ch2));
+%     plot(1:length(Ch3), fft(Ch3));
+%     plot(1:length(Ch4), fft(Ch4));
+%     title({"Raw EEG Data Frequency Content: Ch1"; "Sample Frequency: 250Hz"});
+%     xlabel("Frequency Bin");
+%     ylabel("FFT");
+% 
+%     figure();
+%     subplot(2, 1, 1);
+%     plot(1:length(data.Marker), data.Marker);
+%     title("Marker Edge Detection");
+%     legend("Marker", "Location", "EastOutside");
+%     ylim([-0.1, 1.1]);
+%     subplot(2, 1, 2);
+%     plot(2:length(data.Marker), transitions , 'r-')
+%     xlabel("Sample");
+%     legend("Edge", "Location", "EastOutside");
+%     ylim([-0.1, 1.1]);
 end
 
 Wn = 30 / 250;
@@ -161,7 +163,7 @@ ylabel({'1 - Right Hand';'0 - Rest'});
 xlabel('Observation');
 end
 
-if 1
+if 0
   for this_plot = 1:length(observations.Ch1.data)
       figure();
     data = observations.Ch1.data(this_plot, :);
@@ -188,7 +190,7 @@ XTest = observations.Ch1.dct(testInds,:);
 YTest = observations.Marker(testInds);
 tic
 [label,score] = predict(CompactLinSVMModel,XTest);
-linear_svm_time = toc
+linear_svm_time = toc;
 cp = classperf(YTest, label);
 Linear_SVM_Accuracy = cp.CorrectRate
 
