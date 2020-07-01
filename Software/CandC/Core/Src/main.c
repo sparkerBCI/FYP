@@ -234,10 +234,10 @@ void close_hand(void) {
 
 void open_hand(void) {
 	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_1);
-	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_2);
-	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_3);
-	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_4);
-	  user_pwm_setvalue(12, &htim4, TIM_CHANNEL_1);
+	  user_pwm_setvalue(4, &htim3, TIM_CHANNEL_2);
+	  user_pwm_setvalue(8, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(8, &htim3, TIM_CHANNEL_4);
+	  user_pwm_setvalue(8, &htim4, TIM_CHANNEL_1);
 }
 
 double convert_ADC_to_volts(uint32_t adc_count) {
