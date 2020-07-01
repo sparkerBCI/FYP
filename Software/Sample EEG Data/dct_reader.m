@@ -71,19 +71,19 @@ for observation = 1:length(X)
 
     %n = 2^15;
     
-    
-%     data = cell2mat(X(observation));
-%     Y = fft(gausswin(length(data)).*data, n);
-%     f = o.sampFreq*(0:(n/2))/n;
-%     P = abs(Y/n);
-%     P1 = P(1:n/2+1);
-% 
-%     if (frequency_plotting == 1)
-%         subplot(1, 3, 3)
-%         plot(f, P1);
-%         title({"";"Gaussian Window"});
-%     end
-%     
+    if 1
+        data = cell2mat(X(observation));
+        Y = fft(data);
+        f = o.sampFreq*(0:(length(Y)/2))/length(Y);
+        P = abs(Y/length(Y));
+        P1 = P(1:floor(length(Y)/2)+1);
+
+            %subplot(1, 3, 3)
+            figure()
+            plot(f(2:end), P1(2:end));
+            title({"Published Data"; cell2mat(y(observation))});
+            %title({"";"Gaussian Window"});
+    end
 %      data = cell2mat(X(observation));
 %     Y = fft(data, n);
 %     f = o.sampFreq*(0:(n/2))/n;
