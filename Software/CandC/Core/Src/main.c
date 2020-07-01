@@ -236,9 +236,9 @@ void user_pwm_setvalue(long value, TIM_HandleTypeDef* timer, uint32_t channel)
 
 void close_hand(void) {
 	char old_state = is_open;
-	  user_pwm_setvalue(32, &htim3, TIM_CHANNEL_1);
+	  user_pwm_setvalue(30, &htim3, TIM_CHANNEL_1);
 	  user_pwm_setvalue(28, &htim3, TIM_CHANNEL_2);
-	  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(20, &htim3, TIM_CHANNEL_3);
 	  user_pwm_setvalue(25, &htim3, TIM_CHANNEL_4);
 	  user_pwm_setvalue(25, &htim4, TIM_CHANNEL_1);
 	  is_open = 0;
@@ -252,10 +252,10 @@ void close_hand(void) {
 void open_hand(void) {
 	char old_state = is_open;
 	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_1);
-	  user_pwm_setvalue(13, &htim3, TIM_CHANNEL_2);
-	  user_pwm_setvalue(13, &htim3, TIM_CHANNEL_3);
-	  user_pwm_setvalue(13, &htim3, TIM_CHANNEL_4);
-	  user_pwm_setvalue(13, &htim4, TIM_CHANNEL_1);
+	  user_pwm_setvalue(10, &htim3, TIM_CHANNEL_2);
+	  user_pwm_setvalue(10, &htim3, TIM_CHANNEL_3);
+	  user_pwm_setvalue(11, &htim3, TIM_CHANNEL_4);
+	  user_pwm_setvalue(11, &htim4, TIM_CHANNEL_1);
 	  is_open = 1;
 	  if (is_open != old_state) {
 		  for (int i = 0; i < 5; i++) {
@@ -382,6 +382,7 @@ int main(void)
   HAL_UART_Receive_IT(&huart4, RX_data, EPOCH_LENGTH_SAMPLES * CHARS_PER_SAMPLE);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   close_hand();
+
 
   HAL_ADC_Start_DMA(&hadc1, adc_values, 7);    /**< Starts the ADC in DMA Mode */
 
