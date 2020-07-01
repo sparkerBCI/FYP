@@ -1,8 +1,8 @@
 clear
 close all
-load('CLA-SubjectJ-170504-3St-LRHand-Inter.mat');
+%load('CLA-SubjectJ-170504-3St-LRHand-Inter.mat');
 %load('CLASubjectB1510203StLRHand.mat');
-%load('CLASubjectA1601083StLRHand.mat');
+load('CLASubjectA1601083StLRHand.mat');
 %load('CLASubjectC1511263StLRHand.mat');
 
 holdout_percentage = 0.2;

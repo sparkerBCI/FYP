@@ -6,7 +6,8 @@
 % 
 % %data = tdfread("20200614_1244.txt");
 % %data = tdfread("20200614_1631.txt");
-% data = tdfread("20200629-1630.txt");
+% %data = tdfread("20200629-1630.txt");
+% data = tdfread("20200701-1754.txt");
 % 
 % Ch1 = hex2dec(data.Ch1);
 % % Ch1(Ch1>0.8e6) = mean(Ch1);
