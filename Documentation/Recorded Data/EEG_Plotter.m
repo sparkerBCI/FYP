@@ -1,5 +1,5 @@
-clear all
-close all
+%clear all
+%close all
 clc
 timescale = 100;
 holdout_percentage = 0.1;
@@ -7,7 +7,8 @@ holdout_percentage = 0.1;
 %data = tdfread("20200614_1244.txt");
 %data = tdfread("20200614_1631.txt");
 %data = tdfread("20200629-1630.txt");
-data = tdfread("20200701-1754.txt");
+%data = tdfread("20200701-1754.txt");
+data = tdfread("20200702-1120.txt");
 
 Ch1 = hex2dec(data.Ch1);
 % Ch1(Ch1>0.8e6) = mean(Ch1);
@@ -135,6 +136,7 @@ Ch1 = filter(B, A, Ch1);
 
 
 transition_indexs = find(transitions);
+clear observations
 for observation = 1:(length(transition_indexs)-1)
     observations.Ch1.data(observation, :) = Ch1(transition_indexs((observation)):(transition_indexs((observation))+255));
     observations.Ch1.dct(observation, :) = dct(observations.Ch1.data(observation, :));
@@ -183,13 +185,15 @@ if 0
   end
 end
 
-LinSVMModel = fitcsvm(observations.Ch1.dct, observations.Marker, 'KernelFunction', 'linear', 'Holdout', holdout_percentage, 'Standardize', true);
-CompactLinSVMModel = LinSVMModel.Trained{1}; % Extract trained, compact classifier
+%LinSVMModel = fitcsvm(observations.Ch1.dct, observations.Marker, 'KernelFunction', 'linear', 'Holdout', holdout_percentage, 'Standardize', true);
+%CompactLinSVMModel = LinSVMModel.Trained{1}; % Extract trained, compact classifier
 testInds = test(LinSVMModel.Partition);   % Extract the test indices
-XTest = observations.Ch1.dct(testInds,:);
-YTest = observations.Marker(testInds);
+%XTest = observations.Ch1.dct(testInds,:);
+%YTest = observations.Marker(testInds);
+XTest = observations.Ch1.dct;
+YTest = observations.Marker;
 tic
-[label,score] = predict(CompactLinSVMModel,XTest);
+[label,score] = predict(CompactLinSVMModel,XTest)
 linear_svm_time = toc;
 cp = classperf(YTest, label);
 Linear_SVM_Accuracy = cp.CorrectRate
